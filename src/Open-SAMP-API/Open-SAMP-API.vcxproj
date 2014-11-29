@@ -63,6 +63,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <AdditionalDependencies>Psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -83,12 +84,16 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <AdditionalDependencies>Psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="core\client\client.cpp" />
     <ClCompile Include="core\common\impl\safe_memory.cpp" />
+    <ClCompile Include="core\misc\module.cpp" />
+    <ClCompile Include="core\misc\pattern.cpp" />
     <ClCompile Include="core\server\api.cpp" />
+    <ClCompile Include="core\server\samp.cpp" />
     <ClCompile Include="core\server\server.cpp" />
     <ClCompile Include="dllmain.cpp" />
   </ItemGroup>
@@ -98,10 +103,13 @@
     <ClInclude Include="core\common\safe_memory.hpp" />
     <ClInclude Include="core\common\string.hpp" />
     <ClInclude Include="core\common\windows.hpp" />
+    <ClInclude Include="core\misc\module.hpp" />
+    <ClInclude Include="core\misc\pattern.hpp" />
     <ClInclude Include="core\server\api.hpp" />
     <ClInclude Include="core\server\connection.hpp" />
     <ClInclude Include="core\server\connection_manager.hpp" />
     <ClInclude Include="core\server\message_handler.hpp" />
+    <ClInclude Include="core\server\samp.hpp" />
     <ClInclude Include="core\server\server.hpp" />
     <ClInclude Include="websocketpp\base64\base64.hpp" />
     <ClInclude Include="websocketpp\client.hpp" />

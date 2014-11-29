@@ -82,6 +82,9 @@
     <Filter Include="core\common\impl">
       <UniqueIdentifier>{d5d35ab4-4da6-4423-90bf-b183f91af2db}</UniqueIdentifier>
     </Filter>
+    <Filter Include="core\misc">
+      <UniqueIdentifier>{f2647a0f-d316-4cff-adf5-ca251f472967}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
@@ -96,6 +99,15 @@
     </ClCompile>
     <ClCompile Include="core\server\api.cpp">
       <Filter>core\server</Filter>
+    </ClCompile>
+    <ClCompile Include="core\server\samp.cpp">
+      <Filter>core\server</Filter>
+    </ClCompile>
+    <ClCompile Include="core\misc\pattern.cpp">
+      <Filter>core\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="core\misc\module.cpp">
+      <Filter>core\misc</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -389,6 +401,15 @@
     </ClInclude>
     <ClInclude Include="core\server\connection_manager.hpp">
       <Filter>core\server</Filter>
+    </ClInclude>
+    <ClInclude Include="core\server\samp.hpp">
+      <Filter>core\server</Filter>
+    </ClInclude>
+    <ClInclude Include="core\misc\pattern.hpp">
+      <Filter>core\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="core\misc\module.hpp">
+      <Filter>core\misc</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
