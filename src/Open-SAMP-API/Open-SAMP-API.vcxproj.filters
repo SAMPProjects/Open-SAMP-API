@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="core">
+      <UniqueIdentifier>{b458b7f4-c200-447c-8958-230165a826c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\server">
+      <UniqueIdentifier>{558bd748-007c-4b28-8096-2de50ef9db94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\client">
+      <UniqueIdentifier>{cd52c33e-dbe1-47cd-b20b-4b76322eb5a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\common">
+      <UniqueIdentifier>{dd6cc6c2-12a9-4b11-bfb5-9d3ff302e95e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="core\common\windows.h">
+      <Filter>core\common</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
