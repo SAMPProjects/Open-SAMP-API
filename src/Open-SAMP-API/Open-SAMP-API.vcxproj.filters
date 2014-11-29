@@ -79,9 +79,15 @@
     <Filter Include="websocketpp\transport\asio\security">
       <UniqueIdentifier>{d252a834-4277-4f99-bda5-e30123cc8e9a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="core\common\impl">
+      <UniqueIdentifier>{d5d35ab4-4da6-4423-90bf-b183f91af2db}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="core\common\impl\safe_memory.cpp">
+      <Filter>core\common\impl</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\common\windows.h">
@@ -347,6 +353,12 @@
     </ClInclude>
     <ClInclude Include="websocketpp\processors\processor.hpp">
       <Filter>websocketpp\processors</Filter>
+    </ClInclude>
+    <ClInclude Include="core\common\safe_call.hpp">
+      <Filter>core\common</Filter>
+    </ClInclude>
+    <ClInclude Include="core\common\safe_memory.hpp">
+      <Filter>core\common</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

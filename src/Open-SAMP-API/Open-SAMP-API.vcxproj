@@ -86,9 +86,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="core\common\impl\safe_memory.cpp" />
     <ClCompile Include="dllmain.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="core\common\safe_call.hpp" />
+    <ClInclude Include="core\common\safe_memory.hpp" />
     <ClInclude Include="core\common\windows.h" />
     <ClInclude Include="websocketpp\base64\base64.hpp" />
     <ClInclude Include="websocketpp\client.hpp" />
