@@ -88,11 +88,17 @@
     <ClCompile Include="core\common\impl\safe_memory.cpp">
       <Filter>core\common\impl</Filter>
     </ClCompile>
+    <ClCompile Include="core\client\client.cpp">
+      <Filter>core\client</Filter>
+    </ClCompile>
+    <ClCompile Include="core\server\server.cpp">
+      <Filter>core\server</Filter>
+    </ClCompile>
+    <ClCompile Include="core\server\api.cpp">
+      <Filter>core\server</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="core\common\windows.h">
-      <Filter>core\common</Filter>
-    </ClInclude>
     <ClInclude Include="websocketpp\client.hpp">
       <Filter>websocketpp</Filter>
     </ClInclude>
@@ -359,6 +365,30 @@
     </ClInclude>
     <ClInclude Include="core\common\safe_memory.hpp">
       <Filter>core\common</Filter>
+    </ClInclude>
+    <ClInclude Include="core\client\client.hpp">
+      <Filter>core\client</Filter>
+    </ClInclude>
+    <ClInclude Include="core\server\server.hpp">
+      <Filter>core\server</Filter>
+    </ClInclude>
+    <ClInclude Include="core\common\windows.hpp">
+      <Filter>core\common</Filter>
+    </ClInclude>
+    <ClInclude Include="core\common\string.hpp">
+      <Filter>core\common</Filter>
+    </ClInclude>
+    <ClInclude Include="core\server\api.hpp">
+      <Filter>core\server</Filter>
+    </ClInclude>
+    <ClInclude Include="core\server\connection.hpp">
+      <Filter>core\server</Filter>
+    </ClInclude>
+    <ClInclude Include="core\server\message_handler.hpp">
+      <Filter>core\server</Filter>
+    </ClInclude>
+    <ClInclude Include="core\server\connection_manager.hpp">
+      <Filter>core\server</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

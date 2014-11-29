@@ -1,5 +1,5 @@
 #pragma once
-#include "windows.h"
+#include "windows.hpp"
 #include <boost/optional.hpp>
 
 namespace core

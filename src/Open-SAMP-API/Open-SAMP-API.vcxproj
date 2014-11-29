@@ -86,13 +86,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="core\client\client.cpp" />
     <ClCompile Include="core\common\impl\safe_memory.cpp" />
+    <ClCompile Include="core\server\api.cpp" />
+    <ClCompile Include="core\server\server.cpp" />
     <ClCompile Include="dllmain.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="core\client\client.hpp" />
     <ClInclude Include="core\common\safe_call.hpp" />
     <ClInclude Include="core\common\safe_memory.hpp" />
-    <ClInclude Include="core\common\windows.h" />
+    <ClInclude Include="core\common\string.hpp" />
+    <ClInclude Include="core\common\windows.hpp" />
+    <ClInclude Include="core\server\api.hpp" />
+    <ClInclude Include="core\server\connection.hpp" />
+    <ClInclude Include="core\server\connection_manager.hpp" />
+    <ClInclude Include="core\server\message_handler.hpp" />
+    <ClInclude Include="core\server\server.hpp" />
     <ClInclude Include="websocketpp\base64\base64.hpp" />
     <ClInclude Include="websocketpp\client.hpp" />
     <ClInclude Include="websocketpp\close.hpp" />
