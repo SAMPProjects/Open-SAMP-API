@@ -15,23 +15,39 @@ namespace core
 		protected:
 			virtual ~connection_manager() { }
 
-			template<class T>
-			void create_connection(T cl)
+			template<class ConnectionPtr>
+			void create_connection(ConnectionPtr client_ptr)
 			{
-
+				clients_.insert(std::make_shared<ClientType>(client_ptr));
 			}
 
-			template<class T>
-			void destroy_connection(T cl)
+			template<class ConnectionPtr>
+			void destroy_connection(ConnectionPtr client_ptr)
 			{
+				auto ptr = get_connection<ConnectionPtr>(client_ptr);
+				if (!ptr)
+					return;
 
+				clients_.erase(ptr);
 			}
 
-			template<class T>
-			ClientTypePtr get_connection(T cl)
+			template<class ConnectionPtr>
+			ClientTypePtr get_connection(ConnectionPtr client_ptr)
 			{
+				for (const auto& i : clients_)
+				{
+					if (!i)
+						continue;
+
+					if (i->socket() == client_ptr)
+						return i;
+				}
+
 				return nullptr;
 			}
+
+		private:
+			std::set<ClientTypePtr> clients_;
 		};
 	}
 }

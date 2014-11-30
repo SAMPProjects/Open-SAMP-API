@@ -85,6 +85,9 @@
     <Filter Include="core\misc">
       <UniqueIdentifier>{f2647a0f-d316-4cff-adf5-ca251f472967}</UniqueIdentifier>
     </Filter>
+    <Filter Include="json_spirit">
+      <UniqueIdentifier>{e732fec6-6fbb-4277-9322-4a9cc1e2a7f1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
@@ -108,6 +111,15 @@
     </ClCompile>
     <ClCompile Include="core\misc\module.cpp">
       <Filter>core\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="json_spirit\json_spirit_reader.cpp">
+      <Filter>json_spirit</Filter>
+    </ClCompile>
+    <ClCompile Include="json_spirit\json_spirit_value.cpp">
+      <Filter>json_spirit</Filter>
+    </ClCompile>
+    <ClCompile Include="json_spirit\json_spirit_writer.cpp">
+      <Filter>json_spirit</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -411,5 +423,43 @@
     <ClInclude Include="core\misc\module.hpp">
       <Filter>core\misc</Filter>
     </ClInclude>
+    <ClInclude Include="json_spirit\json_spirit.h">
+      <Filter>json_spirit</Filter>
+    </ClInclude>
+    <ClInclude Include="json_spirit\json_spirit_error_position.h">
+      <Filter>json_spirit</Filter>
+    </ClInclude>
+    <ClInclude Include="json_spirit\json_spirit_reader.h">
+      <Filter>json_spirit</Filter>
+    </ClInclude>
+    <ClInclude Include="json_spirit\json_spirit_reader_template.h">
+      <Filter>json_spirit</Filter>
+    </ClInclude>
+    <ClInclude Include="json_spirit\json_spirit_stream_reader.h">
+      <Filter>json_spirit</Filter>
+    </ClInclude>
+    <ClInclude Include="json_spirit\json_spirit_utils.h">
+      <Filter>json_spirit</Filter>
+    </ClInclude>
+    <ClInclude Include="json_spirit\json_spirit_value.h">
+      <Filter>json_spirit</Filter>
+    </ClInclude>
+    <ClInclude Include="json_spirit\json_spirit_writer.h">
+      <Filter>json_spirit</Filter>
+    </ClInclude>
+    <ClInclude Include="json_spirit\json_spirit_writer_options.h">
+      <Filter>json_spirit</Filter>
+    </ClInclude>
+    <ClInclude Include="json_spirit\json_spirit_writer_template.h">
+      <Filter>json_spirit</Filter>
+    </ClInclude>
+    <ClInclude Include="core\common\paket_id.hpp">
+      <Filter>core\common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="json_spirit\json_spirit.vcproj">
+      <Filter>json_spirit</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -4,13 +4,13 @@
 #define _WEBSOCKETPP_CPP11_SYSTEM_ERROR_
 #define _WEBSOCKETPP_CPP11_RANDOM_DEVICE_
 #define _WEBSOCKETPP_CPP11_MEMORY_
+#define _WEBSOCKETPP_DELETED_FUNCTIONS_
 
 #include <core/common/safe_call.hpp>
 #include <websocketpp/config/asio_no_tls.hpp>
 #include <websocketpp/server.hpp>
 #include <boost/thread.hpp>
 #include <boost/bind.hpp>
-#include <vector>
 #include <memory>
 
 namespace core
@@ -28,16 +28,15 @@ namespace core
 		{
 			typedef websocketpp::server<websocketpp::config::asio> Server;
 			typedef Server::message_ptr Message;
+			typedef Server::connection_ptr ConnectionPtr;
 			typedef websocketpp::connection_hdl Connection;
 
 			typedef typename ClientManager::ClientType Client;
 			typedef typename ClientManager::ClientTypePtr ClientPtr;
 
-			typedef std::vector<ClientPtr> Clients;
 			typedef server<MessageHandler, ClientManager> server_t;
 
 			Server server_;
-			Clients clients_;
 			boost::thread io_thread_;
 
 		public:
@@ -62,7 +61,7 @@ namespace core
 			{
 				core::common::call_safe_inline([&]()
 				{
-					create_connection<Connection>(con);
+					create_connection<ConnectionPtr>(server_.get_con_from_hdl(con));
 				});
 			}
 
@@ -70,7 +69,7 @@ namespace core
 			{
 				core::common::call_safe_inline([&]()
 				{
-					destroy_connection<Connection>(con);
+					destroy_connection<ConnectionPtr>(server_.get_con_from_hdl(con));
 				});
 			}
 
@@ -78,7 +77,7 @@ namespace core
 			{
 				core::common::call_safe_inline([&]()
 				{
-					if (auto client = get_connection<Connection>(con))
+					if (auto client = get_connection<ConnectionPtr>(server_.get_con_from_hdl(con)))
 						MessageHandler<ClientPtr, Message>::on_message(client, msg);
 				});
 			}

@@ -1,6 +1,7 @@
 #include <core/common/windows.hpp>
 #include <core/server/server.hpp>
-#include <core/common/string.hpp>
+#include <core/server/api.hpp>
+#include <string>
 
 BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReasonForCall, LPVOID)
 {
@@ -13,7 +14,7 @@ BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReasonForCall, LPVOID)
 	{
 		try
 		{
-
+			core::server::api::singleton();
 		}
 		catch (const std::exception& e)
 		{

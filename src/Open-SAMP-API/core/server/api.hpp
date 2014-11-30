@@ -14,7 +14,7 @@ namespace core
 			api();
 			server<message_handler, connection_manager> server_;
 		public:
-			api& singleton();
+			static api& singleton();
 		};
 	}
 }

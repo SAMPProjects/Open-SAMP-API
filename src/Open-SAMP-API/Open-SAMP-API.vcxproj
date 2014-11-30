@@ -96,9 +96,13 @@
     <ClCompile Include="core\server\samp.cpp" />
     <ClCompile Include="core\server\server.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="json_spirit\json_spirit_reader.cpp" />
+    <ClCompile Include="json_spirit\json_spirit_value.cpp" />
+    <ClCompile Include="json_spirit\json_spirit_writer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\client\client.hpp" />
+    <ClInclude Include="core\common\paket_id.hpp" />
     <ClInclude Include="core\common\safe_call.hpp" />
     <ClInclude Include="core\common\safe_memory.hpp" />
     <ClInclude Include="core\common\string.hpp" />
@@ -111,6 +115,16 @@
     <ClInclude Include="core\server\message_handler.hpp" />
     <ClInclude Include="core\server\samp.hpp" />
     <ClInclude Include="core\server\server.hpp" />
+    <ClInclude Include="json_spirit\json_spirit.h" />
+    <ClInclude Include="json_spirit\json_spirit_error_position.h" />
+    <ClInclude Include="json_spirit\json_spirit_reader.h" />
+    <ClInclude Include="json_spirit\json_spirit_reader_template.h" />
+    <ClInclude Include="json_spirit\json_spirit_stream_reader.h" />
+    <ClInclude Include="json_spirit\json_spirit_utils.h" />
+    <ClInclude Include="json_spirit\json_spirit_value.h" />
+    <ClInclude Include="json_spirit\json_spirit_writer.h" />
+    <ClInclude Include="json_spirit\json_spirit_writer_options.h" />
+    <ClInclude Include="json_spirit\json_spirit_writer_template.h" />
     <ClInclude Include="websocketpp\base64\base64.hpp" />
     <ClInclude Include="websocketpp\client.hpp" />
     <ClInclude Include="websocketpp\close.hpp" />
@@ -198,6 +212,9 @@
     <ClInclude Include="websocketpp\utf8_validator.hpp" />
     <ClInclude Include="websocketpp\utilities.hpp" />
     <ClInclude Include="websocketpp\version.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="json_spirit\json_spirit.vcproj" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
