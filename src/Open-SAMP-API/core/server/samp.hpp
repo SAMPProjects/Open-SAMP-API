@@ -1,5 +1,4 @@
 #pragma once
-#include <core/common/string.hpp>
 
 namespace core
 {

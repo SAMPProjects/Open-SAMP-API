@@ -1,4 +1,5 @@
 #pragma once
+#include <core/misc/ctor.hpp>
 #include "connection.hpp"
 #include "server.hpp"
 #include "message_handler.hpp"
@@ -10,6 +11,8 @@ namespace core
 	{
 		class api
 		{
+			DISABLE_CPY_MOV_CTOR(api)
+
 			// private constructor
 			api();
 			server<message_handler, connection_manager> server_;

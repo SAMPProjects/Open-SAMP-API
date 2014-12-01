@@ -399,9 +399,6 @@
     <ClInclude Include="core\common\windows.hpp">
       <Filter>core\common</Filter>
     </ClInclude>
-    <ClInclude Include="core\common\string.hpp">
-      <Filter>core\common</Filter>
-    </ClInclude>
     <ClInclude Include="core\server\api.hpp">
       <Filter>core\server</Filter>
     </ClInclude>
@@ -455,6 +452,15 @@
     </ClInclude>
     <ClInclude Include="core\common\paket_id.hpp">
       <Filter>core\common</Filter>
+    </ClInclude>
+    <ClInclude Include="core\misc\ctor.hpp">
+      <Filter>core\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="core\common\websocket.hpp">
+      <Filter>core\common</Filter>
+    </ClInclude>
+    <ClInclude Include="core\misc\type_traits.hpp">
+      <Filter>core\misc</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

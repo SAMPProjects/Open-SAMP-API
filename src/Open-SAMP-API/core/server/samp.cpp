@@ -2,6 +2,7 @@
 #include <core/common/windows.hpp>
 #include <core/misc/pattern.hpp>
 #include <core/misc/module.hpp>
+#include <exception>
 
 DWORD g_dwModuleLength = 0;
 DWORD g_dwModuleBase = 0;

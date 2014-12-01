@@ -1,4 +1,5 @@
 #pragma once
+#include <core/misc/ctor.hpp>
 #include "server.hpp"
 
 namespace core
@@ -7,16 +8,17 @@ namespace core
 	{
 		class connection
 		{
+			DISABLE_CPY_MOV_CTOR(connection);
+
 			typedef websocketpp::server<websocketpp::config::asio>::connection_ptr ConnectionPtr;
 			ConnectionPtr socket_;
 
 		public:
-
-			connection(ConnectionPtr socket) : socket_(socket)
+			
+			explicit connection(ConnectionPtr socket) : socket_(socket)
 			{
 
 			}
-
 			ConnectionPtr socket()
 			{
 				return socket_;

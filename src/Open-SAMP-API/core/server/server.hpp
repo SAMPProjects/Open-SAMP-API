@@ -1,12 +1,7 @@
 #pragma once
-#define _WEBSOCKETPP_CPP11_THREAD_
-#define _WEBSOCKETPP_CPP11_FUNCTIONAL_
-#define _WEBSOCKETPP_CPP11_SYSTEM_ERROR_
-#define _WEBSOCKETPP_CPP11_RANDOM_DEVICE_
-#define _WEBSOCKETPP_CPP11_MEMORY_
-#define _WEBSOCKETPP_DELETED_FUNCTIONS_
-
+#include <core/misc/ctor.hpp>
 #include <core/common/safe_call.hpp>
+#include <core/common/websocket.hpp>
 #include <websocketpp/config/asio_no_tls.hpp>
 #include <websocketpp/server.hpp>
 #include <boost/thread.hpp>
@@ -26,15 +21,15 @@ namespace core
 		>
 		class server : public ClientManager
 		{
-			typedef websocketpp::server<websocketpp::config::asio> Server;
-			typedef Server::message_ptr Message;
-			typedef Server::connection_ptr ConnectionPtr;
-			typedef websocketpp::connection_hdl Connection;
+			DISABLE_CPY_MOV_CTOR(server)
+
+			typedef core::common::websocket::server Server;
+			typedef core::common::websocket::message_ptr Message;
+			typedef core::common::websocket::connection_ptr ConnectionPtr;
+			typedef core::common::websocket::connection_hdl ConnectionHDL;
 
 			typedef typename ClientManager::ClientType Client;
 			typedef typename ClientManager::ClientTypePtr ClientPtr;
-
-			typedef server<MessageHandler, ClientManager> server_t;
 
 			Server server_;
 			boost::thread io_thread_;
@@ -47,9 +42,9 @@ namespace core
 				server_.set_access_channels(websocketpp::log::alevel::none);
 				server_.set_error_channels(websocketpp::log::alevel::none);
 
-				server_.set_open_handler(boost::bind(&server_t::open_handler, this, _1));
-				server_.set_close_handler(boost::bind(&server_t::close_handler, this, _1));
-				server_.set_message_handler(boost::bind(&server_t::message_handler, this, _1, _2));
+				server_.set_open_handler(boost::bind(&server<MessageHandler, ClientManager>::open_handler, this, _1));
+				server_.set_close_handler(boost::bind(&server<MessageHandler, ClientManager>::close_handler, this, _1));
+				server_.set_message_handler(boost::bind(&server<MessageHandler, ClientManager>::message_handler, this, _1, _2));
 
 				server_.listen(25567);
 				server_.start_accept();
@@ -57,7 +52,7 @@ namespace core
 			}
 
 		private:
-			void open_handler(Connection con)
+			void open_handler(ConnectionHDL con)
 			{
 				core::common::call_safe_inline([&]()
 				{
@@ -65,7 +60,7 @@ namespace core
 				});
 			}
 
-			void close_handler(Connection con)
+			void close_handler(ConnectionHDL con)
 			{
 				core::common::call_safe_inline([&]()
 				{
@@ -73,7 +68,7 @@ namespace core
 				});
 			}
 
-			void message_handler(Connection con, Message msg)
+			void message_handler(ConnectionHDL con, Message msg)
 			{
 				core::common::call_safe_inline([&]()
 				{

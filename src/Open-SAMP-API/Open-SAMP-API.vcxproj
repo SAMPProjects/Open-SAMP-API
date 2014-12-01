@@ -105,10 +105,12 @@
     <ClInclude Include="core\common\paket_id.hpp" />
     <ClInclude Include="core\common\safe_call.hpp" />
     <ClInclude Include="core\common\safe_memory.hpp" />
-    <ClInclude Include="core\common\string.hpp" />
+    <ClInclude Include="core\common\websocket.hpp" />
     <ClInclude Include="core\common\windows.hpp" />
+    <ClInclude Include="core\misc\ctor.hpp" />
     <ClInclude Include="core\misc\module.hpp" />
     <ClInclude Include="core\misc\pattern.hpp" />
+    <ClInclude Include="core\misc\type_traits.hpp" />
     <ClInclude Include="core\server\api.hpp" />
     <ClInclude Include="core\server\connection.hpp" />
     <ClInclude Include="core\server\connection_manager.hpp" />

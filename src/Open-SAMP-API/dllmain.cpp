@@ -1,6 +1,7 @@
 #include <core/common/windows.hpp>
 #include <core/server/server.hpp>
 #include <core/server/api.hpp>
+#include <core/client/client.hpp>
 #include <string>
 
 BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReasonForCall, LPVOID)
@@ -26,6 +27,9 @@ BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReasonForCall, LPVOID)
 			MessageBoxA(0, "An unknown error occured while initializing the API", "Error", MB_ICONERROR | MB_OK);
 		}
 	}
-
+	else
+	{
+		core::client::client::singleton();
+	}
 	return TRUE;
 }

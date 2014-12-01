@@ -1,5 +1,6 @@
 #pragma once
 #include "connection.hpp"
+#include <core/misc/ctor.hpp>
 #include <memory>
 #include <vector>
 
@@ -9,10 +10,13 @@ namespace core
 	{
 		struct connection_manager
 		{
+			DISABLE_CPY_MOV_CTOR(connection_manager)
+
 			typedef connection ClientType;
 			typedef std::shared_ptr<ClientType> ClientTypePtr;
 
 		protected:
+			connection_manager() { }
 			virtual ~connection_manager() { }
 
 			template<class ConnectionPtr>
