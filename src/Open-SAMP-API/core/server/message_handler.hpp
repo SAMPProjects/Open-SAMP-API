@@ -4,6 +4,7 @@
 #include <core/common/json.hpp>
 #include <boost/algorithm/string/predicate.hpp>
 #include <string>
+#include <sstream>
 
 namespace core
 {
@@ -19,7 +20,12 @@ namespace core
 
 				if (id == paket_id::ping)
 				{
-					return MessageBoxA(0, "Ping", "Ping", 0);
+					int idx = 0;
+					std::stringstream ss;
+					for (const auto& arg : args)
+						ss << "ID: " << idx++ << ", type: " << value_type_to_string(arg.type()) << ", value: " << write(Value(arg)) << std::endl;
+					
+					return MessageBoxA(0, ss.str().c_str(), "Ping", 0);
 				}
 				else if (id == paket_id::send_chat)
 				{
