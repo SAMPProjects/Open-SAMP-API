@@ -1,0 +1,4 @@
+<map id="core::server::samp::show_game_text" name="core::server::samp::show_game_text">
+<area shape="rect" id="node2" href="$namespacecore_1_1misc.html#a2bf206324ab1d951eb5c55f5aa9ed179" title="core::misc::find_pattern" alt="" coords="183,13,341,39"/>
+<area shape="rect" id="node3" href="$pattern_8cpp.html#aab1411f90032cd0d4104d97e9038d74c" title="compare_data" alt="" coords="389,13,493,39"/>
+</map>

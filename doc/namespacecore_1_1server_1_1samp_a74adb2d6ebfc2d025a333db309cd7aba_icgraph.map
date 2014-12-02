@@ -1,0 +1,4 @@
+<map id="core::server::samp::send_chat" name="core::server::samp::send_chat">
+<area shape="rect" id="node2" href="$structcore_1_1server_1_1message__handler.html#a1e9975d8166b7316f6667b03de4e45dd" title="core::server::message\l_handler::on_command" alt="" coords="183,5,340,47"/>
+<area shape="rect" id="node3" href="$structcore_1_1server_1_1message__handler.html#adc69a109254d066926d951b203208011" title="core::server::message\l_handler::on_message" alt="" coords="388,5,541,47"/>
+</map>

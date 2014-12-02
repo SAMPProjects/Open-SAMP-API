@@ -1,0 +1,8 @@
+<map id="compare_data" name="compare_data">
+<area shape="rect" id="node2" href="$namespacecore_1_1misc.html#a2bf206324ab1d951eb5c55f5aa9ed179" title="core::misc::find_pattern" alt="" coords="157,78,316,105"/>
+<area shape="rect" id="node3" href="$namespacecore_1_1server_1_1samp.html#a74adb2d6ebfc2d025a333db309cd7aba" title="core::server::samp\l::send_chat" alt="" coords="371,5,500,47"/>
+<area shape="rect" id="node6" href="$namespacecore_1_1server_1_1samp.html#af64c7b0ef2efe53e9911ec7995821f43" title="core::server::samp\l::show_game_text" alt="" coords="371,71,500,112"/>
+<area shape="rect" id="node7" href="$namespacecore_1_1server_1_1samp.html#aa6d450fb13e54e0a3af2874579fa74e1" title="core::server::samp\l::add_chat_message" alt="" coords="364,136,507,177"/>
+<area shape="rect" id="node4" href="$structcore_1_1server_1_1message__handler.html#a1e9975d8166b7316f6667b03de4e45dd" title="core::server::message\l_handler::on_command" alt="" coords="555,71,712,112"/>
+<area shape="rect" id="node5" href="$structcore_1_1server_1_1message__handler.html#adc69a109254d066926d951b203208011" title="core::server::message\l_handler::on_message" alt="" coords="760,71,913,112"/>
+</map>

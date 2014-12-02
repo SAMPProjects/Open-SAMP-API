@@ -1,0 +1,5 @@
+<map id="DllMain" name="DllMain">
+<area shape="rect" id="node2" href="$namespacecore_1_1server.html#a5bfa426999f5763a29b17ec992e677ea" title="core::server::is_server" alt="" coords="119,5,267,32"/>
+<area shape="rect" id="node3" href="$classcore_1_1server_1_1api.html#ad32be4693a91d7354a656f5b049c508e" title="core::server::api::\lsingleton" alt="" coords="131,57,254,98"/>
+<area shape="rect" id="node4" href="$classcore_1_1client_1_1client.html#a462fa1a65a8a882d096a5f051add2dd0" title="core::client::client\l::singleton" alt="" coords="130,122,255,163"/>
+</map>

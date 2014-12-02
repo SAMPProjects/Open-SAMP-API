@@ -1,0 +1,12 @@
+<map id="api.hpp" name="api.hpp">
+<area shape="rect" id="node2" href="$ctor_8hpp.html" title="core/misc/ctor.hpp" alt="" coords="1029,319,1160,345"/>
+<area shape="rect" id="node3" href="$connection_8hpp.html" title="connection.hpp" alt="" coords="757,162,867,189"/>
+<area shape="rect" id="node4" href="$server_8hpp.html" title="server.hpp" alt="" coords="519,244,601,271"/>
+<area shape="rect" id="node16" href="$message__handler_8hpp.html" title="message_handler.hpp" alt="" coords="1069,80,1219,107"/>
+<area shape="rect" id="node21" href="$connection__manager_8hpp.html" title="connection_manager.hpp" alt="" coords="614,80,781,107"/>
+<area shape="rect" id="node5" href="$safe__call_8hpp.html" title="core/common/safe_call.hpp" alt="" coords="824,319,1005,345"/>
+<area shape="rect" id="node8" href="$websocket_8hpp.html" title="core/common/websocket.hpp" alt="" coords="283,319,475,345"/>
+<area shape="rect" id="node9" href="$type__traits_8hpp.html" title="core/misc/type_traits.hpp" alt="" coords="166,401,335,427"/>
+<area shape="rect" id="node17" href="$samp_8hpp.html" title="samp.hpp" alt="" coords="1242,162,1321,189"/>
+<area shape="rect" id="node18" href="$paket__id_8hpp.html" title="core/common/paket_id.hpp" alt="" coords="1345,162,1524,189"/>
+</map>

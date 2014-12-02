@@ -1,0 +1,7 @@
+<map id="core::misc::find_pattern" name="core::misc::find_pattern">
+<area shape="rect" id="node2" href="$namespacecore_1_1server_1_1samp.html#a74adb2d6ebfc2d025a333db309cd7aba" title="core::server::samp\l::send_chat" alt="" coords="219,5,348,47"/>
+<area shape="rect" id="node5" href="$namespacecore_1_1server_1_1samp.html#af64c7b0ef2efe53e9911ec7995821f43" title="core::server::samp\l::show_game_text" alt="" coords="219,71,348,112"/>
+<area shape="rect" id="node6" href="$namespacecore_1_1server_1_1samp.html#aa6d450fb13e54e0a3af2874579fa74e1" title="core::server::samp\l::add_chat_message" alt="" coords="212,136,355,177"/>
+<area shape="rect" id="node3" href="$structcore_1_1server_1_1message__handler.html#a1e9975d8166b7316f6667b03de4e45dd" title="core::server::message\l_handler::on_command" alt="" coords="403,71,560,112"/>
+<area shape="rect" id="node4" href="$structcore_1_1server_1_1message__handler.html#adc69a109254d066926d951b203208011" title="core::server::message\l_handler::on_message" alt="" coords="608,71,761,112"/>
+</map>
