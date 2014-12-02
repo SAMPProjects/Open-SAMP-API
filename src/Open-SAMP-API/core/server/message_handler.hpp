@@ -1,8 +1,9 @@
 #pragma once
 #include "samp.hpp"
 #include <core/common/paket_id.hpp>
-#include <json_spirit/json_spirit.h>
+#include <core/common/json.hpp>
 #include <boost/algorithm/string/predicate.hpp>
+#include <string>
 
 namespace core
 {
@@ -11,18 +12,18 @@ namespace core
 		template<class ClientPtr, class Message>
 		struct message_handler
 		{
-			static void on_command(ClientPtr cl, core::common::paket_id id, json_spirit::Array args)
+			static common::json::Value on_command(ClientPtr cl, core::common::paket_id id, json_spirit::Array args)
 			{
-				using namespace json_spirit;
-				using core::common::paket_id;
+				using namespace common::json;
+				using common::paket_id;
 
 				if (id == paket_id::ping)
 				{
-					MessageBoxA(0, "Ping", "Ping", 0);
+					return MessageBoxA(0, "Ping", "Ping", 0);
 				}
 				else if (id == paket_id::send_chat)
 				{
-					samp::send_chat(args.at(0).get_str().c_str());
+					return samp::send_chat(args.at(0).get_str().c_str());
 				}
 
 				else if (id == paket_id::show_game_text)
@@ -34,37 +35,89 @@ namespace core
 				{
 
 				}
+
+				return{};
 			}
 
-			static void on_message(ClientPtr cl, Message msg)
+			static common::json::Object decompose_data(ClientPtr cl, Message msg)
 			{
-				using namespace json_spirit;
-				using core::common::paket_id;
+				using namespace common::json;
+				using common::paket_id;
 
 				auto message = msg->get_payload();
 
 				// Decompose data
 				Value val;
 				if (!read(message, val))
-					return;
+					throw std::exception("Error while reading JSON message");
 
 				if (val.type() != obj_type)
-					return;
+					throw std::exception("JSON type is not an object");
 
 				Object mainObject = val.get_obj();
 				paket_id id;
 				Array arguments;
 
+				bool idFound = false, argumentsFound = false;
 				for (const auto& key : mainObject)
 				{
-					if (boost::iequals(key.name_, "id"))
+					if (boost::iequals(key.name_, "id")) 
+					{
 						id = (paket_id)key.value_.get_int();
-
+						idFound = true;
+					}
+						
 					if (boost::iequals(key.name_, "arguments"))
+					{
 						arguments = key.value_.get_array();
+						argumentsFound = true;
+					}
 				}
 
-				on_command(cl, id, arguments);
+				if (!idFound)
+					throw std::exception("Key \"id\" in JSON message not found");
+
+				if (!argumentsFound)
+					throw std::exception("Key \"arguments\" in JSON message not found");
+
+				Object response;
+				response.push_back(Pair("id", (int)id));
+				response.push_back(Pair("return", on_command(cl, id, arguments)));
+				return response;
+			}
+
+			static void on_message(ClientPtr cl, Message msg)
+			{
+				using namespace common::json;
+
+				std::string sendee;
+
+				try
+				{
+					sendee = write(decompose_data(cl, msg));
+				}
+				catch (const std::exception& e)
+				{
+					Object obj =
+					{
+						Pair("id", -1),
+						Pair("exception", e.what())
+					};
+
+					sendee = write(obj);
+				}
+				catch (...)
+				{
+					Object obj =
+					{
+						Pair("id", -1),
+						Pair("exception", "unknown exception")
+					};
+
+					sendee = write(obj);
+				}
+				
+				cl->send(sendee);
 			}
 		};
 	}

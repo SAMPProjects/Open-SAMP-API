@@ -14,15 +14,11 @@ namespace core
 			ConnectionPtr socket_;
 
 		public:
-			
-			explicit connection(ConnectionPtr socket) : socket_(socket)
-			{
+			explicit connection(ConnectionPtr socket);
 
-			}
-			ConnectionPtr socket()
-			{
-				return socket_;
-			}
+			ConnectionPtr socket();
+
+			bool send(const std::string& msg);
 		};
 	}
 }

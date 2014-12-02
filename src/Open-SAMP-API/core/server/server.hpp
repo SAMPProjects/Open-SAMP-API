@@ -23,10 +23,10 @@ namespace core
 		{
 			DISABLE_CPY_MOV_CTOR(server)
 
-			typedef core::common::websocket::server Server;
-			typedef core::common::websocket::message_ptr Message;
-			typedef core::common::websocket::connection_ptr ConnectionPtr;
-			typedef core::common::websocket::connection_hdl ConnectionHDL;
+			typedef common::websocket::server Server;
+			typedef common::websocket::message_ptr Message;
+			typedef common::websocket::connection_ptr ConnectionPtr;
+			typedef common::websocket::connection_hdl ConnectionHDL;
 
 			typedef typename ClientManager::ClientType Client;
 			typedef typename ClientManager::ClientTypePtr ClientPtr;

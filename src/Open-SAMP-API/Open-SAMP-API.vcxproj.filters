@@ -121,6 +121,9 @@
     <ClCompile Include="json_spirit\json_spirit_writer.cpp">
       <Filter>json_spirit</Filter>
     </ClCompile>
+    <ClCompile Include="core\server\connection.cpp">
+      <Filter>core\server</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="websocketpp\client.hpp">
@@ -463,6 +466,9 @@
       <Filter>core\misc</Filter>
     </ClInclude>
     <ClInclude Include="core\common\protocol_overview.hpp">
+      <Filter>core\common</Filter>
+    </ClInclude>
+    <ClInclude Include="core\common\json.hpp">
       <Filter>core\common</Filter>
     </ClInclude>
   </ItemGroup>

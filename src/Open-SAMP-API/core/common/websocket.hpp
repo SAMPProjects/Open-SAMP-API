@@ -20,8 +20,8 @@ namespace core
 			typedef websocketpp::server<websocketpp::config::asio> server;
 			typedef websocketpp::client<websocketpp::config::asio> client;
 
-			typedef core::misc::is_same<server::message_ptr, client::message_ptr>::type message_ptr;
-			typedef core::misc::is_same<server::connection_ptr, client::connection_ptr>::type connection_ptr;
+			typedef misc::is_same<server::message_ptr, client::message_ptr>::type message_ptr;
+			typedef misc::is_same<server::connection_ptr, client::connection_ptr>::type connection_ptr;
 
 			typedef websocketpp::connection_hdl connection_hdl;
 		}

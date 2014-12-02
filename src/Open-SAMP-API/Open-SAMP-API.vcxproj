@@ -93,6 +93,7 @@
     <ClCompile Include="core\misc\module.cpp" />
     <ClCompile Include="core\misc\pattern.cpp" />
     <ClCompile Include="core\server\api.cpp" />
+    <ClCompile Include="core\server\connection.cpp" />
     <ClCompile Include="core\server\samp.cpp" />
     <ClCompile Include="core\server\server.cpp" />
     <ClCompile Include="dllmain.cpp" />
@@ -102,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\client\client.hpp" />
+    <ClInclude Include="core\common\json.hpp" />
     <ClInclude Include="core\common\paket_id.hpp" />
     <ClInclude Include="core\common\protocol_overview.hpp" />
     <ClInclude Include="core\common\safe_call.hpp" />
