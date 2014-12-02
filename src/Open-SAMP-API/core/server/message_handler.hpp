@@ -34,12 +34,12 @@ namespace core
 
 				else if (id == paket_id::show_game_text)
 				{
-
+					return samp::show_game_text(args.at(0).get_str().c_str(), args.at(1).get_int(), args.at(2).get_int());
 				}
 
 				else if (id == paket_id::add_chat_message)
 				{
-
+					return samp::add_chat_message(args.at(0).get_str().c_str());
 				}
 
 				return{};

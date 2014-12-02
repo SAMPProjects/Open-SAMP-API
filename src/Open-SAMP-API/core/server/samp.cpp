@@ -1,11 +1,16 @@
 #include "samp.hpp"
 #include <core/common/windows.hpp>
+#include <core/common/safe_memory.hpp>
 #include <core/misc/pattern.hpp>
 #include <core/misc/module.hpp>
 #include <exception>
+#include <stdio.h>
 
 DWORD g_dwModuleLength = 0;
 DWORD g_dwModuleBase = 0;
+
+#define CHECK_OFFSET(X, RET, TYPE) \
+	if (auto val = core::common::read_memory<TYPE>(X)) { if (*val == 0) return RET; } else return RET; 
 
 void core::server::samp::init_samp()
 {
@@ -27,9 +32,10 @@ bool core::server::samp::send_chat(const char *msg)
 		static auto addr = core::misc::find_pattern(
 			g_dwModuleBase, 
 			g_dwModuleLength, 
-			(BYTE *)"\x64\xA1\x00\x00\x00\x00\x6A\xFF\x68\x00\x00\x00\x00\x50\xA1\x00\x00\x00\x00\x64\x89\x25\x00\x00\x00\x00\x81\xEC\x18\x01\x00\x00",
-			"xxxxxxxxx????xx????xxxxxxxxxxxxx"
+			(BYTE *)"\x64\xA1\x00\x00\x00\x00\x6A\xFF\x68\x00\x00\x00\x00\x50\xA1\x00\x00\x00\x00\x64\x89\x25\x00\x00\x00\x00\x81\xEC\x00\x00\x00\x00\x85\xC0",
+			"xx????xxx????xx????xxx????xx????xx"
 		);
+
 		dwAddr = addr;
 	}
 	else
@@ -37,18 +43,19 @@ bool core::server::samp::send_chat(const char *msg)
 		static auto addr = core::misc::find_pattern(
 			g_dwModuleBase,
 			g_dwModuleLength,
-			(BYTE *)"\x64\xA1\x00\x00\x00\x00\x6A\xFF\x68\x00\x00\x00\x00\x50\x64\x89\x25\x00\x00\x00\x00\x81\xEC\x18\x01\x00\x00\x53\x56\x8B\xB4\x24",
-			"xxxxxxxxx????xxxxxxxxxxxxxxxxxxx"
+			(BYTE *)"\x64\xA1\x00\x00\x00\x00\x6A\xFF\x68\x00\x00\x00\x00\x50\x64\x89\x25\x00\x00\x00\x00\x81\xEC\x00\x00\x00\x00\x53\x56\x8B\xB4\x24\x00\x00\x00\x00\x8B\xC6",
+			"xx????xxx????xxxx????xx????xxxxx????xx"
 		);
+
 		dwAddr = addr;
 	}
 
 	if (dwAddr == 0)
 		return false;
 
-	((void(__stdcall *)(const char *)) dwAddr)(msg);
+	__asm push msg
+	__asm call dwAddr
 	return true;
-
 }
 
 bool core::server::samp::show_game_text(const char *text, int iTime, int iStyle)
@@ -63,7 +70,10 @@ bool core::server::samp::show_game_text(const char *text, int iTime, int iStyle)
 	if (addr == 0)
 		return false;
 
-	((void(__stdcall *)(const char *, int, int)) addr)(text, iTime, iStyle);
+	__asm push iStyle
+	__asm push iTime
+	__asm push text
+	__asm call addr
 	return true;
 }
 
@@ -72,16 +82,23 @@ bool core::server::samp::add_chat_message(const char *text)
 	static auto addr = core::misc::find_pattern(
 		g_dwModuleBase,
 		g_dwModuleLength,
-		(BYTE *)"\xA1\x00\x00\x00\x00\x56\x68\x00\x00\x00\x00\x50\x8B\xF1\xE8\x00\x00\x00\x00\x8B\x0D\x00\x00\x00\x00\x83\xC4\x08\x85\xC9\x74\x07",
-		"x????xx????xxxx????xx????xxxxxxx"
+		(BYTE *)"\x8B\x15\x00\x00\x00\x00\x68\x00\x00\x00\x00\x52\xE8\x00\x00\x00\x00\x83\xC4\x08\x5F\x5E",
+		"xx????x????xx????xxxxx"
 	);
 
 	if (addr == 0)
 		return false;
 
-	DWORD dwCallAddr = *(DWORD *)(addr + 0xF) + addr + 0xF + 0x4;
-	DWORD dwInfo = *(DWORD *)(addr + 0x1);
+	DWORD dwCallAddr = *(DWORD *)(addr + 0xD) + addr + 0xD + 0x4;
+	DWORD dwInfo = *(DWORD *)(addr + 0x2);
 
-	((void(__stdcall *)(DWORD, const char *))dwCallAddr) (*(DWORD *)dwInfo, text);
+	CHECK_OFFSET(dwInfo, false, DWORD)
+
+	__asm mov edx, dword ptr[dwInfo]
+	__asm mov eax, [edx]
+	__asm push text
+	__asm push eax
+	__asm call dwCallAddr
+	__asm add esp, 8
 	return true;
 }

@@ -32,7 +32,7 @@ namespace core
 			bool success = false;
 			auto t = internal::read_memory<T>(addr, success);
 			
-			return success ? t : nullptr;
+			return success ? boost::optional<T>(t) : boost::optional<T>();
 		}
 	}
 }
