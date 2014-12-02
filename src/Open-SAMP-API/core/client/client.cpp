@@ -17,7 +17,7 @@ bool core::client::client::connect()
 	return core::common::call_safe_inline([&]()
 	{
 		std::error_code ec;
-		auto ptr = client_.get_connection(std::string("ws://localhost:24456"), ec);
+		auto ptr = client_.get_connection(std::string("ws://localhost:25567"), ec);
 
 		connection_ = ptr->get_handle();
 		client_.connect(ptr);

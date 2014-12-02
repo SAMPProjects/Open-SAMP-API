@@ -103,6 +103,7 @@
   <ItemGroup>
     <ClInclude Include="core\client\client.hpp" />
     <ClInclude Include="core\common\paket_id.hpp" />
+    <ClInclude Include="core\common\protocol_overview.hpp" />
     <ClInclude Include="core\common\safe_call.hpp" />
     <ClInclude Include="core\common\safe_memory.hpp" />
     <ClInclude Include="core\common\websocket.hpp" />

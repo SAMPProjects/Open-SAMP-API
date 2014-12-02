@@ -462,6 +462,9 @@
     <ClInclude Include="core\misc\type_traits.hpp">
       <Filter>core\misc</Filter>
     </ClInclude>
+    <ClInclude Include="core\common\protocol_overview.hpp">
+      <Filter>core\common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="json_spirit\json_spirit.vcproj">
