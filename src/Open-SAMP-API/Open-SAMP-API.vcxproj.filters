@@ -124,6 +124,9 @@
     <ClCompile Include="core\server\connection.cpp">
       <Filter>core\server</Filter>
     </ClCompile>
+    <ClCompile Include="core\client\exports.cpp">
+      <Filter>core\client</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="websocketpp\client.hpp">
@@ -470,6 +473,9 @@
     </ClInclude>
     <ClInclude Include="core\common\json.hpp">
       <Filter>core\common</Filter>
+    </ClInclude>
+    <ClInclude Include="core\client\exports.hpp">
+      <Filter>core\client</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -89,6 +89,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="core\client\client.cpp" />
+    <ClCompile Include="core\client\exports.cpp" />
     <ClCompile Include="core\common\impl\safe_memory.cpp" />
     <ClCompile Include="core\misc\module.cpp" />
     <ClCompile Include="core\misc\pattern.cpp" />
@@ -103,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\client\client.hpp" />
+    <ClInclude Include="core\client\exports.hpp" />
     <ClInclude Include="core\common\json.hpp" />
     <ClInclude Include="core\common\paket_id.hpp" />
     <ClInclude Include="core\common\protocol_overview.hpp" />
