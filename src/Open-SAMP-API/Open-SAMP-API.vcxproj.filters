@@ -127,6 +127,9 @@
     <ClCompile Include="core\client\exports.cpp">
       <Filter>core\client</Filter>
     </ClCompile>
+    <ClCompile Include="core\client\callbacks.cpp">
+      <Filter>core\client</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="websocketpp\client.hpp">

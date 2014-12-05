@@ -9,6 +9,13 @@ core::client::client& core::client::client::singleton()
 	return cl;
 }
 
+
+core::client::callbacks::callbacks& core::client::client::callbacks()
+{
+	return callbacks_;
+}
+
+
 bool core::client::client::connect()
 {
 	if (connected_)

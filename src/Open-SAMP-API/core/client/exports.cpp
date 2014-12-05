@@ -1,5 +1,6 @@
 #include "exports.hpp"
 #include <dllmain.hpp>
+#include <core/client/client.hpp>
 #include <core/common/windows.hpp>
 #include <boost/scope_exit.hpp>
 
@@ -56,13 +57,13 @@ EXPORT eLoadAPIIntoRemoteProcessResult LoadAPIIntoRemoteProcess()
 	return eLoadAPIIntoRemoteProcessResult::success;
 }
 
-EXPORT void RegisterCallback(core::client::callbacks::type id, uint32_t address)
+EXPORT bool RegisterCallback(core::client::callbacks::type id, uint32_t address, bool is_cdecl)
 {
-
+	return core::client::client::singleton().callbacks().set_callback_for_id(id, address, is_cdecl);
 }
 
-EXPORT void UnregisterCallback(core::client::callbacks::type id)
+EXPORT bool UnregisterCallback(core::client::callbacks::type id)
 {
-
+	return core::client::client::singleton().callbacks().unset_callback_for_id(id);
 }
 

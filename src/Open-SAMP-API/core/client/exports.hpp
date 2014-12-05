@@ -21,5 +21,5 @@ enum class eLoadAPIIntoRemoteProcessResult : int
 EXPORT eLoadAPIIntoRemoteProcessResult LoadAPIIntoRemoteProcess();
 
 
-EXPORT void RegisterCallback(core::client::callbacks::type id, uint32_t address);
-EXPORT void UnregisterCallback(core::client::callbacks::type id);
+EXPORT bool RegisterCallback(core::client::callbacks::type id, uint32_t address, bool is_cdecl);
+EXPORT bool UnregisterCallback(core::client::callbacks::type id);

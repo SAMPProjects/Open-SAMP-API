@@ -88,6 +88,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="core\client\callbacks.cpp" />
     <ClCompile Include="core\client\client.cpp" />
     <ClCompile Include="core\client\exports.cpp" />
     <ClCompile Include="core\common\impl\safe_memory.cpp" />
