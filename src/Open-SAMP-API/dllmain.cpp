@@ -1,12 +1,16 @@
+#include "dllmain.hpp"
 #include <core/common/windows.hpp>
 #include <core/server/server.hpp>
 #include <core/server/api.hpp>
 #include <core/client/client.hpp>
 #include <string>
 
+HMODULE g_mainHandle;
+
 BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReasonForCall, LPVOID)
 {
-	DisableThreadLibraryCalls((HMODULE)hInstance);
+	g_mainHandle = (HMODULE)hInstance;
+	DisableThreadLibraryCalls(g_mainHandle);
 
 	if (dwReasonForCall != DLL_PROCESS_ATTACH)
 		return TRUE;
@@ -32,4 +36,9 @@ BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReasonForCall, LPVOID)
 		core::client::client::singleton();
 	}
 	return TRUE;
+}
+
+HMODULE dllmain::get_main_handle()
+{
+	return g_mainHandle;
 }

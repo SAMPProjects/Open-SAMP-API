@@ -477,6 +477,10 @@
     <ClInclude Include="core\client\exports.hpp">
       <Filter>core\client</Filter>
     </ClInclude>
+    <ClInclude Include="dllmain.hpp" />
+    <ClInclude Include="core\client\callbacks.hpp">
+      <Filter>core\client</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="json_spirit\json_spirit.vcproj">

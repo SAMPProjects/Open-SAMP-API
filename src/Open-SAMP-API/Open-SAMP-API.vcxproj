@@ -103,6 +103,7 @@
     <ClCompile Include="json_spirit\json_spirit_writer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="core\client\callbacks.hpp" />
     <ClInclude Include="core\client\client.hpp" />
     <ClInclude Include="core\client\exports.hpp" />
     <ClInclude Include="core\common\json.hpp" />
@@ -122,6 +123,7 @@
     <ClInclude Include="core\server\message_handler.hpp" />
     <ClInclude Include="core\server\samp.hpp" />
     <ClInclude Include="core\server\server.hpp" />
+    <ClInclude Include="dllmain.hpp" />
     <ClInclude Include="json_spirit\json_spirit.h" />
     <ClInclude Include="json_spirit\json_spirit_error_position.h" />
     <ClInclude Include="json_spirit\json_spirit_reader.h" />
