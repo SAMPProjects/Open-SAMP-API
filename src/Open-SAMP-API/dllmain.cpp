@@ -5,7 +5,7 @@
 #include <core/client/client.hpp>
 #include <string>
 
-HMODULE g_mainHandle;
+HMODULE g_mainHandle = 0;
 
 BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReasonForCall, LPVOID)
 {
