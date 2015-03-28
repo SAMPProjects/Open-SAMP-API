@@ -1,493 +1,173 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="core">
-      <UniqueIdentifier>{b458b7f4-c200-447c-8958-230165a826c7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="core\server">
-      <UniqueIdentifier>{558bd748-007c-4b28-8096-2de50ef9db94}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="core\client">
-      <UniqueIdentifier>{cd52c33e-dbe1-47cd-b20b-4b76322eb5a6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="core\common">
-      <UniqueIdentifier>{dd6cc6c2-12a9-4b11-bfb5-9d3ff302e95e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="websocketpp">
-      <UniqueIdentifier>{99e72db8-3fea-48dd-a037-422020df3c22}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="websocketpp\base64">
-      <UniqueIdentifier>{71f4f03d-09f8-4eb0-8884-450c537913f0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="websocketpp\common">
-      <UniqueIdentifier>{5ad9461a-1fc7-4275-9701-4f938af160db}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="websocketpp\concurrency">
-      <UniqueIdentifier>{956b22ec-f009-41a5-8daa-125212e156c4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="websocketpp\config">
-      <UniqueIdentifier>{8978aadf-3dad-41dc-96f5-0192c38ef276}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="websocketpp\extension">
-      <UniqueIdentifier>{62eaa5d4-534f-4386-ac4f-93947db87136}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="websocketpp\http">
-      <UniqueIdentifier>{28e32e84-8a66-46e2-a10f-9ad1e97a572d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="websocketpp\impl">
-      <UniqueIdentifier>{d20af9a0-12d2-4d52-8724-0a806b6f33d4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="websocketpp\logger">
-      <UniqueIdentifier>{80ce15c9-2236-4260-bf93-e5c3ee68df2d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="websocketpp\message_buffer">
-      <UniqueIdentifier>{c8b707ac-ea47-491f-9446-869b00cc8311}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="websocketpp\processors">
-      <UniqueIdentifier>{e2841fe5-dabb-4d35-b20e-d022dea4ebe1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="websocketpp\random">
-      <UniqueIdentifier>{cf9d9a15-0481-4419-a252-aadce4ec7f0f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="websocketpp\roles">
-      <UniqueIdentifier>{95e4cc36-7438-4b05-814e-22b1a75a3d70}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="websocketpp\sha1">
-      <UniqueIdentifier>{d34f5352-b873-4937-ae1f-638917a57fba}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="websocketpp\transport">
-      <UniqueIdentifier>{0a298ab8-1e78-42d4-8d57-93299354190a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="websocketpp\extension\permessage_deflate">
-      <UniqueIdentifier>{75c507ce-bfba-4695-9a9d-4632395f0383}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="websocketpp\http\impl">
-      <UniqueIdentifier>{ca0d54b1-9bb9-4b7b-b21a-558b7c3c999b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="websocketpp\transport\asio">
-      <UniqueIdentifier>{4a706899-05e9-487b-8a82-f1cddc199262}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="websocketpp\transport\base">
-      <UniqueIdentifier>{e5578251-d4a6-4310-b513-7c91f6d192fe}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="websocketpp\transport\iostream">
-      <UniqueIdentifier>{96e5ade6-2ce6-4ba5-b8e8-93cd3d6d7efc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="websocketpp\transport\stub">
-      <UniqueIdentifier>{637302fe-2ea0-4e24-88bd-295a43426a5a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="websocketpp\transport\asio\security">
-      <UniqueIdentifier>{d252a834-4277-4f99-bda5-e30123cc8e9a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="core\common\impl">
-      <UniqueIdentifier>{d5d35ab4-4da6-4423-90bf-b183f91af2db}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="core\misc">
-      <UniqueIdentifier>{f2647a0f-d316-4cff-adf5-ca251f472967}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="json_spirit">
-      <UniqueIdentifier>{e732fec6-6fbb-4277-9322-4a9cc1e2a7f1}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="core\common\impl\safe_memory.cpp">
-      <Filter>core\common\impl</Filter>
+    <ClCompile Include="Client\Client.cpp">
+      <Filter>Client %28Keybinder%29</Filter>
     </ClCompile>
-    <ClCompile Include="core\client\client.cpp">
-      <Filter>core\client</Filter>
+    <ClCompile Include="Game\Game.cpp">
+      <Filter>Game %28GTA SA%29</Filter>
     </ClCompile>
-    <ClCompile Include="core\server\server.cpp">
-      <Filter>core\server</Filter>
+    <ClCompile Include="Game\Messagehandler.cpp">
+      <Filter>Game %28GTA SA%29</Filter>
     </ClCompile>
-    <ClCompile Include="core\server\api.cpp">
-      <Filter>core\server</Filter>
+    <ClCompile Include="Game\Rendering\Box.cpp">
+      <Filter>Game %28GTA SA%29\Rendering</Filter>
     </ClCompile>
-    <ClCompile Include="core\server\samp.cpp">
-      <Filter>core\server</Filter>
+    <ClCompile Include="Game\Rendering\D3DFont.cpp">
+      <Filter>Game %28GTA SA%29\Rendering</Filter>
     </ClCompile>
-    <ClCompile Include="core\misc\pattern.cpp">
-      <Filter>core\misc</Filter>
+    <ClCompile Include="Game\Rendering\dx_utils.cpp">
+      <Filter>Game %28GTA SA%29\Rendering</Filter>
     </ClCompile>
-    <ClCompile Include="core\misc\module.cpp">
-      <Filter>core\misc</Filter>
+    <ClCompile Include="Game\Rendering\Image.cpp">
+      <Filter>Game %28GTA SA%29\Rendering</Filter>
     </ClCompile>
-    <ClCompile Include="json_spirit\json_spirit_reader.cpp">
-      <Filter>json_spirit</Filter>
+    <ClCompile Include="Game\Rendering\Line.cpp">
+      <Filter>Game %28GTA SA%29\Rendering</Filter>
     </ClCompile>
-    <ClCompile Include="json_spirit\json_spirit_value.cpp">
-      <Filter>json_spirit</Filter>
+    <ClCompile Include="Game\Rendering\RenderBase.cpp">
+      <Filter>Game %28GTA SA%29\Rendering</Filter>
     </ClCompile>
-    <ClCompile Include="json_spirit\json_spirit_writer.cpp">
-      <Filter>json_spirit</Filter>
+    <ClCompile Include="Game\Rendering\Renderer.cpp">
+      <Filter>Game %28GTA SA%29\Rendering</Filter>
     </ClCompile>
-    <ClCompile Include="core\server\connection.cpp">
-      <Filter>core\server</Filter>
+    <ClCompile Include="Game\Rendering\Text.cpp">
+      <Filter>Game %28GTA SA%29\Rendering</Filter>
     </ClCompile>
-    <ClCompile Include="core\client\exports.cpp">
-      <Filter>core\client</Filter>
+    <ClCompile Include="Utils\Misc.cpp">
+      <Filter>Utils</Filter>
     </ClCompile>
-    <ClCompile Include="core\client\callbacks.cpp">
-      <Filter>core\client</Filter>
+    <ClCompile Include="Utils\Pattern.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\PipeClient.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\PipeServer.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\Serializer.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\SAMP.cpp">
+      <Filter>Game %28GTA SA%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\Module.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\Memory.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Client\SAMPFunctions.cpp">
+      <Filter>Client %28Keybinder%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Client\RenderFunctions.cpp">
+      <Filter>Client %28Keybinder%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="websocketpp\client.hpp">
-      <Filter>websocketpp</Filter>
+    <ClInclude Include="Game\SAMP.hpp">
+      <Filter>Game %28GTA SA%29</Filter>
     </ClInclude>
-    <ClInclude Include="websocketpp\close.hpp">
-      <Filter>websocketpp</Filter>
+    <ClInclude Include="Game\Messagehandler.hpp">
+      <Filter>Game %28GTA SA%29</Filter>
     </ClInclude>
-    <ClInclude Include="websocketpp\connection.hpp">
-      <Filter>websocketpp</Filter>
+    <ClInclude Include="Game\Game.hpp">
+      <Filter>Game %28GTA SA%29</Filter>
     </ClInclude>
-    <ClInclude Include="websocketpp\connection_base.hpp">
-      <Filter>websocketpp</Filter>
+    <ClInclude Include="Game\Rendering\Box.hpp">
+      <Filter>Game %28GTA SA%29\Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="websocketpp\endpoint.hpp">
-      <Filter>websocketpp</Filter>
+    <ClInclude Include="Game\Rendering\D3DFont.hpp">
+      <Filter>Game %28GTA SA%29\Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="websocketpp\endpoint_base.hpp">
-      <Filter>websocketpp</Filter>
+    <ClInclude Include="Game\Rendering\dx_utils.hpp">
+      <Filter>Game %28GTA SA%29\Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="websocketpp\error.hpp">
-      <Filter>websocketpp</Filter>
+    <ClInclude Include="Game\Rendering\Image.hpp">
+      <Filter>Game %28GTA SA%29\Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="websocketpp\error_container.hpp">
-      <Filter>websocketpp</Filter>
+    <ClInclude Include="Game\Rendering\Line.hpp">
+      <Filter>Game %28GTA SA%29\Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="websocketpp\frame.hpp">
-      <Filter>websocketpp</Filter>
+    <ClInclude Include="Game\Rendering\RenderBase.hpp">
+      <Filter>Game %28GTA SA%29\Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="websocketpp\server.hpp">
-      <Filter>websocketpp</Filter>
+    <ClInclude Include="Game\Rendering\Renderer.hpp">
+      <Filter>Game %28GTA SA%29\Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="websocketpp\uri.hpp">
-      <Filter>websocketpp</Filter>
+    <ClInclude Include="Game\Rendering\Text.hpp">
+      <Filter>Game %28GTA SA%29\Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="websocketpp\utf8_validator.hpp">
-      <Filter>websocketpp</Filter>
+    <ClInclude Include="Client\Client.hpp">
+      <Filter>Client %28Keybinder%29</Filter>
     </ClInclude>
-    <ClInclude Include="websocketpp\utilities.hpp">
-      <Filter>websocketpp</Filter>
+    <ClInclude Include="Utils\algorithm.hpp">
+      <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="websocketpp\version.hpp">
-      <Filter>websocketpp</Filter>
+    <ClInclude Include="Utils\Hook.hpp">
+      <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="websocketpp\base64\base64.hpp">
-      <Filter>websocketpp\base64</Filter>
+    <ClInclude Include="Utils\Misc.hpp">
+      <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="websocketpp\common\chrono.hpp">
-      <Filter>websocketpp\common</Filter>
+    <ClInclude Include="Utils\Pattern.hpp">
+      <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="websocketpp\common\connection_hdl.hpp">
-      <Filter>websocketpp\common</Filter>
+    <ClInclude Include="Utils\PipeClient.hpp">
+      <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="websocketpp\common\cpp11.hpp">
-      <Filter>websocketpp\common</Filter>
+    <ClInclude Include="Utils\PipeServer.hpp">
+      <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="websocketpp\common\functional.hpp">
-      <Filter>websocketpp\common</Filter>
+    <ClInclude Include="Utils\SafeBlock.hpp">
+      <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="websocketpp\common\md5.hpp">
-      <Filter>websocketpp\common</Filter>
+    <ClInclude Include="Utils\Serializer.hpp">
+      <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="websocketpp\common\memory.hpp">
-      <Filter>websocketpp\common</Filter>
+    <ClInclude Include="Utils\Windows.hpp">
+      <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="websocketpp\common\network.hpp">
-      <Filter>websocketpp\common</Filter>
+    <ClInclude Include="Shared\Config.hpp">
+      <Filter>Shared</Filter>
     </ClInclude>
-    <ClInclude Include="websocketpp\common\platforms.hpp">
-      <Filter>websocketpp\common</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\common\random.hpp">
-      <Filter>websocketpp\common</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\common\regex.hpp">
-      <Filter>websocketpp\common</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\common\stdint.hpp">
-      <Filter>websocketpp\common</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\common\system_error.hpp">
-      <Filter>websocketpp\common</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\common\thread.hpp">
-      <Filter>websocketpp\common</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\common\time.hpp">
-      <Filter>websocketpp\common</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\concurrency\basic.hpp">
-      <Filter>websocketpp\concurrency</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\concurrency\none.hpp">
-      <Filter>websocketpp\concurrency</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\config\asio.hpp">
-      <Filter>websocketpp\config</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\config\asio_client.hpp">
-      <Filter>websocketpp\config</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\config\asio_no_tls.hpp">
-      <Filter>websocketpp\config</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\config\asio_no_tls_client.hpp">
-      <Filter>websocketpp\config</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\config\boost_config.hpp">
-      <Filter>websocketpp\config</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\config\core.hpp">
-      <Filter>websocketpp\config</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\config\core_client.hpp">
-      <Filter>websocketpp\config</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\config\debug.hpp">
-      <Filter>websocketpp\config</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\config\debug_asio.hpp">
-      <Filter>websocketpp\config</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\config\debug_asio_no_tls.hpp">
-      <Filter>websocketpp\config</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\config\minimal_client.hpp">
-      <Filter>websocketpp\config</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\config\minimal_server.hpp">
-      <Filter>websocketpp\config</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\extensions\extension.hpp">
-      <Filter>websocketpp\extension</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\extensions\permessage_deflate\disabled.hpp">
-      <Filter>websocketpp\extension\permessage_deflate</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\extensions\permessage_deflate\enabled.hpp">
-      <Filter>websocketpp\extension\permessage_deflate</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\http\constants.hpp">
-      <Filter>websocketpp\http</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\http\parser.hpp">
-      <Filter>websocketpp\http</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\http\request.hpp">
-      <Filter>websocketpp\http</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\http\response.hpp">
-      <Filter>websocketpp\http</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\http\impl\parser.hpp">
-      <Filter>websocketpp\http\impl</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\http\impl\request.hpp">
-      <Filter>websocketpp\http\impl</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\http\impl\response.hpp">
-      <Filter>websocketpp\http\impl</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\impl\connection_impl.hpp">
-      <Filter>websocketpp\impl</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\impl\endpoint_impl.hpp">
-      <Filter>websocketpp\impl</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\impl\utilities_impl.hpp">
-      <Filter>websocketpp\impl</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\logger\basic.hpp">
-      <Filter>websocketpp\logger</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\logger\levels.hpp">
-      <Filter>websocketpp\logger</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\logger\stub.hpp">
-      <Filter>websocketpp\logger</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\message_buffer\alloc.hpp">
-      <Filter>websocketpp\message_buffer</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\message_buffer\message.hpp">
-      <Filter>websocketpp\message_buffer</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\message_buffer\pool.hpp">
-      <Filter>websocketpp\message_buffer</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\transport\asio\base.hpp">
-      <Filter>websocketpp\transport\asio</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\transport\asio\connection.hpp">
-      <Filter>websocketpp\transport\asio</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\transport\asio\endpoint.hpp">
-      <Filter>websocketpp\transport\asio</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\transport\asio\security\base.hpp">
-      <Filter>websocketpp\transport\asio\security</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\transport\asio\security\none.hpp">
-      <Filter>websocketpp\transport\asio\security</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\transport\asio\security\tls.hpp">
-      <Filter>websocketpp\transport\asio\security</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\transport\base\connection.hpp">
-      <Filter>websocketpp\transport\base</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\transport\base\endpoint.hpp">
-      <Filter>websocketpp\transport\base</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\transport\iostream\base.hpp">
-      <Filter>websocketpp\transport\iostream</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\transport\iostream\connection.hpp">
-      <Filter>websocketpp\transport\iostream</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\transport\iostream\endpoint.hpp">
-      <Filter>websocketpp\transport\iostream</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\transport\stub\base.hpp">
-      <Filter>websocketpp\transport\stub</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\transport\stub\connection.hpp">
-      <Filter>websocketpp\transport\stub</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\transport\stub\endpoint.hpp">
-      <Filter>websocketpp\transport\stub</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\sha1\sha1.hpp">
-      <Filter>websocketpp\sha1</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\roles\client_endpoint.hpp">
-      <Filter>websocketpp\roles</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\roles\server_endpoint.hpp">
-      <Filter>websocketpp\roles</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\random\none.hpp">
-      <Filter>websocketpp\random</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\random\random_device.hpp">
-      <Filter>websocketpp\random</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\processors\base.hpp">
-      <Filter>websocketpp\processors</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\processors\hybi00.hpp">
-      <Filter>websocketpp\processors</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\processors\hybi07.hpp">
-      <Filter>websocketpp\processors</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\processors\hybi08.hpp">
-      <Filter>websocketpp\processors</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\processors\hybi13.hpp">
-      <Filter>websocketpp\processors</Filter>
-    </ClInclude>
-    <ClInclude Include="websocketpp\processors\processor.hpp">
-      <Filter>websocketpp\processors</Filter>
-    </ClInclude>
-    <ClInclude Include="core\common\safe_call.hpp">
-      <Filter>core\common</Filter>
-    </ClInclude>
-    <ClInclude Include="core\common\safe_memory.hpp">
-      <Filter>core\common</Filter>
-    </ClInclude>
-    <ClInclude Include="core\client\client.hpp">
-      <Filter>core\client</Filter>
-    </ClInclude>
-    <ClInclude Include="core\server\server.hpp">
-      <Filter>core\server</Filter>
-    </ClInclude>
-    <ClInclude Include="core\common\windows.hpp">
-      <Filter>core\common</Filter>
-    </ClInclude>
-    <ClInclude Include="core\server\api.hpp">
-      <Filter>core\server</Filter>
-    </ClInclude>
-    <ClInclude Include="core\server\connection.hpp">
-      <Filter>core\server</Filter>
-    </ClInclude>
-    <ClInclude Include="core\server\message_handler.hpp">
-      <Filter>core\server</Filter>
-    </ClInclude>
-    <ClInclude Include="core\server\connection_manager.hpp">
-      <Filter>core\server</Filter>
-    </ClInclude>
-    <ClInclude Include="core\server\samp.hpp">
-      <Filter>core\server</Filter>
-    </ClInclude>
-    <ClInclude Include="core\misc\pattern.hpp">
-      <Filter>core\misc</Filter>
-    </ClInclude>
-    <ClInclude Include="core\misc\module.hpp">
-      <Filter>core\misc</Filter>
-    </ClInclude>
-    <ClInclude Include="json_spirit\json_spirit.h">
-      <Filter>json_spirit</Filter>
-    </ClInclude>
-    <ClInclude Include="json_spirit\json_spirit_error_position.h">
-      <Filter>json_spirit</Filter>
-    </ClInclude>
-    <ClInclude Include="json_spirit\json_spirit_reader.h">
-      <Filter>json_spirit</Filter>
-    </ClInclude>
-    <ClInclude Include="json_spirit\json_spirit_reader_template.h">
-      <Filter>json_spirit</Filter>
-    </ClInclude>
-    <ClInclude Include="json_spirit\json_spirit_stream_reader.h">
-      <Filter>json_spirit</Filter>
-    </ClInclude>
-    <ClInclude Include="json_spirit\json_spirit_utils.h">
-      <Filter>json_spirit</Filter>
-    </ClInclude>
-    <ClInclude Include="json_spirit\json_spirit_value.h">
-      <Filter>json_spirit</Filter>
-    </ClInclude>
-    <ClInclude Include="json_spirit\json_spirit_writer.h">
-      <Filter>json_spirit</Filter>
-    </ClInclude>
-    <ClInclude Include="json_spirit\json_spirit_writer_options.h">
-      <Filter>json_spirit</Filter>
-    </ClInclude>
-    <ClInclude Include="json_spirit\json_spirit_writer_template.h">
-      <Filter>json_spirit</Filter>
-    </ClInclude>
-    <ClInclude Include="core\common\paket_id.hpp">
-      <Filter>core\common</Filter>
-    </ClInclude>
-    <ClInclude Include="core\misc\ctor.hpp">
-      <Filter>core\misc</Filter>
-    </ClInclude>
-    <ClInclude Include="core\common\websocket.hpp">
-      <Filter>core\common</Filter>
-    </ClInclude>
-    <ClInclude Include="core\misc\type_traits.hpp">
-      <Filter>core\misc</Filter>
-    </ClInclude>
-    <ClInclude Include="core\common\protocol_overview.hpp">
-      <Filter>core\common</Filter>
-    </ClInclude>
-    <ClInclude Include="core\common\json.hpp">
-      <Filter>core\common</Filter>
-    </ClInclude>
-    <ClInclude Include="core\client\exports.hpp">
-      <Filter>core\client</Filter>
+    <ClInclude Include="Shared\PipeMessages.hpp">
+      <Filter>Shared</Filter>
     </ClInclude>
     <ClInclude Include="dllmain.hpp" />
-    <ClInclude Include="core\client\callbacks.hpp">
-      <Filter>core\client</Filter>
+    <ClInclude Include="Utils\Module.hpp">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\Memory.hpp">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PatternTable.hpp">
+      <Filter>Game %28GTA SA%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Client\SAMPFunctions.hpp">
+      <Filter>Client %28Keybinder%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Client\RenderFunctions.hpp">
+      <Filter>Client %28Keybinder%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="json_spirit\json_spirit.vcproj">
-      <Filter>json_spirit</Filter>
-    </None>
+    <Filter Include="Client %28Keybinder%29">
+      <UniqueIdentifier>{cded1b7c-176b-4965-942a-d5743809c49f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game %28GTA SA%29">
+      <UniqueIdentifier>{7b6b209b-c84e-4c76-a339-fb670fc07052}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shared">
+      <UniqueIdentifier>{1ccb526a-ebdd-439e-88e9-63c154e8550a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{aecba2e8-2069-427f-a0d0-8978e4da9998}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game %28GTA SA%29\Rendering">
+      <UniqueIdentifier>{d51ce45c-1411-4620-ae2f-4fc869d96b4e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

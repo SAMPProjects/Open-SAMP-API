@@ -1,7 +1,4 @@
 #pragma once
-#include <core/common/windows.hpp>
+#include <Utils/Windows.hpp>
 
-namespace dllmain
-{
-	HMODULE get_main_handle();
-}
+extern HANDLE g_hDllHandle;

@@ -10,6 +10,61 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Client\Client.cpp" />
+    <ClCompile Include="Client\RenderFunctions.cpp" />
+    <ClCompile Include="Client\SAMPFunctions.cpp" />
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="Game\Game.cpp" />
+    <ClCompile Include="Game\Messagehandler.cpp" />
+    <ClCompile Include="Game\Rendering\Box.cpp" />
+    <ClCompile Include="Game\Rendering\D3DFont.cpp" />
+    <ClCompile Include="Game\Rendering\dx_utils.cpp" />
+    <ClCompile Include="Game\Rendering\Image.cpp" />
+    <ClCompile Include="Game\Rendering\Line.cpp" />
+    <ClCompile Include="Game\Rendering\RenderBase.cpp" />
+    <ClCompile Include="Game\Rendering\Renderer.cpp" />
+    <ClCompile Include="Game\Rendering\Text.cpp" />
+    <ClCompile Include="Game\SAMP.cpp" />
+    <ClCompile Include="Utils\Memory.cpp" />
+    <ClCompile Include="Utils\Misc.cpp" />
+    <ClCompile Include="Utils\Module.cpp" />
+    <ClCompile Include="Utils\Pattern.cpp" />
+    <ClCompile Include="Utils\PipeClient.cpp" />
+    <ClCompile Include="Utils\PipeServer.cpp" />
+    <ClCompile Include="Utils\Serializer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Client\Client.hpp" />
+    <ClInclude Include="Client\RenderFunctions.hpp" />
+    <ClInclude Include="Client\SAMPFunctions.hpp" />
+    <ClInclude Include="dllmain.hpp" />
+    <ClInclude Include="Game\Game.hpp" />
+    <ClInclude Include="Game\Messagehandler.hpp" />
+    <ClInclude Include="Game\PatternTable.hpp" />
+    <ClInclude Include="Game\Rendering\Box.hpp" />
+    <ClInclude Include="Game\Rendering\D3DFont.hpp" />
+    <ClInclude Include="Game\Rendering\dx_utils.hpp" />
+    <ClInclude Include="Game\Rendering\Image.hpp" />
+    <ClInclude Include="Game\Rendering\Line.hpp" />
+    <ClInclude Include="Game\Rendering\RenderBase.hpp" />
+    <ClInclude Include="Game\Rendering\Renderer.hpp" />
+    <ClInclude Include="Game\Rendering\Text.hpp" />
+    <ClInclude Include="Game\SAMP.hpp" />
+    <ClInclude Include="Shared\Config.hpp" />
+    <ClInclude Include="Shared\PipeMessages.hpp" />
+    <ClInclude Include="Utils\algorithm.hpp" />
+    <ClInclude Include="Utils\Hook.hpp" />
+    <ClInclude Include="Utils\Misc.hpp" />
+    <ClInclude Include="Utils\Module.hpp" />
+    <ClInclude Include="Utils\Pattern.hpp" />
+    <ClInclude Include="Utils\PipeClient.hpp" />
+    <ClInclude Include="Utils\PipeServer.hpp" />
+    <ClInclude Include="Utils\SafeBlock.hpp" />
+    <ClInclude Include="Utils\Memory.hpp" />
+    <ClInclude Include="Utils\Serializer.hpp" />
+    <ClInclude Include="Utils\Windows.hpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B8A30F01-BE67-45B9-AE80-47CB9A95BCF8}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -87,145 +142,6 @@
       <AdditionalDependencies>Psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="core\client\callbacks.cpp" />
-    <ClCompile Include="core\client\client.cpp" />
-    <ClCompile Include="core\client\exports.cpp" />
-    <ClCompile Include="core\common\impl\safe_memory.cpp" />
-    <ClCompile Include="core\misc\module.cpp" />
-    <ClCompile Include="core\misc\pattern.cpp" />
-    <ClCompile Include="core\server\api.cpp" />
-    <ClCompile Include="core\server\connection.cpp" />
-    <ClCompile Include="core\server\samp.cpp" />
-    <ClCompile Include="core\server\server.cpp" />
-    <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="json_spirit\json_spirit_reader.cpp" />
-    <ClCompile Include="json_spirit\json_spirit_value.cpp" />
-    <ClCompile Include="json_spirit\json_spirit_writer.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="core\client\callbacks.hpp" />
-    <ClInclude Include="core\client\client.hpp" />
-    <ClInclude Include="core\client\exports.hpp" />
-    <ClInclude Include="core\common\json.hpp" />
-    <ClInclude Include="core\common\paket_id.hpp" />
-    <ClInclude Include="core\common\protocol_overview.hpp" />
-    <ClInclude Include="core\common\safe_call.hpp" />
-    <ClInclude Include="core\common\safe_memory.hpp" />
-    <ClInclude Include="core\common\websocket.hpp" />
-    <ClInclude Include="core\common\windows.hpp" />
-    <ClInclude Include="core\misc\ctor.hpp" />
-    <ClInclude Include="core\misc\module.hpp" />
-    <ClInclude Include="core\misc\pattern.hpp" />
-    <ClInclude Include="core\misc\type_traits.hpp" />
-    <ClInclude Include="core\server\api.hpp" />
-    <ClInclude Include="core\server\connection.hpp" />
-    <ClInclude Include="core\server\connection_manager.hpp" />
-    <ClInclude Include="core\server\message_handler.hpp" />
-    <ClInclude Include="core\server\samp.hpp" />
-    <ClInclude Include="core\server\server.hpp" />
-    <ClInclude Include="dllmain.hpp" />
-    <ClInclude Include="json_spirit\json_spirit.h" />
-    <ClInclude Include="json_spirit\json_spirit_error_position.h" />
-    <ClInclude Include="json_spirit\json_spirit_reader.h" />
-    <ClInclude Include="json_spirit\json_spirit_reader_template.h" />
-    <ClInclude Include="json_spirit\json_spirit_stream_reader.h" />
-    <ClInclude Include="json_spirit\json_spirit_utils.h" />
-    <ClInclude Include="json_spirit\json_spirit_value.h" />
-    <ClInclude Include="json_spirit\json_spirit_writer.h" />
-    <ClInclude Include="json_spirit\json_spirit_writer_options.h" />
-    <ClInclude Include="json_spirit\json_spirit_writer_template.h" />
-    <ClInclude Include="websocketpp\base64\base64.hpp" />
-    <ClInclude Include="websocketpp\client.hpp" />
-    <ClInclude Include="websocketpp\close.hpp" />
-    <ClInclude Include="websocketpp\common\chrono.hpp" />
-    <ClInclude Include="websocketpp\common\connection_hdl.hpp" />
-    <ClInclude Include="websocketpp\common\cpp11.hpp" />
-    <ClInclude Include="websocketpp\common\functional.hpp" />
-    <ClInclude Include="websocketpp\common\md5.hpp" />
-    <ClInclude Include="websocketpp\common\memory.hpp" />
-    <ClInclude Include="websocketpp\common\network.hpp" />
-    <ClInclude Include="websocketpp\common\platforms.hpp" />
-    <ClInclude Include="websocketpp\common\random.hpp" />
-    <ClInclude Include="websocketpp\common\regex.hpp" />
-    <ClInclude Include="websocketpp\common\stdint.hpp" />
-    <ClInclude Include="websocketpp\common\system_error.hpp" />
-    <ClInclude Include="websocketpp\common\thread.hpp" />
-    <ClInclude Include="websocketpp\common\time.hpp" />
-    <ClInclude Include="websocketpp\concurrency\basic.hpp" />
-    <ClInclude Include="websocketpp\concurrency\none.hpp" />
-    <ClInclude Include="websocketpp\config\asio.hpp" />
-    <ClInclude Include="websocketpp\config\asio_client.hpp" />
-    <ClInclude Include="websocketpp\config\asio_no_tls.hpp" />
-    <ClInclude Include="websocketpp\config\asio_no_tls_client.hpp" />
-    <ClInclude Include="websocketpp\config\boost_config.hpp" />
-    <ClInclude Include="websocketpp\config\core.hpp" />
-    <ClInclude Include="websocketpp\config\core_client.hpp" />
-    <ClInclude Include="websocketpp\config\debug.hpp" />
-    <ClInclude Include="websocketpp\config\debug_asio.hpp" />
-    <ClInclude Include="websocketpp\config\debug_asio_no_tls.hpp" />
-    <ClInclude Include="websocketpp\config\minimal_client.hpp" />
-    <ClInclude Include="websocketpp\config\minimal_server.hpp" />
-    <ClInclude Include="websocketpp\connection.hpp" />
-    <ClInclude Include="websocketpp\connection_base.hpp" />
-    <ClInclude Include="websocketpp\endpoint.hpp" />
-    <ClInclude Include="websocketpp\endpoint_base.hpp" />
-    <ClInclude Include="websocketpp\error.hpp" />
-    <ClInclude Include="websocketpp\error_container.hpp" />
-    <ClInclude Include="websocketpp\extensions\extension.hpp" />
-    <ClInclude Include="websocketpp\extensions\permessage_deflate\disabled.hpp" />
-    <ClInclude Include="websocketpp\extensions\permessage_deflate\enabled.hpp" />
-    <ClInclude Include="websocketpp\frame.hpp" />
-    <ClInclude Include="websocketpp\http\constants.hpp" />
-    <ClInclude Include="websocketpp\http\impl\parser.hpp" />
-    <ClInclude Include="websocketpp\http\impl\request.hpp" />
-    <ClInclude Include="websocketpp\http\impl\response.hpp" />
-    <ClInclude Include="websocketpp\http\parser.hpp" />
-    <ClInclude Include="websocketpp\http\request.hpp" />
-    <ClInclude Include="websocketpp\http\response.hpp" />
-    <ClInclude Include="websocketpp\impl\connection_impl.hpp" />
-    <ClInclude Include="websocketpp\impl\endpoint_impl.hpp" />
-    <ClInclude Include="websocketpp\impl\utilities_impl.hpp" />
-    <ClInclude Include="websocketpp\logger\basic.hpp" />
-    <ClInclude Include="websocketpp\logger\levels.hpp" />
-    <ClInclude Include="websocketpp\logger\stub.hpp" />
-    <ClInclude Include="websocketpp\message_buffer\alloc.hpp" />
-    <ClInclude Include="websocketpp\message_buffer\message.hpp" />
-    <ClInclude Include="websocketpp\message_buffer\pool.hpp" />
-    <ClInclude Include="websocketpp\processors\base.hpp" />
-    <ClInclude Include="websocketpp\processors\hybi00.hpp" />
-    <ClInclude Include="websocketpp\processors\hybi07.hpp" />
-    <ClInclude Include="websocketpp\processors\hybi08.hpp" />
-    <ClInclude Include="websocketpp\processors\hybi13.hpp" />
-    <ClInclude Include="websocketpp\processors\processor.hpp" />
-    <ClInclude Include="websocketpp\random\none.hpp" />
-    <ClInclude Include="websocketpp\random\random_device.hpp" />
-    <ClInclude Include="websocketpp\roles\client_endpoint.hpp" />
-    <ClInclude Include="websocketpp\roles\server_endpoint.hpp" />
-    <ClInclude Include="websocketpp\server.hpp" />
-    <ClInclude Include="websocketpp\sha1\sha1.hpp" />
-    <ClInclude Include="websocketpp\transport\asio\base.hpp" />
-    <ClInclude Include="websocketpp\transport\asio\connection.hpp" />
-    <ClInclude Include="websocketpp\transport\asio\endpoint.hpp" />
-    <ClInclude Include="websocketpp\transport\asio\security\base.hpp" />
-    <ClInclude Include="websocketpp\transport\asio\security\none.hpp" />
-    <ClInclude Include="websocketpp\transport\asio\security\tls.hpp" />
-    <ClInclude Include="websocketpp\transport\base\connection.hpp" />
-    <ClInclude Include="websocketpp\transport\base\endpoint.hpp" />
-    <ClInclude Include="websocketpp\transport\iostream\base.hpp" />
-    <ClInclude Include="websocketpp\transport\iostream\connection.hpp" />
-    <ClInclude Include="websocketpp\transport\iostream\endpoint.hpp" />
-    <ClInclude Include="websocketpp\transport\stub\base.hpp" />
-    <ClInclude Include="websocketpp\transport\stub\connection.hpp" />
-    <ClInclude Include="websocketpp\transport\stub\endpoint.hpp" />
-    <ClInclude Include="websocketpp\uri.hpp" />
-    <ClInclude Include="websocketpp\utf8_validator.hpp" />
-    <ClInclude Include="websocketpp\utilities.hpp" />
-    <ClInclude Include="websocketpp\version.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="json_spirit\json_spirit.vcproj" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
