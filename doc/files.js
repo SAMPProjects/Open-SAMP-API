@@ -1,40 +1,66 @@
 var files =
 [
-    [ "api.cpp", "api_8cpp.html", null ],
-    [ "api.hpp", "api_8hpp.html", [
-      [ "api", "classcore_1_1server_1_1api.html", null ]
+    [ "algorithm.hpp", "algorithm_8hpp.html", "algorithm_8hpp" ],
+    [ "Box.cpp", "_box_8cpp.html", null ],
+    [ "Box.hpp", "_box_8hpp.html", [
+      [ "Box", "class_box.html", "class_box" ]
     ] ],
-    [ "client.cpp", "client_8cpp.html", null ],
-    [ "client.hpp", "client_8hpp.html", [
-      [ "client", "classcore_1_1client_1_1client.html", "classcore_1_1client_1_1client" ]
-    ] ],
-    [ "connection.hpp", "connection_8hpp.html", [
-      [ "connection", "classcore_1_1server_1_1connection.html", "classcore_1_1server_1_1connection" ]
-    ] ],
-    [ "connection_manager.hpp", "connection__manager_8hpp.html", [
-      [ "connection_manager", "structcore_1_1server_1_1connection__manager.html", "structcore_1_1server_1_1connection__manager" ]
-    ] ],
-    [ "ctor.hpp", "ctor_8hpp.html", "ctor_8hpp" ],
+    [ "Client.cpp", "_client_8cpp.html", "_client_8cpp" ],
+    [ "Client.hpp", "_client_8hpp.html", "_client_8hpp" ],
+    [ "Config.hpp", "_config_8hpp.html", "_config_8hpp" ],
+    [ "D3DFont.cpp", "_d3_d_font_8cpp.html", "_d3_d_font_8cpp" ],
+    [ "D3DFont.hpp", "_d3_d_font_8hpp.html", "_d3_d_font_8hpp" ],
     [ "dllmain.cpp", "dllmain_8cpp.html", "dllmain_8cpp" ],
-    [ "message_handler.hpp", "message__handler_8hpp.html", [
-      [ "message_handler", "structcore_1_1server_1_1message__handler.html", null ]
+    [ "dllmain.hpp", "dllmain_8hpp.html", "dllmain_8hpp" ],
+    [ "dx_utils.cpp", "dx__utils_8cpp.html", null ],
+    [ "dx_utils.hpp", "dx__utils_8hpp.html", "dx__utils_8hpp" ],
+    [ "Game.cpp", "_game_8cpp.html", "_game_8cpp" ],
+    [ "Game.hpp", "_game_8hpp.html", "_game_8hpp" ],
+    [ "Hook.hpp", "_hook_8hpp.html", "_hook_8hpp" ],
+    [ "Image.cpp", "_image_8cpp.html", null ],
+    [ "Image.hpp", "_image_8hpp.html", [
+      [ "Image", "class_image.html", "class_image" ]
     ] ],
-    [ "module.cpp", "module_8cpp.html", null ],
-    [ "module.hpp", "module_8hpp.html", "module_8hpp" ],
-    [ "paket_id.hpp", "paket__id_8hpp.html", "paket__id_8hpp" ],
-    [ "pattern.cpp", "pattern_8cpp.html", "pattern_8cpp" ],
-    [ "pattern.hpp", "pattern_8hpp.html", "pattern_8hpp" ],
-    [ "safe_call.hpp", "safe__call_8hpp.html", "safe__call_8hpp" ],
-    [ "safe_memory.cpp", "safe__memory_8cpp.html", null ],
-    [ "safe_memory.hpp", "safe__memory_8hpp.html", "safe__memory_8hpp" ],
-    [ "samp.cpp", "samp_8cpp.html", "samp_8cpp" ],
-    [ "samp.hpp", "samp_8hpp.html", "samp_8hpp" ],
-    [ "server.cpp", "server_8cpp.html", null ],
-    [ "server.hpp", "server_8hpp.html", "server_8hpp" ],
-    [ "type_traits.hpp", "type__traits_8hpp.html", [
-      [ "is_same", "structcore_1_1misc_1_1is__same.html", null ],
-      [ "is_same< T, T >", "structcore_1_1misc_1_1is__same_3_01_t_00_01_t_01_4.html", "structcore_1_1misc_1_1is__same_3_01_t_00_01_t_01_4" ]
+    [ "Line.cpp", "_line_8cpp.html", null ],
+    [ "Line.hpp", "_line_8hpp.html", [
+      [ "Line", "class_line.html", "class_line" ]
     ] ],
-    [ "websocket.hpp", "websocket_8hpp.html", "websocket_8hpp" ],
-    [ "windows.hpp", "windows_8hpp.html", "windows_8hpp" ]
+    [ "Memory.cpp", "_memory_8cpp.html", null ],
+    [ "Memory.hpp", "_memory_8hpp.html", "_memory_8hpp" ],
+    [ "Messagehandler.cpp", "_messagehandler_8cpp.html", "_messagehandler_8cpp" ],
+    [ "Messagehandler.hpp", "_messagehandler_8hpp.html", "_messagehandler_8hpp" ],
+    [ "Misc.cpp", "_misc_8cpp.html", "_misc_8cpp" ],
+    [ "Misc.hpp", "_misc_8hpp.html", "_misc_8hpp" ],
+    [ "Module.cpp", "_module_8cpp.html", null ],
+    [ "Module.hpp", "_module_8hpp.html", "_module_8hpp" ],
+    [ "Pattern.cpp", "_pattern_8cpp.html", null ],
+    [ "Pattern.hpp", "_pattern_8hpp.html", "_pattern_8hpp" ],
+    [ "PatternTable.hpp", "_pattern_table_8hpp.html", "_pattern_table_8hpp" ],
+    [ "PipeClient.cpp", "_pipe_client_8cpp.html", null ],
+    [ "PipeClient.hpp", "_pipe_client_8hpp.html", "_pipe_client_8hpp" ],
+    [ "PipeMessages.hpp", "_pipe_messages_8hpp.html", "_pipe_messages_8hpp" ],
+    [ "PipeServer.cpp", "_pipe_server_8cpp.html", "_pipe_server_8cpp" ],
+    [ "PipeServer.hpp", "_pipe_server_8hpp.html", "_pipe_server_8hpp" ],
+    [ "RenderBase.cpp", "_render_base_8cpp.html", null ],
+    [ "RenderBase.hpp", "_render_base_8hpp.html", [
+      [ "RenderBase", "class_render_base.html", "class_render_base" ]
+    ] ],
+    [ "Renderer.cpp", "_renderer_8cpp.html", null ],
+    [ "Renderer.hpp", "_renderer_8hpp.html", [
+      [ "Renderer", "class_renderer.html", "class_renderer" ]
+    ] ],
+    [ "RenderFunctions.cpp", "_render_functions_8cpp.html", "_render_functions_8cpp" ],
+    [ "RenderFunctions.hpp", "_render_functions_8hpp.html", "_render_functions_8hpp" ],
+    [ "SafeBlock.hpp", "_safe_block_8hpp.html", "_safe_block_8hpp" ],
+    [ "SAMP.cpp", "_s_a_m_p_8cpp.html", "_s_a_m_p_8cpp" ],
+    [ "SAMP.hpp", "_s_a_m_p_8hpp.html", "_s_a_m_p_8hpp" ],
+    [ "SAMPFunctions.cpp", "_s_a_m_p_functions_8cpp.html", "_s_a_m_p_functions_8cpp" ],
+    [ "SAMPFunctions.hpp", "_s_a_m_p_functions_8hpp.html", "_s_a_m_p_functions_8hpp" ],
+    [ "Serializer.cpp", "_serializer_8cpp.html", null ],
+    [ "Serializer.hpp", "_serializer_8hpp.html", "_serializer_8hpp" ],
+    [ "Text.cpp", "_text_8cpp.html", null ],
+    [ "Text.hpp", "_text_8hpp.html", [
+      [ "Text", "class_text.html", "class_text" ]
+    ] ],
+    [ "Windows.hpp", "_windows_8hpp.html", "_windows_8hpp" ]
 ];

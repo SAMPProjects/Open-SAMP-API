@@ -1,8 +1,4 @@
 var searchData=
 [
-  ['client',['client',['../namespacecore_1_1common_1_1websocket.html#a7ea0823a036ddec97189a3d8d1813818',1,'core::common::websocket']]],
-  ['clienttype',['ClientType',['../structcore_1_1server_1_1connection__manager.html#a829f2e9d9f1a710e32980c5e0bc5b55c',1,'core::server::connection_manager']]],
-  ['clienttypeptr',['ClientTypePtr',['../structcore_1_1server_1_1connection__manager.html#abc7623e80d1d075cb6638db5469f7f23',1,'core::server::connection_manager']]],
-  ['connection_5fhdl',['connection_hdl',['../namespacecore_1_1common_1_1websocket.html#a6446e2c95bc7a50e7768d027ba9f8da8',1,'core::common::websocket']]],
-  ['connection_5fptr',['connection_ptr',['../namespacecore_1_1common_1_1websocket.html#abba3bba0eaf53ed3c1199bbabf409599',1,'core::common::websocket']]]
+  ['type',['type',['../structconvention_3_01_call_convention_1_1stdcall__t_00_01retn_00_01args_8_8_8_4.html#a9137a335146db1376d6e6cf9c26dc3a6',1,'convention&lt; CallConvention::stdcall_t, retn, args...&gt;::type()'],['../structconvention_3_01_call_convention_1_1cdecl__t_00_01retn_00_01args_8_8_8_4.html#a0207761e18c436fd4441500c8f81a8da',1,'convention&lt; CallConvention::cdecl_t, retn, args...&gt;::type()']]]
 ];

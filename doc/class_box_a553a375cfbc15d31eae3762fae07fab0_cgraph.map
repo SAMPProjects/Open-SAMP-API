@@ -1,0 +1,9 @@
+<map id="Box::Box" name="Box::Box">
+<area shape="rect" id="node2" href="$class_box.html#ac8dde107dbf1f30374b7c037185fe486" title="Box::setPos" alt="" coords="156,5,251,32"/>
+<area shape="rect" id="node3" href="$class_box.html#a45f4c29e3beee210f7ca0715ae5f5ea1" title="Box::setBoxWidth" alt="" coords="139,56,267,83"/>
+<area shape="rect" id="node4" href="$class_box.html#a2b17f3729dd2a49d97d14935cb5a501e" title="Box::setBoxHeight" alt="" coords="138,107,269,133"/>
+<area shape="rect" id="node5" href="$class_box.html#a6377e60e2eeef1a89befc44e2a7400f4" title="Box::setBoxColor" alt="" coords="141,157,265,184"/>
+<area shape="rect" id="node6" href="$class_box.html#abb7da50dfb8fbe06e80807536e51d724" title="Box::setShown" alt="" coords="148,208,259,235"/>
+<area shape="rect" id="node7" href="$class_box.html#a4be20eab3d52addea991f60c44673396" title="Box::setBorderWidth" alt="" coords="132,259,275,285"/>
+<area shape="rect" id="node8" href="$class_box.html#aee24992385a1cb756081aa52491a46cf" title="Box::setBorderShown" alt="" coords="129,309,277,336"/>
+</map>

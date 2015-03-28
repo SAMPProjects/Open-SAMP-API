@@ -76,6 +76,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>All</span></a></li>
       <li><a href="globals_func.html"><span>Functions</span></a></li>
       <li class="current"><a href="globals_vars.html"><span>Variables</span></a></li>
+      <li><a href="globals_enum.html"><span>Enumerations</span></a></li>
       <li><a href="globals_defs.html"><span>Macros</span></a></li>
     </ul>
   </div>
@@ -99,7 +100,7 @@ $(document).ready(function(){initNavTree('globals_vars.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -110,11 +111,34 @@ $(document).ready(function(){initNavTree('globals_vars.html','');});
 
 <div class="contents">
 &#160;<ul>
+<li>g_bEnabled
+: <a class="el" href="_game_8cpp.html#aaa8e54152d5fec9da323004129619672">Game.cpp</a>
+</li>
 <li>g_dwModuleBase
-: <a class="el" href="samp_8cpp.html#a767100e11734e6b068b52f8cf4c39d4e">samp.cpp</a>
+: <a class="el" href="_s_a_m_p_8cpp.html#a767100e11734e6b068b52f8cf4c39d4e">SAMP.cpp</a>
 </li>
 <li>g_dwModuleLength
-: <a class="el" href="samp_8cpp.html#a54512cc900f6ec82ea230312dd76fc9b">samp.cpp</a>
+: <a class="el" href="_s_a_m_p_8cpp.html#a54512cc900f6ec82ea230312dd76fc9b">SAMP.cpp</a>
+</li>
+<li>g_hDllHandle
+: <a class="el" href="dllmain_8cpp.html#acefd33e3d425476dc0dd948dd3e56541">dllmain.cpp</a>
+, <a class="el" href="dllmain_8hpp.html#acefd33e3d425476dc0dd948dd3e56541">dllmain.hpp</a>
+</li>
+<li>g_paramArray
+: <a class="el" href="_client_8cpp.html#a3386a2a726b5921e3461aa9e587dc18a">Client.cpp</a>
+</li>
+<li>g_pRenderer
+: <a class="el" href="_game_8hpp.html#a54057f8287b6b14d0d18029c4386ca8e">Game.hpp</a>
+, <a class="el" href="_game_8cpp.html#a2765c3650d1d517d9b98b6bd310fe444">Game.cpp</a>
+</li>
+<li>g_presentHook
+: <a class="el" href="_game_8cpp.html#aa68fb5cf1f66a3eb945f93e116f5e8b9">Game.cpp</a>
+</li>
+<li>g_resetHook
+: <a class="el" href="_game_8cpp.html#ac7ff1754ff8f682a99277211723c59ba">Game.cpp</a>
+</li>
+<li>g_strPipeName
+: <a class="el" href="_config_8hpp.html#aff426f9e43c43c7710d51b3121867602">Config.hpp</a>
 </li>
 </ul>
 </div><!-- contents -->
@@ -122,7 +146,7 @@ $(document).ready(function(){initNavTree('globals_vars.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Dec 2 2014 19:06:52 for Open-SA:MP-API by
+    <li class="footer">Generated on Sat Mar 28 2015 14:13:53 for Open-SA:MP-API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

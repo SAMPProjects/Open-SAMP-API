@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('dllmain_8cpp_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -105,56 +105,43 @@ $(document).ready(function(){initNavTree('dllmain_8cpp_source.html','');});
 <div class="title">dllmain.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="dllmain_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="windows_8hpp.html">core/common/windows.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="server_8hpp.html">core/server/server.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="api_8hpp.html">core/server/api.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="client_8hpp.html">core/client/client.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="dllmain_8cpp.html#a633058811af1ac7b784a4416c558c574">    7</a></span>&#160;BOOL WINAPI <a class="code" href="dllmain_8cpp.html#a633058811af1ac7b784a4416c558c574">DllMain</a>(HINSTANCE hInstance, DWORD dwReasonForCall, LPVOID)</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    DisableThreadLibraryCalls((HMODULE)hInstance);</div>
+<a href="dllmain_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma comment(lib, &quot;detours.lib&quot;)</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#pragma comment(lib,&quot;d3dx9.lib&quot;)</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="dllmain_8hpp.html">dllmain.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_windows_8hpp.html">Utils/Windows.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_game_8hpp.html">Game/Game.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="dllmain_8hpp.html#acefd33e3d425476dc0dd948dd3e56541">    9</a></span>&#160;HANDLE <a class="code" href="dllmain_8cpp.html#acefd33e3d425476dc0dd948dd3e56541">g_hDllHandle</a> = 0;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordflow">if</span> (dwReasonForCall != DLL_PROCESS_ATTACH)</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keywordflow">return</span> TRUE;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespacecore_1_1server.html#a5bfa426999f5763a29b17ec992e677ea">core::server::is_server</a>())</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <a class="code" href="classcore_1_1server_1_1api.html#ad32be4693a91d7354a656f5b049c508e">core::server::api::singleton</a>();</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        }</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e)</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <span class="keyword">auto</span> error = std::string(<span class="stringliteral">&quot;An error occured while initializing the API\n\&quot;&quot;</span>) + std::string(e.what()) + std::string(<span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            MessageBoxA(0, error.c_str(), <span class="stringliteral">&quot;Error&quot;</span>, MB_ICONERROR | MB_OK);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        }</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">catch</span> (...)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            MessageBoxA(0, <span class="stringliteral">&quot;An unknown error occured while initializing the API&quot;</span>, <span class="stringliteral">&quot;Error&quot;</span>, MB_ICONERROR | MB_OK);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    }</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="classcore_1_1client_1_1client.html#a462fa1a65a8a882d096a5f051add2dd0">core::client::client::singleton</a>();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">return</span> TRUE;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
-<div class="ttc" id="windows_8hpp_html"><div class="ttname"><a href="windows_8hpp.html">windows.hpp</a></div></div>
-<div class="ttc" id="classcore_1_1client_1_1client_html_a462fa1a65a8a882d096a5f051add2dd0"><div class="ttname"><a href="classcore_1_1client_1_1client.html#a462fa1a65a8a882d096a5f051add2dd0">core::client::client::singleton</a></div><div class="ttdeci">static client &amp; singleton()</div><div class="ttdef"><b>Definition:</b> <a href="client_8cpp_source.html#l00006">client.cpp:6</a></div></div>
-<div class="ttc" id="api_8hpp_html"><div class="ttname"><a href="api_8hpp.html">api.hpp</a></div></div>
-<div class="ttc" id="dllmain_8cpp_html_a633058811af1ac7b784a4416c558c574"><div class="ttname"><a href="dllmain_8cpp.html#a633058811af1ac7b784a4416c558c574">DllMain</a></div><div class="ttdeci">BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReasonForCall, LPVOID)</div><div class="ttdef"><b>Definition:</b> <a href="dllmain_8cpp_source.html#l00007">dllmain.cpp:7</a></div></div>
-<div class="ttc" id="namespacecore_1_1server_html_a5bfa426999f5763a29b17ec992e677ea"><div class="ttname"><a href="namespacecore_1_1server.html#a5bfa426999f5763a29b17ec992e677ea">core::server::is_server</a></div><div class="ttdeci">bool is_server()</div><div class="ttdef"><b>Definition:</b> <a href="server_8cpp_source.html#l00005">server.cpp:5</a></div></div>
-<div class="ttc" id="classcore_1_1server_1_1api_html_ad32be4693a91d7354a656f5b049c508e"><div class="ttname"><a href="classcore_1_1server_1_1api.html#ad32be4693a91d7354a656f5b049c508e">core::server::api::singleton</a></div><div class="ttdeci">static api &amp; singleton()</div><div class="ttdef"><b>Definition:</b> <a href="api_8cpp_source.html#l00009">api.cpp:9</a></div></div>
-<div class="ttc" id="server_8hpp_html"><div class="ttname"><a href="server_8hpp.html">server.hpp</a></div></div>
-<div class="ttc" id="client_8hpp_html"><div class="ttname"><a href="client_8hpp.html">client.hpp</a></div></div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="dllmain_8cpp.html#a14f5099f56835553a198bc116372c15b">   11</a></span>&#160;BOOL WINAPI <a class="code" href="dllmain_8cpp.html#a14f5099f56835553a198bc116372c15b">DllMain</a>(HINSTANCE hInstance, DWORD dwReason, LPVOID)</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="dllmain_8cpp.html#acefd33e3d425476dc0dd948dd3e56541">g_hDllHandle</a> = hInstance;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    DisableThreadLibraryCalls((HMODULE) hInstance);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">if</span> (dwReason != DLL_PROCESS_ATTACH)</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordflow">return</span> FALSE;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">if</span> (GetModuleHandle(<span class="stringliteral">&quot;samp.dll&quot;</span>))</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordflow">return</span> CreateThread(0, 0, (LPTHREAD_START_ROUTINE) <a class="code" href="_game_8cpp.html#a486f7b71aa892de0f05c6187647613b9">initGame</a>, 0, 0, 0) &gt; 0;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">return</span> TRUE;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
+<div class="ttc" id="dllmain_8hpp_html"><div class="ttname"><a href="dllmain_8hpp.html">dllmain.hpp</a></div></div>
+<div class="ttc" id="_windows_8hpp_html"><div class="ttname"><a href="_windows_8hpp.html">Windows.hpp</a></div></div>
+<div class="ttc" id="dllmain_8cpp_html_acefd33e3d425476dc0dd948dd3e56541"><div class="ttname"><a href="dllmain_8cpp.html#acefd33e3d425476dc0dd948dd3e56541">g_hDllHandle</a></div><div class="ttdeci">HANDLE g_hDllHandle</div><div class="ttdef"><b>Definition:</b> <a href="dllmain_8cpp_source.html#l00009">dllmain.cpp:9</a></div></div>
+<div class="ttc" id="_game_8cpp_html_a486f7b71aa892de0f05c6187647613b9"><div class="ttname"><a href="_game_8cpp.html#a486f7b71aa892de0f05c6187647613b9">initGame</a></div><div class="ttdeci">void initGame()</div><div class="ttdef"><b>Definition:</b> <a href="_game_8cpp_source.html#l00027">Game.cpp:27</a></div></div>
+<div class="ttc" id="dllmain_8cpp_html_a14f5099f56835553a198bc116372c15b"><div class="ttname"><a href="dllmain_8cpp.html#a14f5099f56835553a198bc116372c15b">DllMain</a></div><div class="ttdeci">BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID)</div><div class="ttdef"><b>Definition:</b> <a href="dllmain_8cpp_source.html#l00011">dllmain.cpp:11</a></div></div>
+<div class="ttc" id="_game_8hpp_html"><div class="ttname"><a href="_game_8hpp.html">Game.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_1a5142d0291c65c598a976dafb24f07d.html">Open-SAMP-API</a></li><li class="navelem"><a class="el" href="dllmain_8cpp.html">dllmain.cpp</a></li>
-    <li class="footer">Generated on Tue Dec 2 2014 19:06:51 for Open-SA:MP-API by
+    <li class="footer">Generated on Sat Mar 28 2015 14:13:48 for Open-SA:MP-API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

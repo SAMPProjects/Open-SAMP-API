@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['disable_5fcpy_5fctor',['DISABLE_CPY_CTOR',['../ctor_8hpp.html#af07c6957986f11ba29cfd179a3a5e5b7',1,'ctor.hpp']]],
-  ['disable_5fmov_5fctor',['DISABLE_MOV_CTOR',['../ctor_8hpp.html#ab78c11d61f34e129f0ed2a811911512c',1,'ctor.hpp']]]
+  ['check_5foffset',['CHECK_OFFSET',['../_s_a_m_p_8cpp.html#a9b2aba544cfce4db50fff5d739a7fb93',1,'SAMP.cpp']]],
+  ['connecting_5fstate',['CONNECTING_STATE',['../_pipe_server_8cpp.html#a5f7488fb04f40919c8fff0223b95a2ed',1,'PipeServer.cpp']]]
 ];

@@ -1,0 +1,7 @@
+<map id="Text::Text" name="Text::Text">
+<area shape="rect" id="node2" href="$class_text.html#afdeef9627f355a353190c683beaa7091" title="Text::setPos" alt="" coords="145,5,241,32"/>
+<area shape="rect" id="node3" href="$class_text.html#a56209e6bc805ff1cd9ba28d2cab86d1c" title="Text::setColor" alt="" coords="141,56,244,83"/>
+<area shape="rect" id="node4" href="$class_text.html#a73e3a80f9b02f3b001db3170101b8cc0" title="Text::setText" alt="" coords="143,107,242,133"/>
+<area shape="rect" id="node5" href="$class_text.html#a8bab1e8071f821508eed0e8c381ce72a" title="Text::setShadow" alt="" coords="133,157,252,184"/>
+<area shape="rect" id="node6" href="$class_text.html#ab4f68bd5d9f223da785a32774ae59442" title="Text::setShown" alt="" coords="137,208,249,235"/>
+</map>

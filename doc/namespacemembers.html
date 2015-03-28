@@ -75,8 +75,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li class="current"><a href="namespacemembers.html"><span>All</span></a></li>
       <li><a href="namespacemembers_func.html"><span>Functions</span></a></li>
-      <li><a href="namespacemembers_type.html"><span>Typedefs</span></a></li>
-      <li><a href="namespacemembers_enum.html"><span>Enumerations</span></a></li>
+      <li><a href="namespacemembers_vars.html"><span>Variables</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -99,7 +98,7 @@ $(document).ready(function(){initNavTree('namespacemembers.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -110,60 +109,60 @@ $(document).ready(function(){initNavTree('namespacemembers.html','');});
 
 <div class="contents">
 <div class="textblock">Here is a list of all namespace members with links to the namespace documentation for each member:</div><ul>
-<li>add_chat_message()
-: <a class="el" href="namespacecore_1_1server_1_1samp.html#aa6d450fb13e54e0a3af2874579fa74e1">core::server::samp</a>
+<li>addChatMessage()
+: <a class="el" href="namespace_game_1_1_s_a_m_p.html#ab2cd5bf770a9d39abe2b902c93f39e92">Game::SAMP</a>
 </li>
-<li>call_safe()
-: <a class="el" href="namespacecore_1_1common.html#a53caa6604c33dccc1c1e73ec3a875dbc">core::common</a>
+<li>byteMask
+: <a class="el" href="namespace_game_1_1_s_a_m_p_1_1_pattern_table_1_1_add_chat_message.html#ab9cbf57c9685665396b6bd0ee8fa47f1">Game::SAMP::PatternTable::AddChatMessage</a>
+, <a class="el" href="namespace_game_1_1_s_a_m_p_1_1_pattern_table_1_1_game_text.html#aeef32ceeadeb47b07f3fe315db048982">Game::SAMP::PatternTable::GameText</a>
+, <a class="el" href="namespace_game_1_1_s_a_m_p_1_1_pattern_table_1_1_send_chat_1_1_chat.html#af68a30a79d368bc035f225eaa0cb9cbc">Game::SAMP::PatternTable::SendChat::Chat</a>
+, <a class="el" href="namespace_game_1_1_s_a_m_p_1_1_pattern_table_1_1_send_chat_1_1_command.html#a37b11217eeea5672a1943163009c3e23">Game::SAMP::PatternTable::SendChat::Command</a>
 </li>
-<li>call_safe_inline()
-: <a class="el" href="namespacecore_1_1common.html#ad37f451af3be5c5801c7d851426085b2">core::common</a>
+<li>dataCompare()
+: <a class="el" href="namespace_utils_1_1_pattern_1_1_internal.html#a523924bcef42a4b110b36d809bebf7fc">Utils::Pattern::Internal</a>
 </li>
-<li>client
-: <a class="el" href="namespacecore_1_1common_1_1websocket.html#a7ea0823a036ddec97189a3d8d1813818">core::common::websocket</a>
+<li>DrawBox()
+: <a class="el" href="namespace_drawing.html#a1530e3ffb8722964384d2b495fdbd1e4">Drawing</a>
 </li>
-<li>connection_hdl
-: <a class="el" href="namespacecore_1_1common_1_1websocket.html#a6446e2c95bc7a50e7768d027ba9f8da8">core::common::websocket</a>
+<li>DrawPrimtive()
+: <a class="el" href="namespace_drawing.html#af1e6f85f5906d122615e179dbbc854b6">Drawing</a>
 </li>
-<li>connection_ptr
-: <a class="el" href="namespacecore_1_1common_1_1websocket.html#abba3bba0eaf53ed3c1199bbabf409599">core::common::websocket</a>
+<li>DrawRectangular()
+: <a class="el" href="namespace_drawing.html#a083020abc74d247e6e8d0b364d2e04e5">Drawing</a>
+</li>
+<li>DrawSprite()
+: <a class="el" href="namespace_drawing.html#a1844c4a550f9793e626df7a9241eff0a">Drawing</a>
 </li>
 <li>filter()
-: <a class="el" href="namespacecore_1_1common_1_1internal.html#a219bdb592a38256546497642960458d9">core::common::internal</a>
+: <a class="el" href="namespace_utils_1_1_memory_1_1_internal.html#ab37ea2c638d8bafc012ab1b1ae9f242a">Utils::Memory::Internal</a>
 </li>
-<li>find_pattern()
-: <a class="el" href="namespacecore_1_1misc.html#a2bf206324ab1d951eb5c55f5aa9ed179">core::misc</a>
+<li>findPattern()
+: <a class="el" href="namespace_utils_1_1_pattern.html#aea920788853b0fe715d1402f9e864328">Utils::Pattern</a>
 </li>
-<li>get_module_base()
-: <a class="el" href="namespacecore_1_1misc.html#af5ae04148dc47d1a8d76d9fb50d2cff9">core::misc</a>
+<li>initSAMP()
+: <a class="el" href="namespace_game_1_1_s_a_m_p.html#ab139b34b516f91a1f795f0a022f80abc">Game::SAMP</a>
 </li>
-<li>get_module_length()
-: <a class="el" href="namespacecore_1_1misc.html#af49fe57cd1d162667d4925847a33e53c">core::misc</a>
+<li>moduleBase()
+: <a class="el" href="namespace_utils_1_1_module.html#ae17bfc3450d29177fdf14d3767c46ff3">Utils::Module</a>
 </li>
-<li>init_samp()
-: <a class="el" href="namespacecore_1_1server_1_1samp.html#a060aa9d0964386991fdca951b5998057">core::server::samp</a>
+<li>moduleLength()
+: <a class="el" href="namespace_utils_1_1_module.html#a1b3ae0eb91a4754981b9956e86fbb2ae">Utils::Module</a>
 </li>
-<li>is_server()
-: <a class="el" href="namespacecore_1_1server.html#a5bfa426999f5763a29b17ec992e677ea">core::server</a>
+<li>readMemory()
+: <a class="el" href="namespace_utils_1_1_memory_1_1_internal.html#a00017c73a7e49b8a2efb8c02fe55602c">Utils::Memory::Internal</a>
+, <a class="el" href="namespace_utils_1_1_memory.html#aabaae39d5d753d32b37e152ffc50e6f3">Utils::Memory</a>
 </li>
-<li>message_ptr
-: <a class="el" href="namespacecore_1_1common_1_1websocket.html#a93114db345efaeac24b3d45a23bf74f1">core::common::websocket</a>
+<li>sendChat()
+: <a class="el" href="namespace_game_1_1_s_a_m_p.html#a659c350dd841c37b2c9a8d588ab4cc9d">Game::SAMP</a>
 </li>
-<li>paket_id
-: <a class="el" href="namespacecore_1_1common.html#a8e7cc1513a091250aeb164bb8ed088ef">core::common</a>
+<li>showGameText()
+: <a class="el" href="namespace_game_1_1_s_a_m_p.html#a0d424ed24940c08ba39e0ad69e3ca75d">Game::SAMP</a>
 </li>
-<li>read_memory()
-: <a class="el" href="namespacecore_1_1common_1_1internal.html#a16919e552c132e9f6979f0dfda7d99f3">core::common::internal</a>
-, <a class="el" href="namespacecore_1_1common.html#a97d588ac475a0082b95990b16ac46275">core::common</a>
-</li>
-<li>send_chat()
-: <a class="el" href="namespacecore_1_1server_1_1samp.html#a74adb2d6ebfc2d025a333db309cd7aba">core::server::samp</a>
-</li>
-<li>server
-: <a class="el" href="namespacecore_1_1common_1_1websocket.html#af743d8d98d85bff56c310fa8df93a7e6">core::common::websocket</a>
-</li>
-<li>show_game_text()
-: <a class="el" href="namespacecore_1_1server_1_1samp.html#af64c7b0ef2efe53e9911ec7995821f43">core::server::samp</a>
+<li>useMask
+: <a class="el" href="namespace_game_1_1_s_a_m_p_1_1_pattern_table_1_1_add_chat_message.html#acc642af5d0d13b19b0dc2036600261ec">Game::SAMP::PatternTable::AddChatMessage</a>
+, <a class="el" href="namespace_game_1_1_s_a_m_p_1_1_pattern_table_1_1_game_text.html#af64dd66b24fff349ee706a2eab9463b5">Game::SAMP::PatternTable::GameText</a>
+, <a class="el" href="namespace_game_1_1_s_a_m_p_1_1_pattern_table_1_1_send_chat_1_1_chat.html#a0618df6908c40ea1977eacb5d8ff4702">Game::SAMP::PatternTable::SendChat::Chat</a>
+, <a class="el" href="namespace_game_1_1_s_a_m_p_1_1_pattern_table_1_1_send_chat_1_1_command.html#a5f6a6664243ecd421069996a309093b4">Game::SAMP::PatternTable::SendChat::Command</a>
 </li>
 </ul>
 </div><!-- contents -->
@@ -171,7 +170,7 @@ $(document).ready(function(){initNavTree('namespacemembers.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Dec 2 2014 19:06:52 for Open-SA:MP-API by
+    <li class="footer">Generated on Sat Mar 28 2015 14:13:52 for Open-SA:MP-API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

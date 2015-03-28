@@ -1,0 +1,8 @@
+<map id="Renderer::screenWidth" name="Renderer::screenWidth">
+<area shape="rect" id="node2" href="$_messagehandler_8hpp.html#ab61041807c35dfa818fc5387fc70a05b" title="GetScreenSpecs" alt="" coords="243,31,364,57"/>
+<area shape="rect" id="node3" href="$class_render_base.html#a605d7bc7e91d45301bdbd73b62ff5a66" title="RenderBase::calculatedXPos" alt="" coords="208,81,399,108"/>
+<area shape="rect" id="node4" href="$class_box.html#ac5480f4accc53beed330f7ce4cd458a3" title="Box::draw" alt="" coords="453,5,533,32"/>
+<area shape="rect" id="node5" href="$class_image.html#abe60a9d5e25833734c63664227775d5b" title="Image::draw" alt="" coords="447,56,539,83"/>
+<area shape="rect" id="node6" href="$class_line.html#a3bcd9feabdcdb7efd8cc132cec1994c8" title="Line::draw" alt="" coords="452,107,533,133"/>
+<area shape="rect" id="node7" href="$class_text.html#acbd4c921c06b3e7d52376e8cd766cd82" title="Text::draw" alt="" coords="451,157,534,184"/>
+</map>

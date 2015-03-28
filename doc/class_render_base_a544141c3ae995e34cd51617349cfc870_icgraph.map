@@ -1,0 +1,6 @@
+<map id="RenderBase::calculatedYPos" name="RenderBase::calculatedYPos">
+<area shape="rect" id="node2" href="$class_box.html#ac5480f4accc53beed330f7ce4cd458a3" title="Box::draw" alt="" coords="251,5,331,32"/>
+<area shape="rect" id="node3" href="$class_image.html#abe60a9d5e25833734c63664227775d5b" title="Image::draw" alt="" coords="245,56,337,83"/>
+<area shape="rect" id="node4" href="$class_line.html#a3bcd9feabdcdb7efd8cc132cec1994c8" title="Line::draw" alt="" coords="251,107,332,133"/>
+<area shape="rect" id="node5" href="$class_text.html#acbd4c921c06b3e7d52376e8cd766cd82" title="Text::draw" alt="" coords="250,157,333,184"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="SendChat" name="SendChat">
+<area shape="rect" id="node2" href="$namespace_game_1_1_s_a_m_p.html#a659c350dd841c37b2c9a8d588ab4cc9d" title="Game::SAMP::sendChat" alt="" coords="132,13,299,39"/>
+<area shape="rect" id="node3" href="$namespace_utils_1_1_pattern.html#aea920788853b0fe715d1402f9e864328" title="Utils::Pattern::findPattern" alt="" coords="347,13,515,39"/>
+<area shape="rect" id="node4" href="$namespace_utils_1_1_pattern_1_1_internal.html#a523924bcef42a4b110b36d809bebf7fc" title="Utils::Pattern::Internal\l::dataCompare" alt="" coords="563,5,711,47"/>
+</map>

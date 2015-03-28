@@ -1,0 +1,6 @@
+<map id="Line::draw" name="Line::draw">
+<area shape="rect" id="node2" href="$class_render_base.html#a605d7bc7e91d45301bdbd73b62ff5a66" title="RenderBase::calculatedXPos" alt="" coords="135,5,326,32"/>
+<area shape="rect" id="node4" href="$class_render_base.html#a544141c3ae995e34cd51617349cfc870" title="RenderBase::calculatedYPos" alt="" coords="135,56,327,83"/>
+<area shape="rect" id="node3" href="$class_renderer.html#a3cec3363f69360fec97ea0482778a0ab" title="Renderer::screenWidth" alt="" coords="377,5,531,32"/>
+<area shape="rect" id="node5" href="$class_renderer.html#ab521372156ec5bf0977caffa921e25b4" title="Renderer::screenHeight" alt="" coords="375,56,533,83"/>
+</map>

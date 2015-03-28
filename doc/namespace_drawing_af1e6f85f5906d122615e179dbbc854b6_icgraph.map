@@ -1,0 +1,5 @@
+<map id="Drawing::DrawPrimtive" name="Drawing::DrawPrimtive">
+<area shape="rect" id="node2" href="$namespace_drawing.html#a1530e3ffb8722964384d2b495fdbd1e4" title="Drawing::DrawBox" alt="" coords="204,5,332,32"/>
+<area shape="rect" id="node3" href="$class_box.html#ac5480f4accc53beed330f7ce4cd458a3" title="Box::draw" alt="" coords="603,5,683,32"/>
+<area shape="rect" id="node4" href="$namespace_drawing.html#a083020abc74d247e6e8d0b364d2e04e5" title="Drawing::DrawRectangular" alt="" coords="380,31,555,57"/>
+</map>

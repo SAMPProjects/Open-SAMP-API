@@ -1,0 +1,6 @@
+<map id="Renderer::remove" name="Renderer::remove">
+<area shape="rect" id="node2" href="$_messagehandler_8hpp.html#aba58646b18bb1f6fc679c00c6c87d78f" title="TextDestroy" alt="" coords="181,5,273,32"/>
+<area shape="rect" id="node3" href="$_messagehandler_8hpp.html#a106e19e641400688aee29025dea21c8e" title="BoxDestroy" alt="" coords="182,56,273,83"/>
+<area shape="rect" id="node4" href="$_messagehandler_8hpp.html#aff213692b0c95fc31b86c9b28c1cfe2c" title="LineDestroy" alt="" coords="182,107,273,133"/>
+<area shape="rect" id="node5" href="$_messagehandler_8hpp.html#a8e85f0e23ce7e12549395e4ceda253db" title="ImageDestroy" alt="" coords="176,157,279,184"/>
+</map>

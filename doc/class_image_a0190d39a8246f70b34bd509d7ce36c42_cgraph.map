@@ -1,0 +1,8 @@
+<map id="Image::Image" name="Image::Image">
+<area shape="rect" id="node2" href="$class_image.html#afe7ba6fe18d85a56ad0a6c06f4a84ea6" title="Image::setFilePath" alt="" coords="153,5,284,32"/>
+<area shape="rect" id="node3" href="$class_image.html#a78edf174cb9e617f7af89a3cb7089179" title="Image::setPos" alt="" coords="165,56,272,83"/>
+<area shape="rect" id="node4" href="$class_image.html#a18c8ecd8dae0cda4e4ccafb52a7ebeac" title="Image::setRotation" alt="" coords="153,107,284,133"/>
+<area shape="rect" id="node5" href="$class_image.html#a3765bae8f083e429b6709fe9e7c358db" title="Image::setAlign" alt="" coords="163,157,275,184"/>
+<area shape="rect" id="node6" href="$class_image.html#a5f59ec91976dd3ff140b7d470ccfa988" title="Image::setShown" alt="" coords="157,208,280,235"/>
+<area shape="rect" id="node7" href="$class_image.html#a031de31b07aceb52c499b0d755a9f3b6" title="Image::show" alt="" coords="332,208,427,235"/>
+</map>

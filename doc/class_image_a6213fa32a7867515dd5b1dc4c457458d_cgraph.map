@@ -1,0 +1,9 @@
+<map id="Image::updateImage" name="Image::updateImage">
+<area shape="rect" id="node2" href="$class_image.html#afe7ba6fe18d85a56ad0a6c06f4a84ea6" title="Image::setFilePath" alt="" coords="226,5,357,32"/>
+<area shape="rect" id="node3" href="$class_image.html#a78edf174cb9e617f7af89a3cb7089179" title="Image::setPos" alt="" coords="238,56,345,83"/>
+<area shape="rect" id="node4" href="$class_image.html#a18c8ecd8dae0cda4e4ccafb52a7ebeac" title="Image::setRotation" alt="" coords="226,107,357,133"/>
+<area shape="rect" id="node5" href="$class_image.html#a3765bae8f083e429b6709fe9e7c358db" title="Image::setAlign" alt="" coords="235,157,347,184"/>
+<area shape="rect" id="node6" href="$class_image.html#a5f59ec91976dd3ff140b7d470ccfa988" title="Image::setShown" alt="" coords="230,208,353,235"/>
+<area shape="rect" id="node8" href="$class_render_base.html#a47fc4eb9adc6615cd3bbeb9231f4a651" title="RenderBase::changeResource" alt="" coords="192,259,391,285"/>
+<area shape="rect" id="node7" href="$class_image.html#a031de31b07aceb52c499b0d755a9f3b6" title="Image::show" alt="" coords="439,208,533,235"/>
+</map>

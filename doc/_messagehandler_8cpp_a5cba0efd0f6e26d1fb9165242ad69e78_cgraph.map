@@ -1,0 +1,5 @@
+<map id="ShowGameText" name="ShowGameText">
+<area shape="rect" id="node2" href="$namespace_game_1_1_s_a_m_p.html#a0d424ed24940c08ba39e0ad69e3ca75d" title="Game::SAMP::showGameText" alt="" coords="168,13,369,39"/>
+<area shape="rect" id="node3" href="$namespace_utils_1_1_pattern.html#aea920788853b0fe715d1402f9e864328" title="Utils::Pattern::findPattern" alt="" coords="417,13,585,39"/>
+<area shape="rect" id="node4" href="$namespace_utils_1_1_pattern_1_1_internal.html#a523924bcef42a4b110b36d809bebf7fc" title="Utils::Pattern::Internal\l::dataCompare" alt="" coords="633,5,781,47"/>
+</map>

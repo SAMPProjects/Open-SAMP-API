@@ -1,0 +1,10 @@
+<map id="Utils::Pattern::findPattern" name="Utils::Pattern::findPattern">
+<area shape="rect" id="node2" href="$_game_8hpp.html#a486f7b71aa892de0f05c6187647613b9" title="initGame" alt="" coords="290,5,365,32"/>
+<area shape="rect" id="node4" href="$namespace_game_1_1_s_a_m_p.html#a659c350dd841c37b2c9a8d588ab4cc9d" title="Game::SAMP::sendChat" alt="" coords="244,56,411,83"/>
+<area shape="rect" id="node6" href="$namespace_game_1_1_s_a_m_p.html#a0d424ed24940c08ba39e0ad69e3ca75d" title="Game::SAMP::showGameText" alt="" coords="227,107,428,133"/>
+<area shape="rect" id="node8" href="$namespace_game_1_1_s_a_m_p.html#ab2cd5bf770a9d39abe2b902c93f39e92" title="Game::SAMP::addChatMessage" alt="" coords="221,157,433,184"/>
+<area shape="rect" id="node3" href="$dllmain_8cpp.html#a14f5099f56835553a198bc116372c15b" title="DllMain" alt="" coords="511,5,577,32"/>
+<area shape="rect" id="node5" href="$_messagehandler_8hpp.html#af8ee182dc61b0d2c346ee5d7305cb51c" title="SendChat" alt="" coords="505,56,583,83"/>
+<area shape="rect" id="node7" href="$_messagehandler_8hpp.html#a5cba0efd0f6e26d1fb9165242ad69e78" title="ShowGameText" alt="" coords="487,107,601,133"/>
+<area shape="rect" id="node9" href="$_messagehandler_8hpp.html#a8890feeeb74c63deda3505bac034b1fd" title="AddChatMessage" alt="" coords="481,157,607,184"/>
+</map>

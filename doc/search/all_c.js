@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['type',['type',['../structcore_1_1misc_1_1is__same_3_01_t_00_01_t_01_4.html#acc4e440d4f8cca673da2d05d27d1ad0f',1,'core::misc::is_same&lt; T, T &gt;']]],
-  ['type_5ftraits_2ehpp',['type_traits.hpp',['../type__traits_8hpp.html',1,'']]]
+  ['n',['n',['../struct_f_o_n_t3_d_v_e_r_t_e_x.html#a322c5e83cdde5bfd4df8c493f987850e',1,'FONT3DVERTEX']]],
+  ['numberofbytesused',['numberOfBytesUsed',['../class_serializer.html#a8a4120d99026ca9ec8988856d6f0422b',1,'Serializer']]]
 ];

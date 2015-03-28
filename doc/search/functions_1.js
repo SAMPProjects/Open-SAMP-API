@@ -1,10 +1,6 @@
 var searchData=
 [
-  ['call_5fsafe',['call_safe',['../namespacecore_1_1common.html#a53caa6604c33dccc1c1e73ec3a875dbc',1,'core::common']]],
-  ['call_5fsafe_5finline',['call_safe_inline',['../namespacecore_1_1common.html#ad37f451af3be5c5801c7d851426085b2',1,'core::common']]],
-  ['compare_5fdata',['compare_data',['../pattern_8cpp.html#aab1411f90032cd0d4104d97e9038d74c',1,'pattern.cpp']]],
-  ['connect',['connect',['../classcore_1_1client_1_1client.html#a08c2c4973eacaf25dde1cf2308d02bff',1,'core::client::client']]],
-  ['connection',['connection',['../classcore_1_1server_1_1connection.html#aa84e1e35da3fdae74295bb4eb5d4e00a',1,'core::server::connection']]],
-  ['connection_5fmanager',['connection_manager',['../structcore_1_1server_1_1connection__manager.html#ae4d81b1dee987d66992fc23563daa004',1,'core::server::connection_manager']]],
-  ['create_5fconnection',['create_connection',['../structcore_1_1server_1_1connection__manager.html#a8990348937851bba25ae8ec098232058',1,'core::server::connection_manager']]]
+  ['add',['add',['../class_renderer.html#a5a88f93712c559653589a68630372117',1,'Renderer']]],
+  ['addchatmessage',['AddChatMessage',['../_s_a_m_p_functions_8cpp.html#ab43f2361ecd726fbef44ca5d926dec93',1,'AddChatMessage(const char *msg):&#160;SAMPFunctions.cpp'],['../_s_a_m_p_functions_8hpp.html#ab43f2361ecd726fbef44ca5d926dec93',1,'AddChatMessage(const char *msg):&#160;SAMPFunctions.cpp'],['../_messagehandler_8cpp.html#a8890feeeb74c63deda3505bac034b1fd',1,'AddChatMessage(Serializer &amp;serializerIn, Serializer &amp;serializerOut):&#160;Messagehandler.cpp'],['../_messagehandler_8hpp.html#a8890feeeb74c63deda3505bac034b1fd',1,'AddChatMessage(Serializer &amp;serializerIn, Serializer &amp;serializerOut):&#160;Messagehandler.cpp'],['../namespace_game_1_1_s_a_m_p.html#ab2cd5bf770a9d39abe2b902c93f39e92',1,'Game::SAMP::addChatMessage()']]],
+  ['apply',['apply',['../class_hook.html#a00f15c83edfffba7ac0b6582c6d5d9d5',1,'Hook']]]
 ];

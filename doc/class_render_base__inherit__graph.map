@@ -1,0 +1,6 @@
+<map id="RenderBase" name="RenderBase">
+<area shape="rect" id="node2" href="$class_box.html" title="Box" alt="" coords="5,80,51,107"/>
+<area shape="rect" id="node3" href="$class_image.html" title="Image" alt="" coords="75,80,133,107"/>
+<area shape="rect" id="node4" href="$class_line.html" title="Line" alt="" coords="157,80,203,107"/>
+<area shape="rect" id="node5" href="$class_text.html" title="Text" alt="" coords="227,80,274,107"/>
+</map>

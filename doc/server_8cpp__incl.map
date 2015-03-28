@@ -1,7 +1,0 @@
-<map id="server.cpp" name="server.cpp">
-<area shape="rect" id="node2" href="$server_8hpp.html" title="server.hpp" alt="" coords="557,87,638,114"/>
-<area shape="rect" id="node3" href="$ctor_8hpp.html" title="core/misc/ctor.hpp" alt="" coords="5,169,136,196"/>
-<area shape="rect" id="node4" href="$safe__call_8hpp.html" title="core/common/safe_call.hpp" alt="" coords="160,169,341,196"/>
-<area shape="rect" id="node7" href="$websocket_8hpp.html" title="core/common/websocket.hpp" alt="" coords="435,169,627,196"/>
-<area shape="rect" id="node8" href="$type__traits_8hpp.html" title="core/misc/type_traits.hpp" alt="" coords="467,251,637,278"/>
-</map>

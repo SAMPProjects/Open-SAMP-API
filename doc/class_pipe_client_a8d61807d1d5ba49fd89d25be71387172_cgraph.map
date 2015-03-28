@@ -1,0 +1,5 @@
+<map id="PipeClient::PipeClient" name="PipeClient::PipeClient">
+<area shape="rect" id="node2" href="$class_serializer.html#a716bd4b1e154122a4f309c8a72be122b" title="Serializer::data" alt="" coords="249,5,358,32"/>
+<area shape="rect" id="node3" href="$class_serializer.html#a8a4120d99026ca9ec8988856d6f0422b" title="Serializer::numberOfBytesUsed" alt="" coords="201,56,405,83"/>
+<area shape="rect" id="node4" href="$class_serializer.html#a8eebd3fae3beb711a341458071281c59" title="Serializer::setData" alt="" coords="239,107,368,133"/>
+</map>
