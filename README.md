@@ -9,4 +9,4 @@ Dependencies
 
 Documentation
 ------------
-- [Doxygen Docs](www.samp-api.net/doc/)
+- [Doxygen Docs](http://www.samp-api.net/doc/)
