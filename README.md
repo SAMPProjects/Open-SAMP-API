@@ -7,3 +7,6 @@ Dependencies
 ------------
 - [Boost C++ Libraries](http://www.boost.org/)
 
+Documentation
+------------
+- [Doxygen Docs](http://www.http://samp-api.net/doc/)
