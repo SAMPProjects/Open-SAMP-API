@@ -15,8 +15,9 @@ x64/
 x86/
 build/
 bld/
-[Bb]in/
 [Oo]bj/
+
+*.exp
 
 # Roslyn cache directories
 *.ide/
@@ -181,3 +182,8 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
+
+# Doxygen output
+doc/latex
+doc/html
+*.bak

@@ -65,10 +65,9 @@ void initGame()
 	}
 	
 	// initialize RPC
+	typedef std::map<PipeMessages, std::function<void(Serializer&, Serializer&)> > MessagePaketHandler;
+	MessagePaketHandler PaketHandler;
 	{
-		typedef std::map<PipeMessages, std::function<void(Serializer&, Serializer&)> > MessagePaketHandler;
-		MessagePaketHandler PaketHandler;
-
 		BIND(TextCreate);
 		BIND(TextDestroy);
 		BIND(TextSetShadow);

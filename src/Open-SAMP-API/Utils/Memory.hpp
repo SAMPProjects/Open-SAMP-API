@@ -23,6 +23,8 @@ namespace Utils
 				{
 					success = false;
 				}
+
+				return T();
 			}
 		}
 
