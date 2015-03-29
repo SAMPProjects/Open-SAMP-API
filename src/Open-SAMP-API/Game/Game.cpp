@@ -11,12 +11,12 @@
 
 #include <d3dx9.h>
 
-#define BIND(T) PaketHandler[PipeMessages::T] = std::bind(T, std::placeholders::_1, std::placeholders::_2);
+#define BIND(T) PaketHandler[Shared::PipeMessages::T] = std::bind(Game::MessageHandler::T, std::placeholders::_1, std::placeholders::_2);
 
-Hook<CallConvention::stdcall_t, HRESULT, LPDIRECT3DDEVICE9, CONST RECT *, CONST RECT *, HWND, CONST RGNDATA *> g_presentHook;
-Hook<CallConvention::stdcall_t, HRESULT, LPDIRECT3DDEVICE9, D3DPRESENT_PARAMETERS *> g_resetHook;
+Utils::Hook::Hook<Utils::Hook::CallConvention::stdcall_t, HRESULT, LPDIRECT3DDEVICE9, CONST RECT *, CONST RECT *, HWND, CONST RGNDATA *> g_presentHook;
+Utils::Hook::Hook<Utils::Hook::CallConvention::stdcall_t, HRESULT, LPDIRECT3DDEVICE9, D3DPRESENT_PARAMETERS *> g_resetHook;
 
-Renderer g_pRenderer;
+Game::Rendering::Renderer g_pRenderer;
 bool g_bEnabled = false;
 
 extern "C" __declspec(dllexport) void enable()
@@ -65,7 +65,7 @@ void initGame()
 	}
 	
 	// initialize RPC
-	typedef std::map<PipeMessages, std::function<void(Serializer&, Serializer&)> > MessagePaketHandler;
+	typedef std::map<Shared::PipeMessages, std::function<void(Utils::Serializer&, Utils::Serializer&)> > MessagePaketHandler;
 	MessagePaketHandler PaketHandler;
 	{
 		BIND(TextCreate);
@@ -115,9 +115,9 @@ void initGame()
 		BIND(ShowGameText);
 		BIND(AddChatMessage);
 
-		new PipeServer([&](Serializer& serializerIn, Serializer& serializerOut)
+		new Utils::PipeServer([&](Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 		{
-			SERIALIZATION_READ(serializerIn, PipeMessages, eMessage);
+			SERIALIZATION_READ(serializerIn, Shared::PipeMessages, eMessage);
 
 			try
 			{

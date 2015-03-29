@@ -1,11 +1,11 @@
-#include "Misc.hpp"
+#include "Process.hpp"
 #include "Windows.hpp"
 
 #include <TlHelp32.h>
 
 #include <boost/algorithm/string.hpp>
 
-unsigned long procIdByWindowName(const std::string& windName)
+unsigned long Utils::Process::pidByWindowName(const std::string& windName)
 {
 	DWORD dwPID = 0;
 	HWND wHandle = 0;
@@ -17,7 +17,7 @@ unsigned long procIdByWindowName(const std::string& windName)
 	return dwPID;
 }
 
-unsigned long procIdByProcName(const std::string& procName)
+unsigned long Utils::Process::pidByProcessName(const std::string& procName)
 {
 	PROCESSENTRY32 entry;
 	DWORD dwPID = 0;

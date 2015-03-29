@@ -7,10 +7,10 @@
 #include <boost/range/algorithm.hpp>
 #include <boost/date_time.hpp>
 
-Renderer::RenderObjects	Renderer::_renderObjects;
-std::recursive_mutex Renderer::_mtx;
+Game::Rendering::Renderer::RenderObjects	Game::Rendering::Renderer::_renderObjects;
+std::recursive_mutex Game::Rendering::Renderer::_mtx;
 
-int Renderer::add(SharedRenderObject Object)
+int Game::Rendering::Renderer::add(SharedRenderObject Object)
 {
 	std::lock_guard<std::recursive_mutex> l(_mtx);
 
@@ -26,7 +26,7 @@ int Renderer::add(SharedRenderObject Object)
 	return id;
 }
 
-bool Renderer::remove(int id)
+bool Game::Rendering::Renderer::remove(int id)
 {
 	std::lock_guard<std::recursive_mutex> l(_mtx);
 
@@ -37,7 +37,7 @@ bool Renderer::remove(int id)
 	return ptr->_isMarkedForDeletion = true;
 }
 
-std::shared_ptr<RenderBase> Renderer::get(int id)
+std::shared_ptr<Game::Rendering::RenderBase> Game::Rendering::Renderer::get(int id)
 {
 	if (_renderObjects.empty())
 		return nullptr;
@@ -51,7 +51,7 @@ std::shared_ptr<RenderBase> Renderer::get(int id)
 	return _renderObjects[id];
 }
 
-void Renderer::draw(IDirect3DDevice9 *pDevice)
+void Game::Rendering::Renderer::draw(IDirect3DDevice9 *pDevice)
 {
 	std::lock_guard<std::recursive_mutex> l(_mtx);
 
@@ -140,7 +140,7 @@ void Renderer::draw(IDirect3DDevice9 *pDevice)
 	}
 }
 
-void Renderer::reset(IDirect3DDevice9 *pDevice)
+void Game::Rendering::Renderer::reset(IDirect3DDevice9 *pDevice)
 {
 	std::lock_guard<std::recursive_mutex> l(_mtx);
 
@@ -154,7 +154,7 @@ void Renderer::reset(IDirect3DDevice9 *pDevice)
 	}
 }
 
-void Renderer::showAll()
+void Game::Rendering::Renderer::showAll()
 {
 	std::lock_guard<std::recursive_mutex> l(_mtx);
 
@@ -170,7 +170,7 @@ void Renderer::showAll()
 	}
 }
 
-void Renderer::hideAll()
+void Game::Rendering::Renderer::hideAll()
 {
 	std::lock_guard<std::recursive_mutex> l(_mtx);
 
@@ -186,7 +186,7 @@ void Renderer::hideAll()
 	}
 }
 
-void Renderer::destroyAll()
+void Game::Rendering::Renderer::destroyAll()
 {
 	std::lock_guard<std::recursive_mutex> l(_mtx);
 
@@ -197,22 +197,22 @@ void Renderer::destroyAll()
 		it->second->_isMarkedForDeletion = true;
 }
 
-int Renderer::frameRate() const
+int Game::Rendering::Renderer::frameRate() const
 {
 	return _frameRate;
 }
 
-int Renderer::screenWidth() const
+int Game::Rendering::Renderer::screenWidth() const
 {
 	return _width;
 }
 
-int Renderer::screenHeight() const
+int Game::Rendering::Renderer::screenHeight() const
 {
 	return _height;
 }
 
-std::recursive_mutex& Renderer::renderMutex()
+std::recursive_mutex& Game::Rendering::Renderer::renderMutex()
 {
 	return _mtx;
 }

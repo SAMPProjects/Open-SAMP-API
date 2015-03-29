@@ -1,5 +1,13 @@
 #pragma once
 
-extern class Renderer g_pRenderer;
+namespace Game
+{
+	namespace Rendering
+	{
+		class Renderer;
+	}
+}
+
+extern class Game::Rendering::Renderer g_pRenderer;
 
 void initGame();

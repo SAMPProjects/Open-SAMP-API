@@ -1,7 +1,13 @@
 #include "dx_utils.hpp"
 #include "D3DFont.hpp"
 
-void Drawing::DrawBox(float x, float y, float w, float h, DWORD color, LPDIRECT3DDEVICE9 pDevice)
+struct stVertex
+{
+	float fX, fY, fZ, fRHW;
+	D3DCOLOR dwColor;
+};
+
+void Game::Rendering::Drawing::DrawBox(float x, float y, float w, float h, DWORD color, LPDIRECT3DDEVICE9 pDevice)
 {
 	stVertex q[4];
 
@@ -15,18 +21,18 @@ void Drawing::DrawBox(float x, float y, float w, float h, DWORD color, LPDIRECT3
 	q[1].fX = q[3].fX = x + w;
 	q[2].fY = q[3].fY = y + h;
 
-	Drawing::DrawPrimtive(pDevice, D3DPT_TRIANGLESTRIP, 2, q, sizeof(stVertex));
+	Game::Rendering::Drawing::DrawPrimtive(pDevice, D3DPT_TRIANGLESTRIP, 2, q, sizeof(stVertex));
 }
 
-void Drawing::DrawRectangular(float X, float Y, float Width, float Height, float Thickness, D3DCOLOR Color, LPDIRECT3DDEVICE9 pDev)
+void Game::Rendering::Drawing::DrawRectangular(float X, float Y, float Width, float Height, float Thickness, D3DCOLOR Color, LPDIRECT3DDEVICE9 pDev)
 {
-	Drawing::DrawBox(X, Y + Height - Thickness, Width, Thickness, Color, pDev);
-	Drawing::DrawBox(X, Y, Thickness, Height, Color, pDev);
-	Drawing::DrawBox(X, Y, Width, Thickness, Color, pDev);
-	Drawing::DrawBox(X + Width - Thickness, Y, Thickness, Height, Color, pDev);
+	Game::Rendering::Drawing::DrawBox(X, Y + Height - Thickness, Width, Thickness, Color, pDev);
+	Game::Rendering::Drawing::DrawBox(X, Y, Thickness, Height, Color, pDev);
+	Game::Rendering::Drawing::DrawBox(X, Y, Width, Thickness, Color, pDev);
+	Game::Rendering::Drawing::DrawBox(X + Width - Thickness, Y, Thickness, Height, Color, pDev);
 }
 
-void Drawing::DrawPrimtive(LPDIRECT3DDEVICE9 pDevice, D3DPRIMITIVETYPE PrimitiveType, UINT PrimitiveCount, CONST void* pVertexStreamZeroData, UINT VertexStreamZeroStride, DWORD FVF)
+void Game::Rendering::Drawing::DrawPrimtive(LPDIRECT3DDEVICE9 pDevice, D3DPRIMITIVETYPE PrimitiveType, UINT PrimitiveCount, CONST void* pVertexStreamZeroData, UINT VertexStreamZeroStride, DWORD FVF)
 {
 	DWORD dwOldFVF;
 	LPDIRECT3DPIXELSHADER9 ppixelShader;
@@ -47,7 +53,7 @@ void Drawing::DrawPrimtive(LPDIRECT3DDEVICE9 pDevice, D3DPRIMITIVETYPE Primitive
 	pDevice->SetFVF(dwOldFVF);
 }
 
-void Drawing::DrawSprite(LPD3DXSPRITE SpriteInterface, LPDIRECT3DTEXTURE9 TextureInterface, int PosX, int PosY, int Rotation, int Align)
+void Game::Rendering::Drawing::DrawSprite(LPD3DXSPRITE SpriteInterface, LPDIRECT3DTEXTURE9 TextureInterface, int PosX, int PosY, int Rotation, int Align)
 {
 	if (SpriteInterface == NULL || TextureInterface == NULL)
 		return;

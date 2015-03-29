@@ -3,7 +3,7 @@
 #include "Text.hpp"
 #include "dx_utils.hpp"
 
-Text::Text(Renderer *renderer, const std::string& font,int iFontSize,bool Bold,bool Italic,int x,int y,D3DCOLOR color,const std::string& text, bool bShadow, bool bShow)
+Game::Rendering::Text::Text(Renderer *renderer, const std::string& font,int iFontSize,bool Bold,bool Italic,int x,int y,D3DCOLOR color,const std::string& text, bool bShadow, bool bShow)
 	: RenderBase(renderer), m_D3DFont(NULL)
 {
 	setPos(x,y);
@@ -19,7 +19,7 @@ Text::Text(Renderer *renderer, const std::string& font,int iFontSize,bool Bold,b
 }
 
 
-bool Text::updateText(const std::string& Font,int FontSize,bool Bold,bool Italic)
+bool Game::Rendering::Text::updateText(const std::string& Font,int FontSize,bool Bold,bool Italic)
 {
 	m_Font = Font;
 	m_FontSize = FontSize;
@@ -30,32 +30,32 @@ bool Text::updateText(const std::string& Font,int FontSize,bool Bold,bool Italic
 	return true;
 }
 
-void Text::setText(const std::string& str)
+void Game::Rendering::Text::setText(const std::string& str)
 {
 	m_Text = str;
 }
 
-void Text::setColor(D3DCOLOR color)
+void Game::Rendering::Text::setColor(D3DCOLOR color)
 {
 	m_Color = color;
 }
 
-void Text::setPos(int x,int y)
+void Game::Rendering::Text::setPos(int x,int y)
 {
 	m_X = x, m_Y = y;
 }
 
-void Text::setShown(bool bShown)
+void Game::Rendering::Text::setShown(bool bShown)
 {
 	m_bShown = bShown;
 }
 
-void Text::setShadow(bool bShadow)
+void Game::Rendering::Text::setShadow(bool bShadow)
 {
 	m_bShadow = bShadow;
 }
 
-void Text::draw(IDirect3DDevice9 *pDevice)
+void Game::Rendering::Text::draw(IDirect3DDevice9 *pDevice)
 {
 	if(!m_bShown)
 		return;
@@ -76,43 +76,43 @@ void Text::draw(IDirect3DDevice9 *pDevice)
 	drawText(x, y, m_Color, m_Text, D3DFONT_COLORTABLE);
 }
 
-void Text::reset(IDirect3DDevice9 *pDevice)
+void Game::Rendering::Text::reset(IDirect3DDevice9 *pDevice)
 {
 	resetFont();
 }
 
-void Text::show()
+void Game::Rendering::Text::show()
 {
 	setShown(true);
 }
 
-void Text::hide()
+void Game::Rendering::Text::hide()
 {
 	setShown(false);
 }
 
-void Text::releaseResourcesForDeletion(IDirect3DDevice9 *pDevice)
+void Game::Rendering::Text::releaseResourcesForDeletion(IDirect3DDevice9 *pDevice)
 {
 	resetFont();
 }
 
-bool Text::canBeDeleted()
+bool Game::Rendering::Text::canBeDeleted()
 {
 	return m_D3DFont == nullptr;
 }
 
-bool Text::loadResource(IDirect3DDevice9 *pDevice)
+bool Game::Rendering::Text::loadResource(IDirect3DDevice9 *pDevice)
 {
 	initFont(pDevice);
 	return true;
 }
 
-void Text::firstDrawAfterReset(IDirect3DDevice9 *pDevice)
+void Game::Rendering::Text::firstDrawAfterReset(IDirect3DDevice9 *pDevice)
 {
 	loadResource(pDevice);
 }
 
-void Text::initFont(IDirect3DDevice9 *pDevice)
+void Game::Rendering::Text::initFont(IDirect3DDevice9 *pDevice)
 {
 	int size = calculatedYPos(m_FontSize);
 
@@ -121,14 +121,14 @@ void Text::initFont(IDirect3DDevice9 *pDevice)
 	m_D3DFont->RestoreDeviceObjects();
 }
 
-void Text::resetFont()
+void Game::Rendering::Text::resetFont()
 {
 	m_D3DFont.reset();
 }
 
-bool Text::drawText(int x, int y, DWORD dwColor, const std::string& strText, DWORD dwFlags /*= 0L*/)
+bool Game::Rendering::Text::drawText(int x, int y, DWORD dwColor, const std::string& strText, DWORD dwFlags /*= 0L*/)
 {
-	return safeExecuteWithValidation([&](){
+	return Utils::SafeBlock::safeExecuteWithValidation([&](){
 		m_D3DFont->DrawTextA((float)x, (float)y, dwColor, m_Text.c_str(), dwFlags);
 	});
 }

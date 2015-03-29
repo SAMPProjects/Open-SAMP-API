@@ -15,7 +15,6 @@
 DWORD g_dwModuleLength = 0;
 DWORD g_dwModuleBase = 0;
 
-
 void Game::SAMP::initSAMP()
 {
 	g_dwModuleBase = Utils::Module::moduleBase("samp.dll");

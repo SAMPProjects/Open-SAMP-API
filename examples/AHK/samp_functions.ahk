@@ -18,3 +18,12 @@ ExitApp
 AddChatMessage("Hello world")
 AddChatMessage("{ff0000}Hello {00ff00}world")
 return
+
+~2::
+ShowGameText("Hello world", 1000, 3)
+return
+
+~3::
+SendChat("hello")
+SendChat("/hello")
+return

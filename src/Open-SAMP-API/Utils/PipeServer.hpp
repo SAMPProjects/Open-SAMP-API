@@ -8,38 +8,45 @@
 #define BUFSIZE			4096
 #define PIPE_TIMEOUT	5000
 
-namespace boost { class thread; }
-class Serializer;
+namespace boost 
+{ 
+	class thread; 
+}
 
-class PipeServer
-{
-	typedef struct
+namespace Utils
+{ 
+	class Serializer; 
+
+	class PipeServer
 	{
-		OVERLAPPED	m_Overlapped;
-		HANDLE		m_hPipe;
-		char		m_szRequest[BUFSIZE],
-					m_szReply[BUFSIZE];
-		DWORD		m_dwRead,
-					m_dwToWrite,
-					m_dwState;
-		BOOL		m_fPendingIO;
-	} PIPEINSTANCE, *LPPIPEINSTANCE;
+		typedef struct
+		{
+			OVERLAPPED	m_Overlapped;
+			HANDLE		m_hPipe;
+			char		m_szRequest[BUFSIZE],
+				m_szReply[BUFSIZE];
+			DWORD		m_dwRead,
+				m_dwToWrite,
+				m_dwState;
+			BOOL		m_fPendingIO;
+		} PIPEINSTANCE, *LPPIPEINSTANCE;
 
-public:
-	PipeServer(boost::function<void(Serializer&, Serializer&)> func);
-	~PipeServer();
+	public:
+		PipeServer(boost::function<void(Serializer&, Serializer&)> func);
+		~PipeServer();
 
-private:
-	void thread();
-	BOOL connectToNewClient(HANDLE hPipe, LPOVERLAPPED lpo);
-	void disconnectAndReconnect(DWORD dwIdx);
+	private:
+		void thread();
+		BOOL connectToNewClient(HANDLE hPipe, LPOVERLAPPED lpo);
+		void disconnectAndReconnect(DWORD dwIdx);
 
-	PIPEINSTANCE m_Pipes[MAX_CLIENTS];
-	HANDLE m_hEvents[MAX_CLIENTS];
+		PIPEINSTANCE m_Pipes[MAX_CLIENTS];
+		HANDLE m_hEvents[MAX_CLIENTS];
 
-	char m_szPipe[MAX_PATH];
+		char m_szPipe[MAX_PATH];
 
-	boost::thread *m_thread;
-	boost::function<void(Serializer&, Serializer&)> m_cbCallback;
-};
+		boost::thread *m_thread;
+		boost::function<void(Serializer&, Serializer&)> m_cbCallback;
+	};
+}
 

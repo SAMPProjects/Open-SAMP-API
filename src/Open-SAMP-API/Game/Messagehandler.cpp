@@ -13,7 +13,7 @@
 #define READ(X, Y) SERIALIZATION_READ(serializerIn, X, Y);
 #define WRITE(X) serializerOut << X;
 
-void TextCreate(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::TextCreate(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(std::string, Font); 
 	READ(int, FontSize); 
@@ -26,67 +26,67 @@ void TextCreate(Serializer& serializerIn, Serializer& serializerOut)
 	READ(bool, bShadow);
 	READ(bool, bShow);
 
-	WRITE(g_pRenderer.add(std::make_shared<Text>(&g_pRenderer, Font, FontSize, bBold, bItalic, x, y, color, string, bShadow, bShow)));
+	WRITE(g_pRenderer.add(std::make_shared<Rendering::Text>(&g_pRenderer, Font, FontSize, bBold, bItalic, x, y, color, string, bShadow, bShow)));
 }
 
-void TextDestroy(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::TextDestroy(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id);
 	WRITE(int(g_pRenderer.remove(id)));
 }
 
-void TextSetShadow(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::TextSetShadow(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id); 
 	READ(bool, bShadow);
 	
-	WRITE(int(safeExecuteWithValidation([&](){ 
-		g_pRenderer.getAs<Text>(id)->setShadow(bShadow); 
+	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){ 
+		g_pRenderer.getAs<Rendering::Text>(id)->setShadow(bShadow); 
 	})));
 }
 
-void TextSetShown(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::TextSetShown(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id); 
 	READ(bool, bShown);
 
-	WRITE(int(safeExecuteWithValidation([&](){
-		g_pRenderer.getAs<Text>(id)->setShown(bShown);
+	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
+		g_pRenderer.getAs<Rendering::Text>(id)->setShown(bShown);
 	})));
 }
 
-void TextSetColor(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::TextSetColor(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id); 
 	READ(unsigned int, color);
 
-	WRITE(int(safeExecuteWithValidation([&](){
-		g_pRenderer.getAs<Text>(id)->setColor(color);
+	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
+		g_pRenderer.getAs<Rendering::Text>(id)->setColor(color);
 	})));
 }
 
-void TextSetPos(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::TextSetPos(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id); 
 	READ(int, x); 
 	READ(int, y);
 
-	WRITE(int(safeExecuteWithValidation([&](){
-		g_pRenderer.getAs<Text>(id)->setPos(x, y);
+	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
+		g_pRenderer.getAs<Rendering::Text>(id)->setPos(x, y);
 	})));
 }
 
-void TextSetString(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::TextSetString(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id); 
 	READ(std::string, str);
 
-	WRITE(int(safeExecuteWithValidation([&](){
-		g_pRenderer.getAs<Text>(id)->setText(str);
+	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
+		g_pRenderer.getAs<Rendering::Text>(id)->setText(str);
 	})));
 }
 
-void TextUpdate(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::TextUpdate(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id); 
 	READ(std::string, Font); 
@@ -94,12 +94,12 @@ void TextUpdate(Serializer& serializerIn, Serializer& serializerOut)
 	READ(bool, bBold); 
 	READ(bool, bItalic);
 
-	WRITE(int(safeExecuteWithValidation([&](){
-		g_pRenderer.getAs<Text>(id)->updateText(Font, FontSize, bBold, bItalic);
+	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
+		g_pRenderer.getAs<Rendering::Text>(id)->updateText(Font, FontSize, bBold, bItalic);
 	})));
 }
 
-void BoxCreate(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::BoxCreate(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, x); 
 	READ(int, y); 
@@ -108,89 +108,89 @@ void BoxCreate(Serializer& serializerIn, Serializer& serializerOut)
 	READ(unsigned int, dwColor); 
 	READ(bool, bShow);
 
-	WRITE(g_pRenderer.add(std::make_shared<Box>(&g_pRenderer, x, y, w, h, dwColor, bShow)));
+	WRITE(g_pRenderer.add(std::make_shared<Rendering::Box>(&g_pRenderer, x, y, w, h, dwColor, bShow)));
 }
 
-void BoxDestroy(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::BoxDestroy(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id);
 	WRITE((int) g_pRenderer.remove(id));
 }
 
-void BoxSetShown(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::BoxSetShown(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id); 
 	READ(bool, bShown);
 
-	WRITE(int(safeExecuteWithValidation([&](){
-		g_pRenderer.getAs<Box>(id)->setShown(bShown);
+	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
+		g_pRenderer.getAs<Rendering::Box>(id)->setShown(bShown);
 	})));
 }
 
-void BoxSetBorder(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::BoxSetBorder(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id); 
 	READ(int, height); 
 	READ(bool, bShown);
 
-	WRITE(int(safeExecuteWithValidation([&](){
-		g_pRenderer.getAs<Box>(id)->setBorderWidth(height);
-		g_pRenderer.getAs<Box>(id)->setBorderShown(bShown);
+	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
+		g_pRenderer.getAs<Rendering::Box>(id)->setBorderWidth(height);
+		g_pRenderer.getAs<Rendering::Box>(id)->setBorderShown(bShown);
 	})));
 }
 
-void BoxSetBorderColor(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::BoxSetBorderColor(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id); 
 	READ(unsigned int, dwColor);
 
-	WRITE(int(safeExecuteWithValidation([&](){
-		g_pRenderer.getAs<Box>(id)->setBorderColor(dwColor);
+	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
+		g_pRenderer.getAs<Rendering::Box>(id)->setBorderColor(dwColor);
 	})));
 }
 
-void BoxSetColor(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::BoxSetColor(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id); 
 	READ(unsigned int, dwColor);
 
-	WRITE(int(safeExecuteWithValidation([&](){
-		g_pRenderer.getAs<Box>(id)->setBoxColor(dwColor);
+	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
+		g_pRenderer.getAs<Rendering::Box>(id)->setBoxColor(dwColor);
 	})));
 }
 
-void BoxSetHeight(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::BoxSetHeight(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id); 
 	READ(int, height);
 
-	WRITE(int(safeExecuteWithValidation([&](){
-		g_pRenderer.getAs<Box>(id)->setBoxHeight(height);
+	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
+		g_pRenderer.getAs<Rendering::Box>(id)->setBoxHeight(height);
 	})));
 }
 
-void BoxSetPos(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::BoxSetPos(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id); 
 	READ(int, x); 
 	READ(int, y);
 
-	WRITE(int(safeExecuteWithValidation([&](){
-		g_pRenderer.getAs<Box>(id)->setPos(x, y);
+	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
+		g_pRenderer.getAs<Rendering::Box>(id)->setPos(x, y);
 	})));
 }
 
-void BoxSetWidth(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::BoxSetWidth(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id); 
 	READ(int, width);
 
-	WRITE(int(safeExecuteWithValidation([&](){
-		g_pRenderer.getAs<Box>(id)->setBoxWidth(width);
+	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
+		g_pRenderer.getAs<Rendering::Box>(id)->setBoxWidth(width);
 	})));
 }
 
-void LineCreate(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::LineCreate(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, x1); 
 	READ(int, y1); 
@@ -200,46 +200,46 @@ void LineCreate(Serializer& serializerIn, Serializer& serializerOut)
 	READ(unsigned int, color);
 	READ(bool, bShow);
 
-	WRITE(g_pRenderer.add(std::make_shared<Line>(&g_pRenderer, x1, y1, x2, y2, width, color, bShow)));
+	WRITE(g_pRenderer.add(std::make_shared<Rendering::Line>(&g_pRenderer, x1, y1, x2, y2, width, color, bShow)));
 }
 
-void LineDestroy(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::LineDestroy(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id);
 	WRITE((int) g_pRenderer.remove(id));
 }
 
-void LineSetShown(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::LineSetShown(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id); 
 	READ(bool, bShown);
 
-	WRITE(int(safeExecuteWithValidation([&](){
-		g_pRenderer.getAs<Line>(id)->setShown(bShown);
+	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
+		g_pRenderer.getAs<Rendering::Line>(id)->setShown(bShown);
 	})));
 }
 
-void LineSetColor(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::LineSetColor(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id); 
 	READ(unsigned int, color);
 
-	WRITE(int(safeExecuteWithValidation([&](){
-		g_pRenderer.getAs<Line>(id)->setColor(color);
+	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
+		g_pRenderer.getAs<Rendering::Line>(id)->setColor(color);
 	})));
 }
 
-void LineSetWidth(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::LineSetWidth(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id); 
 	READ(int, width);
 
-	WRITE(int(safeExecuteWithValidation([&](){
-		g_pRenderer.getAs<Line>(id)->setWidth(width);
+	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
+		g_pRenderer.getAs<Rendering::Line>(id)->setWidth(width);
 	})));
 }
 
-void LineSetPos(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::LineSetPos(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id); 
 	READ(int, x1); 
@@ -247,12 +247,12 @@ void LineSetPos(Serializer& serializerIn, Serializer& serializerOut)
 	READ(int, x2); 
 	READ(int, y2);
 
-	WRITE(int(safeExecuteWithValidation([&](){
-		g_pRenderer.getAs<Line>(id)->setPos(x1, y1, x2, y2);
+	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
+		g_pRenderer.getAs<Rendering::Line>(id)->setPos(x1, y1, x2, y2);
 	})));
 }
 
-void ImageCreate(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::ImageCreate(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(std::string, path); 
 	READ(int, x); 
@@ -261,110 +261,110 @@ void ImageCreate(Serializer& serializerIn, Serializer& serializerOut)
 	READ(int, align); 
 	READ(bool, show);
 	
-	WRITE(g_pRenderer.add(std::make_shared<Image>(&g_pRenderer, path.c_str(), x, y, rotation, align, show)));
+	WRITE(g_pRenderer.add(std::make_shared<Rendering::Image>(&g_pRenderer, path.c_str(), x, y, rotation, align, show)));
 }
 
-void ImageDestroy(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::ImageDestroy(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id);
 	WRITE((int) g_pRenderer.remove(id));
 }
 
-void ImageSetShown(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::ImageSetShown(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id); 
 	READ(bool, bShow);
 
-	WRITE(int(safeExecuteWithValidation([&](){
-		g_pRenderer.getAs<Image>(id)->setShown(bShow);
+	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
+		g_pRenderer.getAs<Rendering::Image>(id)->setShown(bShow);
 	})));
 }
 
-void ImageSetAlign(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::ImageSetAlign(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id); 
 	READ(int, align);
 
-	WRITE(int(safeExecuteWithValidation([&](){
-		g_pRenderer.getAs<Image>(id)->setAlign(align);
+	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
+		g_pRenderer.getAs<Rendering::Image>(id)->setAlign(align);
 	})));
 }
 
-void ImageSetPos(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::ImageSetPos(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id); 
 	READ(int, x); 
 	READ(int, y);
 
-	WRITE(int(safeExecuteWithValidation([&](){
-		g_pRenderer.getAs<Image>(id)->setPos(x, y);
+	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
+		g_pRenderer.getAs<Rendering::Image>(id)->setPos(x, y);
 	})));
 }
 
-void ImageSetRotation(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::ImageSetRotation(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id); 
 	READ(int, rotation);
 
-	WRITE(int(safeExecuteWithValidation([&](){
-		g_pRenderer.getAs<Image>(id)->setRotation(rotation);
+	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
+		g_pRenderer.getAs<Rendering::Image>(id)->setRotation(rotation);
 	})));
 }
 
 
-void DestroyAllVisual(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::DestroyAllVisual(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	g_pRenderer.destroyAll();
 }
 
-void ShowAllVisual(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::ShowAllVisual(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	g_pRenderer.showAll();
 }
 
-void HideAllVisual(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::HideAllVisual(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	g_pRenderer.hideAll();
 }
 
-void GetFrameRate(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::GetFrameRate(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	WRITE(g_pRenderer.frameRate());
 }
 
-void GetScreenSpecs(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::GetScreenSpecs(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	WRITE(g_pRenderer.screenWidth()); 
 	WRITE(g_pRenderer.screenHeight());
 }
 
-void SetCalculationRatio(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::SetCalculationRatio(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, width);
 	READ(int, height);
 
-	RenderBase::xCalculator = width;
-	RenderBase::yCalculator = height;
+	Rendering::RenderBase::xCalculator = width;
+	Rendering::RenderBase::yCalculator = height;
 }
 
-void SetOverlayPriority(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::SetOverlayPriority(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id);
 	READ(int, priority);
 
-	WRITE(int(safeExecuteWithValidation([&](){
+	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
 		g_pRenderer.get(id)->setPriority(priority);
 	})));
 }
 
-void SendChat(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::SendChat(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(std::string, message);
 
 	WRITE(Game::SAMP::sendChat(message.c_str()));
 }
 
-void ShowGameText(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::ShowGameText(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(std::string, message);
 	READ(int, time);
@@ -373,9 +373,9 @@ void ShowGameText(Serializer& serializerIn, Serializer& serializerOut)
 	WRITE(Game::SAMP::showGameText(message.c_str(), time, style));
 }
 
-void AddChatMessage(Serializer& serializerIn, Serializer& serializerOut)
+void Game::MessageHandler::AddChatMessage(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(std::string, message);
 
-	WRITE(Game::SAMP::addChatMessage(message.c_str()));
+	WRITE(Game::SAMP::addChatMessage((std::string("{ffffff}• ") + message).c_str()));
 }

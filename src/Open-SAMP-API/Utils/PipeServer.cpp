@@ -9,7 +9,7 @@
 #define READING_STATE		1 
 #define WRITING_STATE		2 
 
-BOOL PipeServer::connectToNewClient(HANDLE hPipe, LPOVERLAPPED lpo)
+BOOL Utils::PipeServer::connectToNewClient(HANDLE hPipe, LPOVERLAPPED lpo)
 {
 	BOOL fConnected, fPendingIO = FALSE;
 
@@ -36,19 +36,19 @@ BOOL PipeServer::connectToNewClient(HANDLE hPipe, LPOVERLAPPED lpo)
 	return fPendingIO;
 }
 
-void PipeServer::disconnectAndReconnect(DWORD dwIdx)
+void Utils::PipeServer::disconnectAndReconnect(DWORD dwIdx)
 {
 	DisconnectNamedPipe(m_Pipes[dwIdx].m_hPipe);
 	m_Pipes[dwIdx].m_fPendingIO = connectToNewClient(m_Pipes[dwIdx].m_hPipe, &m_Pipes[dwIdx].m_Overlapped);
 	m_Pipes[dwIdx].m_dwState = m_Pipes[dwIdx].m_fPendingIO ? CONNECTING_STATE : READING_STATE;
 
 }
-PipeServer::PipeServer(boost::function<void(Serializer&, Serializer&)> func) : m_cbCallback(func), m_thread(0)
+Utils::PipeServer::PipeServer(boost::function<void(Utils::Serializer&, Utils::Serializer&)> func) : m_cbCallback(func), m_thread(0)
 {
 	memset(m_szPipe, 0, sizeof(m_szPipe));
 	memset(m_Pipes, 0, sizeof(m_Pipes));
 
-	sprintf_s(m_szPipe, "\\\\.\\pipe\\%s", g_strPipeName);
+	sprintf_s(m_szPipe, "\\\\.\\pipe\\%s", Shared::Config::pipeName);
 
 	for (int i = 0; i < MAX_CLIENTS; i++)
 	{
@@ -65,7 +65,7 @@ PipeServer::PipeServer(boost::function<void(Serializer&, Serializer&)> func) : m
 }
 
 
-PipeServer::~PipeServer(void)
+Utils::PipeServer::~PipeServer(void)
 {
 	if (m_thread)
 	{
@@ -77,7 +77,7 @@ PipeServer::~PipeServer(void)
 	}
 }
 
-void PipeServer::thread()
+void Utils::PipeServer::thread()
 {
 	BOOL bSuccess;
 	DWORD dwRet;

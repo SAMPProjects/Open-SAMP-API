@@ -1,7 +1,7 @@
 #include "Box.hpp"
 #include "dx_utils.hpp"
 
-Box::Box(Renderer *renderer,  int x, int y, int w, int h, D3DCOLOR color, bool show)
+Game::Rendering::Box::Box(Renderer *renderer,  int x, int y, int w, int h, D3DCOLOR color, bool show)
 	: RenderBase(renderer), m_bShown(false)
 {
 	setPos(x, y);
@@ -16,47 +16,47 @@ Box::Box(Renderer *renderer,  int x, int y, int w, int h, D3DCOLOR color, bool s
 }
 
 
-void Box::setPos(int x,int y)
+void Game::Rendering::Box::setPos(int x,int y)
 {
 	m_iX = x, m_iY = y;
 }
 
-void Box::setBorderColor(D3DCOLOR dwColor)
+void Game::Rendering::Box::setBorderColor(D3DCOLOR dwColor)
 {
 	m_dwBorderColor = dwColor;
 }
 
-void Box::setBoxColor(D3DCOLOR dwColor)
+void Game::Rendering::Box::setBoxColor(D3DCOLOR dwColor)
 {
 	m_dwBoxColor = dwColor;
 }
 
-void Box::setBorderWidth(DWORD dwWidth)
+void Game::Rendering::Box::setBorderWidth(DWORD dwWidth)
 {
 	m_dwBorderWidth = dwWidth;
 }
 
-void Box::setBoxWidth(DWORD dwWidth)
+void Game::Rendering::Box::setBoxWidth(DWORD dwWidth)
 {
 	m_dwBoxWidth = dwWidth;
 }
 
-void Box::setBoxHeight(DWORD dwHeight)
+void Game::Rendering::Box::setBoxHeight(DWORD dwHeight)
 {
 	m_dwBoxHeight = dwHeight;
 }
 
-void Box::setBorderShown(bool b)
+void Game::Rendering::Box::setBorderShown(bool b)
 {
 	m_bBorderShown = b;
 }
 
-void Box::setShown(bool b)
+void Game::Rendering::Box::setShown(bool b)
 {
 	m_bShown = b;
 }
 
-void Box::draw(IDirect3DDevice9 *pDevice)
+void Game::Rendering::Box::draw(IDirect3DDevice9 *pDevice)
 {
 	if(!m_bShown)
 		return;
@@ -72,38 +72,38 @@ void Box::draw(IDirect3DDevice9 *pDevice)
 		Drawing::DrawRectangular(x, y, w, h, (float)m_dwBorderWidth, m_dwBorderColor, pDevice);
 }
 
-void Box::reset(IDirect3DDevice9 *pDevice)
+void Game::Rendering::Box::reset(IDirect3DDevice9 *pDevice)
 {
 	
 }
 
-void Box::show()
+void Game::Rendering::Box::show()
 {
 	setShown(true);
 }
 
-void Box::hide()
+void Game::Rendering::Box::hide()
 {
 	setShown(false);
 }
 
-void Box::releaseResourcesForDeletion(IDirect3DDevice9 *pDevice)
+void Game::Rendering::Box::releaseResourcesForDeletion(IDirect3DDevice9 *pDevice)
 {
 	m_bShown = false;
 	m_bBorderShown = false;
 }
 
-bool Box::canBeDeleted()
+bool Game::Rendering::Box::canBeDeleted()
 {
 	return true;
 }
 
-bool Box::loadResource(IDirect3DDevice9 *pDevice)
+bool Game::Rendering::Box::loadResource(IDirect3DDevice9 *pDevice)
 {
 	return true;
 }
 
-void Box::firstDrawAfterReset(IDirect3DDevice9 *pDevice)
+void Game::Rendering::Box::firstDrawAfterReset(IDirect3DDevice9 *pDevice)
 {
 	
 }

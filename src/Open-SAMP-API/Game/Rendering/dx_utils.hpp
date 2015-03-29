@@ -6,17 +6,17 @@
 
 class CD3DFont;
 
-namespace Drawing
+namespace Game
 {
-	struct stVertex
+	namespace Rendering
 	{
-		float fX, fY, fZ, fRHW;
-		D3DCOLOR dwColor;
-	};
+		namespace Drawing
+		{
+			void DrawBox(float x, float y, float w, float h, DWORD color, LPDIRECT3DDEVICE9 pDevice);
+			void DrawRectangular(float X, float Y, float Width, float Height, float Thickness, D3DCOLOR Color, LPDIRECT3DDEVICE9 pDev);
+			void DrawPrimtive(LPDIRECT3DDEVICE9 pDevice, D3DPRIMITIVETYPE PrimitiveType, UINT PrimitiveCount, CONST void* pVertexStreamZeroData, UINT VertexStreamZeroStride, DWORD FVF = DRAW_FVF);
 
-	void DrawBox(float x, float y, float w, float h, DWORD color, LPDIRECT3DDEVICE9 pDevice);
-	void DrawRectangular(float X, float Y, float Width, float Height, float Thickness, D3DCOLOR Color, LPDIRECT3DDEVICE9 pDev);
-	void DrawPrimtive(LPDIRECT3DDEVICE9 pDevice, D3DPRIMITIVETYPE PrimitiveType, UINT PrimitiveCount, CONST void* pVertexStreamZeroData, UINT VertexStreamZeroStride, DWORD FVF = DRAW_FVF);
-
-	void DrawSprite(LPD3DXSPRITE SpriteInterface, LPDIRECT3DTEXTURE9 TextureInterface, int PosX, int PosY, int Rotation, int Align);
+			void DrawSprite(LPD3DXSPRITE SpriteInterface, LPDIRECT3DTEXTURE9 TextureInterface, int PosX, int PosY, int Rotation, int Align);
+		}
+	}
 }

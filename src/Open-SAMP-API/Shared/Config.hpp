@@ -1,3 +1,9 @@
 #pragma once
 
-const char *const g_strPipeName = "SAMP_API_SERVER";
+namespace Shared
+{
+	namespace Config
+	{
+		const char *const pipeName = "SAMP_API_SERVER";
+	}
+}

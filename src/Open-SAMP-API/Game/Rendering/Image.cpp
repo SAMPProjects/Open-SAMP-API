@@ -1,7 +1,7 @@
 #include "Image.hpp"
 #include "dx_utils.hpp"
 
-Image::Image(Renderer *renderer, const std::string& file_path, int x, int y, int rotation, int align, bool bShow)
+Game::Rendering::Image::Image(Renderer *renderer, const std::string& file_path, int x, int y, int rotation, int align, bool bShow)
 	: RenderBase(renderer), m_pSprite(NULL), m_pTexture(NULL)
 {
 	setFilePath(file_path);
@@ -11,32 +11,32 @@ Image::Image(Renderer *renderer, const std::string& file_path, int x, int y, int
 	setShown(bShow);
 }
 
-void Image::setFilePath(const std::string & path)
+void Game::Rendering::Image::setFilePath(const std::string & path)
 {
 	m_filePath = path;
 }
 
-void Image::setPos(int x, int y)
+void Game::Rendering::Image::setPos(int x, int y)
 {
 	m_x = x, m_y = y;
 }
 
-void Image::setRotation(int rotation)
+void Game::Rendering::Image::setRotation(int rotation)
 {
 	m_rotation = rotation;
 }
 
-void Image::setAlign(int align)
+void Game::Rendering::Image::setAlign(int align)
 {
 	m_align = align;
 }
 
-void Image::setShown(bool show)
+void Game::Rendering::Image::setShown(bool show)
 {
 	m_bShow = show;
 }
 
-bool Image::updateImage(const std::string& file_path, int x, int y, int rotation, int align, bool bShow)
+bool Game::Rendering::Image::updateImage(const std::string& file_path, int x, int y, int rotation, int align, bool bShow)
 {
 	setFilePath(file_path);
 	setPos(x, y);
@@ -49,7 +49,7 @@ bool Image::updateImage(const std::string& file_path, int x, int y, int rotation
 	return true;
 }
 
-void Image::draw(IDirect3DDevice9 *pDevice)
+void Game::Rendering::Image::draw(IDirect3DDevice9 *pDevice)
 {
 	if(!m_bShow)
 		return;
@@ -61,7 +61,7 @@ void Image::draw(IDirect3DDevice9 *pDevice)
 		Drawing::DrawSprite(m_pSprite, m_pTexture, x, y, m_rotation, m_align);
 }
 
-void Image::reset(IDirect3DDevice9 *pDevice)
+void Game::Rendering::Image::reset(IDirect3DDevice9 *pDevice)
 {
 	if(m_pSprite)
 	{
@@ -71,18 +71,18 @@ void Image::reset(IDirect3DDevice9 *pDevice)
 }
 
 
-void Image::show()
+void Game::Rendering::Image::show()
 {
 	setShown(true);
 }
 
-void Image::hide()
+void Game::Rendering::Image::hide()
 {
 	setShown(false);
 }
 
 
-void Image::releaseResourcesForDeletion(IDirect3DDevice9 *pDevice)
+void Game::Rendering::Image::releaseResourcesForDeletion(IDirect3DDevice9 *pDevice)
 {
 	if(m_pSprite)
 	{
@@ -97,12 +97,12 @@ void Image::releaseResourcesForDeletion(IDirect3DDevice9 *pDevice)
 	}
 }
 
-bool Image::canBeDeleted()
+bool Game::Rendering::Image::canBeDeleted()
 {
 	return (m_pTexture == NULL && m_pSprite == NULL);
 }
 
-bool Image::loadResource(IDirect3DDevice9 *pDevice)
+bool Game::Rendering::Image::loadResource(IDirect3DDevice9 *pDevice)
 {
 	if(m_pSprite)
 	{
@@ -122,7 +122,7 @@ bool Image::loadResource(IDirect3DDevice9 *pDevice)
 	return (m_pTexture != NULL && m_pSprite != NULL);
 }
 
-void Image::firstDrawAfterReset(IDirect3DDevice9 *pDevice)
+void Game::Rendering::Image::firstDrawAfterReset(IDirect3DDevice9 *pDevice)
 {
 
 }

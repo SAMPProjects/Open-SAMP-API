@@ -1,13 +1,8 @@
 #include "Client.hpp"
-
 #include <dllmain.hpp>
-#include <ShlObj.h>
-
 #include <Shared/PipeMessages.hpp>
-#include <Utils/Misc.hpp>
-
+#include <Utils/Process.hpp>
 #include <string>
-
 #include <boost/algorithm/string.hpp>
 
 struct stParamInfo
@@ -23,16 +18,16 @@ stParamInfo g_paramArray[3] =
 	"use_window", "0"
 };
 
-bool IsServerAvailable()
+bool Client::Client::IsServerAvailable()
 {
-	Serializer serializerIn, serializerOut;
+	Utils::Serializer serializerIn, serializerOut;
 
-	serializerIn << PipeMessages::Ping;
+	serializerIn << Shared::PipeMessages::Ping;
 
-	return PipeClient(serializerIn, serializerOut).success();
+	return Utils::PipeClient(serializerIn, serializerOut).success();
 }
 
-EXPORT void SetParam(char *_szParamName, char *_szParamValue)
+EXPORT void Client::Client::SetParam(char *_szParamName, char *_szParamValue)
 {
 	for (int i = 0; i < ARRAYSIZE(g_paramArray); i++)
 	if (boost::iequals(_szParamName, g_paramArray[i].szParamName))
@@ -51,7 +46,7 @@ std::string GetParam(char *_szParamName)
 }
 
 
-EXPORT int Init()
+EXPORT int Client::Client::Init()
 {
 	char szDLLPath[MAX_PATH + 1] = { 0 };
 	DWORD dwPId = 0;
@@ -61,12 +56,12 @@ EXPORT int Init()
 	if (!atoi(GetParam("use_window").c_str()))
 	{
 		std::string szSearchName = GetParam("process");
-		dwPId = procIdByProcName(szSearchName);
+		dwPId = Utils::Process::pidByProcessName(szSearchName);
 	}
 	else
 	{
 		std::string szSearchName = GetParam("window");
-		dwPId = procIdByWindowName(szSearchName);
+		dwPId = Utils::Process::pidByWindowName(szSearchName);
 	}
 
 	if (dwPId == 0)

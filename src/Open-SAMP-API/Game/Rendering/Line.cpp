@@ -1,6 +1,6 @@
 #include "Line.hpp"
 
-Line::Line(Renderer *renderer, int x1,int y1,int x2,int y2,int width,D3DCOLOR color, bool bShow)
+Game::Rendering::Line::Line(Renderer *renderer, int x1,int y1,int x2,int y2,int width,D3DCOLOR color, bool bShow)
 	: RenderBase(renderer), m_Line(NULL)
 {
 	setPos(x1,y1,x2,y2);
@@ -9,28 +9,28 @@ Line::Line(Renderer *renderer, int x1,int y1,int x2,int y2,int width,D3DCOLOR co
 	setShown(bShow);
 }
 
-void Line::setPos(int x1,int y1,int x2,int y2)
+void Game::Rendering::Line::setPos(int x1,int y1,int x2,int y2)
 {
 	m_X1 = x1, m_X2 = x2;
 	m_Y1 = y1, m_Y2 = y2;
 }
 
-void Line::setWidth(int width)
+void Game::Rendering::Line::setWidth(int width)
 {
 	m_Width = width;
 }
 
-void Line::setColor(D3DCOLOR color)
+void Game::Rendering::Line::setColor(D3DCOLOR color)
 {
 	m_Color = color;
 }
 
-void Line::setShown(bool show)
+void Game::Rendering::Line::setShown(bool show)
 {
 	m_bShow = show;
 }
 
-void Line::draw(IDirect3DDevice9 *pDevice)
+void Game::Rendering::Line::draw(IDirect3DDevice9 *pDevice)
 {
 	if(!m_bShow || m_Line == NULL)
 		return;
@@ -51,7 +51,7 @@ void Line::draw(IDirect3DDevice9 *pDevice)
 	m_Line->End();	
 }
 
-void Line::reset(IDirect3DDevice9 *pDevice)
+void Game::Rendering::Line::reset(IDirect3DDevice9 *pDevice)
 {
 	if(m_Line)
 	{
@@ -60,17 +60,17 @@ void Line::reset(IDirect3DDevice9 *pDevice)
 	}
 }
 
-void Line::show()
+void Game::Rendering::Line::show()
 {
 	setShown(true);
 }
 
-void Line::hide()
+void Game::Rendering::Line::hide()
 {
 	setShown(false);
 }
 
-void Line::releaseResourcesForDeletion(IDirect3DDevice9 *pDevice)
+void Game::Rendering::Line::releaseResourcesForDeletion(IDirect3DDevice9 *pDevice)
 {
 	if(m_Line)
 	{
@@ -79,12 +79,12 @@ void Line::releaseResourcesForDeletion(IDirect3DDevice9 *pDevice)
 	}
 }
 
-bool Line::canBeDeleted()
+bool Game::Rendering::Line::canBeDeleted()
 {
 	return (m_Line == NULL) ? true : false;
 }
 
-bool Line::loadResource(IDirect3DDevice9 *pDevice)
+bool Game::Rendering::Line::loadResource(IDirect3DDevice9 *pDevice)
 {
 	if(m_Line)
 	{
@@ -97,7 +97,7 @@ bool Line::loadResource(IDirect3DDevice9 *pDevice)
 	return m_Line != NULL;
 }
 
-void Line::firstDrawAfterReset(IDirect3DDevice9 *pDevice)
+void Game::Rendering::Line::firstDrawAfterReset(IDirect3DDevice9 *pDevice)
 {
 
 }

@@ -4,50 +4,56 @@
 
 #include <functional>
 
-void TextCreate(Serializer& serializerIn, Serializer& serializerOut);
-void TextDestroy(Serializer& serializerIn, Serializer& serializerOut);
-void TextSetShadow(Serializer& serializerIn, Serializer& serializerOut);
-void TextSetShown(Serializer& serializerIn, Serializer& serializerOut);
-void TextSetColor(Serializer& serializerIn, Serializer& serializerOut);
-void TextSetPos(Serializer& serializerIn, Serializer& serializerOut);
-void TextSetString(Serializer& serializerIn, Serializer& serializerOut);
-void TextUpdate(Serializer& serializerIn, Serializer& serializerOut);
+namespace Game
+{
+	namespace MessageHandler
+	{
+		void TextCreate(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void TextDestroy(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void TextSetShadow(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void TextSetShown(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void TextSetColor(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void TextSetPos(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void TextSetString(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void TextUpdate(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 
-void BoxCreate(Serializer& serializerIn, Serializer& serializerOut);
-void BoxDestroy(Serializer& serializerIn, Serializer& serializerOut);
-void BoxSetShown(Serializer& serializerIn, Serializer& serializerOut);
-void BoxSetBorder(Serializer& serializerIn, Serializer& serializerOut);
-void BoxSetBorderColor(Serializer& serializerIn, Serializer& serializerOut);
-void BoxSetColor(Serializer& serializerIn, Serializer& serializerOut);
-void BoxSetHeight(Serializer& serializerIn, Serializer& serializerOut);
-void BoxSetPos(Serializer& serializerIn, Serializer& serializerOut);
-void BoxSetWidth(Serializer& serializerIn, Serializer& serializerOut);
+		void BoxCreate(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void BoxDestroy(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void BoxSetShown(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void BoxSetBorder(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void BoxSetBorderColor(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void BoxSetColor(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void BoxSetHeight(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void BoxSetPos(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void BoxSetWidth(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 
-void LineCreate(Serializer& serializerIn, Serializer& serializerOut);
-void LineDestroy(Serializer& serializerIn, Serializer& serializerOut);
-void LineSetShown(Serializer& serializerIn, Serializer& serializerOut);
-void LineSetColor(Serializer& serializerIn, Serializer& serializerOut);
-void LineSetWidth(Serializer& serializerIn, Serializer& serializerOut);
-void LineSetPos(Serializer& serializerIn, Serializer& serializerOut);
+		void LineCreate(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void LineDestroy(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void LineSetShown(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void LineSetColor(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void LineSetWidth(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void LineSetPos(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 
-void ImageCreate(Serializer& serializerIn, Serializer& serializerOut);
-void ImageDestroy(Serializer& serializerIn, Serializer& serializerOut);
-void ImageSetShown(Serializer& serializerIn, Serializer& serializerOut);
-void ImageSetAlign(Serializer& serializerIn, Serializer& serializerOut);
-void ImageSetPos(Serializer& serializerIn, Serializer& serializerOut);
-void ImageSetRotation(Serializer& serializerIn, Serializer& serializerOut);
+		void ImageCreate(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void ImageDestroy(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void ImageSetShown(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void ImageSetAlign(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void ImageSetPos(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void ImageSetRotation(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 
-void DestroyAllVisual(Serializer& serializerIn, Serializer& serializerOut);
-void ShowAllVisual(Serializer& serializerIn, Serializer& serializerOut);
-void HideAllVisual(Serializer& serializerIn, Serializer& serializerOut);
+		void DestroyAllVisual(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void ShowAllVisual(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void HideAllVisual(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 
-void GetFrameRate(Serializer& serializerIn, Serializer& serializerOut);
-void GetScreenSpecs(Serializer& serializerIn, Serializer& serializerOut);
+		void GetFrameRate(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void GetScreenSpecs(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 
-void SetCalculationRatio(Serializer& serializerIn, Serializer& serializerOut);
+		void SetCalculationRatio(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 
-void SetOverlayPriority(Serializer& serializerIn, Serializer& serializerOut);
+		void SetOverlayPriority(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 
-void SendChat(Serializer& serializerIn, Serializer& serializerOut);
-void ShowGameText(Serializer& serializerIn, Serializer& serializerOut);
-void AddChatMessage(Serializer& serializerIn, Serializer& serializerOut);
+		void SendChat(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void ShowGameText(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void AddChatMessage(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+	}
+}
