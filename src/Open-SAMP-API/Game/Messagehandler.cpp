@@ -1,5 +1,3 @@
-#include <Utils/SafeBlock.hpp>
-
 #include "Messagehandler.hpp"
 #include "Game.hpp"
 #include "SAMP.hpp"
@@ -9,6 +7,7 @@
 #include "Rendering/Image.hpp"
 #include "Rendering/Renderer.hpp"
 #include "Rendering/RenderBase.hpp"
+#include <Utils/SafeBlock.hpp>
 
 #define READ(X, Y) SERIALIZATION_READ(serializerIn, X, Y);
 #define WRITE(X) serializerOut << X;

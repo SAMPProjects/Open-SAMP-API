@@ -2,7 +2,6 @@
 #pragma comment(lib,"d3dx9.lib")
 
 #include "dllmain.hpp"
-
 #include <Utils/Windows.hpp>
 #include <Game/Game.hpp>
 

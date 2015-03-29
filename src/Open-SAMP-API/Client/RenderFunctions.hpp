@@ -5,14 +5,14 @@ namespace Client
 {
 	namespace RenderFunctions
 	{
-		EXPORT int TextCreate(char *Font, int FontSize, bool bBold, bool bItalic, int x, int y, unsigned int color, char *text, bool bShadow, bool bShow);
+		EXPORT int TextCreate(const char *Font, int FontSize, bool bBold, bool bItalic, int x, int y, unsigned int color, const char *text, bool bShadow, bool bShow);
 		EXPORT int TextDestroy(int ID);
 		EXPORT int TextSetShadow(int id, bool b);
 		EXPORT int TextSetShown(int id, bool b);
 		EXPORT int TextSetColor(int id, unsigned int color);
 		EXPORT int TextSetPos(int id, int x, int y);
-		EXPORT int TextSetString(int id, char *str);
-		EXPORT int TextUpdate(int id, char *Font, int FontSize, bool bBold, bool bItalic);
+		EXPORT int TextSetString(int id, const char *str);
+		EXPORT int TextUpdate(int id, const char *Font, int FontSize, bool bBold, bool bItalic);
 
 		EXPORT int BoxCreate(int x, int y, int w, int h, unsigned int dwColor, bool bShow);
 		EXPORT int BoxDestroy(int id);
@@ -31,7 +31,7 @@ namespace Client
 		EXPORT int LineSetWidth(int id, int width);
 		EXPORT int LineSetPos(int id, int x1, int y1, int x2, int y2);
 
-		EXPORT int ImageCreate(char *path, int x, int y, int rotation, int align, bool bShow);
+		EXPORT int ImageCreate(const char *path, int x, int y, int rotation, int align, bool bShow);
 		EXPORT int ImageDestroy(int id);
 		EXPORT int ImageSetShown(int id, bool bShown);
 		EXPORT int ImageSetAlign(int id, int align);

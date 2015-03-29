@@ -1,12 +1,10 @@
 #pragma once
 #include "SafeBlock.hpp"
-
-#include <boost/archive/text_oarchive.hpp>
-#include <boost/archive/text_iarchive.hpp>
-
 #include <sstream>
 #include <string>
 #include <memory>
+#include <boost/archive/text_oarchive.hpp>
+#include <boost/archive/text_iarchive.hpp>
 
 #define SERIALIZATION_READ(S, T, V) T V; S >> V;
 

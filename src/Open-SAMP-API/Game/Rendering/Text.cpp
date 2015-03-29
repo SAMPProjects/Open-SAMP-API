@@ -1,7 +1,6 @@
-#include <Utils/SafeBlock.hpp>
-
 #include "Text.hpp"
 #include "dx_utils.hpp"
+#include <Utils/SafeBlock.hpp>
 
 Game::Rendering::Text::Text(Renderer *renderer, const std::string& font,int iFontSize,bool Bold,bool Italic,int x,int y,D3DCOLOR color,const std::string& text, bool bShadow, bool bShow)
 	: RenderBase(renderer), m_D3DFont(NULL)

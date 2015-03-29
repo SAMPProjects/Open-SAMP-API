@@ -1,11 +1,9 @@
 #include "SAMP.hpp"
 #include "PatternTable.hpp"
-
 #include <Utils/Windows.hpp>
 #include <Utils/Memory.hpp>
 #include <Utils/Pattern.hpp>
 #include <Utils/Module.hpp>
-
 #include <exception>
 #include <stdio.h>
 

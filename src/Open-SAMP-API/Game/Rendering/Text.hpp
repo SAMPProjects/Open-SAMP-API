@@ -1,10 +1,7 @@
 #pragma once
-#include <string>
-#include <memory>
-#include <d3dx9.h>
-
-#include "D3DFont.hpp"
 #include "RenderBase.hpp"
+#include "D3DFont.hpp"
+#include <string>
 
 namespace Game
 {

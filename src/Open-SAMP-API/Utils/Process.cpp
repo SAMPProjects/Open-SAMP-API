@@ -1,8 +1,6 @@
 #include "Process.hpp"
 #include "Windows.hpp"
-
 #include <TlHelp32.h>
-
 #include <boost/algorithm/string.hpp>
 
 unsigned long Utils::Process::pidByWindowName(const std::string& windName)

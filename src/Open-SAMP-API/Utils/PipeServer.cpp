@@ -1,8 +1,6 @@
 #include "PipeServer.hpp"
 #include "Serializer.hpp"
-
 #include <Shared/Config.hpp>
-
 #include <boost/thread.hpp>
 
 #define CONNECTING_STATE	0 

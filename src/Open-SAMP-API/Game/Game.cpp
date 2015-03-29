@@ -1,14 +1,11 @@
+#include "Game.hpp"
+#include "Messagehandler.hpp"
+#include "SAMP.hpp"
+#include "Rendering/Renderer.hpp"
 #include <Utils/Windows.hpp>
 #include <Utils/Hook.hpp>
 #include <Utils/Pattern.hpp>
 #include <Utils/PipeServer.hpp>
-
-#include "Game.hpp"
-#include "Messagehandler.hpp"
-#include "SAMP.hpp"
-
-#include "Rendering/Renderer.hpp"
-
 #include <d3dx9.h>
 
 #define BIND(T) PaketHandler[Shared::PipeMessages::T] = std::bind(Game::MessageHandler::T, std::placeholders::_1, std::placeholders::_2);

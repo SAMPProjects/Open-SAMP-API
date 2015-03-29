@@ -2,7 +2,7 @@
 #include <Shared/PipeMessages.hpp>
 #include <boost/filesystem.hpp>
 
-EXPORT int Client::RenderFunctions::TextCreate(char *Font, int FontSize, bool bBold, bool bItalic, int x, int y, unsigned int color, char *text, bool bShadow, bool bShow)
+EXPORT int Client::RenderFunctions::TextCreate(const char *Font, int FontSize, bool bBold, bool bItalic, int x, int y, unsigned int color, const char *text, bool bShadow, bool bShow)
 {
 	SERVER_CHECK(-1)
 
@@ -87,7 +87,7 @@ EXPORT int Client::RenderFunctions::TextSetPos(int id, int x, int y)
 	return 0;
 }
 
-EXPORT int Client::RenderFunctions::TextSetString(int id, char *str)
+EXPORT int Client::RenderFunctions::TextSetString(int id, const char *str)
 {
 	SERVER_CHECK(0)
 
@@ -101,7 +101,7 @@ EXPORT int Client::RenderFunctions::TextSetString(int id, char *str)
 	return 0;
 }
 
-EXPORT int Client::RenderFunctions::TextUpdate(int id, char *Font, int FontSize, bool bBold, bool bItalic)
+EXPORT int Client::RenderFunctions::TextUpdate(int id, const char *Font, int FontSize, bool bBold, bool bItalic)
 {
 	SERVER_CHECK(0)
 
@@ -325,7 +325,7 @@ EXPORT int Client::RenderFunctions::LineSetPos(int id, int x1, int y1, int x2, i
 	return 0;
 }
 
-EXPORT int Client::RenderFunctions::ImageCreate(char *path, int x, int y, int rotation, int align, bool bShow)
+EXPORT int Client::RenderFunctions::ImageCreate(const char *path, int x, int y, int rotation, int align, bool bShow)
 {
 	SERVER_CHECK(-1)
 

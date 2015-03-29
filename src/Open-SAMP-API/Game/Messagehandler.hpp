@@ -1,7 +1,6 @@
 #pragma once
 #include <Utils/Serializer.hpp>
 #include <Shared/PipeMessages.hpp>
-
 #include <functional>
 
 namespace Game

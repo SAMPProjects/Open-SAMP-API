@@ -1,9 +1,7 @@
-#include <Utils/algorithm.hpp>
-#include <algorithm>
-
 #include "Renderer.hpp"
 #include "RenderBase.hpp"
-
+#include <Utils/algorithm.hpp>
+#include <algorithm>
 #include <boost/range/algorithm.hpp>
 #include <boost/date_time.hpp>
 

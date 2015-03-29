@@ -1,6 +1,5 @@
 #pragma once
 #include "Windows.h"
-
 #include <boost/function.hpp>
 #include <boost/bind.hpp>
 

@@ -1,9 +1,7 @@
 #include "Windows.hpp"
 #include "PipeClient.hpp"
 #include "Serializer.hpp"
-
 #include <Shared/Config.hpp>
-
 #include <iostream>
 
 Utils::PipeClient::PipeClient(Serializer& serializerIn, Serializer& serializerOut) :
