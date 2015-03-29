@@ -1,0 +1,7 @@
+<map id="Game::Rendering::Text::Text" name="Game::Rendering::Text::Text">
+<area shape="rect" id="node2" href="$class_game_1_1_rendering_1_1_text.html#a7876ce24b8eb87b18fe2e626eb5f2d35" title="Game::Rendering::Text\l::setPos" alt="" coords="209,5,365,47"/>
+<area shape="rect" id="node3" href="$class_game_1_1_rendering_1_1_text.html#a845c03b56d3c05e5582979885aefc763" title="Game::Rendering::Text\l::setColor" alt="" coords="209,71,365,112"/>
+<area shape="rect" id="node4" href="$class_game_1_1_rendering_1_1_text.html#a06d983b9631cc8373b11da8ed69551a6" title="Game::Rendering::Text\l::setText" alt="" coords="209,136,365,177"/>
+<area shape="rect" id="node5" href="$class_game_1_1_rendering_1_1_text.html#a08e5a0d0a82a79959c52933856d9d73d" title="Game::Rendering::Text\l::setShadow" alt="" coords="209,201,365,243"/>
+<area shape="rect" id="node6" href="$class_game_1_1_rendering_1_1_text.html#ae7f9cfc80a52695027240d506494469f" title="Game::Rendering::Text\l::setShown" alt="" coords="209,267,365,308"/>
+</map>

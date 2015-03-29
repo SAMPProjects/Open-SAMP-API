@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['xcalculator',['xCalculator',['../class_render_base.html#ace123dd16248be62b98aef66f916bdc8',1,'RenderBase']]]
+  ['xcalculator',['xCalculator',['../class_game_1_1_rendering_1_1_render_base.html#a59d04044a819b70a61706b0561a2d8bb',1,'Game::Rendering::RenderBase']]]
 ];

@@ -1,0 +1,7 @@
+<map id="Game::Rendering::Image::Image" name="Game::Rendering::Image::Image">
+<area shape="rect" id="node2" href="$class_game_1_1_rendering_1_1_image.html#a6c15a0b2cf015ab68fb19f2580332442" title="Game::Rendering::Image\l::setFilePath" alt="" coords="220,5,387,47"/>
+<area shape="rect" id="node3" href="$class_game_1_1_rendering_1_1_image.html#a3666f0d30cafc1290031b16f14f26c79" title="Game::Rendering::Image\l::setPos" alt="" coords="220,71,387,112"/>
+<area shape="rect" id="node4" href="$class_game_1_1_rendering_1_1_image.html#ade9cc03d4ade41a8058da0af34dcad7d" title="Game::Rendering::Image\l::setRotation" alt="" coords="220,136,387,177"/>
+<area shape="rect" id="node5" href="$class_game_1_1_rendering_1_1_image.html#abc24db0ab6dfc4a7dfc8a17369b36e78" title="Game::Rendering::Image\l::setAlign" alt="" coords="220,201,387,243"/>
+<area shape="rect" id="node6" href="$class_game_1_1_rendering_1_1_image.html#ae55b1ce8e42e0bd967c45f577f7487b8" title="Game::Rendering::Image\l::setShown" alt="" coords="220,267,387,308"/>
+</map>

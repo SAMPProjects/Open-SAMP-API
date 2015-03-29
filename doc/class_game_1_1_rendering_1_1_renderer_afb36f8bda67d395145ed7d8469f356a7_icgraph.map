@@ -1,0 +1,6 @@
+<map id="Game::Rendering::Renderer::remove" name="Game::Rendering::Renderer::remove">
+<area shape="rect" id="node2" href="$namespace_game_1_1_message_handler.html#afc0e2238f34a2f524a9491d40a01be6c" title="Game::MessageHandler\l::TextDestroy" alt="" coords="236,5,399,47"/>
+<area shape="rect" id="node3" href="$namespace_game_1_1_message_handler.html#af8d8a308ae94941644f811c1fbb9a9e2" title="Game::MessageHandler\l::BoxDestroy" alt="" coords="236,71,399,112"/>
+<area shape="rect" id="node4" href="$namespace_game_1_1_message_handler.html#aabb03673b3d00a169d3d93cbfc9b3b4d" title="Game::MessageHandler\l::LineDestroy" alt="" coords="236,136,399,177"/>
+<area shape="rect" id="node5" href="$namespace_game_1_1_message_handler.html#ae4054841cf219c0e2e042f03470236ee" title="Game::MessageHandler\l::ImageDestroy" alt="" coords="236,201,399,243"/>
+</map>

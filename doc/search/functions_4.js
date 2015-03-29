@@ -1,15 +1,15 @@
 var searchData=
 [
-  ['data',['data',['../class_serializer.html#a716bd4b1e154122a4f309c8a72be122b',1,'Serializer']]],
+  ['data',['data',['../class_utils_1_1_serializer.html#a4384206401920025ec13ffb432a3dc8a',1,'Utils::Serializer']]],
   ['datacompare',['dataCompare',['../namespace_utils_1_1_pattern_1_1_internal.html#a523924bcef42a4b110b36d809bebf7fc',1,'Utils::Pattern::Internal']]],
   ['deletedeviceobjects',['DeleteDeviceObjects',['../class_c_d3_d_font.html#a6df6a2414bfb5e5c65c8ceedf5b0d4d4',1,'CD3DFont']]],
-  ['destroyall',['destroyAll',['../class_renderer.html#ac33d453a0641ba9e5962a2a018ea8257',1,'Renderer']]],
-  ['destroyallvisual',['DestroyAllVisual',['../_render_functions_8cpp.html#a7d77e627604e1c9bc263cc71406554f6',1,'DestroyAllVisual():&#160;RenderFunctions.cpp'],['../_render_functions_8hpp.html#a7d77e627604e1c9bc263cc71406554f6',1,'DestroyAllVisual():&#160;RenderFunctions.cpp'],['../_messagehandler_8cpp.html#a294a4c7597fddc8cf42327d51c85b94e',1,'DestroyAllVisual(Serializer &amp;serializerIn, Serializer &amp;serializerOut):&#160;Messagehandler.cpp'],['../_messagehandler_8hpp.html#a294a4c7597fddc8cf42327d51c85b94e',1,'DestroyAllVisual(Serializer &amp;serializerIn, Serializer &amp;serializerOut):&#160;Messagehandler.cpp']]],
+  ['destroyall',['destroyAll',['../class_game_1_1_rendering_1_1_renderer.html#ac0929408a849d69fa433be97d58630aa',1,'Game::Rendering::Renderer']]],
+  ['destroyallvisual',['DestroyAllVisual',['../namespace_client_1_1_render_functions.html#a610f61b6efc70158082af66ac23382e7',1,'Client::RenderFunctions::DestroyAllVisual()'],['../namespace_game_1_1_message_handler.html#a736f4e0bab79b774afaaf4437c48aa01',1,'Game::MessageHandler::DestroyAllVisual()'],['../_s_a_m_p___a_p_i_8h.html#a8e38b81de022004e2fa93d7f8b4e4ec1',1,'DestroyAllVisual():&#160;SAMP_API.h']]],
   ['dllmain',['DllMain',['../dllmain_8cpp.html#a14f5099f56835553a198bc116372c15b',1,'dllmain.cpp']]],
-  ['draw',['draw',['../class_box.html#ac5480f4accc53beed330f7ce4cd458a3',1,'Box::draw()'],['../class_image.html#abe60a9d5e25833734c63664227775d5b',1,'Image::draw()'],['../class_line.html#a3bcd9feabdcdb7efd8cc132cec1994c8',1,'Line::draw()'],['../class_render_base.html#a00745f21d68272569c0bf7db5761fb72',1,'RenderBase::draw()'],['../class_renderer.html#a65347b3c07247bd61a97206f0e1e2488',1,'Renderer::draw()'],['../class_text.html#acbd4c921c06b3e7d52376e8cd766cd82',1,'Text::draw()']]],
-  ['drawbox',['DrawBox',['../namespace_drawing.html#a1530e3ffb8722964384d2b495fdbd1e4',1,'Drawing']]],
-  ['drawprimtive',['DrawPrimtive',['../namespace_drawing.html#af1e6f85f5906d122615e179dbbc854b6',1,'Drawing']]],
-  ['drawrectangular',['DrawRectangular',['../namespace_drawing.html#a083020abc74d247e6e8d0b364d2e04e5',1,'Drawing']]],
-  ['drawsprite',['DrawSprite',['../class_image.html#ac108976dd40db0a518aa34568b5e38a4',1,'Image::DrawSprite()'],['../namespace_drawing.html#a1844c4a550f9793e626df7a9241eff0a',1,'Drawing::DrawSprite()']]],
+  ['draw',['draw',['../class_game_1_1_rendering_1_1_box.html#a879ec9889ceb4879cd62cd96dec77d90',1,'Game::Rendering::Box::draw()'],['../class_game_1_1_rendering_1_1_image.html#a3dd93da34ab6de1d66ae8b852d428e62',1,'Game::Rendering::Image::draw()'],['../class_game_1_1_rendering_1_1_line.html#aa5e2f192a9f1612c7454f0177d0b646b',1,'Game::Rendering::Line::draw()'],['../class_game_1_1_rendering_1_1_render_base.html#adcf9e6e4cbbdb7a7da1ba2ccc7a0485b',1,'Game::Rendering::RenderBase::draw()'],['../class_game_1_1_rendering_1_1_renderer.html#aed80501fa499746d070ec91fb158db9b',1,'Game::Rendering::Renderer::draw()'],['../class_game_1_1_rendering_1_1_text.html#a59be473fb5124e92e07b6e2a036acb50',1,'Game::Rendering::Text::draw()']]],
+  ['drawbox',['DrawBox',['../namespace_game_1_1_rendering_1_1_drawing.html#aa2e7b1446d0a43f9eb7d3fdc6d4bf8e6',1,'Game::Rendering::Drawing']]],
+  ['drawprimtive',['DrawPrimtive',['../namespace_game_1_1_rendering_1_1_drawing.html#a5d962c8f9f41a2dcf298d4705dda7743',1,'Game::Rendering::Drawing']]],
+  ['drawrectangular',['DrawRectangular',['../namespace_game_1_1_rendering_1_1_drawing.html#acce71e8525c68356746db756fe63b5f0',1,'Game::Rendering::Drawing']]],
+  ['drawsprite',['DrawSprite',['../class_game_1_1_rendering_1_1_image.html#a8956c5bd2ffd5848d9987f3299be873d',1,'Game::Rendering::Image::DrawSprite()'],['../namespace_game_1_1_rendering_1_1_drawing.html#a3d818144ae24f2d1378b76afef1da742',1,'Game::Rendering::Drawing::DrawSprite()']]],
   ['drawtext',['DrawText',['../class_c_d3_d_font.html#a44dba272f350cd64a37cf77330074170',1,'CD3DFont']]]
 ];

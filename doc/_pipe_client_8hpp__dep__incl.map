@@ -1,9 +1,9 @@
 <map id="PipeClient.hpp" name="PipeClient.hpp">
-<area shape="rect" id="node2" href="$_client_8hpp.html" title="Client.hpp" alt="" coords="274,80,354,107"/>
-<area shape="rect" id="node5" href="$_render_functions_8cpp.html" title="RenderFunctions.cpp" alt="" coords="279,229,424,256"/>
-<area shape="rect" id="node8" href="$_pipe_client_8cpp.html" title="PipeClient.cpp" alt="" coords="497,80,603,107"/>
-<area shape="rect" id="node3" href="$_client_8cpp.html" title="Client.cpp" alt="" coords="342,155,422,181"/>
-<area shape="rect" id="node4" href="$_render_functions_8hpp.html" title="RenderFunctions.hpp" alt="" coords="172,155,317,181"/>
-<area shape="rect" id="node6" href="$_s_a_m_p_functions_8hpp.html" title="SAMPFunctions.hpp" alt="" coords="5,155,148,181"/>
-<area shape="rect" id="node7" href="$_s_a_m_p_functions_8cpp.html" title="SAMPFunctions.cpp" alt="" coords="5,229,148,256"/>
+<area shape="rect" id="node2" href="$_client_8hpp.html" title="Client.hpp" alt="" coords="143,80,223,107"/>
+<area shape="rect" id="node8" href="$_pipe_client_8cpp.html" title="PipeClient.cpp" alt="" coords="247,80,353,107"/>
+<area shape="rect" id="node3" href="$_client_8cpp.html" title="Client.cpp" alt="" coords="5,155,85,181"/>
+<area shape="rect" id="node4" href="$_render_functions_8hpp.html" title="RenderFunctions.hpp" alt="" coords="110,155,255,181"/>
+<area shape="rect" id="node6" href="$_s_a_m_p_functions_8hpp.html" title="SAMPFunctions.hpp" alt="" coords="279,155,422,181"/>
+<area shape="rect" id="node5" href="$_render_functions_8cpp.html" title="RenderFunctions.cpp" alt="" coords="110,229,255,256"/>
+<area shape="rect" id="node7" href="$_s_a_m_p_functions_8cpp.html" title="SAMPFunctions.cpp" alt="" coords="279,229,422,256"/>
 </map>

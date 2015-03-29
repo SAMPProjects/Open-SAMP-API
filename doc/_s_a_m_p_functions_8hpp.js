@@ -1,6 +1,6 @@
 var _s_a_m_p_functions_8hpp =
 [
-    [ "AddChatMessage", "_s_a_m_p_functions_8hpp.html#ab43f2361ecd726fbef44ca5d926dec93", null ],
-    [ "SendChat", "_s_a_m_p_functions_8hpp.html#ad0a74eb41fc68de917a1ebec9074db57", null ],
-    [ "ShowGameText", "_s_a_m_p_functions_8hpp.html#ac1dae21c45dcce5bc8c6f9865e9bc8f4", null ]
+    [ "AddChatMessage", "_s_a_m_p_functions_8hpp.html#afdaef4c456b4f0d347d4fa89b544d5dd", null ],
+    [ "SendChat", "_s_a_m_p_functions_8hpp.html#a4d393568881aa721e273fd3ef4bdc48f", null ],
+    [ "ShowGameText", "_s_a_m_p_functions_8hpp.html#a527d795354e763a3a671df006f732c53", null ]
 ];

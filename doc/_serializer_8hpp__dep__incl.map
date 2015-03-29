@@ -1,14 +1,14 @@
 <map id="Serializer.hpp" name="Serializer.hpp">
-<area shape="rect" id="node2" href="$_client_8hpp.html" title="Client.hpp" alt="" coords="203,80,283,107"/>
-<area shape="rect" id="node5" href="$_render_functions_8cpp.html" title="RenderFunctions.cpp" alt="" coords="21,229,166,256"/>
-<area shape="rect" id="node8" href="$_messagehandler_8hpp.html" title="Messagehandler.hpp" alt="" coords="391,80,534,107"/>
-<area shape="rect" id="node11" href="$_pipe_client_8cpp.html" title="PipeClient.cpp" alt="" coords="559,80,665,107"/>
-<area shape="rect" id="node12" href="$_pipe_server_8cpp.html" title="PipeServer.cpp" alt="" coords="689,80,799,107"/>
-<area shape="rect" id="node13" href="$_serializer_8cpp.html" title="Serializer.cpp" alt="" coords="823,80,924,107"/>
-<area shape="rect" id="node3" href="$_client_8cpp.html" title="Client.cpp" alt="" coords="23,155,103,181"/>
-<area shape="rect" id="node4" href="$_render_functions_8hpp.html" title="RenderFunctions.hpp" alt="" coords="127,155,273,181"/>
-<area shape="rect" id="node6" href="$_s_a_m_p_functions_8hpp.html" title="SAMPFunctions.hpp" alt="" coords="297,155,439,181"/>
-<area shape="rect" id="node7" href="$_s_a_m_p_functions_8cpp.html" title="SAMPFunctions.cpp" alt="" coords="297,229,439,256"/>
-<area shape="rect" id="node9" href="$_game_8cpp.html" title="Game.cpp" alt="" coords="464,155,547,181"/>
-<area shape="rect" id="node10" href="$_messagehandler_8cpp.html" title="Messagehandler.cpp" alt="" coords="571,155,714,181"/>
+<area shape="rect" id="node2" href="$_client_8hpp.html" title="Client.hpp" alt="" coords="227,80,307,107"/>
+<area shape="rect" id="node8" href="$_messagehandler_8hpp.html" title="Messagehandler.hpp" alt="" coords="417,80,559,107"/>
+<area shape="rect" id="node11" href="$_pipe_client_8cpp.html" title="PipeClient.cpp" alt="" coords="584,80,691,107"/>
+<area shape="rect" id="node12" href="$_pipe_server_8cpp.html" title="PipeServer.cpp" alt="" coords="715,80,824,107"/>
+<area shape="rect" id="node13" href="$_serializer_8cpp.html" title="Serializer.cpp" alt="" coords="848,80,949,107"/>
+<area shape="rect" id="node3" href="$_client_8cpp.html" title="Client.cpp" alt="" coords="5,155,85,181"/>
+<area shape="rect" id="node4" href="$_render_functions_8hpp.html" title="RenderFunctions.hpp" alt="" coords="110,155,255,181"/>
+<area shape="rect" id="node6" href="$_s_a_m_p_functions_8hpp.html" title="SAMPFunctions.hpp" alt="" coords="279,155,422,181"/>
+<area shape="rect" id="node5" href="$_render_functions_8cpp.html" title="RenderFunctions.cpp" alt="" coords="110,229,255,256"/>
+<area shape="rect" id="node7" href="$_s_a_m_p_functions_8cpp.html" title="SAMPFunctions.cpp" alt="" coords="279,229,422,256"/>
+<area shape="rect" id="node9" href="$_game_8cpp.html" title="Game.cpp" alt="" coords="447,155,529,181"/>
+<area shape="rect" id="node10" href="$_messagehandler_8cpp.html" title="Messagehandler.cpp" alt="" coords="554,155,697,181"/>
 </map>

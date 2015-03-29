@@ -6,8 +6,6 @@ var searchData=
   ['memory_2ehpp',['Memory.hpp',['../_memory_8hpp.html',1,'']]],
   ['messagehandler_2ecpp',['Messagehandler.cpp',['../_messagehandler_8cpp.html',1,'']]],
   ['messagehandler_2ehpp',['Messagehandler.hpp',['../_messagehandler_8hpp.html',1,'']]],
-  ['misc_2ecpp',['Misc.cpp',['../_misc_8cpp.html',1,'']]],
-  ['misc_2ehpp',['Misc.hpp',['../_misc_8hpp.html',1,'']]],
   ['module_2ecpp',['Module.cpp',['../_module_8cpp.html',1,'']]],
   ['module_2ehpp',['Module.hpp',['../_module_8hpp.html',1,'']]],
   ['modulebase',['moduleBase',['../namespace_utils_1_1_module.html#ae17bfc3450d29177fdf14d3767c46ff3',1,'Utils::Module']]],

@@ -1,0 +1,6 @@
+<map id="Game::Rendering::Renderer::add" name="Game::Rendering::Renderer::add">
+<area shape="rect" id="node2" href="$namespace_game_1_1_message_handler.html#a74da4718de9ba7d93337450751e1596d" title="Game::MessageHandler\l::TextCreate" alt="" coords="265,5,428,47"/>
+<area shape="rect" id="node3" href="$namespace_game_1_1_message_handler.html#aabda7a174e776f13c10d86b806f7b03a" title="Game::MessageHandler\l::BoxCreate" alt="" coords="265,71,428,112"/>
+<area shape="rect" id="node4" href="$namespace_game_1_1_message_handler.html#ab737ac546cbb57f5b042c122baff243d" title="Game::MessageHandler\l::LineCreate" alt="" coords="265,136,428,177"/>
+<area shape="rect" id="node5" href="$namespace_game_1_1_message_handler.html#aeb1508bca57f63fb511445f03a019664" title="Game::MessageHandler\l::ImageCreate" alt="" coords="265,201,428,243"/>
+</map>

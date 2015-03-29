@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['serializer',['Serializer',['../class_serializer.html',1,'']]],
+  ['serializer',['Serializer',['../class_utils_1_1_serializer.html',1,'Utils']]],
   ['stparaminfo',['stParamInfo',['../structst_param_info.html',1,'']]],
-  ['stvertex',['stVertex',['../struct_drawing_1_1st_vertex.html',1,'Drawing']]]
+  ['stvertex',['stVertex',['../structst_vertex.html',1,'']]]
 ];

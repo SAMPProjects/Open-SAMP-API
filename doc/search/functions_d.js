@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['operator_3c_3c',['operator&lt;&lt;',['../class_serializer.html#a9469919b7de8e941f837a2c406f6c202',1,'Serializer']]],
-  ['operator_3e_3e',['operator&gt;&gt;',['../class_serializer.html#adb55ed6892334de04a18b21f54da620d',1,'Serializer']]]
+  ['operator_3c_3c',['operator&lt;&lt;',['../class_utils_1_1_serializer.html#a855a5ea529d2ed7e86c761264207d48c',1,'Utils::Serializer']]],
+  ['operator_3e_3e',['operator&gt;&gt;',['../class_utils_1_1_serializer.html#adbb5e74b25e88d5a7d56d97d8819d190',1,'Utils::Serializer']]]
 ];

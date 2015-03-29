@@ -108,51 +108,49 @@ $(document).ready(function(){initNavTree('_pipe_client_8cpp_source.html','');});
 <a href="_pipe_client_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_windows_8hpp.html">Windows.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_pipe_client_8hpp.html">PipeClient.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_serializer_8hpp.html">Serializer.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_config_8hpp.html">Shared/Config.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_config_8hpp.html">Shared/Config.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_pipe_client.html#a8d61807d1d5ba49fd89d25be71387172">    9</a></span>&#160;<a class="code" href="class_pipe_client.html#a8d61807d1d5ba49fd89d25be71387172">PipeClient::PipeClient</a>(<a class="code" href="class_serializer.html">Serializer</a>&amp; serializerIn, <a class="code" href="class_serializer.html">Serializer</a>&amp; serializerOut) :</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;m_bSuccess(false)</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">char</span> szData[<a class="code" href="_pipe_client_8hpp.html#aeca034f67218340ecb2261a22c2f3dcd">BUFSIZE</a>] = { 0 };</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">char</span> szPipe[MAX_PATH + 1] = { 0 };</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    DWORD dwReaded;</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_utils_1_1_pipe_client.html#a91f30cba4bb3034f4a846f4b8d10191a">    7</a></span>&#160;<a class="code" href="class_utils_1_1_pipe_client.html#a91f30cba4bb3034f4a846f4b8d10191a">Utils::PipeClient::PipeClient</a>(<a class="code" href="class_utils_1_1_serializer.html">Serializer</a>&amp; serializerIn, <a class="code" href="class_utils_1_1_serializer.html">Serializer</a>&amp; serializerOut) :</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;m_bSuccess(false)</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordtype">char</span> szData[<a class="code" href="_pipe_client_8hpp.html#aeca034f67218340ecb2261a22c2f3dcd">BUFSIZE</a>] = { 0 };</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordtype">char</span> szPipe[MAX_PATH + 1] = { 0 };</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    DWORD dwReaded;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    sprintf_s(szPipe, <span class="stringliteral">&quot;\\\\.\\pipe\\%s&quot;</span>, <a class="code" href="namespace_shared_1_1_config.html#a21807dc3fc7f450e0e7007e8708d5a22">Shared::Config::pipeName</a>);</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    sprintf_s(szPipe, <span class="stringliteral">&quot;\\\\.\\pipe\\%s&quot;</span>, <a class="code" href="_config_8hpp.html#aff426f9e43c43c7710d51b3121867602">g_strPipeName</a>);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">if</span> (CallNamedPipe(szPipe, (LPVOID)serializerIn.<a class="code" href="class_serializer.html#a716bd4b1e154122a4f309c8a72be122b">data</a>(), serializerIn.<a class="code" href="class_serializer.html#a8a4120d99026ca9ec8988856d6f0422b">numberOfBytesUsed</a>(), szData, <span class="keyword">sizeof</span>(szData), &amp;dwReaded, <a class="code" href="_pipe_client_8hpp.html#a799517031a8334a42807b119bb456c53">TIME_OUT</a>))</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        serializerOut.<a class="code" href="class_serializer.html#a8eebd3fae3beb711a341458071281c59">setData</a>(szData, <span class="keyword">sizeof</span>(szData));</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        m_bSuccess = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    }</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_pipe_client.html#aa2fc7681e2fab5d2bfb36f33b1d31e3c">   25</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_pipe_client.html#aa2fc7681e2fab5d2bfb36f33b1d31e3c">PipeClient::success</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">return</span> m_bSuccess;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
-<div class="ttc" id="_config_8hpp_html_aff426f9e43c43c7710d51b3121867602"><div class="ttname"><a href="_config_8hpp.html#aff426f9e43c43c7710d51b3121867602">g_strPipeName</a></div><div class="ttdeci">const char *const g_strPipeName</div><div class="ttdef"><b>Definition:</b> <a href="_config_8hpp_source.html#l00003">Config.hpp:3</a></div></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">if</span> (CallNamedPipe(szPipe, (LPVOID)serializerIn.<a class="code" href="class_utils_1_1_serializer.html#a4384206401920025ec13ffb432a3dc8a">data</a>(), serializerIn.<a class="code" href="class_utils_1_1_serializer.html#acc0a562fc88ef0da7e687fbcf87e9c92">numberOfBytesUsed</a>(), szData, <span class="keyword">sizeof</span>(szData), &amp;dwReaded, <a class="code" href="_pipe_client_8hpp.html#a799517031a8334a42807b119bb456c53">TIME_OUT</a>))</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        serializerOut.<a class="code" href="class_utils_1_1_serializer.html#a7ed143e384032f149c4013e40f7f706e">setData</a>(szData, <span class="keyword">sizeof</span>(szData));</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        m_bSuccess = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    }</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_utils_1_1_pipe_client.html#aca9678038214066052f7802b88a73842">   23</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_utils_1_1_pipe_client.html#aca9678038214066052f7802b88a73842">Utils::PipeClient::success</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">return</span> m_bSuccess;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
+<div class="ttc" id="class_utils_1_1_serializer_html_acc0a562fc88ef0da7e687fbcf87e9c92"><div class="ttname"><a href="class_utils_1_1_serializer.html#acc0a562fc88ef0da7e687fbcf87e9c92">Utils::Serializer::numberOfBytesUsed</a></div><div class="ttdeci">int numberOfBytesUsed() const </div><div class="ttdef"><b>Definition:</b> <a href="_serializer_8cpp_source.html#l00033">Serializer.cpp:33</a></div></div>
+<div class="ttc" id="namespace_shared_1_1_config_html_a21807dc3fc7f450e0e7007e8708d5a22"><div class="ttname"><a href="namespace_shared_1_1_config.html#a21807dc3fc7f450e0e7007e8708d5a22">Shared::Config::pipeName</a></div><div class="ttdeci">const char *const pipeName</div><div class="ttdef"><b>Definition:</b> <a href="_config_8hpp_source.html#l00007">Config.hpp:7</a></div></div>
 <div class="ttc" id="_windows_8hpp_html"><div class="ttname"><a href="_windows_8hpp.html">Windows.hpp</a></div></div>
-<div class="ttc" id="class_serializer_html_a8a4120d99026ca9ec8988856d6f0422b"><div class="ttname"><a href="class_serializer.html#a8a4120d99026ca9ec8988856d6f0422b">Serializer::numberOfBytesUsed</a></div><div class="ttdeci">int numberOfBytesUsed() const </div><div class="ttdef"><b>Definition:</b> <a href="_serializer_8cpp_source.html#l00033">Serializer.cpp:33</a></div></div>
-<div class="ttc" id="class_pipe_client_html_a8d61807d1d5ba49fd89d25be71387172"><div class="ttname"><a href="class_pipe_client.html#a8d61807d1d5ba49fd89d25be71387172">PipeClient::PipeClient</a></div><div class="ttdeci">PipeClient(Serializer &amp;serializerIn, Serializer &amp;serializerOut)</div><div class="ttdef"><b>Definition:</b> <a href="_pipe_client_8cpp_source.html#l00009">PipeClient.cpp:9</a></div></div>
+<div class="ttc" id="class_utils_1_1_serializer_html"><div class="ttname"><a href="class_utils_1_1_serializer.html">Utils::Serializer</a></div><div class="ttdef"><b>Definition:</b> <a href="_serializer_8hpp_source.html#l00013">Serializer.hpp:13</a></div></div>
 <div class="ttc" id="_pipe_client_8hpp_html_aeca034f67218340ecb2261a22c2f3dcd"><div class="ttname"><a href="_pipe_client_8hpp.html#aeca034f67218340ecb2261a22c2f3dcd">BUFSIZE</a></div><div class="ttdeci">#define BUFSIZE</div><div class="ttdef"><b>Definition:</b> <a href="_pipe_client_8hpp_source.html#l00003">PipeClient.hpp:3</a></div></div>
-<div class="ttc" id="class_serializer_html_a716bd4b1e154122a4f309c8a72be122b"><div class="ttname"><a href="class_serializer.html#a716bd4b1e154122a4f309c8a72be122b">Serializer::data</a></div><div class="ttdeci">const char * data()</div><div class="ttdef"><b>Definition:</b> <a href="_serializer_8cpp_source.html#l00021">Serializer.cpp:21</a></div></div>
 <div class="ttc" id="_serializer_8hpp_html"><div class="ttname"><a href="_serializer_8hpp.html">Serializer.hpp</a></div></div>
-<div class="ttc" id="class_serializer_html_a8eebd3fae3beb711a341458071281c59"><div class="ttname"><a href="class_serializer.html#a8eebd3fae3beb711a341458071281c59">Serializer::setData</a></div><div class="ttdeci">void setData(const char *szData, const size_t size)</div><div class="ttdef"><b>Definition:</b> <a href="_serializer_8cpp_source.html#l00027">Serializer.cpp:27</a></div></div>
 <div class="ttc" id="_config_8hpp_html"><div class="ttname"><a href="_config_8hpp.html">Config.hpp</a></div></div>
-<div class="ttc" id="class_pipe_client_html_aa2fc7681e2fab5d2bfb36f33b1d31e3c"><div class="ttname"><a href="class_pipe_client.html#aa2fc7681e2fab5d2bfb36f33b1d31e3c">PipeClient::success</a></div><div class="ttdeci">bool success() const </div><div class="ttdef"><b>Definition:</b> <a href="_pipe_client_8cpp_source.html#l00025">PipeClient.cpp:25</a></div></div>
-<div class="ttc" id="class_serializer_html"><div class="ttname"><a href="class_serializer.html">Serializer</a></div><div class="ttdef"><b>Definition:</b> <a href="_serializer_8hpp_source.html#l00013">Serializer.hpp:13</a></div></div>
+<div class="ttc" id="class_utils_1_1_serializer_html_a7ed143e384032f149c4013e40f7f706e"><div class="ttname"><a href="class_utils_1_1_serializer.html#a7ed143e384032f149c4013e40f7f706e">Utils::Serializer::setData</a></div><div class="ttdeci">void setData(const char *szData, const size_t size)</div><div class="ttdef"><b>Definition:</b> <a href="_serializer_8cpp_source.html#l00027">Serializer.cpp:27</a></div></div>
+<div class="ttc" id="class_utils_1_1_pipe_client_html_a91f30cba4bb3034f4a846f4b8d10191a"><div class="ttname"><a href="class_utils_1_1_pipe_client.html#a91f30cba4bb3034f4a846f4b8d10191a">Utils::PipeClient::PipeClient</a></div><div class="ttdeci">PipeClient(Serializer &amp;serializerIn, Serializer &amp;serializerOut)</div><div class="ttdef"><b>Definition:</b> <a href="_pipe_client_8cpp_source.html#l00007">PipeClient.cpp:7</a></div></div>
 <div class="ttc" id="_pipe_client_8hpp_html_a799517031a8334a42807b119bb456c53"><div class="ttname"><a href="_pipe_client_8hpp.html#a799517031a8334a42807b119bb456c53">TIME_OUT</a></div><div class="ttdeci">#define TIME_OUT</div><div class="ttdef"><b>Definition:</b> <a href="_pipe_client_8hpp_source.html#l00004">PipeClient.hpp:4</a></div></div>
 <div class="ttc" id="_pipe_client_8hpp_html"><div class="ttname"><a href="_pipe_client_8hpp.html">PipeClient.hpp</a></div></div>
+<div class="ttc" id="class_utils_1_1_pipe_client_html_aca9678038214066052f7802b88a73842"><div class="ttname"><a href="class_utils_1_1_pipe_client.html#aca9678038214066052f7802b88a73842">Utils::PipeClient::success</a></div><div class="ttdeci">bool success() const </div><div class="ttdef"><b>Definition:</b> <a href="_pipe_client_8cpp_source.html#l00023">PipeClient.cpp:23</a></div></div>
+<div class="ttc" id="class_utils_1_1_serializer_html_a4384206401920025ec13ffb432a3dc8a"><div class="ttname"><a href="class_utils_1_1_serializer.html#a4384206401920025ec13ffb432a3dc8a">Utils::Serializer::data</a></div><div class="ttdeci">const char * data()</div><div class="ttdef"><b>Definition:</b> <a href="_serializer_8cpp_source.html#l00021">Serializer.cpp:21</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_1a5142d0291c65c598a976dafb24f07d.html">Open-SAMP-API</a></li><li class="navelem"><a class="el" href="dir_62b678f41317f38a830d3f1ecd50fc26.html">Utils</a></li><li class="navelem"><a class="el" href="_pipe_client_8cpp.html">PipeClient.cpp</a></li>
-    <li class="footer">Generated on Sat Mar 28 2015 14:13:48 for Open-SA:MP-API by
+    <li class="footer">Generated on Sun Mar 29 2015 15:18:44 for Open-SA:MP-API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

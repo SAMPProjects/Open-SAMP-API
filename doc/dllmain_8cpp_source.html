@@ -109,31 +109,30 @@ $(document).ready(function(){initNavTree('dllmain_8cpp_source.html','');});
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#pragma comment(lib,&quot;d3dx9.lib&quot;)</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="dllmain_8hpp.html">dllmain.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_windows_8hpp.html">Utils/Windows.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_game_8hpp.html">Game/Game.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="dllmain_8hpp.html#acefd33e3d425476dc0dd948dd3e56541">    9</a></span>&#160;HANDLE <a class="code" href="dllmain_8cpp.html#acefd33e3d425476dc0dd948dd3e56541">g_hDllHandle</a> = 0;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="dllmain_8cpp.html#a14f5099f56835553a198bc116372c15b">   11</a></span>&#160;BOOL WINAPI <a class="code" href="dllmain_8cpp.html#a14f5099f56835553a198bc116372c15b">DllMain</a>(HINSTANCE hInstance, DWORD dwReason, LPVOID)</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="dllmain_8cpp.html#acefd33e3d425476dc0dd948dd3e56541">g_hDllHandle</a> = hInstance;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    DisableThreadLibraryCalls((HMODULE) hInstance);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">if</span> (dwReason != DLL_PROCESS_ATTACH)</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordflow">return</span> FALSE;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">if</span> (GetModuleHandle(<span class="stringliteral">&quot;samp.dll&quot;</span>))</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordflow">return</span> CreateThread(0, 0, (LPTHREAD_START_ROUTINE) <a class="code" href="_game_8cpp.html#a486f7b71aa892de0f05c6187647613b9">initGame</a>, 0, 0, 0) &gt; 0;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">return</span> TRUE;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_windows_8hpp.html">Utils/Windows.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_game_8hpp.html">Game/Game.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="dllmain_8hpp.html#acefd33e3d425476dc0dd948dd3e56541">    8</a></span>&#160;HANDLE <a class="code" href="dllmain_8cpp.html#acefd33e3d425476dc0dd948dd3e56541">g_hDllHandle</a> = 0;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="dllmain_8cpp.html#a14f5099f56835553a198bc116372c15b">   10</a></span>&#160;BOOL WINAPI <a class="code" href="dllmain_8cpp.html#a14f5099f56835553a198bc116372c15b">DllMain</a>(HINSTANCE hInstance, DWORD dwReason, LPVOID)</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="dllmain_8cpp.html#acefd33e3d425476dc0dd948dd3e56541">g_hDllHandle</a> = hInstance;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    DisableThreadLibraryCalls((HMODULE) hInstance);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">if</span> (dwReason != DLL_PROCESS_ATTACH)</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordflow">return</span> FALSE;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">if</span> (GetModuleHandle(<span class="stringliteral">&quot;samp.dll&quot;</span>))</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">return</span> CreateThread(0, 0, (LPTHREAD_START_ROUTINE) <a class="code" href="_game_8cpp.html#a486f7b71aa892de0f05c6187647613b9">initGame</a>, 0, 0, 0) &gt; 0;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">return</span> TRUE;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
 <div class="ttc" id="dllmain_8hpp_html"><div class="ttname"><a href="dllmain_8hpp.html">dllmain.hpp</a></div></div>
 <div class="ttc" id="_windows_8hpp_html"><div class="ttname"><a href="_windows_8hpp.html">Windows.hpp</a></div></div>
-<div class="ttc" id="dllmain_8cpp_html_acefd33e3d425476dc0dd948dd3e56541"><div class="ttname"><a href="dllmain_8cpp.html#acefd33e3d425476dc0dd948dd3e56541">g_hDllHandle</a></div><div class="ttdeci">HANDLE g_hDllHandle</div><div class="ttdef"><b>Definition:</b> <a href="dllmain_8cpp_source.html#l00009">dllmain.cpp:9</a></div></div>
-<div class="ttc" id="_game_8cpp_html_a486f7b71aa892de0f05c6187647613b9"><div class="ttname"><a href="_game_8cpp.html#a486f7b71aa892de0f05c6187647613b9">initGame</a></div><div class="ttdeci">void initGame()</div><div class="ttdef"><b>Definition:</b> <a href="_game_8cpp_source.html#l00027">Game.cpp:27</a></div></div>
-<div class="ttc" id="dllmain_8cpp_html_a14f5099f56835553a198bc116372c15b"><div class="ttname"><a href="dllmain_8cpp.html#a14f5099f56835553a198bc116372c15b">DllMain</a></div><div class="ttdeci">BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID)</div><div class="ttdef"><b>Definition:</b> <a href="dllmain_8cpp_source.html#l00011">dllmain.cpp:11</a></div></div>
+<div class="ttc" id="dllmain_8cpp_html_acefd33e3d425476dc0dd948dd3e56541"><div class="ttname"><a href="dllmain_8cpp.html#acefd33e3d425476dc0dd948dd3e56541">g_hDllHandle</a></div><div class="ttdeci">HANDLE g_hDllHandle</div><div class="ttdef"><b>Definition:</b> <a href="dllmain_8cpp_source.html#l00008">dllmain.cpp:8</a></div></div>
+<div class="ttc" id="_game_8cpp_html_a486f7b71aa892de0f05c6187647613b9"><div class="ttname"><a href="_game_8cpp.html#a486f7b71aa892de0f05c6187647613b9">initGame</a></div><div class="ttdeci">void initGame()</div><div class="ttdef"><b>Definition:</b> <a href="_game_8cpp_source.html#l00024">Game.cpp:24</a></div></div>
+<div class="ttc" id="dllmain_8cpp_html_a14f5099f56835553a198bc116372c15b"><div class="ttname"><a href="dllmain_8cpp.html#a14f5099f56835553a198bc116372c15b">DllMain</a></div><div class="ttdeci">BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID)</div><div class="ttdef"><b>Definition:</b> <a href="dllmain_8cpp_source.html#l00010">dllmain.cpp:10</a></div></div>
 <div class="ttc" id="_game_8hpp_html"><div class="ttname"><a href="_game_8hpp.html">Game.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -141,7 +140,7 @@ $(document).ready(function(){initNavTree('dllmain_8cpp_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_1a5142d0291c65c598a976dafb24f07d.html">Open-SAMP-API</a></li><li class="navelem"><a class="el" href="dllmain_8cpp.html">dllmain.cpp</a></li>
-    <li class="footer">Generated on Sat Mar 28 2015 14:13:48 for Open-SA:MP-API by
+    <li class="footer">Generated on Sun Mar 29 2015 15:18:44 for Open-SA:MP-API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

@@ -106,104 +106,109 @@ $(document).ready(function(){initNavTree('dx__utils_8cpp_source.html','');});
 </div><!--header-->
 <div class="contents">
 <a href="dx__utils_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="dx__utils_8hpp.html">dx_utils.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_d3_d_font_8hpp.html">D3DFont.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="namespace_drawing.html#a1530e3ffb8722964384d2b495fdbd1e4">    4</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespace_drawing.html#a1530e3ffb8722964384d2b495fdbd1e4">Drawing::DrawBox</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> w, <span class="keywordtype">float</span> h, DWORD color, LPDIRECT3DDEVICE9 pDevice)</div>
+<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="structst_vertex.html">    4</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structst_vertex.html">stVertex</a></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;{</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <a class="code" href="struct_drawing_1_1st_vertex.html">stVertex</a> q[4];</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    q[0].<a class="code" href="struct_drawing_1_1st_vertex.html#a7d0a115f4ebb9b9ad24e2b9db0960fe2">dwColor</a> = q[1].<a class="code" href="struct_drawing_1_1st_vertex.html#a7d0a115f4ebb9b9ad24e2b9db0960fe2">dwColor</a> = q[2].<a class="code" href="struct_drawing_1_1st_vertex.html#a7d0a115f4ebb9b9ad24e2b9db0960fe2">dwColor</a> = q[3].<a class="code" href="struct_drawing_1_1st_vertex.html#a7d0a115f4ebb9b9ad24e2b9db0960fe2">dwColor</a> = color;</div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="structst_vertex.html#ab4d47430dafd49ea2cd26d81e1f99469">    6</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structst_vertex.html#af8d07401adaaa7558aa997e95beefbd1">fX</a>, <a class="code" href="structst_vertex.html#af32435bbb271225cbb036c4839b57597">fY</a>, <a class="code" href="structst_vertex.html#ab4d47430dafd49ea2cd26d81e1f99469">fZ</a>, <a class="code" href="structst_vertex.html#ad5df23902a20ecadea488fafdae1320f">fRHW</a>;</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="structst_vertex.html#ae294a060bb0912e62a598978988219c8">    7</a></span>&#160;    D3DCOLOR <a class="code" href="structst_vertex.html#ae294a060bb0912e62a598978988219c8">dwColor</a>;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;};</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    q[0].<a class="code" href="struct_drawing_1_1st_vertex.html#acf6c37834705cc1f4a80c8e82dcb34c9">fZ</a> = q[1].<a class="code" href="struct_drawing_1_1st_vertex.html#acf6c37834705cc1f4a80c8e82dcb34c9">fZ</a> = q[2].<a class="code" href="struct_drawing_1_1st_vertex.html#acf6c37834705cc1f4a80c8e82dcb34c9">fZ</a> = q[3].<a class="code" href="struct_drawing_1_1st_vertex.html#acf6c37834705cc1f4a80c8e82dcb34c9">fZ</a> = 0;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    q[0].<a class="code" href="struct_drawing_1_1st_vertex.html#a9431ee0ac0e76a0444df5e4b82408a66">fRHW</a> = q[1].<a class="code" href="struct_drawing_1_1st_vertex.html#a9431ee0ac0e76a0444df5e4b82408a66">fRHW</a> = q[2].<a class="code" href="struct_drawing_1_1st_vertex.html#a9431ee0ac0e76a0444df5e4b82408a66">fRHW</a> = q[3].<a class="code" href="struct_drawing_1_1st_vertex.html#a9431ee0ac0e76a0444df5e4b82408a66">fRHW</a> = 0;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    q[0].<a class="code" href="struct_drawing_1_1st_vertex.html#a544aed1e83e748a3f64766944169514f">fX</a> = q[2].<a class="code" href="struct_drawing_1_1st_vertex.html#a544aed1e83e748a3f64766944169514f">fX</a> = x;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    q[0].<a class="code" href="struct_drawing_1_1st_vertex.html#acfeea0d7e953f1a86a7b471d9e970ffd">fY</a> = q[1].<a class="code" href="struct_drawing_1_1st_vertex.html#acfeea0d7e953f1a86a7b471d9e970ffd">fY</a> = y;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    q[1].<a class="code" href="struct_drawing_1_1st_vertex.html#a544aed1e83e748a3f64766944169514f">fX</a> = q[3].<a class="code" href="struct_drawing_1_1st_vertex.html#a544aed1e83e748a3f64766944169514f">fX</a> = x + w;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    q[2].<a class="code" href="struct_drawing_1_1st_vertex.html#acfeea0d7e953f1a86a7b471d9e970ffd">fY</a> = q[3].<a class="code" href="struct_drawing_1_1st_vertex.html#acfeea0d7e953f1a86a7b471d9e970ffd">fY</a> = y + h;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="namespace_drawing.html#af1e6f85f5906d122615e179dbbc854b6">Drawing::DrawPrimtive</a>(pDevice, D3DPT_TRIANGLESTRIP, 2, q, <span class="keyword">sizeof</span>(<a class="code" href="struct_drawing_1_1st_vertex.html">stVertex</a>));</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="namespace_drawing.html#a083020abc74d247e6e8d0b364d2e04e5">   21</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespace_drawing.html#a083020abc74d247e6e8d0b364d2e04e5">Drawing::DrawRectangular</a>(<span class="keywordtype">float</span> X, <span class="keywordtype">float</span> Y, <span class="keywordtype">float</span> Width, <span class="keywordtype">float</span> Height, <span class="keywordtype">float</span> Thickness, D3DCOLOR Color, LPDIRECT3DDEVICE9 pDev)</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="namespace_drawing.html#a1530e3ffb8722964384d2b495fdbd1e4">Drawing::DrawBox</a>(X, Y + Height - Thickness, Width, Thickness, Color, pDev);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="namespace_drawing.html#a1530e3ffb8722964384d2b495fdbd1e4">Drawing::DrawBox</a>(X, Y, Thickness, Height, Color, pDev);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="namespace_drawing.html#a1530e3ffb8722964384d2b495fdbd1e4">Drawing::DrawBox</a>(X, Y, Width, Thickness, Color, pDev);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="namespace_drawing.html#a1530e3ffb8722964384d2b495fdbd1e4">Drawing::DrawBox</a>(X + Width - Thickness, Y, Thickness, Height, Color, pDev);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="namespace_drawing.html#af1e6f85f5906d122615e179dbbc854b6">   29</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespace_drawing.html#af1e6f85f5906d122615e179dbbc854b6">Drawing::DrawPrimtive</a>(LPDIRECT3DDEVICE9 pDevice, D3DPRIMITIVETYPE PrimitiveType, UINT PrimitiveCount, CONST <span class="keywordtype">void</span>* pVertexStreamZeroData, UINT VertexStreamZeroStride, DWORD FVF)</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    DWORD dwOldFVF;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    LPDIRECT3DPIXELSHADER9 ppixelShader;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    LPDIRECT3DBASETEXTURE9 ppTexture;</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="namespace_game_1_1_rendering_1_1_drawing.html#aa2e7b1446d0a43f9eb7d3fdc6d4bf8e6">   10</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespace_game_1_1_rendering_1_1_drawing.html#aa2e7b1446d0a43f9eb7d3fdc6d4bf8e6">Game::Rendering::Drawing::DrawBox</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> w, <span class="keywordtype">float</span> h, DWORD color, LPDIRECT3DDEVICE9 pDevice)</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="structst_vertex.html">stVertex</a> q[4];</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    q[0].<a class="code" href="structst_vertex.html#ae294a060bb0912e62a598978988219c8">dwColor</a> = q[1].<a class="code" href="structst_vertex.html#ae294a060bb0912e62a598978988219c8">dwColor</a> = q[2].<a class="code" href="structst_vertex.html#ae294a060bb0912e62a598978988219c8">dwColor</a> = q[3].<a class="code" href="structst_vertex.html#ae294a060bb0912e62a598978988219c8">dwColor</a> = color;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    q[0].<a class="code" href="structst_vertex.html#ab4d47430dafd49ea2cd26d81e1f99469">fZ</a> = q[1].<a class="code" href="structst_vertex.html#ab4d47430dafd49ea2cd26d81e1f99469">fZ</a> = q[2].<a class="code" href="structst_vertex.html#ab4d47430dafd49ea2cd26d81e1f99469">fZ</a> = q[3].<a class="code" href="structst_vertex.html#ab4d47430dafd49ea2cd26d81e1f99469">fZ</a> = 0;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    q[0].<a class="code" href="structst_vertex.html#ad5df23902a20ecadea488fafdae1320f">fRHW</a> = q[1].<a class="code" href="structst_vertex.html#ad5df23902a20ecadea488fafdae1320f">fRHW</a> = q[2].<a class="code" href="structst_vertex.html#ad5df23902a20ecadea488fafdae1320f">fRHW</a> = q[3].<a class="code" href="structst_vertex.html#ad5df23902a20ecadea488fafdae1320f">fRHW</a> = 0;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    q[0].<a class="code" href="structst_vertex.html#af8d07401adaaa7558aa997e95beefbd1">fX</a> = q[2].<a class="code" href="structst_vertex.html#af8d07401adaaa7558aa997e95beefbd1">fX</a> = x;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    q[0].<a class="code" href="structst_vertex.html#af32435bbb271225cbb036c4839b57597">fY</a> = q[1].<a class="code" href="structst_vertex.html#af32435bbb271225cbb036c4839b57597">fY</a> = y;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    q[1].<a class="code" href="structst_vertex.html#af8d07401adaaa7558aa997e95beefbd1">fX</a> = q[3].<a class="code" href="structst_vertex.html#af8d07401adaaa7558aa997e95beefbd1">fX</a> = x + w;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    q[2].<a class="code" href="structst_vertex.html#af32435bbb271225cbb036c4839b57597">fY</a> = q[3].<a class="code" href="structst_vertex.html#af32435bbb271225cbb036c4839b57597">fY</a> = y + h;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="namespace_game_1_1_rendering_1_1_drawing.html#a5d962c8f9f41a2dcf298d4705dda7743">Game::Rendering::Drawing::DrawPrimtive</a>(pDevice, D3DPT_TRIANGLESTRIP, 2, q, <span class="keyword">sizeof</span>(<a class="code" href="structst_vertex.html">stVertex</a>));</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="namespace_game_1_1_rendering_1_1_drawing.html#acce71e8525c68356746db756fe63b5f0">   27</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespace_game_1_1_rendering_1_1_drawing.html#acce71e8525c68356746db756fe63b5f0">Game::Rendering::Drawing::DrawRectangular</a>(<span class="keywordtype">float</span> X, <span class="keywordtype">float</span> Y, <span class="keywordtype">float</span> Width, <span class="keywordtype">float</span> Height, <span class="keywordtype">float</span> Thickness, D3DCOLOR Color, LPDIRECT3DDEVICE9 pDev)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="namespace_game_1_1_rendering_1_1_drawing.html#aa2e7b1446d0a43f9eb7d3fdc6d4bf8e6">Game::Rendering::Drawing::DrawBox</a>(X, Y + Height - Thickness, Width, Thickness, Color, pDev);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="namespace_game_1_1_rendering_1_1_drawing.html#aa2e7b1446d0a43f9eb7d3fdc6d4bf8e6">Game::Rendering::Drawing::DrawBox</a>(X, Y, Thickness, Height, Color, pDev);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="namespace_game_1_1_rendering_1_1_drawing.html#aa2e7b1446d0a43f9eb7d3fdc6d4bf8e6">Game::Rendering::Drawing::DrawBox</a>(X, Y, Width, Thickness, Color, pDev);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="namespace_game_1_1_rendering_1_1_drawing.html#aa2e7b1446d0a43f9eb7d3fdc6d4bf8e6">Game::Rendering::Drawing::DrawBox</a>(X + Width - Thickness, Y, Thickness, Height, Color, pDev);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    pDevice-&gt;GetFVF(&amp;dwOldFVF);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    pDevice-&gt;GetPixelShader(&amp;ppixelShader);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    pDevice-&gt;GetTexture(0, &amp;ppTexture);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    pDevice-&gt;SetPixelShader(NULL);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    pDevice-&gt;SetTexture(0, NULL);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    pDevice-&gt;SetFVF(FVF);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    pDevice-&gt;DrawPrimitiveUP(PrimitiveType, PrimitiveCount, pVertexStreamZeroData, VertexStreamZeroStride);</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="namespace_game_1_1_rendering_1_1_drawing.html#a5d962c8f9f41a2dcf298d4705dda7743">   35</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespace_game_1_1_rendering_1_1_drawing.html#a5d962c8f9f41a2dcf298d4705dda7743">Game::Rendering::Drawing::DrawPrimtive</a>(LPDIRECT3DDEVICE9 pDevice, D3DPRIMITIVETYPE PrimitiveType, UINT PrimitiveCount, CONST <span class="keywordtype">void</span>* pVertexStreamZeroData, UINT VertexStreamZeroStride, DWORD FVF)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    DWORD dwOldFVF;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    LPDIRECT3DPIXELSHADER9 ppixelShader;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    LPDIRECT3DBASETEXTURE9 ppTexture;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    pDevice-&gt;GetFVF(&amp;dwOldFVF);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    pDevice-&gt;GetPixelShader(&amp;ppixelShader);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    pDevice-&gt;GetTexture(0, &amp;ppTexture);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    pDevice-&gt;SetPixelShader(ppixelShader);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    pDevice-&gt;SetTexture(0, ppTexture);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    pDevice-&gt;SetFVF(dwOldFVF);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="namespace_drawing.html#a1844c4a550f9793e626df7a9241eff0a">   50</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespace_drawing.html#a1844c4a550f9793e626df7a9241eff0a">Drawing::DrawSprite</a>(LPD3DXSPRITE SpriteInterface, LPDIRECT3DTEXTURE9 TextureInterface, <span class="keywordtype">int</span> PosX, <span class="keywordtype">int</span> PosY, <span class="keywordtype">int</span> Rotation, <span class="keywordtype">int</span> Align)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">if</span> (SpriteInterface == NULL || TextureInterface == NULL)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    D3DXVECTOR3 Vec;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    Vec.x = (FLOAT) PosX;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    Vec.y = (FLOAT) PosY;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    Vec.z = (FLOAT)0.0f;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    pDevice-&gt;SetPixelShader(NULL);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    pDevice-&gt;SetTexture(0, NULL);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    pDevice-&gt;SetFVF(FVF);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    pDevice-&gt;DrawPrimitiveUP(PrimitiveType, PrimitiveCount, pVertexStreamZeroData, VertexStreamZeroStride);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    pDevice-&gt;SetPixelShader(ppixelShader);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    pDevice-&gt;SetTexture(0, ppTexture);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    pDevice-&gt;SetFVF(dwOldFVF);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="namespace_game_1_1_rendering_1_1_drawing.html#a3d818144ae24f2d1378b76afef1da742">   56</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespace_game_1_1_rendering_1_1_drawing.html#a3d818144ae24f2d1378b76afef1da742">Game::Rendering::Drawing::DrawSprite</a>(LPD3DXSPRITE SpriteInterface, LPDIRECT3DTEXTURE9 TextureInterface, <span class="keywordtype">int</span> PosX, <span class="keywordtype">int</span> PosY, <span class="keywordtype">int</span> Rotation, <span class="keywordtype">int</span> Align)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">if</span> (SpriteInterface == NULL || TextureInterface == NULL)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    D3DXMATRIX mat;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    D3DXVECTOR2 scaling(1.0f, 1.0f);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    D3DSURFACE_DESC desc;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    TextureInterface-&gt;GetLevelDesc(0, &amp;desc);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    D3DXVECTOR3 Vec;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    Vec.x = (FLOAT) PosX;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    Vec.y = (FLOAT) PosY;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    Vec.z = (FLOAT)0.0f;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    D3DXVECTOR2 spriteCentre;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">if</span> (Align == 1)</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        spriteCentre = D3DXVECTOR2((FLOAT) desc.Width / 2, (FLOAT) desc.Height / 2);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        spriteCentre = D3DXVECTOR2(0, 0);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    D3DXMATRIX mat;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    D3DXVECTOR2 scaling(1.0f, 1.0f);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    D3DSURFACE_DESC desc;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    TextureInterface-&gt;GetLevelDesc(0, &amp;desc);</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    D3DXVECTOR2 trans = D3DXVECTOR2(0, 0);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    D3DXMatrixTransformation2D(&amp;mat, NULL, 0.0, &amp;scaling, &amp;spriteCentre, (FLOAT) Rotation, &amp;trans);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    SpriteInterface-&gt;SetTransform(&amp;mat);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    SpriteInterface-&gt;Begin(D3DXSPRITE_ALPHABLEND);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    SpriteInterface-&gt;Draw(TextureInterface, NULL, NULL, &amp;Vec, 0xFFFFFFFF);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    SpriteInterface-&gt;End();</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div>
-<div class="ttc" id="struct_drawing_1_1st_vertex_html_a7d0a115f4ebb9b9ad24e2b9db0960fe2"><div class="ttname"><a href="struct_drawing_1_1st_vertex.html#a7d0a115f4ebb9b9ad24e2b9db0960fe2">Drawing::stVertex::dwColor</a></div><div class="ttdeci">D3DCOLOR dwColor</div><div class="ttdef"><b>Definition:</b> <a href="dx__utils_8hpp_source.html#l00014">dx_utils.hpp:14</a></div></div>
-<div class="ttc" id="namespace_drawing_html_af1e6f85f5906d122615e179dbbc854b6"><div class="ttname"><a href="namespace_drawing.html#af1e6f85f5906d122615e179dbbc854b6">Drawing::DrawPrimtive</a></div><div class="ttdeci">void DrawPrimtive(LPDIRECT3DDEVICE9 pDevice, D3DPRIMITIVETYPE PrimitiveType, UINT PrimitiveCount, CONST void *pVertexStreamZeroData, UINT VertexStreamZeroStride, DWORD FVF=DRAW_FVF)</div><div class="ttdef"><b>Definition:</b> <a href="dx__utils_8cpp_source.html#l00029">dx_utils.cpp:29</a></div></div>
-<div class="ttc" id="struct_drawing_1_1st_vertex_html_acfeea0d7e953f1a86a7b471d9e970ffd"><div class="ttname"><a href="struct_drawing_1_1st_vertex.html#acfeea0d7e953f1a86a7b471d9e970ffd">Drawing::stVertex::fY</a></div><div class="ttdeci">float fY</div><div class="ttdef"><b>Definition:</b> <a href="dx__utils_8hpp_source.html#l00013">dx_utils.hpp:13</a></div></div>
-<div class="ttc" id="namespace_drawing_html_a1844c4a550f9793e626df7a9241eff0a"><div class="ttname"><a href="namespace_drawing.html#a1844c4a550f9793e626df7a9241eff0a">Drawing::DrawSprite</a></div><div class="ttdeci">void DrawSprite(LPD3DXSPRITE SpriteInterface, LPDIRECT3DTEXTURE9 TextureInterface, int PosX, int PosY, int Rotation, int Align)</div><div class="ttdef"><b>Definition:</b> <a href="dx__utils_8cpp_source.html#l00050">dx_utils.cpp:50</a></div></div>
-<div class="ttc" id="namespace_drawing_html_a083020abc74d247e6e8d0b364d2e04e5"><div class="ttname"><a href="namespace_drawing.html#a083020abc74d247e6e8d0b364d2e04e5">Drawing::DrawRectangular</a></div><div class="ttdeci">void DrawRectangular(float X, float Y, float Width, float Height, float Thickness, D3DCOLOR Color, LPDIRECT3DDEVICE9 pDev)</div><div class="ttdef"><b>Definition:</b> <a href="dx__utils_8cpp_source.html#l00021">dx_utils.cpp:21</a></div></div>
-<div class="ttc" id="_d3_d_font_8hpp_html"><div class="ttname"><a href="_d3_d_font_8hpp.html">D3DFont.hpp</a></div></div>
-<div class="ttc" id="struct_drawing_1_1st_vertex_html_a9431ee0ac0e76a0444df5e4b82408a66"><div class="ttname"><a href="struct_drawing_1_1st_vertex.html#a9431ee0ac0e76a0444df5e4b82408a66">Drawing::stVertex::fRHW</a></div><div class="ttdeci">float fRHW</div><div class="ttdef"><b>Definition:</b> <a href="dx__utils_8hpp_source.html#l00013">dx_utils.hpp:13</a></div></div>
-<div class="ttc" id="struct_drawing_1_1st_vertex_html_a544aed1e83e748a3f64766944169514f"><div class="ttname"><a href="struct_drawing_1_1st_vertex.html#a544aed1e83e748a3f64766944169514f">Drawing::stVertex::fX</a></div><div class="ttdeci">float fX</div><div class="ttdef"><b>Definition:</b> <a href="dx__utils_8hpp_source.html#l00013">dx_utils.hpp:13</a></div></div>
-<div class="ttc" id="namespace_drawing_html_a1530e3ffb8722964384d2b495fdbd1e4"><div class="ttname"><a href="namespace_drawing.html#a1530e3ffb8722964384d2b495fdbd1e4">Drawing::DrawBox</a></div><div class="ttdeci">void DrawBox(float x, float y, float w, float h, DWORD color, LPDIRECT3DDEVICE9 pDevice)</div><div class="ttdef"><b>Definition:</b> <a href="dx__utils_8cpp_source.html#l00004">dx_utils.cpp:4</a></div></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    D3DXVECTOR2 spriteCentre;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">if</span> (Align == 1)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        spriteCentre = D3DXVECTOR2((FLOAT) desc.Width / 2, (FLOAT) desc.Height / 2);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        spriteCentre = D3DXVECTOR2(0, 0);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    D3DXVECTOR2 trans = D3DXVECTOR2(0, 0);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    D3DXMatrixTransformation2D(&amp;mat, NULL, 0.0, &amp;scaling, &amp;spriteCentre, (FLOAT) Rotation, &amp;trans);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    SpriteInterface-&gt;SetTransform(&amp;mat);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    SpriteInterface-&gt;Begin(D3DXSPRITE_ALPHABLEND);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    SpriteInterface-&gt;Draw(TextureInterface, NULL, NULL, &amp;Vec, 0xFFFFFFFF);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    SpriteInterface-&gt;End();</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
+<div class="ttc" id="structst_vertex_html_ab4d47430dafd49ea2cd26d81e1f99469"><div class="ttname"><a href="structst_vertex.html#ab4d47430dafd49ea2cd26d81e1f99469">stVertex::fZ</a></div><div class="ttdeci">float fZ</div><div class="ttdef"><b>Definition:</b> <a href="dx__utils_8cpp_source.html#l00006">dx_utils.cpp:6</a></div></div>
+<div class="ttc" id="namespace_game_1_1_rendering_1_1_drawing_html_aa2e7b1446d0a43f9eb7d3fdc6d4bf8e6"><div class="ttname"><a href="namespace_game_1_1_rendering_1_1_drawing.html#aa2e7b1446d0a43f9eb7d3fdc6d4bf8e6">Game::Rendering::Drawing::DrawBox</a></div><div class="ttdeci">void DrawBox(float x, float y, float w, float h, DWORD color, LPDIRECT3DDEVICE9 pDevice)</div><div class="ttdef"><b>Definition:</b> <a href="dx__utils_8cpp_source.html#l00010">dx_utils.cpp:10</a></div></div>
+<div class="ttc" id="namespace_game_1_1_rendering_1_1_drawing_html_a5d962c8f9f41a2dcf298d4705dda7743"><div class="ttname"><a href="namespace_game_1_1_rendering_1_1_drawing.html#a5d962c8f9f41a2dcf298d4705dda7743">Game::Rendering::Drawing::DrawPrimtive</a></div><div class="ttdeci">void DrawPrimtive(LPDIRECT3DDEVICE9 pDevice, D3DPRIMITIVETYPE PrimitiveType, UINT PrimitiveCount, CONST void *pVertexStreamZeroData, UINT VertexStreamZeroStride, DWORD FVF=DRAW_FVF)</div><div class="ttdef"><b>Definition:</b> <a href="dx__utils_8cpp_source.html#l00035">dx_utils.cpp:35</a></div></div>
+<div class="ttc" id="structst_vertex_html_ad5df23902a20ecadea488fafdae1320f"><div class="ttname"><a href="structst_vertex.html#ad5df23902a20ecadea488fafdae1320f">stVertex::fRHW</a></div><div class="ttdeci">float fRHW</div><div class="ttdef"><b>Definition:</b> <a href="dx__utils_8cpp_source.html#l00006">dx_utils.cpp:6</a></div></div>
+<div class="ttc" id="structst_vertex_html_af32435bbb271225cbb036c4839b57597"><div class="ttname"><a href="structst_vertex.html#af32435bbb271225cbb036c4839b57597">stVertex::fY</a></div><div class="ttdeci">float fY</div><div class="ttdef"><b>Definition:</b> <a href="dx__utils_8cpp_source.html#l00006">dx_utils.cpp:6</a></div></div>
+<div class="ttc" id="namespace_game_1_1_rendering_1_1_drawing_html_a3d818144ae24f2d1378b76afef1da742"><div class="ttname"><a href="namespace_game_1_1_rendering_1_1_drawing.html#a3d818144ae24f2d1378b76afef1da742">Game::Rendering::Drawing::DrawSprite</a></div><div class="ttdeci">void DrawSprite(LPD3DXSPRITE SpriteInterface, LPDIRECT3DTEXTURE9 TextureInterface, int PosX, int PosY, int Rotation, int Align)</div><div class="ttdef"><b>Definition:</b> <a href="dx__utils_8cpp_source.html#l00056">dx_utils.cpp:56</a></div></div>
+<div class="ttc" id="structst_vertex_html_ae294a060bb0912e62a598978988219c8"><div class="ttname"><a href="structst_vertex.html#ae294a060bb0912e62a598978988219c8">stVertex::dwColor</a></div><div class="ttdeci">D3DCOLOR dwColor</div><div class="ttdef"><b>Definition:</b> <a href="dx__utils_8cpp_source.html#l00007">dx_utils.cpp:7</a></div></div>
+<div class="ttc" id="namespace_game_1_1_rendering_1_1_drawing_html_acce71e8525c68356746db756fe63b5f0"><div class="ttname"><a href="namespace_game_1_1_rendering_1_1_drawing.html#acce71e8525c68356746db756fe63b5f0">Game::Rendering::Drawing::DrawRectangular</a></div><div class="ttdeci">void DrawRectangular(float X, float Y, float Width, float Height, float Thickness, D3DCOLOR Color, LPDIRECT3DDEVICE9 pDev)</div><div class="ttdef"><b>Definition:</b> <a href="dx__utils_8cpp_source.html#l00027">dx_utils.cpp:27</a></div></div>
+<div class="ttc" id="structst_vertex_html_af8d07401adaaa7558aa997e95beefbd1"><div class="ttname"><a href="structst_vertex.html#af8d07401adaaa7558aa997e95beefbd1">stVertex::fX</a></div><div class="ttdeci">float fX</div><div class="ttdef"><b>Definition:</b> <a href="dx__utils_8cpp_source.html#l00006">dx_utils.cpp:6</a></div></div>
+<div class="ttc" id="structst_vertex_html"><div class="ttname"><a href="structst_vertex.html">stVertex</a></div><div class="ttdef"><b>Definition:</b> <a href="dx__utils_8cpp_source.html#l00004">dx_utils.cpp:4</a></div></div>
 <div class="ttc" id="dx__utils_8hpp_html"><div class="ttname"><a href="dx__utils_8hpp.html">dx_utils.hpp</a></div></div>
-<div class="ttc" id="struct_drawing_1_1st_vertex_html"><div class="ttname"><a href="struct_drawing_1_1st_vertex.html">Drawing::stVertex</a></div><div class="ttdef"><b>Definition:</b> <a href="dx__utils_8hpp_source.html#l00011">dx_utils.hpp:11</a></div></div>
-<div class="ttc" id="struct_drawing_1_1st_vertex_html_acf6c37834705cc1f4a80c8e82dcb34c9"><div class="ttname"><a href="struct_drawing_1_1st_vertex.html#acf6c37834705cc1f4a80c8e82dcb34c9">Drawing::stVertex::fZ</a></div><div class="ttdeci">float fZ</div><div class="ttdef"><b>Definition:</b> <a href="dx__utils_8hpp_source.html#l00013">dx_utils.hpp:13</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_1a5142d0291c65c598a976dafb24f07d.html">Open-SAMP-API</a></li><li class="navelem"><a class="el" href="dir_dcb40299bf7625f1a5479b30ee10127f.html">Game</a></li><li class="navelem"><a class="el" href="dir_f271e9d1d54ea258334dbaf03556d5ba.html">Rendering</a></li><li class="navelem"><a class="el" href="dx__utils_8cpp.html">dx_utils.cpp</a></li>
-    <li class="footer">Generated on Sat Mar 28 2015 14:13:48 for Open-SA:MP-API by
+    <li class="footer">Generated on Sun Mar 29 2015 15:18:44 for Open-SA:MP-API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

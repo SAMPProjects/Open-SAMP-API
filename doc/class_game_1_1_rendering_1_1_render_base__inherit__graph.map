@@ -1,0 +1,6 @@
+<map id="Game::Rendering::RenderBase" name="Game::Rendering::RenderBase">
+<area shape="rect" id="node2" href="$class_game_1_1_rendering_1_1_box.html" title="Game::Rendering::Box" alt="" coords="262,5,417,32"/>
+<area shape="rect" id="node3" href="$class_game_1_1_rendering_1_1_image.html" title="Game::Rendering::Image" alt="" coords="256,56,423,83"/>
+<area shape="rect" id="node4" href="$class_game_1_1_rendering_1_1_line.html" title="Game::Rendering::Line" alt="" coords="262,107,417,133"/>
+<area shape="rect" id="node5" href="$class_game_1_1_rendering_1_1_text.html" title="Game::Rendering::Text" alt="" coords="261,157,417,184"/>
+</map>

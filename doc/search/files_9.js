@@ -7,5 +7,7 @@ var searchData=
   ['pipeclient_2ehpp',['PipeClient.hpp',['../_pipe_client_8hpp.html',1,'']]],
   ['pipemessages_2ehpp',['PipeMessages.hpp',['../_pipe_messages_8hpp.html',1,'']]],
   ['pipeserver_2ecpp',['PipeServer.cpp',['../_pipe_server_8cpp.html',1,'']]],
-  ['pipeserver_2ehpp',['PipeServer.hpp',['../_pipe_server_8hpp.html',1,'']]]
+  ['pipeserver_2ehpp',['PipeServer.hpp',['../_pipe_server_8hpp.html',1,'']]],
+  ['process_2ecpp',['Process.cpp',['../_process_8cpp.html',1,'']]],
+  ['process_2ehpp',['Process.hpp',['../_process_8hpp.html',1,'']]]
 ];

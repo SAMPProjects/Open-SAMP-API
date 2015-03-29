@@ -1,0 +1,4 @@
+<map id="Game::MessageHandler::GetScreenSpecs" name="Game::MessageHandler::GetScreenSpecs">
+<area shape="rect" id="node2" href="$class_game_1_1_rendering_1_1_renderer.html#ab78c095361a008cba52a814b2e120137" title="Game::Rendering::Renderer\l::screenWidth" alt="" coords="216,5,399,47"/>
+<area shape="rect" id="node3" href="$class_game_1_1_rendering_1_1_renderer.html#afad1ebbcc30d8f4fe76abfe4376418f6" title="Game::Rendering::Renderer\l::screenHeight" alt="" coords="216,71,399,112"/>
+</map>

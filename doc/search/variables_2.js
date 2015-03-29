@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dwcolor',['dwColor',['../struct_drawing_1_1st_vertex.html#a7d0a115f4ebb9b9ad24e2b9db0960fe2',1,'Drawing::stVertex']]]
+  ['dwcolor',['dwColor',['../structst_vertex.html#ae294a060bb0912e62a598978988219c8',1,'stVertex']]]
 ];

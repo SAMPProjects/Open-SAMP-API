@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['get',['get',['../class_renderer.html#a2ab35b28f538c226de35dd4abaf197b6',1,'Renderer']]],
-  ['getas',['getAs',['../class_renderer.html#a340991e748e725fb2505f74c2f378508',1,'Renderer']]],
+  ['get',['get',['../class_game_1_1_rendering_1_1_renderer.html#aa4ad62cfe9cb7f6b7ac1b0d08ee6a11a',1,'Game::Rendering::Renderer']]],
+  ['getas',['getAs',['../class_game_1_1_rendering_1_1_renderer.html#a7cf116056735182d66de96d6a5715998',1,'Game::Rendering::Renderer']]],
   ['getdevice',['getDevice',['../class_c_d3_d_font.html#a98e59ca4e8874f04aaa9bd9b4b88a8f2',1,'CD3DFont']]],
-  ['getframerate',['GetFrameRate',['../_render_functions_8cpp.html#a7e5edca33210d91f0d5ef7bc0d8ebc31',1,'GetFrameRate():&#160;RenderFunctions.cpp'],['../_render_functions_8hpp.html#a7e5edca33210d91f0d5ef7bc0d8ebc31',1,'GetFrameRate():&#160;RenderFunctions.cpp'],['../_messagehandler_8cpp.html#af144afc85f46b30f40da3e2b427bebae',1,'GetFrameRate(Serializer &amp;serializerIn, Serializer &amp;serializerOut):&#160;Messagehandler.cpp'],['../_messagehandler_8hpp.html#af144afc85f46b30f40da3e2b427bebae',1,'GetFrameRate(Serializer &amp;serializerIn, Serializer &amp;serializerOut):&#160;Messagehandler.cpp']]],
+  ['getframerate',['GetFrameRate',['../namespace_client_1_1_render_functions.html#a171f27652921644d4b0ffad207fdb4b8',1,'Client::RenderFunctions::GetFrameRate()'],['../namespace_game_1_1_message_handler.html#a1fdfdfd15388b9499fef8944f200ab10',1,'Game::MessageHandler::GetFrameRate()'],['../_s_a_m_p___a_p_i_8h.html#aa472f8b904363fee4ac7e48298b0732e',1,'GetFrameRate():&#160;SAMP_API.h']]],
   ['getparam',['GetParam',['../_client_8cpp.html#ab4eb62b2fc7e1a7e9ac2a7037423013d',1,'Client.cpp']]],
-  ['getscreenspecs',['GetScreenSpecs',['../_render_functions_8cpp.html#a69faef2a9723e97552f5ac743b2385a0',1,'GetScreenSpecs(int &amp;width, int &amp;height):&#160;RenderFunctions.cpp'],['../_render_functions_8hpp.html#a69faef2a9723e97552f5ac743b2385a0',1,'GetScreenSpecs(int &amp;width, int &amp;height):&#160;RenderFunctions.cpp'],['../_messagehandler_8cpp.html#ab61041807c35dfa818fc5387fc70a05b',1,'GetScreenSpecs(Serializer &amp;serializerIn, Serializer &amp;serializerOut):&#160;Messagehandler.cpp'],['../_messagehandler_8hpp.html#ab61041807c35dfa818fc5387fc70a05b',1,'GetScreenSpecs(Serializer &amp;serializerIn, Serializer &amp;serializerOut):&#160;Messagehandler.cpp']]],
+  ['getscreenspecs',['GetScreenSpecs',['../namespace_client_1_1_render_functions.html#ae1c581ed5c2056e290e19c499da99d38',1,'Client::RenderFunctions::GetScreenSpecs()'],['../namespace_game_1_1_message_handler.html#a319246f96255d0f0d96a127cf5f88338',1,'Game::MessageHandler::GetScreenSpecs()'],['../_s_a_m_p___a_p_i_8h.html#ad7939b4f88bae8690467e6f9acfe8aa0',1,'GetScreenSpecs():&#160;SAMP_API.h']]],
   ['gettextextent',['GetTextExtent',['../class_c_d3_d_font.html#ad8ae6f2deb0bd546b632514e8db55da4',1,'CD3DFont']]]
 ];

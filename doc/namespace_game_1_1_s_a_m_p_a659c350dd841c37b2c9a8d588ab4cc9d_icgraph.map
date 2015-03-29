@@ -1,3 +1,3 @@
 <map id="Game::SAMP::sendChat" name="Game::SAMP::sendChat">
-<area shape="rect" id="node2" href="$_messagehandler_8hpp.html#af8ee182dc61b0d2c346ee5d7305cb51c" title="SendChat" alt="" coords="220,5,299,32"/>
+<area shape="rect" id="node2" href="$namespace_game_1_1_message_handler.html#a601ba2f450a7b2238ac1673b4f818fd8" title="Game::MessageHandler\l::SendChat" alt="" coords="220,5,383,47"/>
 </map>

@@ -106,91 +106,96 @@ $(document).ready(function(){initNavTree('_hook_8hpp_source.html','');});
 </div><!--header-->
 <div class="contents">
 <a href="_hook_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Windows.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;detours.h&gt;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;Windows.h&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;detours.h&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;type_traits&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;type_traits&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="_hook_8hpp.html#a5dad49e7471e83e66e11f03424fe0869">    8</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="_hook_8hpp.html#a5dad49e7471e83e66e11f03424fe0869">CallConvention</a>{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="_hook_8hpp.html#a5dad49e7471e83e66e11f03424fe0869aafb44b52da21ceaf97acd4e02ff20eb0">stdcall_t</a>, <a class="code" href="_hook_8hpp.html#a5dad49e7471e83e66e11f03424fe0869a28d5bd2c5d2ae2b143345ccb77e4cb22">cdecl_t</a></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;};</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="structconvention.html">   12</a></span>&#160;<span class="keyword">template</span>&lt;<a class="code" href="_hook_8hpp.html#a5dad49e7471e83e66e11f03424fe0869">CallConvention</a> cc, <span class="keyword">typename</span> retn, <span class="keyword">typename</span> <a class="code" href="structconvention.html">convention</a>, <span class="keyword">typename</span> ...args&gt; <span class="keyword">struct </span>convention;</div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="namespace_utils.html">    6</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_utils.html">Utils</a></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="namespace_utils_1_1_hook.html">    8</a></span>&#160;    <span class="keyword">namespace </span><a class="code" href="class_utils_1_1_hook_1_1_hook.html">Hook</a></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    {</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="namespace_utils_1_1_hook.html#a41fb07690d82da4e842079dbf8cceca2">   10</a></span>&#160;        <span class="keyword">enum class</span> <a class="code" href="namespace_utils_1_1_hook.html#a41fb07690d82da4e842079dbf8cceca2">CallConvention</a>{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;            <a class="code" href="namespace_utils_1_1_hook.html#a41fb07690d82da4e842079dbf8cceca2aafb44b52da21ceaf97acd4e02ff20eb0">stdcall_t</a>, <a class="code" href="namespace_utils_1_1_hook.html#a41fb07690d82da4e842079dbf8cceca2a28d5bd2c5d2ae2b143345ccb77e4cb22">cdecl_t</a></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        };</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> retn, <span class="keyword">typename</span> ...args&gt;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structconvention_3_01_call_convention_1_1stdcall__t_00_01retn_00_01args_8_8_8_4.html">   15</a></span>&#160;<span class="keyword">struct </span>convention&lt;<a class="code" href="_hook_8hpp.html#a5dad49e7471e83e66e11f03424fe0869">CallConvention</a>::<a class="code" href="_hook_8hpp.html#a5dad49e7471e83e66e11f03424fe0869aafb44b52da21ceaf97acd4e02ff20eb0">stdcall_t</a>, retn, args...&gt; {</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structconvention_3_01_call_convention_1_1stdcall__t_00_01retn_00_01args_8_8_8_4.html#a9137a335146db1376d6e6cf9c26dc3a6">   16</a></span>&#160;    <span class="keyword">typedef</span> retn(__stdcall *type)(args...);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;};</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> retn, <span class="keyword">typename</span> ...args&gt;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structconvention_3_01_call_convention_1_1cdecl__t_00_01retn_00_01args_8_8_8_4.html">   20</a></span>&#160;<span class="keyword">struct </span>convention&lt;<a class="code" href="_hook_8hpp.html#a5dad49e7471e83e66e11f03424fe0869">CallConvention</a>::<a class="code" href="_hook_8hpp.html#a5dad49e7471e83e66e11f03424fe0869a28d5bd2c5d2ae2b143345ccb77e4cb22">cdecl_t</a>, retn, args...&gt; {</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structconvention_3_01_call_convention_1_1cdecl__t_00_01retn_00_01args_8_8_8_4.html#a0207761e18c436fd4441500c8f81a8da">   21</a></span>&#160;    <span class="keyword">typedef</span> retn(__cdecl *type)(args...);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_hook.html">   25</a></span>&#160;<span class="keyword">template</span>&lt;<a class="code" href="_hook_8hpp.html#a5dad49e7471e83e66e11f03424fe0869">CallConvention</a> cc, <span class="keyword">typename</span> retn, <span class="keyword">typename</span> ...args&gt; <span class="keyword">class </span><a class="code" href="class_hook.html">Hook</a></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> convention&lt;cc, retn, args...&gt;::type type;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    type _orig;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    type _detour;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">bool</span> _isApplied;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_hook.html#aa4f9a226b19ff3bfa6f49b5fb4ec9a8e">   34</a></span>&#160;    <a class="code" href="class_hook.html#aa4f9a226b19ff3bfa6f49b5fb4ec9a8e">Hook</a>() : _isApplied(false), _orig(0), _detour(0) { }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_hook.html#a5ead737ac4bb71bd7b36cab8b5e117f1">   37</a></span>&#160;    <a class="code" href="class_hook.html#a5ead737ac4bb71bd7b36cab8b5e117f1">Hook</a>(T pFunc, type detour) : <a class="code" href="class_hook.html#a00f15c83edfffba7ac0b6582c6d5d9d5">apply</a>&lt;T&gt;(pFunc, detour) { }</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_hook.html#ac06c7f2bf88a151ca7a1edf44ba69bba">   39</a></span>&#160;    <a class="code" href="class_hook.html#ac06c7f2bf88a151ca7a1edf44ba69bba">~Hook</a>(){</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">remove</span>();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_hook.html#a00f15c83edfffba7ac0b6582c6d5d9d5">   44</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_hook.html#a00f15c83edfffba7ac0b6582c6d5d9d5">apply</a>(T pFunc, type detour)</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        _detour = detour;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        _orig = (type) DetourFunction((PBYTE) pFunc, (PBYTE) _detour);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        _isApplied = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="class_hook.html#a06a0dbeb15618844b49dcd8bacc75821">   51</a></span>&#160;    <span class="keywordtype">bool</span> <span class="keyword">remove</span>()</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">if</span> (!_isApplied)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        _isApplied = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">return</span> DetourRemove((PBYTE) _orig, (PBYTE) _detour) &gt; 0;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="class_hook.html#a8a256691ba056e7872f82be28b90db22">   60</a></span>&#160;    retn <a class="code" href="class_hook.html#a8a256691ba056e7872f82be28b90db22">callOrig</a>(args... p)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">return</span> _orig(p...);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="class_hook.html#a41947143295d7ccd4e3d3d9df44f6b71">   65</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="class_hook.html#a41947143295d7ccd4e3d3d9df44f6b71">isApplied</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">return</span> _isApplied;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div>
-<div class="ttc" id="_hook_8hpp_html_a5dad49e7471e83e66e11f03424fe0869a28d5bd2c5d2ae2b143345ccb77e4cb22"><div class="ttname"><a href="_hook_8hpp.html#a5dad49e7471e83e66e11f03424fe0869a28d5bd2c5d2ae2b143345ccb77e4cb22">CallConvention::cdecl_t</a></div></div>
-<div class="ttc" id="class_hook_html"><div class="ttname"><a href="class_hook.html">Hook</a></div><div class="ttdef"><b>Definition:</b> <a href="_hook_8hpp_source.html#l00025">Hook.hpp:25</a></div></div>
-<div class="ttc" id="structconvention_html"><div class="ttname"><a href="structconvention.html">convention</a></div><div class="ttdef"><b>Definition:</b> <a href="_hook_8hpp_source.html#l00012">Hook.hpp:12</a></div></div>
-<div class="ttc" id="_hook_8hpp_html_a5dad49e7471e83e66e11f03424fe0869"><div class="ttname"><a href="_hook_8hpp.html#a5dad49e7471e83e66e11f03424fe0869">CallConvention</a></div><div class="ttdeci">CallConvention</div><div class="ttdef"><b>Definition:</b> <a href="_hook_8hpp_source.html#l00008">Hook.hpp:8</a></div></div>
-<div class="ttc" id="class_hook_html_a00f15c83edfffba7ac0b6582c6d5d9d5"><div class="ttname"><a href="class_hook.html#a00f15c83edfffba7ac0b6582c6d5d9d5">Hook::apply</a></div><div class="ttdeci">void apply(T pFunc, type detour)</div><div class="ttdef"><b>Definition:</b> <a href="_hook_8hpp_source.html#l00044">Hook.hpp:44</a></div></div>
-<div class="ttc" id="_hook_8hpp_html_a5dad49e7471e83e66e11f03424fe0869aafb44b52da21ceaf97acd4e02ff20eb0"><div class="ttname"><a href="_hook_8hpp.html#a5dad49e7471e83e66e11f03424fe0869aafb44b52da21ceaf97acd4e02ff20eb0">CallConvention::stdcall_t</a></div></div>
-<div class="ttc" id="class_hook_html_a8a256691ba056e7872f82be28b90db22"><div class="ttname"><a href="class_hook.html#a8a256691ba056e7872f82be28b90db22">Hook::callOrig</a></div><div class="ttdeci">retn callOrig(args...p)</div><div class="ttdef"><b>Definition:</b> <a href="_hook_8hpp_source.html#l00060">Hook.hpp:60</a></div></div>
-<div class="ttc" id="class_hook_html_ac06c7f2bf88a151ca7a1edf44ba69bba"><div class="ttname"><a href="class_hook.html#ac06c7f2bf88a151ca7a1edf44ba69bba">Hook::~Hook</a></div><div class="ttdeci">~Hook()</div><div class="ttdef"><b>Definition:</b> <a href="_hook_8hpp_source.html#l00039">Hook.hpp:39</a></div></div>
-<div class="ttc" id="class_hook_html_aa4f9a226b19ff3bfa6f49b5fb4ec9a8e"><div class="ttname"><a href="class_hook.html#aa4f9a226b19ff3bfa6f49b5fb4ec9a8e">Hook::Hook</a></div><div class="ttdeci">Hook()</div><div class="ttdef"><b>Definition:</b> <a href="_hook_8hpp_source.html#l00034">Hook.hpp:34</a></div></div>
-<div class="ttc" id="class_hook_html_a5ead737ac4bb71bd7b36cab8b5e117f1"><div class="ttname"><a href="class_hook.html#a5ead737ac4bb71bd7b36cab8b5e117f1">Hook::Hook</a></div><div class="ttdeci">Hook(T pFunc, type detour)</div><div class="ttdef"><b>Definition:</b> <a href="_hook_8hpp_source.html#l00037">Hook.hpp:37</a></div></div>
-<div class="ttc" id="class_hook_html_a41947143295d7ccd4e3d3d9df44f6b71"><div class="ttname"><a href="class_hook.html#a41947143295d7ccd4e3d3d9df44f6b71">Hook::isApplied</a></div><div class="ttdeci">const bool isApplied() const </div><div class="ttdef"><b>Definition:</b> <a href="_hook_8hpp_source.html#l00065">Hook.hpp:65</a></div></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="struct_utils_1_1_hook_1_1convention.html">   14</a></span>&#160;        <span class="keyword">template</span>&lt;<a class="code" href="namespace_utils_1_1_hook.html#a41fb07690d82da4e842079dbf8cceca2">CallConvention</a> cc, <span class="keyword">typename</span> retn, <span class="keyword">typename</span> <a class="code" href="struct_utils_1_1_hook_1_1convention.html">convention</a>, <span class="keyword">typename</span> ...args&gt; <span class="keyword">struct </span>convention;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> retn, <span class="keyword">typename</span> ...args&gt;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="struct_utils_1_1_hook_1_1convention_3_01_call_convention_1_1stdcall__t_00_01retn_00_01args_8_8_8_01_4.html">   17</a></span>&#160;        <span class="keyword">struct </span>convention &lt; <a class="code" href="namespace_utils_1_1_hook.html#a41fb07690d82da4e842079dbf8cceca2">CallConvention</a>::<a class="code" href="namespace_utils_1_1_hook.html#a41fb07690d82da4e842079dbf8cceca2aafb44b52da21ceaf97acd4e02ff20eb0">stdcall_t</a>, retn, args... &gt; {</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="struct_utils_1_1_hook_1_1convention_3_01_call_convention_1_1stdcall__t_00_01retn_00_01args_8_8_8_01_4.html#aec62573c25de66915c432f4f1443ac64">   18</a></span>&#160;            <span class="keyword">typedef</span> retn(__stdcall *type)(args...);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        };</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> retn, <span class="keyword">typename</span> ...args&gt;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="struct_utils_1_1_hook_1_1convention_3_01_call_convention_1_1cdecl__t_00_01retn_00_01args_8_8_8_01_4.html">   22</a></span>&#160;        <span class="keyword">struct </span>convention &lt; <a class="code" href="namespace_utils_1_1_hook.html#a41fb07690d82da4e842079dbf8cceca2">CallConvention</a>::<a class="code" href="namespace_utils_1_1_hook.html#a41fb07690d82da4e842079dbf8cceca2a28d5bd2c5d2ae2b143345ccb77e4cb22">cdecl_t</a>, retn, args... &gt; {</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="struct_utils_1_1_hook_1_1convention_3_01_call_convention_1_1cdecl__t_00_01retn_00_01args_8_8_8_01_4.html#a296c18dc902b102014ee79db3fb9d4d1">   23</a></span>&#160;            <span class="keyword">typedef</span> retn(__cdecl *type)(args...);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        };</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_utils_1_1_hook_1_1_hook.html">   27</a></span>&#160;        <span class="keyword">template</span>&lt;<a class="code" href="namespace_utils_1_1_hook.html#a41fb07690d82da4e842079dbf8cceca2">CallConvention</a> cc, <span class="keyword">typename</span> retn, <span class="keyword">typename</span> ...args&gt; <span class="keyword">class </span><a class="code" href="class_utils_1_1_hook_1_1_hook.html">Hook</a></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="keyword">typedef</span> <span class="keyword">typename</span> convention&lt;cc, retn, args...&gt;::type type;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            type _orig;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            type _detour;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordtype">bool</span> _isApplied;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="class_utils_1_1_hook_1_1_hook.html#a5418261e82483f1d50459ad108c5424e">   36</a></span>&#160;            <a class="code" href="class_utils_1_1_hook_1_1_hook.html#a5418261e82483f1d50459ad108c5424e">Hook</a>() : _isApplied(false), _orig(0), _detour(0) { }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_utils_1_1_hook_1_1_hook.html#a69ab6461a44c29758fcba50a06c4e984">   39</a></span>&#160;            <a class="code" href="class_utils_1_1_hook_1_1_hook.html#a69ab6461a44c29758fcba50a06c4e984">Hook</a>(T pFunc, type detour) : <a class="code" href="class_utils_1_1_hook_1_1_hook.html#adb7ff069c755cfd7591bdfe824be6f83">apply</a>&lt;T&gt;(pFunc, detour) { }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="class_utils_1_1_hook_1_1_hook.html#a07a19b9b7649d5fefc9a211ac236912f">   41</a></span>&#160;            <a class="code" href="class_utils_1_1_hook_1_1_hook.html#a07a19b9b7649d5fefc9a211ac236912f">~Hook</a>(){</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <span class="keyword">remove</span>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_utils_1_1_hook_1_1_hook.html#adb7ff069c755cfd7591bdfe824be6f83">   46</a></span>&#160;            <span class="keywordtype">void</span> <a class="code" href="class_utils_1_1_hook_1_1_hook.html#adb7ff069c755cfd7591bdfe824be6f83">apply</a>(T pFunc, type detour)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                _detour = detour;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                _orig = (type)DetourFunction((PBYTE)pFunc, (PBYTE)_detour);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                _isApplied = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_utils_1_1_hook_1_1_hook.html#a45821b5a218daf185a40d043deaac82e">   53</a></span>&#160;            <span class="keywordtype">bool</span> <span class="keyword">remove</span>()</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="keywordflow">if</span> (!_isApplied)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                _isApplied = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="keywordflow">return</span> DetourRemove((PBYTE)_orig, (PBYTE)_detour) &gt; 0;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="class_utils_1_1_hook_1_1_hook.html#a0d9c022f4f5f353128f3aa57648974e3">   62</a></span>&#160;            retn <a class="code" href="class_utils_1_1_hook_1_1_hook.html#a0d9c022f4f5f353128f3aa57648974e3">callOrig</a>(args... p)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keywordflow">return</span> _orig(p...);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="class_utils_1_1_hook_1_1_hook.html#ad128090cb2a0b91e181c73347c3583d1">   67</a></span>&#160;            <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="class_utils_1_1_hook_1_1_hook.html#ad128090cb2a0b91e181c73347c3583d1">isApplied</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <span class="keywordflow">return</span> _isApplied;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        };</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
+<div class="ttc" id="namespace_utils_1_1_hook_html_a41fb07690d82da4e842079dbf8cceca2a28d5bd2c5d2ae2b143345ccb77e4cb22"><div class="ttname"><a href="namespace_utils_1_1_hook.html#a41fb07690d82da4e842079dbf8cceca2a28d5bd2c5d2ae2b143345ccb77e4cb22">Utils::Hook::CallConvention::cdecl_t</a></div></div>
+<div class="ttc" id="class_utils_1_1_hook_1_1_hook_html_adb7ff069c755cfd7591bdfe824be6f83"><div class="ttname"><a href="class_utils_1_1_hook_1_1_hook.html#adb7ff069c755cfd7591bdfe824be6f83">Utils::Hook::Hook::apply</a></div><div class="ttdeci">void apply(T pFunc, type detour)</div><div class="ttdef"><b>Definition:</b> <a href="_hook_8hpp_source.html#l00046">Hook.hpp:46</a></div></div>
+<div class="ttc" id="class_utils_1_1_hook_1_1_hook_html_a69ab6461a44c29758fcba50a06c4e984"><div class="ttname"><a href="class_utils_1_1_hook_1_1_hook.html#a69ab6461a44c29758fcba50a06c4e984">Utils::Hook::Hook::Hook</a></div><div class="ttdeci">Hook(T pFunc, type detour)</div><div class="ttdef"><b>Definition:</b> <a href="_hook_8hpp_source.html#l00039">Hook.hpp:39</a></div></div>
+<div class="ttc" id="namespace_utils_1_1_hook_html_a41fb07690d82da4e842079dbf8cceca2aafb44b52da21ceaf97acd4e02ff20eb0"><div class="ttname"><a href="namespace_utils_1_1_hook.html#a41fb07690d82da4e842079dbf8cceca2aafb44b52da21ceaf97acd4e02ff20eb0">Utils::Hook::CallConvention::stdcall_t</a></div></div>
+<div class="ttc" id="namespace_utils_html"><div class="ttname"><a href="namespace_utils.html">Utils</a></div><div class="ttdef"><b>Definition:</b> <a href="_hook_8hpp_source.html#l00006">Hook.hpp:6</a></div></div>
+<div class="ttc" id="class_utils_1_1_hook_1_1_hook_html_a5418261e82483f1d50459ad108c5424e"><div class="ttname"><a href="class_utils_1_1_hook_1_1_hook.html#a5418261e82483f1d50459ad108c5424e">Utils::Hook::Hook::Hook</a></div><div class="ttdeci">Hook()</div><div class="ttdef"><b>Definition:</b> <a href="_hook_8hpp_source.html#l00036">Hook.hpp:36</a></div></div>
+<div class="ttc" id="namespace_utils_1_1_hook_html_a41fb07690d82da4e842079dbf8cceca2"><div class="ttname"><a href="namespace_utils_1_1_hook.html#a41fb07690d82da4e842079dbf8cceca2">Utils::Hook::CallConvention</a></div><div class="ttdeci">CallConvention</div><div class="ttdef"><b>Definition:</b> <a href="_hook_8hpp_source.html#l00010">Hook.hpp:10</a></div></div>
+<div class="ttc" id="class_utils_1_1_hook_1_1_hook_html_a0d9c022f4f5f353128f3aa57648974e3"><div class="ttname"><a href="class_utils_1_1_hook_1_1_hook.html#a0d9c022f4f5f353128f3aa57648974e3">Utils::Hook::Hook::callOrig</a></div><div class="ttdeci">retn callOrig(args...p)</div><div class="ttdef"><b>Definition:</b> <a href="_hook_8hpp_source.html#l00062">Hook.hpp:62</a></div></div>
+<div class="ttc" id="struct_utils_1_1_hook_1_1convention_html"><div class="ttname"><a href="struct_utils_1_1_hook_1_1convention.html">Utils::Hook::convention</a></div><div class="ttdef"><b>Definition:</b> <a href="_hook_8hpp_source.html#l00014">Hook.hpp:14</a></div></div>
+<div class="ttc" id="class_utils_1_1_hook_1_1_hook_html_ad128090cb2a0b91e181c73347c3583d1"><div class="ttname"><a href="class_utils_1_1_hook_1_1_hook.html#ad128090cb2a0b91e181c73347c3583d1">Utils::Hook::Hook::isApplied</a></div><div class="ttdeci">const bool isApplied() const </div><div class="ttdef"><b>Definition:</b> <a href="_hook_8hpp_source.html#l00067">Hook.hpp:67</a></div></div>
+<div class="ttc" id="class_utils_1_1_hook_1_1_hook_html_a07a19b9b7649d5fefc9a211ac236912f"><div class="ttname"><a href="class_utils_1_1_hook_1_1_hook.html#a07a19b9b7649d5fefc9a211ac236912f">Utils::Hook::Hook::~Hook</a></div><div class="ttdeci">~Hook()</div><div class="ttdef"><b>Definition:</b> <a href="_hook_8hpp_source.html#l00041">Hook.hpp:41</a></div></div>
+<div class="ttc" id="class_utils_1_1_hook_1_1_hook_html"><div class="ttname"><a href="class_utils_1_1_hook_1_1_hook.html">Utils::Hook::Hook</a></div><div class="ttdef"><b>Definition:</b> <a href="_hook_8hpp_source.html#l00027">Hook.hpp:27</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_1a5142d0291c65c598a976dafb24f07d.html">Open-SAMP-API</a></li><li class="navelem"><a class="el" href="dir_62b678f41317f38a830d3f1ecd50fc26.html">Utils</a></li><li class="navelem"><a class="el" href="_hook_8hpp.html">Hook.hpp</a></li>
-    <li class="footer">Generated on Sat Mar 28 2015 14:13:48 for Open-SA:MP-API by
+    <li class="footer">Generated on Sun Mar 29 2015 15:18:44 for Open-SA:MP-API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

@@ -110,28 +110,32 @@ $(document).ready(function(){initNavTree('_pipe_client_8hpp_source.html','');});
 <div class="line"><a name="l00003"></a><span class="lineno"><a class="line" href="_pipe_client_8hpp.html#aeca034f67218340ecb2261a22c2f3dcd">    3</a></span>&#160;<span class="preprocessor">#define BUFSIZE  4096</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="_pipe_client_8hpp.html#a799517031a8334a42807b119bb456c53">    4</a></span>&#160;<span class="preprocessor">#define TIME_OUT 100</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">class </span><a class="code" href="class_serializer.html">Serializer</a>;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_pipe_client.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_pipe_client.html">PipeClient</a></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_pipe_client.html#a8d61807d1d5ba49fd89d25be71387172">PipeClient</a>(<a class="code" href="class_serializer.html">Serializer</a>&amp; serializerIn, <a class="code" href="class_serializer.html">Serializer</a>&amp; serializerOut);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_pipe_client.html#aa2fc7681e2fab5d2bfb36f33b1d31e3c">success</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">bool</span> m_bSuccess;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;};</div>
-<div class="ttc" id="class_pipe_client_html_a8d61807d1d5ba49fd89d25be71387172"><div class="ttname"><a href="class_pipe_client.html#a8d61807d1d5ba49fd89d25be71387172">PipeClient::PipeClient</a></div><div class="ttdeci">PipeClient(Serializer &amp;serializerIn, Serializer &amp;serializerOut)</div><div class="ttdef"><b>Definition:</b> <a href="_pipe_client_8cpp_source.html#l00009">PipeClient.cpp:9</a></div></div>
-<div class="ttc" id="class_pipe_client_html"><div class="ttname"><a href="class_pipe_client.html">PipeClient</a></div><div class="ttdef"><b>Definition:</b> <a href="_pipe_client_8hpp_source.html#l00008">PipeClient.hpp:8</a></div></div>
-<div class="ttc" id="class_pipe_client_html_aa2fc7681e2fab5d2bfb36f33b1d31e3c"><div class="ttname"><a href="class_pipe_client.html#aa2fc7681e2fab5d2bfb36f33b1d31e3c">PipeClient::success</a></div><div class="ttdeci">bool success() const </div><div class="ttdef"><b>Definition:</b> <a href="_pipe_client_8cpp_source.html#l00025">PipeClient.cpp:25</a></div></div>
-<div class="ttc" id="class_serializer_html"><div class="ttname"><a href="class_serializer.html">Serializer</a></div><div class="ttdef"><b>Definition:</b> <a href="_serializer_8hpp_source.html#l00013">Serializer.hpp:13</a></div></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_utils.html">Utils</a></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keyword">class </span>Serializer;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_utils_1_1_pipe_client.html">   10</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_utils_1_1_pipe_client.html">PipeClient</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <a class="code" href="class_utils_1_1_pipe_client.html#a91f30cba4bb3034f4a846f4b8d10191a">PipeClient</a>(<a class="code" href="class_utils_1_1_serializer.html">Serializer</a>&amp; serializerIn, <a class="code" href="class_utils_1_1_serializer.html">Serializer</a>&amp; serializerOut);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_utils_1_1_pipe_client.html#aca9678038214066052f7802b88a73842">success</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordtype">bool</span> m_bSuccess;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    };</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
+<div class="ttc" id="class_utils_1_1_serializer_html"><div class="ttname"><a href="class_utils_1_1_serializer.html">Utils::Serializer</a></div><div class="ttdef"><b>Definition:</b> <a href="_serializer_8hpp_source.html#l00013">Serializer.hpp:13</a></div></div>
+<div class="ttc" id="namespace_utils_html"><div class="ttname"><a href="namespace_utils.html">Utils</a></div><div class="ttdef"><b>Definition:</b> <a href="_hook_8hpp_source.html#l00006">Hook.hpp:6</a></div></div>
+<div class="ttc" id="class_utils_1_1_pipe_client_html_a91f30cba4bb3034f4a846f4b8d10191a"><div class="ttname"><a href="class_utils_1_1_pipe_client.html#a91f30cba4bb3034f4a846f4b8d10191a">Utils::PipeClient::PipeClient</a></div><div class="ttdeci">PipeClient(Serializer &amp;serializerIn, Serializer &amp;serializerOut)</div><div class="ttdef"><b>Definition:</b> <a href="_pipe_client_8cpp_source.html#l00007">PipeClient.cpp:7</a></div></div>
+<div class="ttc" id="class_utils_1_1_pipe_client_html_aca9678038214066052f7802b88a73842"><div class="ttname"><a href="class_utils_1_1_pipe_client.html#aca9678038214066052f7802b88a73842">Utils::PipeClient::success</a></div><div class="ttdeci">bool success() const </div><div class="ttdef"><b>Definition:</b> <a href="_pipe_client_8cpp_source.html#l00023">PipeClient.cpp:23</a></div></div>
+<div class="ttc" id="class_utils_1_1_pipe_client_html"><div class="ttname"><a href="class_utils_1_1_pipe_client.html">Utils::PipeClient</a></div><div class="ttdef"><b>Definition:</b> <a href="_pipe_client_8hpp_source.html#l00010">PipeClient.hpp:10</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_1a5142d0291c65c598a976dafb24f07d.html">Open-SAMP-API</a></li><li class="navelem"><a class="el" href="dir_62b678f41317f38a830d3f1ecd50fc26.html">Utils</a></li><li class="navelem"><a class="el" href="_pipe_client_8hpp.html">PipeClient.hpp</a></li>
-    <li class="footer">Generated on Sat Mar 28 2015 14:13:48 for Open-SA:MP-API by
+    <li class="footer">Generated on Sun Mar 29 2015 15:18:44 for Open-SA:MP-API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

@@ -1,4 +1,4 @@
 var _config_8hpp =
 [
-    [ "g_strPipeName", "_config_8hpp.html#aff426f9e43c43c7710d51b3121867602", null ]
+    [ "pipeName", "_config_8hpp.html#a21807dc3fc7f450e0e7007e8708d5a22", null ]
 ];

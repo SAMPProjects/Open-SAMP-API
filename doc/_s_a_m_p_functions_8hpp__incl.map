@@ -1,7 +1,7 @@
 <map id="SAMPFunctions.hpp" name="SAMPFunctions.hpp">
-<area shape="rect" id="node2" href="$_client_8hpp.html" title="Client.hpp" alt="" coords="188,80,268,107"/>
-<area shape="rect" id="node3" href="$_windows_8hpp.html" title="Utils/Windows.hpp" alt="" coords="5,155,136,181"/>
-<area shape="rect" id="node5" href="$_pipe_client_8hpp.html" title="Utils/PipeClient.hpp" alt="" coords="160,155,296,181"/>
-<area shape="rect" id="node6" href="$_serializer_8hpp.html" title="Utils/Serializer.hpp" alt="" coords="320,155,451,181"/>
-<area shape="rect" id="node7" href="$_safe_block_8hpp.html" title="SafeBlock.hpp" alt="" coords="139,237,245,263"/>
+<area shape="rect" id="node2" href="$_client_8hpp.html" title="Client.hpp" alt="" coords="261,80,341,107"/>
+<area shape="rect" id="node3" href="$_windows_8hpp.html" title="Utils/Windows.hpp" alt="" coords="78,155,209,181"/>
+<area shape="rect" id="node6" href="$_pipe_client_8hpp.html" title="Utils/PipeClient.hpp" alt="" coords="233,155,369,181"/>
+<area shape="rect" id="node7" href="$_serializer_8hpp.html" title="Utils/Serializer.hpp" alt="" coords="393,155,523,181"/>
+<area shape="rect" id="node8" href="$_safe_block_8hpp.html" title="SafeBlock.hpp" alt="" coords="231,237,338,263"/>
 </map>

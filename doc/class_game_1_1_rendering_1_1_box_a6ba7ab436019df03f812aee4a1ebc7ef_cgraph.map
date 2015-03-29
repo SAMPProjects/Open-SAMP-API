@@ -1,0 +1,9 @@
+<map id="Game::Rendering::Box::Box" name="Game::Rendering::Box::Box">
+<area shape="rect" id="node2" href="$class_game_1_1_rendering_1_1_box.html#a4b2c4266d7c7e399ba880622059cdce7" title="Game::Rendering::Box\l::setPos" alt="" coords="239,5,393,47"/>
+<area shape="rect" id="node3" href="$class_game_1_1_rendering_1_1_box.html#a0b148c33f3d2e30722718f3915692f57" title="Game::Rendering::Box\l::setBoxWidth" alt="" coords="239,71,393,112"/>
+<area shape="rect" id="node4" href="$class_game_1_1_rendering_1_1_box.html#a73f173a20f447bd8d22db14f85ee3900" title="Game::Rendering::Box\l::setBoxHeight" alt="" coords="239,136,393,177"/>
+<area shape="rect" id="node5" href="$class_game_1_1_rendering_1_1_box.html#a892933b17d09a26fc290612ae8fc1719" title="Game::Rendering::Box\l::setBoxColor" alt="" coords="239,201,393,243"/>
+<area shape="rect" id="node6" href="$class_game_1_1_rendering_1_1_box.html#a34800790ee62e4831bba383637e372fe" title="Game::Rendering::Box\l::setShown" alt="" coords="239,267,393,308"/>
+<area shape="rect" id="node7" href="$class_game_1_1_rendering_1_1_box.html#ac6c47b602ad2893b75c12db22a51f4cd" title="Game::Rendering::Box\l::setBorderWidth" alt="" coords="239,332,393,373"/>
+<area shape="rect" id="node8" href="$class_game_1_1_rendering_1_1_box.html#ae70b9831b9fb7eeaa8755544d35e9d8a" title="Game::Rendering::Box\l::setBorderShown" alt="" coords="239,397,393,439"/>
+</map>

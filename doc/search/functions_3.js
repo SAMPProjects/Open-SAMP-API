@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['calculatedxpos',['calculatedXPos',['../class_render_base.html#a605d7bc7e91d45301bdbd73b62ff5a66',1,'RenderBase']]],
-  ['calculatedypos',['calculatedYPos',['../class_render_base.html#a544141c3ae995e34cd51617349cfc870',1,'RenderBase']]],
-  ['callorig',['callOrig',['../class_hook.html#a8a256691ba056e7872f82be28b90db22',1,'Hook']]],
-  ['canbedeleted',['canBeDeleted',['../class_box.html#ab1403db0c23a08e1638486287d77eee3',1,'Box::canBeDeleted()'],['../class_image.html#afe5e8eed118d82930eb7b21a10939626',1,'Image::canBeDeleted()'],['../class_line.html#a0467cac36ae0fd5c5a0efa5f728227bf',1,'Line::canBeDeleted()'],['../class_render_base.html#aea2ba11c19c56ad9b6cc3e7d60079e23',1,'RenderBase::canBeDeleted()'],['../class_text.html#a5a01e31b32f0dc5aefd97405937ed034',1,'Text::canBeDeleted()']]],
+  ['calculatedxpos',['calculatedXPos',['../class_game_1_1_rendering_1_1_render_base.html#a039c291080706979ae78f1d894749735',1,'Game::Rendering::RenderBase']]],
+  ['calculatedypos',['calculatedYPos',['../class_game_1_1_rendering_1_1_render_base.html#a566400f78e02cc077261a9d00d995bcb',1,'Game::Rendering::RenderBase']]],
+  ['callorig',['callOrig',['../class_utils_1_1_hook_1_1_hook.html#a0d9c022f4f5f353128f3aa57648974e3',1,'Utils::Hook::Hook']]],
+  ['canbedeleted',['canBeDeleted',['../class_game_1_1_rendering_1_1_box.html#aa24041cbe44afcaa0d4cec93a649cbc9',1,'Game::Rendering::Box::canBeDeleted()'],['../class_game_1_1_rendering_1_1_image.html#a34cbf490bfaf01dc9876ed2cc600e53f',1,'Game::Rendering::Image::canBeDeleted()'],['../class_game_1_1_rendering_1_1_line.html#abae9afe20eb998a2c297163a50487128',1,'Game::Rendering::Line::canBeDeleted()'],['../class_game_1_1_rendering_1_1_render_base.html#a4ed90e69abf0490838cbfd342fe95344',1,'Game::Rendering::RenderBase::canBeDeleted()'],['../class_game_1_1_rendering_1_1_text.html#aed6bd2d99bce4fc2719036cd6d9a71f1',1,'Game::Rendering::Text::canBeDeleted()']]],
   ['cd3dfont',['CD3DFont',['../class_c_d3_d_font.html#add244cbbfb2c29a6f3ca8e8d884b89ea',1,'CD3DFont']]],
-  ['changeresource',['changeResource',['../class_render_base.html#a47fc4eb9adc6615cd3bbeb9231f4a651',1,'RenderBase']]]
+  ['changeresource',['changeResource',['../class_game_1_1_rendering_1_1_render_base.html#a1317809da934a0438a1204e961aed5a1',1,'Game::Rendering::RenderBase']]]
 ];
