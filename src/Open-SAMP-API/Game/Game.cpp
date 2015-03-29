@@ -112,6 +112,8 @@ void initGame()
 		BIND(ShowGameText);
 		BIND(AddChatMessage);
 
+		BIND(ReadMemory);
+
 		new Utils::PipeServer([&](Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 		{
 			SERIALIZATION_READ(serializerIn, Shared::PipeMessages, eMessage);

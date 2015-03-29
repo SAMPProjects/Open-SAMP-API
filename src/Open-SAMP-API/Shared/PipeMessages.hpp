@@ -56,6 +56,9 @@ namespace Shared
 		// SAMP functions
 		SendChat,
 		ShowGameText,
-		AddChatMessage
+		AddChatMessage,
+
+		// Memory functions
+		ReadMemory
 	};
 }

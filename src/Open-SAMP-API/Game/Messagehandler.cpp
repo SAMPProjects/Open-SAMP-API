@@ -378,3 +378,23 @@ void Game::MessageHandler::AddChatMessage(Utils::Serializer& serializerIn, Utils
 
 	WRITE(Game::SAMP::addChatMessage((std::string("{ffffff}• ") + message).c_str()));
 }
+
+void Game::MessageHandler::ReadMemory(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
+{
+	READ(unsigned int, address);
+	READ(unsigned int, len);
+
+	// Take care of memory leaks!
+	char *memory = new char[len];
+	memset(memory, 0, len);
+
+	if (ReadProcessMemory(GetCurrentProcess(), (LPCVOID)address, memory, len, NULL) == FALSE) {
+		WRITE(std::string());
+	}
+	else {
+		WRITE(std::string(memory, memory + len));
+	}
+
+	// Delete heap allocated memory!
+	delete[] memory; 
+}

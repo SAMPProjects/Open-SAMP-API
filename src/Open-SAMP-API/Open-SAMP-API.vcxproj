@@ -12,8 +12,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client\Client.cpp" />
+    <ClCompile Include="Client\MemoryFunctions.cpp" />
+    <ClCompile Include="Client\PlayerFunctions.cpp" />
     <ClCompile Include="Client\RenderFunctions.cpp" />
     <ClCompile Include="Client\SAMPFunctions.cpp" />
+    <ClCompile Include="Client\VehicleFunctions.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="Game\Messagehandler.cpp" />
@@ -36,8 +39,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client\Client.hpp" />
+    <ClInclude Include="Client\MemoryFunctions.hpp" />
+    <ClInclude Include="Client\PlayerFunctions.hpp" />
     <ClInclude Include="Client\RenderFunctions.hpp" />
     <ClInclude Include="Client\SAMPFunctions.hpp" />
+    <ClInclude Include="Client\VehicleFunctions.hpp" />
     <ClInclude Include="dllmain.hpp" />
     <ClInclude Include="Game\Game.hpp" />
     <ClInclude Include="Game\Messagehandler.hpp" />

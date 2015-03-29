@@ -65,6 +65,15 @@
     <ClCompile Include="Utils\Process.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
+    <ClCompile Include="Client\MemoryFunctions.cpp">
+      <Filter>Client %28Keybinder%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Client\PlayerFunctions.cpp">
+      <Filter>Client %28Keybinder%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Client\VehicleFunctions.cpp">
+      <Filter>Client %28Keybinder%29</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\SAMP.hpp">
@@ -151,6 +160,15 @@
     </ClInclude>
     <ClInclude Include="Utils\Process.hpp">
       <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Client\PlayerFunctions.hpp">
+      <Filter>Client %28Keybinder%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Client\MemoryFunctions.hpp">
+      <Filter>Client %28Keybinder%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Client\VehicleFunctions.hpp">
+      <Filter>Client %28Keybinder%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

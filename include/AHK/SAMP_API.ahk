@@ -13,6 +13,7 @@ if(hModule == -1 || hModule == 0)
 Init_func 				:= DllCall("GetProcAddress", UInt, hModule, Str, "Init")
 SetParam_func 			:= DllCall("GetProcAddress", UInt, hModule, Str, "SetParam")
 
+; Overlay functions
 TextCreate_func 		:= DllCall("GetProcAddress", UInt, hModule, Str, "TextCreate")
 TextDestroy_func 		:= DllCall("GetProcAddress", UInt, hModule, Str, "TextDestroy")
 TextSetShadow_func 		:= DllCall("GetProcAddress", UInt, hModule, Str, "TextSetShadow")
@@ -57,9 +58,18 @@ SetCalculationRatio_func:= DllCall("GetProcAddress", UInt, hModule, Str, "SetCal
 
 SetOverlayPriority_func := DllCall("GetProcAddress", UInt, hModule, Str, "SetOverlayPriority")
 
+; SAMP functions
 SendChat_func 			:= DllCall("GetProcAddress", UInt, hModule, Str, "SendChat")
 ShowGameText_func 		:= DllCall("GetProcAddress", UInt, hModule, Str, "ShowGameText")
 AddChatMessage_func 	:= DllCall("GetProcAddress", UInt, hModule, Str, "AddChatMessage")
+
+; Player functions
+GetPlayerHealth_func 	:= DllCall("GetProcAddress", UInt, hModule, Str, "GetPlayerHealth")
+IsPlayerInAnyVehicle_func := DllCall("GetProcAddress", UInt, hModule, Str, "IsPlayerInAnyVehicle")
+
+; Vehicle functions
+GetVehiclePointer_func 	:= DllCall("GetProcAddress", UInt, hModule, Str, "GetVehiclePointer")
+GetVehicleSpeed_func	:= DllCall("GetProcAddress", UInt, hModule, Str, "GetVehicleSpeed")
 
 Init()
 {
@@ -346,6 +356,34 @@ AddChatMessage(msg)
 {
 	global AddChatMessage_func
 	res := DllCall(AddChatMessage_func, Str, msg)
+	return res
+}
+
+GetPlayerHealth()
+{
+	global GetPlayerHealth_func
+	res := DllCall(GetPlayerHealth_func)
+	return res
+}
+
+IsPlayerInAnyVehicle()
+{
+	global IsPlayerInAnyVehicle_func
+	res := DllCall(IsPlayerInAnyVehicle_func)
+	return res
+}
+
+GetVehiclePointer()
+{
+	global GetVehiclePointer_func
+	res := DllCall(GetVehiclePointer_func)
+	return res
+}
+
+GetVehicleSpeed(factor)
+{
+	global GetVehicleSpeed_func
+	res := DllCall(GetVehicleSpeed_func, Float, factor)
 	return res
 }
 

@@ -54,5 +54,7 @@ namespace Game
 		void SendChat(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 		void ShowGameText(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 		void AddChatMessage(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+
+		void ReadMemory(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 	}
 }
