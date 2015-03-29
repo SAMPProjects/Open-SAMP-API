@@ -9,6 +9,6 @@ Dependencies
 
 Documentation
 ------------
-- [Doxygen Documentation of the code](http://www.samp-api.net/doc/)
-- [Doxygen Documentation of all exported DLL functions](http://samp-api.net/doc/_s_a_m_p___a_p_i_8h.html#func-members)
+- [Doxygen documentation of the code](http://www.samp-api.net/doc/)
+- [Doxygen documentation of all exported DLL functions](http://samp-api.net/doc/_s_a_m_p___a_p_i_8h.html#func-members)
 
