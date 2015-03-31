@@ -32,4 +32,28 @@ EXPORT int Client::VehicleFunctions::GetVehicleSpeed(float factor)
 	return (int)speed;
 }
 
+EXPORT float Client::VehicleFunctions::GetVehicleHealth()
+{
+	DWORD ptr = GetVehiclePointer();
+	if (ptr == NULL)
+		return -1.0f;
 
+	float health = 0.0f;
+	if (MemoryFunctions::ReadMemory(ptr + 0x4C0, 4, &health) != 4)
+		return -1.0f;
+
+	return health;
+}
+
+EXPORT short Client::VehicleFunctions::GetVehicleTypeId()
+{
+	DWORD ptr = GetVehiclePointer();
+	if (ptr == NULL)
+		return -1;
+
+	short id = 0;
+	if (MemoryFunctions::ReadMemory(ptr + 0x22, 2, &id) != 2)
+		return -1;
+
+	return id;
+}

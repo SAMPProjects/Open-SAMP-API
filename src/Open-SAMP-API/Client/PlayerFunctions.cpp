@@ -16,8 +16,163 @@ EXPORT int Client::PlayerFunctions::GetPlayerHealth()
 	return (int)health;
 }
 
+EXPORT int Client::PlayerFunctions::GetPlayerArmor()
+{
+	DWORD pedPtr = 0;
+	if (MemoryFunctions::ReadMemory(0xB6F5F0, 4, &pedPtr) != 4)
+		return -1;
+
+	float armor = 0.0;
+	if (MemoryFunctions::ReadMemory(pedPtr + 0x548, 4, &armor) != 4)
+		return -1;
+
+	return (int)armor;
+}
+
 EXPORT int Client::PlayerFunctions::IsPlayerInAnyVehicle()
 {
 	return (int)(VehicleFunctions::GetVehiclePointer() != 0);
 }
 
+EXPORT int Client::PlayerFunctions::IsPlayerInInterior()	
+{
+	DWORD pedPtr = 0;
+	if (MemoryFunctions::ReadMemory(0xB6F5F0, 4, &pedPtr) != 4)
+		return -1;
+
+	int interior;
+	if (MemoryFunctions::ReadMemory(pedPtr + 0x2F, 1, &interior) != 1)
+		return -1;
+
+	return (int)(interior != 0);
+}
+
+EXPORT int Client::PlayerFunctions::GetPlayerX(float &posX)
+{
+	DWORD pedPtr = 0;
+	if (MemoryFunctions::ReadMemory(0xB6F5F0, 4, &pedPtr) != 4)
+		return 0;
+
+	DWORD matrixPtr = 0;
+	if (MemoryFunctions::ReadMemory(pedPtr + 0x14, 4, &matrixPtr) != 4)
+		return 0;
+
+	DWORD positionPtr = 0;
+	if (MemoryFunctions::ReadMemory(matrixPtr + 0x30, 4, &positionPtr) != 4)
+		return 0;
+
+	float position = 0.0f;
+	if (MemoryFunctions::ReadMemory(positionPtr, 4, &position) != 4)
+		return 0;
+
+	posX = position;
+	return 1;
+}
+
+EXPORT int Client::PlayerFunctions::GetPlayerY(float &posY)
+{
+	DWORD pedPtr = 0;
+	if (MemoryFunctions::ReadMemory(0xB6F5F0, 4, &pedPtr) != 4)
+		return 0;
+
+	DWORD matrixPtr = 0;
+	if (MemoryFunctions::ReadMemory(pedPtr + 0x14, 4, &matrixPtr) != 4)
+		return 0;
+
+	DWORD positionPtr = 0;
+	if (MemoryFunctions::ReadMemory(matrixPtr + 0x34, 4, &positionPtr) != 4)
+		return 0;
+
+	float position = 0.0f;
+	if (MemoryFunctions::ReadMemory(positionPtr, 4, &position) != 4)
+		return 0;
+
+	posY = position;
+	return 1;
+}
+
+EXPORT int Client::PlayerFunctions::GetPlayerZ(float &posZ)
+{
+	DWORD pedPtr = 0;
+	if (MemoryFunctions::ReadMemory(0xB6F5F0, 4, &pedPtr) != 4)
+		return 0;
+
+	DWORD matrixPtr = 0;
+	if (MemoryFunctions::ReadMemory(pedPtr + 0x14, 4, &matrixPtr) != 4)
+		return 0;
+
+	DWORD positionPtr = 0;
+	if (MemoryFunctions::ReadMemory(matrixPtr + 0x38, 4, &positionPtr) != 4)
+		return 0;
+
+	float position = 0.0f;
+	if (MemoryFunctions::ReadMemory(positionPtr, 4, &position) != 4)
+		return 0;
+
+	posZ = position;
+	return 1;
+}
+
+EXPORT int Client::PlayerFunctions::GetPlayerPosition(float &posX, float &posY, float &posZ)
+{
+	DWORD pedPtr = 0;
+	if (MemoryFunctions::ReadMemory(0xB6F5F0, 4, &pedPtr) != 4)
+		return 0;
+
+	DWORD matrixPtr = 0;
+	if (MemoryFunctions::ReadMemory(pedPtr + 0x14, 4, &matrixPtr) != 4)
+		return 0;
+
+	DWORD positionPtr = 0;
+	if (MemoryFunctions::ReadMemory(matrixPtr + 0x34, 4, &positionPtr) != 4)
+		return 0;
+
+
+	float positionX = 0.0f;
+	if (MemoryFunctions::ReadMemory(matrixPtr + 0x30, 4, &positionX) != 4)
+		return 0;
+
+	float positionY = 0.0f;
+	if (MemoryFunctions::ReadMemory(matrixPtr + 0x34, 4, &positionY) != 4)
+		return 0;
+
+	float positionZ = 0.0f;
+	if (MemoryFunctions::ReadMemory(matrixPtr + 0x38, 4, &positionZ) != 4)
+		return 0;
+
+	posX = positionX;
+	posY = positionY;
+	posZ = positionY;
+	return 1;
+}
+
+EXPORT int Client::PlayerFunctions::IsPlayerInRange2D(float posX, float posY, float radius)
+{
+	float x, y = 0;
+	if (!GetPlayerX(x) || !GetPlayerY(y))
+		return 0;
+
+	x -= posX;
+	y -= posY;
+
+	if ((x < radius) && (x > -radius) && (y < radius) && (y > -radius))
+		return 1;
+
+	return 0;
+}
+
+EXPORT int Client::PlayerFunctions::IsPlayerInRange3D(float posX, float posY, float posZ, float radius)
+{
+	float x, y, z = 0.0f;
+	if (!GetPlayerPosition(x, y, z))
+		return 0;
+
+	x -= posX;
+	y -= posY;
+	z -= posZ;
+
+	if ((x < radius) && (x > -radius) && (y < radius) && (y > -radius) && (z < radius) && (z > -radius))
+		return 1;
+
+	return 0;
+}
