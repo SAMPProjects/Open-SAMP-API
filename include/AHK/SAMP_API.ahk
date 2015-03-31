@@ -65,7 +65,9 @@ AddChatMessage_func 	:= DllCall("GetProcAddress", UInt, hModule, Str, "AddChatMe
 
 ; Player functions
 GetPlayerHealth_func 	:= DllCall("GetProcAddress", UInt, hModule, Str, "GetPlayerHealth")
+GetPlayerArmor_func 	:= DllCall("GetProcAddress", UInt, hModule, Str, "GetPlayerArmor")
 IsPlayerInAnyVehicle_func := DllCall("GetProcAddress", UInt, hModule, Str, "IsPlayerInAnyVehicle")
+IsPlayerInInterior_func := DllCall("GetProcAddress", UInt, hModule, Str, "IsPlayerInInterior")
 
 ; Vehicle functions
 GetVehiclePointer_func 	:= DllCall("GetProcAddress", UInt, hModule, Str, "GetVehiclePointer")
@@ -366,10 +368,24 @@ GetPlayerHealth()
 	return res
 }
 
+GetPlayerArmor()
+{
+	global GetPlayerArmor_func
+	res := DllCall(GetPlayerArmor_func)
+	return res
+}
+
 IsPlayerInAnyVehicle()
 {
 	global IsPlayerInAnyVehicle_func
 	res := DllCall(IsPlayerInAnyVehicle_func)
+	return res
+}
+
+IsPlayerInInterior()
+{
+	global IsPlayerInInterior_func
+	res := DllCall(IsPlayerInInterior_func)
 	return res
 }
 

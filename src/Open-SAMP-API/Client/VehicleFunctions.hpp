@@ -7,5 +7,7 @@ namespace Client
 	{
 		EXPORT unsigned int GetVehiclePointer();
 		EXPORT int GetVehicleSpeed(float factor);
+		EXPORT float GetVehicleHealth();
+		EXPORT short GetVehicleTypeId();
 	}
 }

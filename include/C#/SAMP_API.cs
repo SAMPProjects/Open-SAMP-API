@@ -6,7 +6,9 @@ namespace DX9OverlayAPI
     class DX9Overlay
     {
         public const String PATH = "Open-SAMP-API.dll";
-
+		
+		
+		
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int TextCreate(string font, int fontSize, bool bBold, bool bItalic, int x, int y, uint color, string text, bool bShadow, bool bShow);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
