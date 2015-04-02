@@ -170,6 +170,51 @@
     <ClInclude Include="Client\VehicleFunctions.hpp">
       <Filter>Client %28Keybinder%29</Filter>
     </ClInclude>
+    <ClInclude Include="Client\GTAStructs.hpp">
+      <Filter>Client %28Keybinder%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\Detours\detours.h">
+      <Filter>Utils\Detours</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\D3DX9\d3d9.h">
+      <Filter>Utils\D3DX9</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\D3DX9\d3d9caps.h">
+      <Filter>Utils\D3DX9</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\D3DX9\d3d9types.h">
+      <Filter>Utils\D3DX9</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\D3DX9\d3dx9.h">
+      <Filter>Utils\D3DX9</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\D3DX9\d3dx9anim.h">
+      <Filter>Utils\D3DX9</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\D3DX9\d3dx9core.h">
+      <Filter>Utils\D3DX9</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\D3DX9\d3dx9effect.h">
+      <Filter>Utils\D3DX9</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\D3DX9\d3dx9math.h">
+      <Filter>Utils\D3DX9</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\D3DX9\d3dx9mesh.h">
+      <Filter>Utils\D3DX9</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\D3DX9\d3dx9shader.h">
+      <Filter>Utils\D3DX9</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\D3DX9\d3dx9shape.h">
+      <Filter>Utils\D3DX9</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\D3DX9\d3dx9tex.h">
+      <Filter>Utils\D3DX9</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\D3DX9\d3dx9xof.h">
+      <Filter>Utils\D3DX9</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Client %28Keybinder%29">
@@ -187,5 +232,24 @@
     <Filter Include="Game %28GTA SA%29\Rendering">
       <UniqueIdentifier>{d51ce45c-1411-4620-ae2f-4fc869d96b4e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utils\D3DX9">
+      <UniqueIdentifier>{339f8d66-1a33-415c-bd77-6989c614783c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\Detours">
+      <UniqueIdentifier>{c1775da1-bca9-48e0-9fe2-f272fd3467f1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="Utils\Detours\detours.lib">
+      <Filter>Utils\Detours</Filter>
+    </Library>
+    <Library Include="Utils\D3DX9\d3dx9.lib">
+      <Filter>Utils\D3DX9</Filter>
+    </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Utils\D3DX9\d3dx9math.inl">
+      <Filter>Utils\D3DX9</Filter>
+    </None>
   </ItemGroup>
 </Project>

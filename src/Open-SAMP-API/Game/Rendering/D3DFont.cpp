@@ -8,7 +8,7 @@
 #define STRICT
 #include <stdio.h>
 #include <tchar.h>
-#include <D3DX9.h>
+#include <Utils/D3DX9/d3dx9.h>
 #include "D3DFont.hpp"
 
 #include <vector>

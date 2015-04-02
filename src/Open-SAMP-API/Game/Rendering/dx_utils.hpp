@@ -1,6 +1,6 @@
 #pragma once
 #include <Utils/Windows.hpp>
-#include <d3dx9.h>
+#include <Utils/D3DX9/d3dx9.h>
 
 #define DRAW_FVF (D3DFVF_XYZRHW | D3DFVF_DIFFUSE | D3DFVF_TEX1)
 

@@ -1,5 +1,5 @@
 #pragma once
-#include <d3dx9.h>
+#include <Utils/D3DX9/d3dx9.h>
 #include <memory>
 #include <map>
 #include <functional>

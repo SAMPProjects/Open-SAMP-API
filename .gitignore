@@ -187,3 +187,6 @@ FakesAssemblies/
 doc/latex
 doc/html
 *.bak
+
+#Allow detours
+!src/Open-SAMP-API/Utils/Detours/detours.pdb

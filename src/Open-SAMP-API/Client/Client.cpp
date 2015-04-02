@@ -15,7 +15,7 @@ stParamInfo g_paramArray[3] =
 {
 	"process", "",
 	"window", "",
-	"use_window", "0"
+	"use_window", "1"
 };
 
 bool Client::Client::IsServerAvailable()
@@ -61,6 +61,9 @@ EXPORT int Client::Client::Init()
 	else
 	{
 		std::string szSearchName = GetParam("window");
+		if (szSearchName.length() == 0)
+			szSearchName = "GTA:SA:MP";
+
 		dwPId = Utils::Process::pidByWindowName(szSearchName);
 	}
 

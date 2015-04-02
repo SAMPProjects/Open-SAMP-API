@@ -39,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client\Client.hpp" />
+    <ClInclude Include="Client\GTAStructs.hpp" />
     <ClInclude Include="Client\MemoryFunctions.hpp" />
     <ClInclude Include="Client\PlayerFunctions.hpp" />
     <ClInclude Include="Client\RenderFunctions.hpp" />
@@ -60,6 +61,20 @@
     <ClInclude Include="Shared\Config.hpp" />
     <ClInclude Include="Shared\PipeMessages.hpp" />
     <ClInclude Include="Utils\algorithm.hpp" />
+    <ClInclude Include="Utils\D3DX9\d3d9.h" />
+    <ClInclude Include="Utils\D3DX9\d3d9caps.h" />
+    <ClInclude Include="Utils\D3DX9\d3d9types.h" />
+    <ClInclude Include="Utils\D3DX9\d3dx9.h" />
+    <ClInclude Include="Utils\D3DX9\d3dx9anim.h" />
+    <ClInclude Include="Utils\D3DX9\d3dx9core.h" />
+    <ClInclude Include="Utils\D3DX9\d3dx9effect.h" />
+    <ClInclude Include="Utils\D3DX9\d3dx9math.h" />
+    <ClInclude Include="Utils\D3DX9\d3dx9mesh.h" />
+    <ClInclude Include="Utils\D3DX9\d3dx9shader.h" />
+    <ClInclude Include="Utils\D3DX9\d3dx9shape.h" />
+    <ClInclude Include="Utils\D3DX9\d3dx9tex.h" />
+    <ClInclude Include="Utils\D3DX9\d3dx9xof.h" />
+    <ClInclude Include="Utils\Detours\detours.h" />
     <ClInclude Include="Utils\Hook.hpp" />
     <ClInclude Include="Utils\Process.hpp" />
     <ClInclude Include="Utils\Module.hpp" />
@@ -70,6 +85,13 @@
     <ClInclude Include="Utils\Memory.hpp" />
     <ClInclude Include="Utils\Serializer.hpp" />
     <ClInclude Include="Utils\Windows.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="Utils\D3DX9\d3dx9.lib" />
+    <Library Include="Utils\Detours\detours.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Utils\D3DX9\d3dx9math.inl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B8A30F01-BE67-45B9-AE80-47CB9A95BCF8}</ProjectGuid>

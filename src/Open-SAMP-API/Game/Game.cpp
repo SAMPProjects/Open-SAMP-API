@@ -6,7 +6,7 @@
 #include <Utils/Hook.hpp>
 #include <Utils/Pattern.hpp>
 #include <Utils/PipeServer.hpp>
-#include <d3dx9.h>
+#include <Utils/D3DX9/d3dx9.h>
 
 #define BIND(T) PaketHandler[Shared::PipeMessages::T] = std::bind(Game::MessageHandler::T, std::placeholders::_1, std::placeholders::_2);
 
