@@ -68,10 +68,15 @@ GetPlayerHealth_func 	:= DllCall("GetProcAddress", UInt, hModule, Str, "GetPlaye
 GetPlayerArmor_func 	:= DllCall("GetProcAddress", UInt, hModule, Str, "GetPlayerArmor")
 IsPlayerInAnyVehicle_func := DllCall("GetProcAddress", UInt, hModule, Str, "IsPlayerInAnyVehicle")
 IsPlayerInInterior_func := DllCall("GetProcAddress", UInt, hModule, Str, "IsPlayerInInterior")
+IsPlayerInRange2D_func	:= DllCall("GetProcAddress", UInt, hModule, Str, "IsPlayerInRange2D")
+IsPlayerInRange3D_func	:= DllCall("GetProcAddress", UInt, hModule, Str, "IsPlayerInRange3D")
 
 ; Vehicle functions
 GetVehiclePointer_func 	:= DllCall("GetProcAddress", UInt, hModule, Str, "GetVehiclePointer")
 GetVehicleSpeed_func	:= DllCall("GetProcAddress", UInt, hModule, Str, "GetVehicleSpeed")
+GetVehicleHealth_func	:= DllCall("GetProcAddress", UInt, hModule, Str, "GetVehicleHealth")
+GetVehicleTypeId_func	:= DllCall("GetProcAddress", UInt, hModule, Str, "GetVehicleTypeId")
+IsVehicleBike_func		:= DllCall("GetProcAddress", UInt, hModule, Str, "IsVehicleBike")
 
 Init()
 {
@@ -389,6 +394,20 @@ IsPlayerInInterior()
 	return res
 }
 
+IsPlayerInRange2D(posX, posY, radius)
+{
+	global IsPlayerInRange2D_func
+	res := DllCall(ShowGameText_func, Float, posX, Float, posY, Float, radius)
+	return res
+}
+
+IsPlayerInRange3D(posX, posY, posZ, radius)
+{
+	global IsPlayerInRange3D_func
+	res := DllCall(ShowGameText_func, Float, posX, Float, posY, Float, posZ, Float, radius)
+	return res
+}
+
 GetVehiclePointer()
 {
 	global GetVehiclePointer_func
@@ -400,6 +419,27 @@ GetVehicleSpeed(factor)
 {
 	global GetVehicleSpeed_func
 	res := DllCall(GetVehicleSpeed_func, Float, factor)
+	return res
+}
+
+GetVehicleHealth()
+{
+	global GetVehicleHealth_func
+	res := DllCall(GetVehicleHealth_func)
+	return res
+}
+
+GetVehicleTypeId()
+{
+	global GetVehicleTypeId_func
+	res := DllCall(GetVehicleTypeId_func)
+	return res
+}
+
+IsVehicleBike()
+{
+	global IsVehicleBike_func
+	res := DllCall(IsVehicleBike_func)
 	return res
 }
 
