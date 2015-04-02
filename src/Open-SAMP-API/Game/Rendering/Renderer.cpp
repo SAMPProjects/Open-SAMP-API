@@ -214,3 +214,14 @@ std::recursive_mutex& Game::Rendering::Renderer::renderMutex()
 {
 	return _mtx;
 }
+
+Game::Rendering::Renderer& Game::Rendering::Renderer::sharedRenderer()
+{
+	static Renderer render;
+	return render;
+}
+
+Game::Rendering::Renderer::Renderer()
+{
+
+}

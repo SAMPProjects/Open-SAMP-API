@@ -18,7 +18,6 @@ namespace Game
 
 		public:
 			int add(SharedRenderObject Object);
-
 			bool remove(int id);
 
 			template<typename T>
@@ -63,7 +62,11 @@ namespace Game
 
 			std::recursive_mutex& renderMutex();
 
+			static Renderer& sharedRenderer();
+
 		private:
+			Renderer();
+
 			int _frameRate, _width, _height;
 
 			static RenderObjects _renderObjects;

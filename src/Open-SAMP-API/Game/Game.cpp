@@ -1,19 +1,20 @@
 #include "Game.hpp"
 #include "Messagehandler.hpp"
-#include "SAMP.hpp"
+#include "SAMP/SAMP.hpp"
+#include "SAMP/RemotePlayer.hpp"
 #include "Rendering/Renderer.hpp"
 #include <Utils/Windows.hpp>
 #include <Utils/Hook.hpp>
 #include <Utils/Pattern.hpp>
 #include <Utils/PipeServer.hpp>
 #include <Utils/D3DX9/d3dx9.h>
+#include <thread>
 
 #define BIND(T) PaketHandler[Shared::PipeMessages::T] = std::bind(Game::MessageHandler::T, std::placeholders::_1, std::placeholders::_2);
 
 Utils::Hook::Hook<Utils::Hook::CallConvention::stdcall_t, HRESULT, LPDIRECT3DDEVICE9, CONST RECT *, CONST RECT *, HWND, CONST RGNDATA *> g_presentHook;
 Utils::Hook::Hook<Utils::Hook::CallConvention::stdcall_t, HRESULT, LPDIRECT3DDEVICE9, D3DPRESENT_PARAMETERS *> g_resetHook;
 
-Game::Rendering::Renderer g_pRenderer;
 bool g_bEnabled = false;
 
 extern "C" __declspec(dllexport) void enable()
@@ -37,7 +38,7 @@ void initGame()
 		g_presentHook.apply(vtbl[17], [](LPDIRECT3DDEVICE9 dev, CONST RECT * a1, CONST RECT * a2, HWND a3, CONST RGNDATA *a4) -> HRESULT
 		{
 			__asm pushad
-			g_pRenderer.draw(dev);
+			Game::Rendering::Renderer::sharedRenderer().draw(dev);
 			__asm popad
 
 			return g_presentHook.callOrig(dev, a1, a2, a3, a4);
@@ -46,7 +47,7 @@ void initGame()
 		g_resetHook.apply(vtbl[16], [](LPDIRECT3DDEVICE9 dev, D3DPRESENT_PARAMETERS *pp) -> HRESULT
 		{
 			__asm pushad
-			g_pRenderer.reset(dev);
+			Game::Rendering::Renderer::sharedRenderer().reset(dev);
 			__asm popad
 
 			return g_resetHook.callOrig(dev, pp);
@@ -111,6 +112,7 @@ void initGame()
 		BIND(SendChat);
 		BIND(ShowGameText);
 		BIND(AddChatMessage);
+		BIND(GetPlayerNameByID);
 
 		BIND(ReadMemory);
 

@@ -5,8 +5,8 @@
 text_overlay :=- 1
 
 ; Set the API's parameters
-SetParam("use_window", "1")
-SetParam("window", "GTA:SA:MP")
+;SetParam("use_window", "1")
+;SetParam("window", "GTA:SA:MP")
 
 ; Create GUI
 Gui, Show, w237 h52, Health-Overlay

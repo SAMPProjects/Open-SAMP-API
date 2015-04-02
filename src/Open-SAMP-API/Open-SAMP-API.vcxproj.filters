@@ -47,9 +47,6 @@
     <ClCompile Include="Utils\Serializer.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
-    <ClCompile Include="Game\SAMP.cpp">
-      <Filter>Game %28GTA SA%29</Filter>
-    </ClCompile>
     <ClCompile Include="Utils\Module.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
@@ -74,11 +71,17 @@
     <ClCompile Include="Client\VehicleFunctions.cpp">
       <Filter>Client %28Keybinder%29</Filter>
     </ClCompile>
+    <ClCompile Include="Utils\NakedHook.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\SAMP\SAMP.cpp">
+      <Filter>Game %28GTA SA%29\SAMP</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\SAMP\RemotePlayer.cpp">
+      <Filter>Game %28GTA SA%29\SAMP</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game\SAMP.hpp">
-      <Filter>Game %28GTA SA%29</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Messagehandler.hpp">
       <Filter>Game %28GTA SA%29</Filter>
     </ClInclude>
@@ -149,9 +152,6 @@
     <ClInclude Include="Utils\Memory.hpp">
       <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Game\PatternTable.hpp">
-      <Filter>Game %28GTA SA%29</Filter>
-    </ClInclude>
     <ClInclude Include="Client\SAMPFunctions.hpp">
       <Filter>Client %28Keybinder%29</Filter>
     </ClInclude>
@@ -215,6 +215,18 @@
     <ClInclude Include="Utils\D3DX9\d3dx9xof.h">
       <Filter>Utils\D3DX9</Filter>
     </ClInclude>
+    <ClInclude Include="Utils\NakedHook.hpp">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SAMP\SAMP.hpp">
+      <Filter>Game %28GTA SA%29\SAMP</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SAMP\PatternTable.hpp">
+      <Filter>Game %28GTA SA%29\SAMP</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SAMP\RemotePlayer.hpp">
+      <Filter>Game %28GTA SA%29\SAMP</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Client %28Keybinder%29">
@@ -237,6 +249,9 @@
     </Filter>
     <Filter Include="Utils\Detours">
       <UniqueIdentifier>{c1775da1-bca9-48e0-9fe2-f272fd3467f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game %28GTA SA%29\SAMP">
+      <UniqueIdentifier>{3d923964-ebb6-4cfd-b73f-fc0bfd26f2fb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -57,6 +57,7 @@ namespace Shared
 		SendChat,
 		ShowGameText,
 		AddChatMessage,
+		GetPlayerNameByID,
 
 		// Memory functions
 		ReadMemory

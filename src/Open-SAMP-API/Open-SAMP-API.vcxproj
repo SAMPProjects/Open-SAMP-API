@@ -28,8 +28,10 @@
     <ClCompile Include="Game\Rendering\RenderBase.cpp" />
     <ClCompile Include="Game\Rendering\Renderer.cpp" />
     <ClCompile Include="Game\Rendering\Text.cpp" />
-    <ClCompile Include="Game\SAMP.cpp" />
+    <ClCompile Include="Game\SAMP\RemotePlayer.cpp" />
+    <ClCompile Include="Game\SAMP\SAMP.cpp" />
     <ClCompile Include="Utils\Memory.cpp" />
+    <ClCompile Include="Utils\NakedHook.cpp" />
     <ClCompile Include="Utils\Process.cpp" />
     <ClCompile Include="Utils\Module.cpp" />
     <ClCompile Include="Utils\Pattern.cpp" />
@@ -48,7 +50,6 @@
     <ClInclude Include="dllmain.hpp" />
     <ClInclude Include="Game\Game.hpp" />
     <ClInclude Include="Game\Messagehandler.hpp" />
-    <ClInclude Include="Game\PatternTable.hpp" />
     <ClInclude Include="Game\Rendering\Box.hpp" />
     <ClInclude Include="Game\Rendering\D3DFont.hpp" />
     <ClInclude Include="Game\Rendering\dx_utils.hpp" />
@@ -57,7 +58,9 @@
     <ClInclude Include="Game\Rendering\RenderBase.hpp" />
     <ClInclude Include="Game\Rendering\Renderer.hpp" />
     <ClInclude Include="Game\Rendering\Text.hpp" />
-    <ClInclude Include="Game\SAMP.hpp" />
+    <ClInclude Include="Game\SAMP\PatternTable.hpp" />
+    <ClInclude Include="Game\SAMP\RemotePlayer.hpp" />
+    <ClInclude Include="Game\SAMP\SAMP.hpp" />
     <ClInclude Include="Shared\Config.hpp" />
     <ClInclude Include="Shared\PipeMessages.hpp" />
     <ClInclude Include="Utils\algorithm.hpp" />
@@ -76,6 +79,7 @@
     <ClInclude Include="Utils\D3DX9\d3dx9xof.h" />
     <ClInclude Include="Utils\Detours\detours.h" />
     <ClInclude Include="Utils\Hook.hpp" />
+    <ClInclude Include="Utils\NakedHook.hpp" />
     <ClInclude Include="Utils\Process.hpp" />
     <ClInclude Include="Utils\Module.hpp" />
     <ClInclude Include="Utils\Pattern.hpp" />

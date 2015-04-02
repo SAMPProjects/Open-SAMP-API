@@ -62,6 +62,8 @@ SetOverlayPriority_func := DllCall("GetProcAddress", UInt, hModule, Str, "SetOve
 SendChat_func 			:= DllCall("GetProcAddress", UInt, hModule, Str, "SendChat")
 ShowGameText_func 		:= DllCall("GetProcAddress", UInt, hModule, Str, "ShowGameText")
 AddChatMessage_func 	:= DllCall("GetProcAddress", UInt, hModule, Str, "AddChatMessage")
+GetPlayerNameByID_func	:= DllCall("GetProcAddress", UInt, hModule, Str, "GetPlayerNameByID")
+GetPlayerIDByName_func 	:= DllCall("GetProcAddress", UInt, hModule, Str, "GetPlayerIDByName")
 
 ; Player functions
 GetPlayerHealth_func 	:= DllCall("GetProcAddress", UInt, hModule, Str, "GetPlayerHealth")
@@ -363,6 +365,21 @@ AddChatMessage(msg)
 {
 	global AddChatMessage_func
 	res := DllCall(AddChatMessage_func, Str, msg)
+	return res
+}
+
+GetPlayerNameByID(id, byref name)
+{
+	global GetPlayerNameByID_func
+	VarSetCapacity(name, 32, 0)
+	res := DllCall(GetPlayerNameByID_func, Int, id, StrP, name)
+	return res
+}
+
+GetPlayerIDByName(name)
+{
+	global GetPlayerIDByName_func
+	res := DllCall(GetPlayerIDByName_func, Str, name)
 	return res
 }
 

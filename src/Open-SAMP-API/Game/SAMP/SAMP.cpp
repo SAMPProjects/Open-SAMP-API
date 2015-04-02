@@ -1,11 +1,13 @@
 #include "SAMP.hpp"
 #include "PatternTable.hpp"
+#include "RemotePlayer.hpp"
 #include <Utils/Windows.hpp>
 #include <Utils/Memory.hpp>
 #include <Utils/Pattern.hpp>
 #include <Utils/Module.hpp>
 #include <exception>
 #include <stdio.h>
+
 
 #define CHECK_OFFSET(X, RET, TYPE) \
 	if (auto val = Utils::Memory::readMemory<TYPE>(X)) { if (*val == 0) return RET; } else return RET;
@@ -20,6 +22,13 @@ void Game::SAMP::initSAMP()
 
 	if (g_dwModuleBase == 0 || g_dwModuleLength == 0)
 		throw std::exception("Error while initializing SA:MP");
+
+	RemotePlayer::Internal::init(g_dwModuleBase, g_dwModuleLength);
+}
+
+void Game::SAMP::exitSAMP()
+{
+
 }
 
 bool Game::SAMP::sendChat(const char *msg)
