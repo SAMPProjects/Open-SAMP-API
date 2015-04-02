@@ -248,6 +248,67 @@ IMPORT int ShowGameText(const char *msg, int time, int style);
 //! @return 1 if successfull, 0 if not.
 IMPORT int AddChatMessage(const char *msg);
 
+//! Reads the health of the player.
+//! @return -1 if an error occured, otherwise the health.
+IMPORT int GetPlayerHealth();
+//! Reads the armor of the player.
+//! @return -1 if an error occured, otherwise the armor.
+IMPORT int GetPlayerArmor();
+//! Check if the player is in any vehicle.
+//! @return 1 if the player is in any vehicle, 0 if not or an error occured.
+IMPORT int IsPlayerInAnyVehicle();
+//! Check if the player is in a interior.
+//! @return 1 if the player is in a interior, 0 if not or an error occured.
+IMPORT int IsPlayerInInterior();
+//! Reads the X-axis of the player.
+//! @param[in] posX Reference to be written.
+//! @return 1 if successfull, 0 if not.
+IMPORT int GetPlayerX(float &posX);
+//! Reads the Y-axis of the player.
+//! @param[in] posY Reference to be written.
+//! @return 1 if successfull, 0 if not.
+IMPORT int GetPlayerY(float &posY);
+//! Reads the Z-axis of the player.
+//! @param[in] posZ Reference to be written.
+//! @return 1 if successfull, 0 if not.
+IMPORT int GetPlayerZ(float &posZ);
+//! Reads the X-, Y- and Z-axis of the player.
+//! @param[in] posX Reference to be written the X-axis.
+//! @param[in] posY Reference to be written the Y-axis.
+//! @param[in] posZ Reference to be written the Z-axis.
+//! @return 1 if successfull, 0 if not.
+IMPORT int GetPlayerPosition(float &posX, float &posY, float &posZ);
+//! Check if the player is in the radius of the given X- and Y-axis
+//! @param[in] posX The X-axis of the point.
+//! @param[in] posY The Y-axis of the point.
+//! @param[in] radius The radius of the point.
+//! @return 1 if the player is in the radius, 0 if not.
+IMPORT int IsPlayerInRange2D(float posX, float posY, float radius);
+//! Check if the player is in the radius of the given X-, Y- and Z-axis
+//! @param[in] posX The X-axis of the point.
+//! @param[in] posY The Y-axis of the point.
+//! @param[in] posY The Z-axis of the point.
+//! @param[in] radius The radius of the point.
+//! @return 1 if the player is in the radius, 0 if not.
+IMPORT int IsPlayerInRange3D(float posX, float posY, float posZ, float radius);
+
+//! Reads the pointer of the current vehicle.
+//! @return Returns the pointer of the current vehicle, 0 if an error occured or the player was not in a vehicle.
+IMPORT unsigned int GetVehiclePointer();
+//! Calculate the current vehicle speed.
+//! @param[in] factor The factor of the speed.
+//! @return -1 if an error occured, otherwise the speed.
+IMPORT int GetVehicleSpeed(float factor);
+//! Reads the vehicle health
+//! @return -1.0 if an error occured, otherwise the health.
+IMPORT float GetVehicleHealth();
+//! Reads the type Id of the vehicle.
+//! @return -1 if an error occured, otherwise the type Id.
+IMPORT short GetVehicleTypeId();
+//! Check if the current vehicle is a bike.
+//! @return 1 if it is a bike, 0 if not or an error occured.
+IMPORT int IsVehicleBike();
+
 //! Routine to initialize the API, but it does not have to be explicitly called because it's initialized internally.
 //! @return 1 if successfull, 0 if not.
 IMPORT int  Init();
