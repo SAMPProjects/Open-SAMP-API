@@ -49,11 +49,20 @@ EXPORT short Client::VehicleFunctions::GetVehicleTypeId()
 {
 	DWORD ptr = GetVehiclePointer();
 	if (ptr == NULL)
-		return -1;
+		return 0;
 
 	short id = 0;
 	if (MemoryFunctions::ReadMemory(ptr + 0x22, 2, &id) != 2)
-		return -1;
+		return 0;
 
 	return id;
+}
+
+EXPORT int Client::VehicleFunctions::IsVehicleBike()
+{
+	short id = GetVehicleTypeId();
+	if (id == 448 || id == 581 || id == 522 || id == 461 || id == 523 || id == 463 || id == 586 || id == 471)
+		return 1;
+
+	return 0;
 }
