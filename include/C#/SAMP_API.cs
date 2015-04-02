@@ -7,8 +7,6 @@ namespace DX9OverlayAPI
     {
         public const String PATH = "Open-SAMP-API.dll";
 		
-		
-		
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int TextCreate(string font, int fontSize, bool bBold, bool bItalic, int x, int y, uint color, string text, bool bShadow, bool bShow);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
@@ -82,20 +80,50 @@ namespace DX9OverlayAPI
         public static extern int GetFrameRate();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int GetScreenSpecs(out int width, out int height);
-
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int SetCalculationRatio(int width, int height);
-
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int SetOverlayPriority(int id, int priority);
-
+		
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int SendChat(string msg);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int ShowGameText(string msg, int time, int style);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int AddChatMessage(string msg);
-
+		
+		[DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerHealth();
+		[DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerArmor();
+		[DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int IsPlayerInAnyVehicle();
+		[DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int IsPlayerInInterior();
+		[DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerX(ref float posX);
+		[DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerY(ref float posY);
+		[DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerZ(ref float posZ);
+		[DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerPosition(ref float posX, ref float posY, ref float posZ);
+		[DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int IsPlayerInRange2D(float posX, float posY, float radius);
+		[DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int IsPlayerInRange3D(float posX, float posY, float posZ, float radius);
+		
+		[DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern uint GetVehiclePointer();
+		[DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetVehicleSpeed(float factor);
+		[DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern float GetVehicleHealth();
+		[DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern short GetVehicleTypeId();
+		[DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int IsVehicleBike();
+		
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int Init();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]

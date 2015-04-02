@@ -9,5 +9,6 @@ namespace Client
 		EXPORT int GetVehicleSpeed(float factor);
 		EXPORT float GetVehicleHealth();
 		EXPORT short GetVehicleTypeId();
+		EXPORT int IsVehicleBike();
 	}
 }
