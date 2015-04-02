@@ -38,11 +38,11 @@ EXPORT int Client::PlayerFunctions::IsPlayerInInterior()
 {
 	DWORD pedPtr = 0;
 	if (MemoryFunctions::ReadMemory(0xB6F5F0, 4, &pedPtr) != 4)
-		return -1;
+		return 0;
 
 	int interior;
 	if (MemoryFunctions::ReadMemory(pedPtr + 0x2F, 1, &interior) != 1)
-		return -1;
+		return 0;
 
 	return (int)(interior != 0);
 }
