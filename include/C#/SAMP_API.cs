@@ -128,7 +128,7 @@ namespace SAMP_API
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int GetPlayerIDByName(string name);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetPlayerNameByID(int id, ref string playerName, int maxLength);
+        public static extern int GetPlayerNameByID(int id, ref StringBuilder playerName, int maxLen);
 
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int Init();
@@ -192,6 +192,14 @@ namespace SAMP_API
         public static void AddChatMessageEx(string prefix, Color prefixColor, string text, Color color)
         {
             AddChatMessage("{" + ColorToHexRGB(prefixColor) + "}" + prefix + " {" + ColorToHexRGB(color) + "}" + text);
+        }
+
+        public static string GetPlayerNameByIDEx(int id)
+        {
+            StringBuilder builder = new StringBuilder(32);
+            GetPlayerNameByID(id, ref builder, builder.Capacity);
+
+            return builder.ToString();
         }
 
         /// <summary>
