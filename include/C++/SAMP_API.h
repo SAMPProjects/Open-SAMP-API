@@ -292,6 +292,18 @@ IMPORT int IsPlayerInRange2D(float posX, float posY, float radius);
 //! @return 1 if the player is in the radius, 0 if not.
 IMPORT int IsPlayerInRange3D(float posX, float posY, float posZ, float radius);
 
+//! Reads the player ID by the player name.
+//! @param[in] id The ID of the player.
+//! @param[out] playername The player name.
+//! @param[in] max_len The maximum length of the name.
+//! @return 1 if successfull, 0 if not.
+IMPORT int GetPlayerNameByID(int id, char *&playername, int max_len);
+
+//! Read the player name by the player ID.
+//! param[in] name The name of the player.
+//! @return -1 if an error occured, otherwise the player ID.
+IMPORT int GetPlayerIDByName(const char *name);
+
 //! Reads the pointer of the current vehicle.
 //! @return Returns the pointer of the current vehicle, 0 if an error occured or the player was not in a vehicle.
 IMPORT unsigned int GetVehiclePointer();
