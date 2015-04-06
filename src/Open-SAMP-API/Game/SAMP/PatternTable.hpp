@@ -53,6 +53,22 @@ namespace Game
 				static const BYTE *byteMask = (const BYTE *)"\x57\x57\x8B\xCB\xE8\x00\x00\x00\x00\x50";
 				static const char *useMask = "xxxxx????x";
 			}
+
+			namespace UpdatePlayerData
+			{
+				// From 0.3z R2
+				// X86 ASM-Code
+				// .text:10067FFE mov ecx, dword_10212AB8 <-- -> UpdatePlayerData object pointer
+				// .text:10068004 call sub_10007C50 <-- -> UpdatePlayerData
+
+
+				// HEX-Code
+				// 8B 0D B8 2A 21 10
+				// E8 47 FC F9 FF
+
+				static const BYTE *byteMask = (const BYTE *)"\x8B\x0D\x00\x00\x00\x00\xE8\x00\x00\x00\x00\x8B\x0D\x00\x00\x00\x00\x8B\x7E\x18";
+				static const char *useMask = "xx????x????xx????xxx";
+			}
 		}
 	}
 }

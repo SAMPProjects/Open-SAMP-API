@@ -13,6 +13,7 @@ namespace Game
 				void init(DWORD dwModuleBase, DWORD dwModuleLen);
 			}
 
+			bool updatePlayerData();
 			const char *playerNameByID(unsigned short id);
 		}
 	}
