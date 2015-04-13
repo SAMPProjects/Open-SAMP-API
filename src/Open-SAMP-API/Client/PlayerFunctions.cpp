@@ -3,6 +3,14 @@
 #include "VehicleFunctions.hpp"
 #include <Shared/PipeMessages.hpp>
 
+
+EXPORT int Client::PlayerFunctions::GetPlayerCPed()
+{
+	DWORD pedPtr = 0;
+	MemoryFunctions::ReadMemory(0xB6F5F0, 4, &pedPtr);
+	return pedPtr;
+}
+
 EXPORT int Client::PlayerFunctions::GetPlayerHealth()
 {
 	DWORD pedPtr = 0;
@@ -34,7 +42,31 @@ EXPORT int Client::PlayerFunctions::IsPlayerInAnyVehicle()
 	return (int)(VehicleFunctions::GetVehiclePointer() != 0);
 }
 
-EXPORT int Client::PlayerFunctions::IsPlayerInInterior()	
+EXPORT int Client::PlayerFunctions::IsPlayerDriver()
+{
+	DWORD dwVehiclePtr = VehicleFunctions::GetVehiclePointer();
+	if (!dwVehiclePtr)
+		return 0;
+
+	DWORD dwPlayerPtr = PlayerFunctions::GetPlayerCPed();
+	DWORD dwDriverPtr = 0;
+
+	MemoryFunctions::ReadMemory(dwVehiclePtr + 0x460, 4, (char *)&dwDriverPtr);
+	if (dwPlayerPtr == dwDriverPtr)
+		return 1;
+
+	return 0;
+}
+
+EXPORT int Client::PlayerFunctions::IsPlayerPassenger()
+{
+	if (!IsPlayerInAnyVehicle())
+		return 0;
+
+	return !IsPlayerDriver();
+}
+
+EXPORT int Client::PlayerFunctions::IsPlayerInInterior()
 {
 	DWORD pedPtr = 0;
 	if (MemoryFunctions::ReadMemory(0xB6F5F0, 4, &pedPtr) != 4)

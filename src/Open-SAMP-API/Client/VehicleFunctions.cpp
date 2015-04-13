@@ -1,6 +1,7 @@
 #include "VehicleFunctions.hpp"
 #include "MemoryFunctions.hpp"
 #include "PlayerFunctions.hpp"
+#include "GTAStructs.hpp"
 #include <Shared/PipeMessages.hpp>
 
 EXPORT unsigned int Client::VehicleFunctions::GetVehiclePointer()
@@ -45,24 +46,217 @@ EXPORT float Client::VehicleFunctions::GetVehicleHealth()
 	return health;
 }
 
-EXPORT short Client::VehicleFunctions::GetVehicleTypeId()
+EXPORT int Client::VehicleFunctions::GetVehicleModelId()
 {
-	DWORD ptr = GetVehiclePointer();
-	if (ptr == NULL)
+	if (!PlayerFunctions::IsPlayerInAnyVehicle())
 		return 0;
 
-	short id = 0;
-	if (MemoryFunctions::ReadMemory(ptr + 0x22, 2, &id) != 2)
+	int dwVehicleId = 0;
+	MemoryFunctions::ReadMemory(GetVehiclePointer() + 0x22, 2, (char *)&dwVehicleId);
+	return dwVehicleId;
+}
+
+EXPORT int Client::VehicleFunctions::GetVehicleModelName(char* &name, int len)
+{
+	if (!PlayerFunctions::IsPlayerInAnyVehicle())
 		return 0;
 
-	return id;
+	strcpy_s(name, len, GTAStructs::vehicles[GetVehicleModelId() - 400].c_str());
+	return 1;
+}
+
+EXPORT int Client::VehicleFunctions::GetVehicleModelNameById(int vehicleID, char* &name, int len)
+{
+	strcpy_s(name, len, GTAStructs::vehicles[vehicleID - 400].c_str());
+	return 1;
+}
+
+EXPORT int Client::VehicleFunctions::GetVehicleType()
+{
+	if (!PlayerFunctions::IsPlayerInAnyVehicle())
+		return -1;
+
+	int dwVehicleType = 0;
+	MemoryFunctions::ReadMemory(GetVehiclePointer() + 0x590, 1, (char *)&dwVehicleType);
+	return dwVehicleType;
+}
+
+EXPORT int Client::VehicleFunctions::GetVehicleFreeSeats(int &seatFL, int &seatFR, int &seatRL, int &seatRR)
+{
+	if (!PlayerFunctions::IsPlayerInAnyVehicle())
+		return 0;
+
+	seatFL = IsVehicleSeatUsed(1);
+	seatFR = IsVehicleSeatUsed(2);
+	seatRL = IsVehicleSeatUsed(3);
+	seatRR = IsVehicleSeatUsed(4);
+	return 1;
+}
+
+EXPORT INT Client::VehicleFunctions::GetVehicleFirstColor()
+{
+	if (!PlayerFunctions::IsPlayerInAnyVehicle())
+		return -1;
+
+	int dwColor = 0;
+	MemoryFunctions::ReadMemory(GetVehiclePointer() + 0x434, 1, (char *)&dwColor);
+	return dwColor;
+}
+
+EXPORT INT Client::VehicleFunctions::GetVehicleSecondColor()
+{
+	if (!PlayerFunctions::IsPlayerInAnyVehicle())
+		return -1;
+
+	int dwColor = 0;
+	MemoryFunctions::ReadMemory(GetVehiclePointer() + 0x435, 1, (char *)&dwColor);
+	return dwColor;
+}
+
+EXPORT int Client::VehicleFunctions::GetVehicleColor(int &color1, int &color2)
+{
+	color1 = -1;
+	color2 = -1;
+
+	if (!PlayerFunctions::IsPlayerInAnyVehicle())
+		return 0;
+
+	color1 = GetVehicleFirstColor();
+	color2 = GetVehicleSecondColor();
+	return 1;
+}
+
+EXPORT int Client::VehicleFunctions::IsVehicleSeatUsed(int seat)
+{
+	DWORD dwVehiclePtr = GetVehiclePointer();
+	if (!dwVehiclePtr)
+		return 0;
+
+	DWORD dwSeatPointer;
+	seat = seat - 1;
+	if (seat >= 0 && seat <= 8)
+		MemoryFunctions::ReadMemory(dwVehiclePtr + 0x460 + seat * 4, 4, (char *)&dwSeatPointer);
+	else
+		return 0;
+
+	if (dwSeatPointer)
+		return 1;
+
+	return 0;
+}
+
+EXPORT int Client::VehicleFunctions::IsVehicleLocked()
+{
+	if (!PlayerFunctions::IsPlayerInAnyVehicle())
+		return 0;
+
+	int dwDoorLockState = 0;
+	MemoryFunctions::ReadMemory(GetVehiclePointer() + 0x4F8, 4, (char *)&dwDoorLockState);
+	
+	return (dwDoorLockState >> 1) & 1;
+}
+
+EXPORT int Client::VehicleFunctions::IsVehicleHornEnabled()
+{
+	if (!PlayerFunctions::IsPlayerInAnyVehicle())
+		return 0;
+
+	int dwHornState = 0;
+	MemoryFunctions::ReadMemory(GetVehiclePointer() + 0x514, 1, (char *)&dwHornState);
+	return dwHornState;
+}
+
+EXPORT int Client::VehicleFunctions::IsVehicleSirenEnabled()
+{
+	if (!PlayerFunctions::IsPlayerInAnyVehicle())
+		return 0;
+
+	int dwSirenState = 0;
+	MemoryFunctions::ReadMemory(GetVehiclePointer() + 0x42D, 1, (char *)&dwSirenState);
+
+	return (dwSirenState >> 7) & 1;
+}
+
+EXPORT int Client::VehicleFunctions::IsVehicleAlternateSireneEnabled()
+{
+	return IsVehicleHornEnabled() && IsVehicleSirenEnabled();
+}
+
+EXPORT int Client::VehicleFunctions::IsVehicleEngineEnabled()
+{
+	if (!PlayerFunctions::IsPlayerInAnyVehicle())
+		return 0;
+
+	int dwEngineState = 0;
+	MemoryFunctions::ReadMemory(GetVehiclePointer() + 0x428, 1, (char *)&dwEngineState);
+
+	return (dwEngineState >> 4) & 1;
+}
+
+EXPORT int Client::VehicleFunctions::IsVehicleLightEnabled()
+{
+	if (!PlayerFunctions::IsPlayerInAnyVehicle())
+		return 0;
+
+	int dwLightState = 0;
+	MemoryFunctions::ReadMemory(GetVehiclePointer() + 0x4A8, 1, (char *)&dwLightState);
+
+	return !((dwLightState >> 3) & 1);
+}
+
+EXPORT int Client::VehicleFunctions::IsVehicleCar()
+{
+	if (!PlayerFunctions::IsPlayerInAnyVehicle())
+		return 0;
+
+	if (GetVehicleType() != 0)
+		return 0;
+
+	for (int i = 0; i < ARRAYSIZE(GTAStructs::planeIDs); i++)
+		if (GetVehicleModelId() == GTAStructs::planeIDs[i])
+			return 0;
+
+	return 1;
+}
+
+EXPORT int Client::VehicleFunctions::IsVehiclePlane()
+{
+	if (!PlayerFunctions::IsPlayerInAnyVehicle())
+		return 0;
+
+	if (GetVehicleType() != 0)
+		return 0;
+
+	for (int i = 0; i < ARRAYSIZE(GTAStructs::planeIDs); i++)
+		if (GetVehicleModelId() == GTAStructs::planeIDs[i])
+			return 1;
+
+	return 0;
+}
+
+EXPORT int Client::VehicleFunctions::IsVehicleBoat()
+{
+	if (!PlayerFunctions::IsPlayerInAnyVehicle())
+		return 0;
+
+	if (GetVehicleType() != 5)
+		return 0;
+
+	return GetVehicleType() == 5;
+}
+
+EXPORT int Client::VehicleFunctions::IsVehicleTrain()
+{
+	if (!PlayerFunctions::IsPlayerInAnyVehicle())
+		return 0;
+
+	return GetVehicleType() == 6;
 }
 
 EXPORT int Client::VehicleFunctions::IsVehicleBike()
 {
-	short id = GetVehicleTypeId();
-	if (id == 448 || id == 581 || id == 522 || id == 461 || id == 523 || id == 463 || id == 586 || id == 471)
-		return 1;
+	if (!PlayerFunctions::IsPlayerInAnyVehicle())
+		return 0;
 
-	return 0;
+	return GetVehicleType() == 9;
 }

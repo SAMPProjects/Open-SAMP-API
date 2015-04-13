@@ -5,9 +5,12 @@ namespace Client
 {
 	namespace PlayerFunctions
 	{
+		EXPORT int GetPlayerCPed();
 		EXPORT int GetPlayerHealth();
 		EXPORT int GetPlayerArmor();
 		EXPORT int IsPlayerInAnyVehicle();
+		EXPORT int IsPlayerDriver();
+		EXPORT int IsPlayerPassenger();
 		EXPORT int IsPlayerInInterior();
 		EXPORT int GetPlayerX(float &posX);
 		EXPORT int GetPlayerY(float &posY);

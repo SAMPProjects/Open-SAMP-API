@@ -411,7 +411,7 @@ namespace Client
 			{ "Unbekannt", -50000, -50000, -1000, 50000, 50000, 3000 }
 		};
 		
-		const std::string szVehicleName[] =
+		const std::string vehicles[] =
 		{
 			"Landstalker", "Bravura", "Buffalo", "Linerunner", "Perrenial", "Sentinel",
 			"Dumper", "Firetruck", "Trashmaster", "Stretch", "Manana", "Infernus",
@@ -445,6 +445,13 @@ namespace Client
 			"Police Car", "Police Car", "Police Ranger", "Picador", "S.W.A.T", "Alpha",
 			"Phoenix", "Glendale", "Sadler", "Luggage", "Luggage", "Stairs", "Boxville",
 			"Tiller", "Utility Trailer"
+		};
+
+		static int planeIDs[] = 
+		{ 
+			417, 425, 447, 469, 487, 488, 497, 548, 563,
+			460, 476, 511, 512, 513, 519, 520, 553, 577,
+			592, 593, 464, 465, 501 
 		};
 	}
 }

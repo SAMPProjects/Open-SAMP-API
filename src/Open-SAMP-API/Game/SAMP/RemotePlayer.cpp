@@ -52,6 +52,8 @@ void Game::SAMP::RemotePlayer::Internal::init(DWORD dwModuleBase, DWORD dwModule
 		{
 			g_dwPlayerNameByIDFunction = *(DWORD *)(dwPattern + 0x5) + dwPattern + 0x5 + 0x4; // Calculate real address
 
+			// Create a naked hook to fetch the object pointer passed by the ecx register
+			// This object is needed to invoke the function
 			g_playerNameByIDHook.init((PBYTE)g_dwPlayerNameByIDFunction, (DWORD)playerNameByIDNakedHandler, 5);
 			g_dwPlayerNamebyIDJMP = g_playerNameByIDHook.jmp();
 
