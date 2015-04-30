@@ -9,7 +9,7 @@ if(hModule == -1 || hModule == 0)
 	ExitApp
 }
 
-
+; Utility functions
 Init_func := DllCall("GetProcAddress", UInt, hModule, Str, "Init")
 SetParam_func := DllCall("GetProcAddress", UInt, hModule, Str, "SetParam")
 
