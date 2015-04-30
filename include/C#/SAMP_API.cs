@@ -8,6 +8,13 @@ namespace SAMP_API
     {
         public const String PATH = "Open-SAMP-API.dll";
 
+        // Utility functions
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int Init();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void SetParam(string _szParamName, string _szParamValue);
+
+        // Overlay functions
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int TextCreate(string font, int fontSize, bool bBold, bool bItalic, int x, int y, uint color, string text, bool bShadow, bool bShow);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
@@ -86,19 +93,33 @@ namespace SAMP_API
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int SetOverlayPriority(int id, int priority);
 
+        // SAMP functions
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int SendChat(string msg);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int ShowGameText(string msg, int time, int style);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int AddChatMessage(string msg);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerNameByID(int id, ref StringBuilder playerName, int maxLen);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerIDByName(string name);
 
+        // Player functions
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerCPed();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int GetPlayerHealth();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int GetPlayerArmor();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerMoney();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int IsPlayerInAnyVehicle();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int IsPlayerDriver();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int IsPlayerPassenger();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int IsPlayerInInterior();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
@@ -114,6 +135,7 @@ namespace SAMP_API
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int IsPlayerInRange3D(float posX, float posY, float posZ, float radius);
 
+        // Vehicle functions
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern uint GetVehiclePointer();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
@@ -121,19 +143,44 @@ namespace SAMP_API
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern float GetVehicleHealth();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern short GetVehicleTypeId();
+        public static extern int GetVehicleModelId();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetVehicleModelName(ref StringBuilder name, int len);
+        public static extern int GetVehicleModelNameById(int vehicleId, ref StringBuilder name, int len);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetVehicleType();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetVehicleFreeSeats(ref int seatFL, ref int seatFR, ref int seatRL, ref int seatRR);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetVehicleFirstColor();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetVehicleSecondColor();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetVehicleColor(ref int color1, ref int color2);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int IsVehicleSeatUsed(int seat);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int IsVehicleLocked();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int IsVehicleHornEnabled();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int IsVehicleSirenEnabled();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int IsVehicleAlternateSirenEnabled();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int IsVehicleEngineEnabled();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int IsVehicleLightEnabled();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int IsVehicleCar();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int IsVehiclePlane();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int IsVehicleBoat();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int IsVehicleTrain();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int IsVehicleBike();
-
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetPlayerIDByName(string name);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetPlayerNameByID(int id, ref StringBuilder playerName, int maxLen);
-
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int Init();
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void SetParam(string _szParamName, string _szParamValue);
 
         /// <summary>
         /// Send a message/command to the server

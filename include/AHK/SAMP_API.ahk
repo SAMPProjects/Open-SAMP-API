@@ -1,4 +1,4 @@
-﻿#NoEnv 
+#NoEnv 
 
 PATH_SAMP_API := RelToAbs(A_ScriptDir, "..\..\bin\Open-SAMP-API.dll")
 
@@ -9,76 +9,102 @@ if(hModule == -1 || hModule == 0)
 	ExitApp
 }
 
-
-Init_func 				:= DllCall("GetProcAddress", UInt, hModule, Str, "Init")
-SetParam_func 			:= DllCall("GetProcAddress", UInt, hModule, Str, "SetParam")
+; Utility functions
+Init_func := DllCall("GetProcAddress", UInt, hModule, Str, "Init")
+SetParam_func := DllCall("GetProcAddress", UInt, hModule, Str, "SetParam")
 
 ; Overlay functions
-TextCreate_func 		:= DllCall("GetProcAddress", UInt, hModule, Str, "TextCreate")
-TextDestroy_func 		:= DllCall("GetProcAddress", UInt, hModule, Str, "TextDestroy")
-TextSetShadow_func 		:= DllCall("GetProcAddress", UInt, hModule, Str, "TextSetShadow")
-TextSetShown_func 		:= DllCall("GetProcAddress", UInt, hModule, Str, "TextSetShown")
-TextSetColor_func 		:= DllCall("GetProcAddress", UInt, hModule, Str, "TextSetColor")
-TextSetPos_func 		:= DllCall("GetProcAddress", UInt, hModule, Str, "TextSetPos")
-TextSetString_func 		:= DllCall("GetProcAddress", UInt, hModule, Str, "TextSetString")
-TextUpdate_func 		:= DllCall("GetProcAddress", UInt, hModule, Str, "TextUpdate")
+TextCreate_func := DllCall("GetProcAddress", UInt, hModule, Str, "TextCreate")
+TextDestroy_func := DllCall("GetProcAddress", UInt, hModule, Str, "TextDestroy")
+TextSetShadow_func := DllCall("GetProcAddress", UInt, hModule, Str, "TextSetShadow")
+TextSetShown_func := DllCall("GetProcAddress", UInt, hModule, Str, "TextSetShown")
+TextSetColor_func := DllCall("GetProcAddress", UInt, hModule, Str, "TextSetColor")
+TextSetPos_func := DllCall("GetProcAddress", UInt, hModule, Str, "TextSetPos")
+TextSetString_func := DllCall("GetProcAddress", UInt, hModule, Str, "TextSetString")
+TextUpdate_func := DllCall("GetProcAddress", UInt, hModule, Str, "TextUpdate")
 
-BoxCreate_func 			:= DllCall("GetProcAddress", UInt, hModule, Str, "BoxCreate")
-BoxDestroy_func 		:= DllCall("GetProcAddress", UInt, hModule, Str, "BoxDestroy")
-BoxSetShown_func 		:= DllCall("GetProcAddress", UInt, hModule, Str, "BoxSetShown")
-BoxSetBorder_func		:= DllCall("GetProcAddress", UInt, hModule, Str, "BoxSetBorder")
-BoxSetBorderColor_func 	:= DllCall("GetProcAddress", UInt, hModule, Str, "BoxSetBorderColor")
-BoxSetColor_func		:= DllCall("GetProcAddress", UInt, hModule, Str, "BoxSetColor")
-BoxSetHeight_func		:= DllCall("GetProcAddress", UInt, hModule, Str, "BoxSetHeight")
-BoxSetPos_func			:= DllCall("GetProcAddress", UInt, hModule, Str, "BoxSetPos")
-BoxSetWidth_func		:= DllCall("GetProcAddress", UInt, hModule, Str, "BoxSetWidth")
+BoxCreate_func := DllCall("GetProcAddress", UInt, hModule, Str, "BoxCreate")
+BoxDestroy_func := DllCall("GetProcAddress", UInt, hModule, Str, "BoxDestroy")
+BoxSetShown_func := DllCall("GetProcAddress", UInt, hModule, Str, "BoxSetShown")
+BoxSetBorder_func := DllCall("GetProcAddress", UInt, hModule, Str, "BoxSetBorder")
+BoxSetBorderColor_func := DllCall("GetProcAddress", UInt, hModule, Str, "BoxSetBorderColor")
+BoxSetColor_func := DllCall("GetProcAddress", UInt, hModule, Str, "BoxSetColor")
+BoxSetHeight_func := DllCall("GetProcAddress", UInt, hModule, Str, "BoxSetHeight")
+BoxSetPos_func := DllCall("GetProcAddress", UInt, hModule, Str, "BoxSetPos")
+BoxSetWidth_func := DllCall("GetProcAddress", UInt, hModule, Str, "BoxSetWidth")
 
-LineCreate_func 		:= DllCall("GetProcAddress", UInt, hModule, Str, "LineCreate")
-LineDestroy_func		:= DllCall("GetProcAddress", UInt, hModule, Str, "LineDestroy")
-LineSetShown_func		:= DllCall("GetProcAddress", UInt, hModule, Str, "LineSetShown")
-LineSetColor_func 		:= DllCall("GetProcAddress", UInt, hModule, Str, "LineSetColor")
-LineSetWidth_func		:= DllCall("GetProcAddress", UInt, hModule, Str, "LineSetWidth")
-LineSetPos_func			:= DllCall("GetProcAddress", UInt, hModule, Str, "LineSetPos")
+LineCreate_func := DllCall("GetProcAddress", UInt, hModule, Str, "LineCreate")
+LineDestroy_func := DllCall("GetProcAddress", UInt, hModule, Str, "LineDestroy")
+LineSetShown_func := DllCall("GetProcAddress", UInt, hModule, Str, "LineSetShown")
+LineSetColor_func := DllCall("GetProcAddress", UInt, hModule, Str, "LineSetColor")
+LineSetWidth_func := DllCall("GetProcAddress", UInt, hModule, Str, "LineSetWidth")
+LineSetPos_func := DllCall("GetProcAddress", UInt, hModule, Str, "LineSetPos")
 
-ImageCreate_func 		:= DllCall("GetProcAddress", UInt, hModule, Str, "ImageCreate")
-ImageDestroy_func		:= DllCall("GetProcAddress", UInt, hModule, Str, "ImageDestroy")
-ImageSetShown_func		:= DllCall("GetProcAddress", UInt, hModule, Str, "ImageSetShown")
-ImageSetAlign_func 		:= DllCall("GetProcAddress", UInt, hModule, Str, "ImageSetAlign")
-ImageSetPos_func		:= DllCall("GetProcAddress", UInt, hModule, Str, "ImageSetPos")
-ImageSetRotation_func	:= DllCall("GetProcAddress", UInt, hModule, Str, "ImageSetRotation")
+ImageCreate_func := DllCall("GetProcAddress", UInt, hModule, Str, "ImageCreate")
+ImageDestroy_func := DllCall("GetProcAddress", UInt, hModule, Str, "ImageDestroy")
+ImageSetShown_func := DllCall("GetProcAddress", UInt, hModule, Str, "ImageSetShown")
+ImageSetAlign_func := DllCall("GetProcAddress", UInt, hModule, Str, "ImageSetAlign")
+ImageSetPos_func := DllCall("GetProcAddress", UInt, hModule, Str, "ImageSetPos")
+ImageSetRotation_func := DllCall("GetProcAddress", UInt, hModule, Str, "ImageSetRotation")
 
-DestroyAllVisual_func	:= DllCall("GetProcAddress", UInt, hModule, Str, "DestroyAllVisual")
-ShowAllVisual_func		:= DllCall("GetProcAddress", UInt, hModule, Str, "ShowAllVisual")
-HideAllVisual_func 		:= DllCall("GetProcAddress", UInt, hModule, Str, "HideAllVisual")
+DestroyAllVisual_func := DllCall("GetProcAddress", UInt, hModule, Str, "DestroyAllVisual")
+ShowAllVisual_func := DllCall("GetProcAddress", UInt, hModule, Str, "ShowAllVisual")
+HideAllVisual_func := DllCall("GetProcAddress", UInt, hModule, Str, "HideAllVisual")
 
-GetFrameRate_func 		:= DllCall("GetProcAddress", UInt, hModule, Str, "GetFrameRate")
-GetScreenSpecs_func 	:= DllCall("GetProcAddress", UInt, hModule, Str, "GetScreenSpecs")
+GetFrameRate_func := DllCall("GetProcAddress", UInt, hModule, Str, "GetFrameRate")
+GetScreenSpecs_func := DllCall("GetProcAddress", UInt, hModule, Str, "GetScreenSpecs")
 
 SetCalculationRatio_func:= DllCall("GetProcAddress", UInt, hModule, Str, "SetCalculationRatio")
 
 SetOverlayPriority_func := DllCall("GetProcAddress", UInt, hModule, Str, "SetOverlayPriority")
 
 ; SAMP functions
-SendChat_func 			:= DllCall("GetProcAddress", UInt, hModule, Str, "SendChat")
-ShowGameText_func 		:= DllCall("GetProcAddress", UInt, hModule, Str, "ShowGameText")
-AddChatMessage_func 	:= DllCall("GetProcAddress", UInt, hModule, Str, "AddChatMessage")
-GetPlayerNameByID_func	:= DllCall("GetProcAddress", UInt, hModule, Str, "GetPlayerNameByID")
-GetPlayerIDByName_func 	:= DllCall("GetProcAddress", UInt, hModule, Str, "GetPlayerIDByName")
+SendChat_func := DllCall("GetProcAddress", UInt, hModule, Str, "SendChat")
+ShowGameText_func := DllCall("GetProcAddress", UInt, hModule, Str, "ShowGameText")
+AddChatMessage_func := DllCall("GetProcAddress", UInt, hModule, Str, "AddChatMessage")
+GetPlayerNameByID_func := DllCall("GetProcAddress", UInt, hModule, Str, "GetPlayerNameByID")
+GetPlayerIDByName_func := DllCall("GetProcAddress", UInt, hModule, Str, "GetPlayerIDByName")
 
 ; Player functions
-GetPlayerHealth_func 	:= DllCall("GetProcAddress", UInt, hModule, Str, "GetPlayerHealth")
-GetPlayerArmor_func 	:= DllCall("GetProcAddress", UInt, hModule, Str, "GetPlayerArmor")
+GetPlayerCPed_func := DllCall("GetProcAddress", UInt, hModule, Str, "GetPlayerCPed")
+GetPlayerHealth_func := DllCall("GetProcAddress", UInt, hModule, Str, "GetPlayerHealth")
+GetPlayerArmor_func := DllCall("GetProcAddress", UInt, hModule, Str, "GetPlayerArmor")
+GetPlayerMoney_func := DllCall("GetProcAddress", UInt, hModule, Str, "GetPlayerMoney")
 IsPlayerInAnyVehicle_func := DllCall("GetProcAddress", UInt, hModule, Str, "IsPlayerInAnyVehicle")
+IsPlayerDriver_func := DllCall("GetProcAddress", UInt, hModule, Str, "IsPlayerDriver")
+IsPlayerPassenger_func := DllCall("GetProcAddress", UInt, hModule, Str, "IsPlayerPassenger")
 IsPlayerInInterior_func := DllCall("GetProcAddress", UInt, hModule, Str, "IsPlayerInInterior")
-IsPlayerInRange2D_func	:= DllCall("GetProcAddress", UInt, hModule, Str, "IsPlayerInRange2D")
-IsPlayerInRange3D_func	:= DllCall("GetProcAddress", UInt, hModule, Str, "IsPlayerInRange3D")
+GetPlayerX_func := DllCall("GetProcAddress", UInt, hModule, Str, "GetPlayerX")
+GetPlayerY_func := DllCall("GetProcAddress", UInt, hModule, Str, "GetPlayerY")
+GetPlayerZ_func := DllCall("GetProcAddress", UInt, hModule, Str, "GetPlayerZ")
+GetPlayerPosition_func := DllCall("GetProcAddress", UInt, hModule, Str, "GetPlayerPosition")
+IsPlayerInRange2D_func := DllCall("GetProcAddress", UInt, hModule, Str, "IsPlayerInRange2D")
+IsPlayerInRange3D_func := DllCall("GetProcAddress", UInt, hModule, Str, "IsPlayerInRange3D")
 
 ; Vehicle functions
-GetVehiclePointer_func 	:= DllCall("GetProcAddress", UInt, hModule, Str, "GetVehiclePointer")
-GetVehicleSpeed_func	:= DllCall("GetProcAddress", UInt, hModule, Str, "GetVehicleSpeed")
-GetVehicleHealth_func	:= DllCall("GetProcAddress", UInt, hModule, Str, "GetVehicleHealth")
-GetVehicleTypeId_func	:= DllCall("GetProcAddress", UInt, hModule, Str, "GetVehicleTypeId")
-IsVehicleBike_func		:= DllCall("GetProcAddress", UInt, hModule, Str, "IsVehicleBike")
+GetVehiclePointer_func := DllCall("GetProcAddress", UInt, hModule, Str, "GetVehiclePointer")
+GetVehicleSpeed_func := DllCall("GetProcAddress", UInt, hModule, Str, "GetVehicleSpeed")
+GetVehicleHealth_func := DllCall("GetProcAddress", UInt, hModule, Str, "GetVehicleHealth")
+GetVehicleModelId_func := DllCall("GetProcAddress", UInt, hModule, Str, "GetVehicleModelId")
+GetVehicleModelName_func := DllCall("GetProcAddress", UInt, hModule, Str, "GetVehicleModelName")
+GetVehicleModelNameById_func := DllCall("GetProcAddress", UInt, hModule, Str, "GetVehicleModelNameById")
+GetVehicleType_func := DllCall("GetProcAddress", UInt, hModule, Str, "GetVehicleType")
+GetVehicleFreeSeats_func := DllCall("GetProcAddress", UInt, hModule, Str, "GetVehicleFreeSeats")
+GetVehicleFirstColor_func := DllCall("GetProcAddress", UInt, hModule, Str, "GetVehicleFirstColor")
+GetVehicleSecondColor_func := DllCall("GetProcAddress", UInt, hModule, Str, "GetVehicleSecondColor")
+GetVehicleColor_func := DllCall("GetProcAddress", UInt, hModule, Str, "GetVehicleColor")
+IsVehicleSeatUsed_func := DllCall("GetProcAddress", UInt, hModule, Str, "IsVehicleSeatUsed")
+IsVehicleLocked_func := DllCall("GetProcAddress", UInt, hModule, Str, "IsVehicleLocked")
+IsVehicleHornEnabled_func := DllCall("GetProcAddress", UInt, hModule, Str, "IsVehicleHornEnabled")
+IsVehicleSirenEnabled_func := DllCall("GetProcAddress", UInt, hModule, Str, "IsVehicleSirenEnabled")
+IsVehicleAlternateSirenEnabled_func := DllCall("GetProcAddress", UInt, hModule, Str, "IsVehicleAlternateSirenEnabled")
+IsVehicleEngineEnabled_func := DllCall("GetProcAddress", UInt, hModule, Str, "IsVehicleEngineEnabled")
+IsVehicleLightEnabled_func := DllCall("GetProcAddress", UInt, hModule, Str, "IsVehicleLightEnabled")
+IsVehicleCar_func := DllCall("GetProcAddress", UInt, hModule, Str, "IsVehicleCar")
+IsVehiclePlane_func := DllCall("GetProcAddress", UInt, hModule, Str, "IsVehiclePlane")
+IsVehicleBoat_func := DllCall("GetProcAddress", UInt, hModule, Str, "IsVehicleBoat")
+IsVehicleTrain_func := DllCall("GetProcAddress", UInt, hModule, Str, "IsVehicleTrain")
+IsVehicleBike_func := DllCall("GetProcAddress", UInt, hModule, Str, "IsVehicleBike")
 
 Init()
 {
@@ -368,7 +394,7 @@ AddChatMessage(msg)
 	return res
 }
 
-GetPlayerNameByID(id, byref name)
+GetPlayerNameByID(id, ByRef name)
 {
 	global GetPlayerNameByID_func
 	VarSetCapacity(name, 32, 0)
@@ -380,6 +406,13 @@ GetPlayerIDByName(name)
 {
 	global GetPlayerIDByName_func
 	res := DllCall(GetPlayerIDByName_func, Str, name)
+	return res
+}
+
+GetPlayerCPed()
+{
+	global GetPlayerCPed_func
+	res := DllCall(GetPlayerCPed_func)
 	return res
 }
 
@@ -397,6 +430,13 @@ GetPlayerArmor()
 	return res
 }
 
+GetPlayerMoney()
+{
+	global GetPlayerMoney_func
+	res := DllCall(GetPlayerMoney_func)
+	return res
+}
+
 IsPlayerInAnyVehicle()
 {
 	global IsPlayerInAnyVehicle_func
@@ -404,10 +444,59 @@ IsPlayerInAnyVehicle()
 	return res
 }
 
+IsPlayerDriver()
+{
+	global IsPlayerDriver_func
+	res := DllCall(IsPlayerDriver_func)
+	return res
+}
+
+IsPlayerPassenger()
+{
+	global IsPlayerPassenger_func
+	res := DllCall(IsPlayerPassenger_func)
+	return res
+}
+
 IsPlayerInInterior()
 {
 	global IsPlayerInInterior_func
 	res := DllCall(IsPlayerInInterior_func)
+	return res
+}
+
+GetPlayerX(ByRef posX)
+{
+	global GetPlayerX_func
+	res := DllCall(GetPlayerX_func, FloatP, posX)
+	return res
+}
+
+GetPlayerY(ByRef posY)
+{
+	global GetPlayerY_func
+	res := DllCall(GetPlayerY_func, FloatP, posY)
+	return res
+}
+
+GetPlayerZ(ByRef posZ)
+{
+	global GetPlayerZ_func
+	res := DllCall(GetPlayerZ_func, FloatP, posZ)
+	return res
+}
+
+GetPlayerZ(ByRef posZ)
+{
+	global GetPlayerZ_func
+	res := DllCall(GetPlayerZ_func, FloatP, posZ)
+	return res
+}
+
+GetPlayerPosition(ByRef posX, ByRef posY, ByRef posZ)
+{
+	global GetPlayerPosition_func
+	res := DllCall(GetPlayerPosition_func, FloatP, posX, FloatP, posY, FloatP, posZ)
 	return res
 }
 
@@ -446,10 +535,138 @@ GetVehicleHealth()
 	return res
 }
 
-GetVehicleTypeId()
+GetVehicleModelId()
 {
-	global GetVehicleTypeId_func
-	res := DllCall(GetVehicleTypeId_func)
+	global GetVehicleModelId_func
+	res := DllCall(GetVehicleModelId_func)
+	return res
+}
+
+GetVehicleModelName(ByRef name, len)
+{
+	global GetVehicleModelName_func
+	VarSetCapacity(name, 32, 0)
+	res := DllCall(GetVehicleModelName_func, StrP, name, Int, len)
+	return res
+}
+
+GetVehicleModelNameById(vehicleID, ByRef name, len)
+{
+	global GetVehicleModelNameById_func
+	VarSetCapacity(name, 32, 0)
+	res := DllCall(GetVehicleModelNameById_func, Int, vehicleId, StrP, name, Int, len)
+	return res
+}
+
+GetVehicleType()
+{
+	global GetVehicleType_func
+	res := DllCall(GetVehicleType_func)
+	return res
+}
+
+GetVehicleFreeSeats(ByRef seatFL, ByRef seatFR, ByRef seatRL, ByRef seatRR)
+{
+	global GetVehicleFreeSeats_func
+	res := DllCall(GetVehicleFreeSeats_func, IntP, seatFL IntP, seatFR IntP, seatRL IntP, seatRR)
+	return res
+}
+
+GetVehicleFirstColor()
+{
+	global GetVehicleFirstColor_func
+	res := DllCall(GetVehicleFirstColor_func)
+	return res
+}
+
+GetVehicleSecondColor()
+{
+	global GetVehicleSecondColor_func
+	res := DllCall(GetVehicleSecondColor_func)
+	return res
+}
+
+GetVehicleColor(ByRef color1, ByRef color2)
+{
+	global GetVehicleColor_func
+	res := DllCall(GetVehicleColor_func, IntP, color1, IntP, color2)
+	return res
+}
+
+IsVehicleSeatUsed(seat)
+{
+	global IsVehicleSeatUsed_func
+	res := DllCall(IsVehicleSeatUsed_func, Int, seat)
+	return res
+}
+
+IsVehicleLocked()
+{
+	global IsVehicleLocked_func
+	res := DllCall(IsVehicleLocked_func)
+	return res
+}
+
+IsVehicleHornEnabled()
+{
+	global IsVehicleHornEnabled_func
+	res := DllCall(IsVehicleHornEnabled_func)
+	return res
+}
+
+IsVehicleSirenEnabled()
+{
+	global IsVehicleSirenEnabled_func
+	res := DllCall(IsVehicleSirenEnabled_func)
+	return res
+}
+
+IsVehicleAlternateSirenEnabled()
+{
+	global IsVehicleAlternateSirenEnabled_func
+	res := DllCall(IsVehicleAlternateSirenEnabled_func)
+	return res
+}
+
+IsVehicleEngineEnabled()
+{
+	global IsVehicleEngineEnabled_func
+	res := DllCall(IsVehicleEngineEnabled_func)
+	return res
+}
+
+IsVehicleLightEnabled()
+{
+	global IsVehicleLightEnabled_func
+	res := DllCall(IsVehicleLightEnabled_func)
+	return res
+}
+
+IsVehicleCar()
+{
+	global IsVehicleCar_func
+	res := DllCall(IsVehicleCar_func)
+	return res
+}
+
+IsVehiclePlane()
+{
+	global IsVehiclePlane_func
+	res := DllCall(IsVehiclePlane_func)
+	return res
+}
+
+IsVehicleBoat()
+{
+	global IsVehicleBoat_func
+	res := DllCall(IsVehicleBoat_func)
+	return res
+}
+
+IsVehicleTrain()
+{
+	global IsVehicleTrain_func
+	res := DllCall(IsVehicleTrain_func)
 	return res
 }
 
