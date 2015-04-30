@@ -37,6 +37,15 @@ EXPORT int Client::PlayerFunctions::GetPlayerArmor()
 	return (int)armor;
 }
 
+EXPORT int Client::PlayerFunctions::GetPlayerMoney()
+{
+	DWORD money = 0;
+	if (MemoryFunctions::ReadMemory(0xB7CE50, 4, &money) != 4)
+		return -1;
+
+	return (int)money;
+}
+
 EXPORT int Client::PlayerFunctions::IsPlayerInAnyVehicle()
 {
 	return (int)(VehicleFunctions::GetVehiclePointer() != 0);
