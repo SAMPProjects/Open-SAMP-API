@@ -101,7 +101,7 @@ namespace SAMP_API
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int AddChatMessage(string msg);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetPlayerNameByID(int id, ref StringBuilder playerName, int maxLen);
+        public static extern int GetPlayerNameByID(int id, out StringBuilder playerName, int maxLen);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int GetPlayerIDByName(string name);
 
@@ -123,13 +123,13 @@ namespace SAMP_API
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int IsPlayerInInterior();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetPlayerX(ref float posX);
+        public static extern int GetPlayerX(out float posX);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetPlayerY(ref float posY);
+        public static extern int GetPlayerY(out float posY);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetPlayerZ(ref float posZ);
+        public static extern int GetPlayerZ(out float posZ);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetPlayerPosition(ref float posX, ref float posY, ref float posZ);
+        public static extern int GetPlayerPosition(out float posX, out float posY, out float posZ);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int IsPlayerInRange2D(float posX, float posY, float radius);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
@@ -145,18 +145,18 @@ namespace SAMP_API
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int GetVehicleModelId();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetVehicleModelName(ref StringBuilder name, int len);
-        public static extern int GetVehicleModelNameById(int vehicleId, ref StringBuilder name, int len);
+        public static extern int GetVehicleModelName(out StringBuilder name, int len);
+        public static extern int GetVehicleModelNameById(int vehicleId, out StringBuilder name, int len);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int GetVehicleType();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetVehicleFreeSeats(ref int seatFL, ref int seatFR, ref int seatRL, ref int seatRR);
+        public static extern int GetVehicleFreeSeats(out int seatFL, out int seatFR, out int seatRL, out int seatRR);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int GetVehicleFirstColor();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int GetVehicleSecondColor();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetVehicleColor(ref int color1, ref int color2);
+        public static extern int GetVehicleColor(out int color1, out int color2);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int IsVehicleSeatUsed(int seat);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
@@ -244,7 +244,7 @@ namespace SAMP_API
         public static string GetPlayerNameByIDEx(int id)
         {
             StringBuilder builder = new StringBuilder(32);
-            GetPlayerNameByID(id, ref builder, builder.Capacity);
+            GetPlayerNameByID(id, out builder, builder.Capacity);
 
             return builder.ToString();
         }
