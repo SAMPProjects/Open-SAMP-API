@@ -80,6 +80,8 @@ GetPlayerZ_func := DllCall("GetProcAddress", UInt, hModule, Str, "GetPlayerZ")
 GetPlayerPosition_func := DllCall("GetProcAddress", UInt, hModule, Str, "GetPlayerPosition")
 IsPlayerInRange2D_func := DllCall("GetProcAddress", UInt, hModule, Str, "IsPlayerInRange2D")
 IsPlayerInRange3D_func := DllCall("GetProcAddress", UInt, hModule, Str, "IsPlayerInRange3D")
+GetCityName_func := DllCall("GetProcAddress", UInt, hModule, Str, "GetCityName")
+GetZoneName_func := DllCall("GetProcAddress", UInt, hModule, Str, "GetZoneName")
 
 ; Vehicle functions
 GetVehiclePointer_func := DllCall("GetProcAddress", UInt, hModule, Str, "GetVehiclePointer")
@@ -196,7 +198,7 @@ BoxSetShown(id,Show)
 	res := DllCall(BoxSetShown_func,Int,id,UChar,Show)
 	return res
 }
-	
+
 BoxSetBorder(id,height,Show)
 {
 	global BoxSetBorder_func
@@ -511,6 +513,20 @@ IsPlayerInRange3D(posX, posY, posZ, radius)
 {
 	global IsPlayerInRange3D_func
 	res := DllCall(ShowGameText_func, Float, posX, Float, posY, Float, posZ, Float, radius)
+	return res
+}
+
+GetCityName(ByRef cityName, max_len)
+{
+	global GetCityName_func
+	res := DllCall(GetCityName_func, StrP, cityName, Int, max_len)
+	return res
+}
+
+GetZoneName(ByRef zoneName, max_len)
+{
+	global GetZoneName_func
+	res := DllCall(GetZoneName_func, StrP, zoneName, Int, max_len)
 	return res
 }
 

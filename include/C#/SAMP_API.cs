@@ -134,6 +134,10 @@ namespace SAMP_API
         public static extern int IsPlayerInRange2D(float posX, float posY, float radius);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int IsPlayerInRange3D(float posX, float posY, float posZ, float radius);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetCityName(out string cityName, int max_len);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetZoneName(out string zoneName, int max_len);
 
         // Vehicle functions
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
