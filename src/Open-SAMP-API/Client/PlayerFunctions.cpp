@@ -183,7 +183,7 @@ EXPORT int Client::PlayerFunctions::GetPlayerPosition(float &posX, float &posY, 
 
 	posX = positionX;
 	posY = positionY;
-	posZ = positionY;
+	posZ = positionZ;
 	return 1;
 }
 
