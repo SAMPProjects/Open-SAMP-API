@@ -19,5 +19,7 @@ namespace Client
 		EXPORT int GetPlayerPosition(float &posX, float &posY, float &posZ);
 		EXPORT int IsPlayerInRange2D(float posX, float posY, float radius);
 		EXPORT int IsPlayerInRange3D(float posX, float posY, float posZ, float radius);
+		EXPORT int GetCityName(char* &cityName, int max_len);
+		EXPORT int GetZoneName(char* &zoneName, int max_len);
 	}
 }

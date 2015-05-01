@@ -1,6 +1,7 @@
 #include "PlayerFunctions.hpp"
 #include "MemoryFunctions.hpp"
 #include "VehicleFunctions.hpp"
+#include "GTAStructs.hpp"
 #include <Shared/PipeMessages.hpp>
 
 
@@ -214,6 +215,44 @@ EXPORT int Client::PlayerFunctions::IsPlayerInRange3D(float posX, float posY, fl
 
 	if ((x < radius) && (x > -radius) && (y < radius) && (y > -radius) && (z < radius) && (z > -radius))
 		return 1;
+
+	return 0;
+}
+
+EXPORT int Client::PlayerFunctions::GetCityName(char* &cityName, int max_len)
+{
+	float x, y, z = 0.0f;
+	if (!GetPlayerPosition(x, y, z))
+		return 0;
+
+	for (int i = 0; i < ARRAYSIZE(GTAStructs::cities); i++)
+	{
+		const GTAStructs::City& cCity = GTAStructs::cities[i];
+		if (x > cCity.minX && y > cCity.minY && z > cCity.minZ && x < cCity.maxX && y < cCity.maxY && z < cCity.maxZ)
+		{
+			strcpy_s(cityName, max_len, cCity.name.c_str());
+			return 1;
+		}
+	}
+
+	return 0;
+}
+
+EXPORT int Client::PlayerFunctions::GetZoneName(char* &zoneName, int max_len)
+{
+	float x, y, z = 0.0f;
+	if (!GetPlayerPosition(x, y, z))
+		return 0;
+
+	for (int i = 0; i < ARRAYSIZE(GTAStructs::zones); i++)
+	{
+		const GTAStructs::Zone& cZone = GTAStructs::zones[i];
+		if (x > cZone.minX && y > cZone.minY && z > cZone.minZ && x < cZone.maxX && y < cZone.maxY && z < cZone.maxZ)
+		{
+			strcpy_s(zoneName, max_len, cZone.name.c_str());
+			return 1;
+		}
+	}
 
 	return 0;
 }
