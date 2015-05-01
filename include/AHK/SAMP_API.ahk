@@ -547,7 +547,7 @@ GetVehicleSpeed(factor)
 GetVehicleHealth()
 {
 	global GetVehicleHealth_func
-	res := DllCall(GetVehicleHealth_func)
+	res := DllCall(GetVehicleHealth_func, "Cdecl Float")
 	return res
 }
 
