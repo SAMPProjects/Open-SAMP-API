@@ -113,6 +113,7 @@ void initGame()
 		BIND(ShowGameText);
 		BIND(AddChatMessage);
 		BIND(GetPlayerNameByID);
+		BIND(GetVehicleLicensePlate);
 
 		BIND(ReadMemory);
 

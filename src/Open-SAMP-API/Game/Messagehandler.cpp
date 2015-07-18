@@ -392,6 +392,16 @@ void Game::MessageHandler::GetPlayerNameByID(Utils::Serializer& serializerIn, Ut
 	}
 }
 
+void Game::MessageHandler::GetVehicleLicensePlate(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
+{
+	if (const char *ptr = Game::SAMP::getLicensePlate()) {
+		WRITE(std::string(ptr));
+	}
+	else{
+		WRITE(std::string(""));
+	}
+}
+
 void Game::MessageHandler::ReadMemory(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(unsigned int, address);

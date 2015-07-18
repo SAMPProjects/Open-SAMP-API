@@ -82,3 +82,26 @@ EXPORT int Client::SAMPFunctions::GetPlayerIDByName(const char *name)
 	return -1;
 }
 
+EXPORT int Client::SAMPFunctions::GetVehicleLicensePlate(char *&licensePlate, int max_len)
+{
+	SERVER_CHECK(0)
+
+	Utils::Serializer serializerIn, serializerOut;
+
+	serializerIn << Shared::PipeMessages::GetVehicleLicensePlate;
+
+	if (Utils::PipeClient(serializerIn, serializerOut).success())
+	{
+		std::string out;
+		serializerOut >> out;
+
+		if (!out.length())
+			return 0;
+
+		strcpy_s(licensePlate, max_len, out.c_str());
+		return 1;
+	}
+
+	return 0;
+}
+
