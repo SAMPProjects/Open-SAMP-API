@@ -58,6 +58,7 @@ namespace Shared
 		ShowGameText,
 		AddChatMessage,
 		GetPlayerNameByID,
+		GetVehicleLicensePlate,
 
 		// Memory functions
 		ReadMemory

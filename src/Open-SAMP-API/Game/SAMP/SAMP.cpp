@@ -112,3 +112,24 @@ bool Game::SAMP::addChatMessage(const char *text)
 	__asm add esp, 8
 	return true;
 }
+
+const char *Game::SAMP::getLicensePlate()
+{
+	// TODO: Find general pattern
+
+	static auto addr = g_dwModuleBase + 0x13C54C;
+
+	if (addr == 0)
+		return nullptr;
+
+	DWORD dwAddr = *(DWORD *)(addr) + 0x9b;
+
+	if (dwAddr == 0)
+		return nullptr;
+	
+	char *chLcPlate = new char[20];
+	if (ReadProcessMemory(GetCurrentProcess(), (LPCVOID)dwAddr, chLcPlate, 20, NULL) == FALSE)
+		return nullptr;
+
+	return chLcPlate;
+}
