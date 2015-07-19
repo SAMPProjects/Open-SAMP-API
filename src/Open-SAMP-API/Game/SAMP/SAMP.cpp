@@ -112,3 +112,27 @@ bool Game::SAMP::addChatMessage(const char *text)
 	__asm add esp, 8
 	return true;
 }
+
+
+bool Game::SAMP::isChatOpen()
+{
+	static auto addr = Utils::Pattern::findPattern(
+		g_dwModuleBase,
+		g_dwModuleBase,
+		Game::SAMP::PatternTable::Input::byteMask,
+		Game::SAMP::PatternTable::Input::useMask
+	);
+
+	if (addr == 0)
+		return false;
+
+	stInputInfo *pInputInfo = *(stInputInfo **)*(DWORD *)(addr + 0x2);
+
+	if (pInputInfo == NULL)
+		return false;
+	if (pInputInfo->pInputBox == NULL)
+		return false;
+
+	return pInputInfo->pInputBox->bChatboxOpen != 0;
+}
+

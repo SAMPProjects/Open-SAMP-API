@@ -82,3 +82,17 @@ EXPORT int Client::SAMPFunctions::GetPlayerIDByName(const char *name)
 	return -1;
 }
 
+EXPORT int Client::SAMPFunctions::IsChatOpen()
+{
+	SERVER_CHECK(0)
+
+	Utils::Serializer serializerIn, serializerOut;
+
+	serializerIn << Shared::PipeMessages::IsChatOpen;
+
+	if (Utils::PipeClient(serializerIn, serializerOut).success())
+		SERIALIZER_RET(int);
+
+	return 0;
+}
+
