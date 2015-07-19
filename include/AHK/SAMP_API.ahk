@@ -97,7 +97,7 @@ IsVehicleSeatUsed_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsV
 IsVehicleLocked_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsVehicleLocked")
 IsVehicleHornEnabled_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsVehicleHornEnabled")
 IsVehicleSirenEnabled_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsVehicleSirenEnabled")
-IsVehicleAlternateSireneEnabled_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsVehicleAlternateSireneEnabled")
+IsVehicleAlternateSirenEnabled_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsVehicleAlternateSirenEnabled")
 IsVehicleEngineEnabled_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsVehicleEngineEnabled")
 IsVehicleLightEnabled_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsVehicleLightEnabled")
 IsVehicleCar_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsVehicleCar")
@@ -573,10 +573,10 @@ IsVehicleSirenEnabled()
 	return DllCall(IsVehicleSirenEnabled_func)
 }
 
-IsVehicleAlternateSireneEnabled()
+IsVehicleAlternateSirenEnabled()
 {
-	global IsVehicleAlternateSireneEnabled_func
-	return DllCall(IsVehicleAlternateSireneEnabled_func)
+	global IsVehicleAlternateSirenEnabled_func
+	return DllCall(IsVehicleAlternateSirenEnabled_func)
 }
 
 IsVehicleEngineEnabled()

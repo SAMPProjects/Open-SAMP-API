@@ -22,7 +22,7 @@ namespace Client
 		EXPORT int IsVehicleLocked();
 		EXPORT int IsVehicleHornEnabled();
 		EXPORT int IsVehicleSirenEnabled();
-		EXPORT int IsVehicleAlternateSireneEnabled();
+		EXPORT int IsVehicleAlternateSirenEnabled();
 		EXPORT int IsVehicleEngineEnabled();
 		EXPORT int IsVehicleLightEnabled();
 		EXPORT int IsVehicleCar();

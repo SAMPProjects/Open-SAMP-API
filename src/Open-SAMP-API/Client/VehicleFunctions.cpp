@@ -177,7 +177,7 @@ EXPORT int Client::VehicleFunctions::IsVehicleSirenEnabled()
 	return (dwSirenState >> 7) & 1;
 }
 
-EXPORT int Client::VehicleFunctions::IsVehicleAlternateSireneEnabled()
+EXPORT int Client::VehicleFunctions::IsVehicleAlternateSirenEnabled()
 {
 	return IsVehicleHornEnabled() && IsVehicleSirenEnabled();
 }

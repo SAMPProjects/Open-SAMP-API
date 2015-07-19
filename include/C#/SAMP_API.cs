@@ -174,7 +174,7 @@ namespace SAMP_API
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int IsVehicleSirenEnabled();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int IsVehicleAlternateSireneEnabled();
+        public static extern int IsVehicleAlternateSirenEnabled();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int IsVehicleEngineEnabled();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
