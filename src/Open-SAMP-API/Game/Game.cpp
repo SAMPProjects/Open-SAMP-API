@@ -113,6 +113,8 @@ void initGame()
 		BIND(ShowGameText);
 		BIND(AddChatMessage);
 		BIND(GetPlayerNameByID);
+		BIND(IsChatOpen);
+		BIND(IsDialogOpen);
 
 		BIND(ReadMemory);
 

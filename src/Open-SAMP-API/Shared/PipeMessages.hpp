@@ -58,6 +58,8 @@ namespace Shared
 		ShowGameText,
 		AddChatMessage,
 		GetPlayerNameByID,
+		IsChatOpen,
+		IsDialogOpen,
 
 		// Memory functions
 		ReadMemory

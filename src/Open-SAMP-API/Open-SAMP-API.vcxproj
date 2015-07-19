@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client\Client.cpp" />
+    <ClCompile Include="Client\GTAFunctions.cpp" />
     <ClCompile Include="Client\MemoryFunctions.cpp" />
     <ClCompile Include="Client\PlayerFunctions.cpp" />
     <ClCompile Include="Client\RenderFunctions.cpp" />
@@ -41,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client\Client.hpp" />
+    <ClInclude Include="Client\GTAFunctions.hpp" />
     <ClInclude Include="Client\GTAStructs.hpp" />
     <ClInclude Include="Client\MemoryFunctions.hpp" />
     <ClInclude Include="Client\PlayerFunctions.hpp" />

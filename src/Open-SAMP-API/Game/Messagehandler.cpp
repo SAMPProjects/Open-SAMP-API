@@ -392,6 +392,16 @@ void Game::MessageHandler::GetPlayerNameByID(Utils::Serializer& serializerIn, Ut
 	}
 }
 
+void Game::MessageHandler::IsChatOpen(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
+{
+	WRITE((bool)Game::SAMP::isChatOpen());
+}
+
+void Game::MessageHandler::IsDialogOpen(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
+{
+	WRITE(Game::SAMP::isDialogOpen());
+}
+
 void Game::MessageHandler::ReadMemory(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(unsigned int, address);

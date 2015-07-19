@@ -80,6 +80,9 @@
     <ClCompile Include="Game\SAMP\RemotePlayer.cpp">
       <Filter>Game %28GTA SA%29\SAMP</Filter>
     </ClCompile>
+    <ClCompile Include="Client\GTAFunctions.cpp">
+      <Filter>Client %28Keybinder%29</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Messagehandler.hpp">
@@ -226,6 +229,9 @@
     </ClInclude>
     <ClInclude Include="Game\SAMP\RemotePlayer.hpp">
       <Filter>Game %28GTA SA%29\SAMP</Filter>
+    </ClInclude>
+    <ClInclude Include="Client\GTAFunctions.hpp">
+      <Filter>Client %28Keybinder%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
