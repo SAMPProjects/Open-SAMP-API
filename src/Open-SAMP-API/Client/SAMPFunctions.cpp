@@ -96,3 +96,16 @@ EXPORT int Client::SAMPFunctions::IsChatOpen()
 	return 0;
 }
 
+EXPORT int Client::SAMPFunctions::IsDialogOpen()
+{
+	SERVER_CHECK(0)
+
+		Utils::Serializer serializerIn, serializerOut;
+
+	serializerIn << Shared::PipeMessages::IsDialogOpen;
+
+	if (Utils::PipeClient(serializerIn, serializerOut).success())
+		SERIALIZER_RET(int);
+
+	return 0;
+}

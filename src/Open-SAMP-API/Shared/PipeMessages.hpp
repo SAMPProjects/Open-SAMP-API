@@ -59,6 +59,7 @@ namespace Shared
 		AddChatMessage,
 		GetPlayerNameByID,
 		IsChatOpen,
+		IsDialogOpen,
 
 		// Memory functions
 		ReadMemory

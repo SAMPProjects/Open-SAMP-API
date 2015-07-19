@@ -18,6 +18,14 @@ namespace Game
 			stInputBox	*pInputBox;
 		};
 
+		struct stDialog
+		{
+			char		szUnknown[0x28];
+			__int32		iDialogOpen;
+			__int32		iType;
+			__int32		iId;
+		};
+
 		void initSAMP();
 		void exitSAMP();
 
@@ -25,5 +33,6 @@ namespace Game
 		bool showGameText(const char *text, int iTime, int iStyle);
 		bool addChatMessage(const char *text);
 		bool isChatOpen();
+		bool isDialogOpen();
 	}
 }

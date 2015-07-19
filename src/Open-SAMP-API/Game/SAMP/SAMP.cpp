@@ -15,6 +15,11 @@
 DWORD g_dwModuleLength = 0;
 DWORD g_dwModuleBase = 0;
 
+DWORD m_dwShowDialogCall = 0;
+DWORD m_dwShowDialogCallInfo = 0;
+DWORD m_dwShowDialogInfo = 0;
+Game::SAMP::stDialog *m_pDialog;
+
 void Game::SAMP::initSAMP()
 {
 	g_dwModuleBase = Utils::Module::moduleBase("samp.dll");
@@ -24,6 +29,22 @@ void Game::SAMP::initSAMP()
 		throw std::exception("Error while initializing SA:MP");
 
 	RemotePlayer::Internal::init(g_dwModuleBase, g_dwModuleLength);
+
+	DWORD dwShowDialog = Utils::Pattern::findPattern(
+		g_dwModuleBase,
+		g_dwModuleLength,
+		Game::SAMP::PatternTable::ShowDialog::byteMask,
+		Game::SAMP::PatternTable::ShowDialog::useMask
+	);
+
+	if (dwShowDialog)
+	{
+		m_dwShowDialogCall = *(DWORD *)(dwShowDialog + 0x28) + dwShowDialog + 0x28 + 0x4;
+		m_dwShowDialogCallInfo = *(DWORD *)(dwShowDialog + 0x10);
+		m_dwShowDialogInfo = *(DWORD *)(dwShowDialog + 0x2);
+
+		m_pDialog = *(stDialog **)m_dwShowDialogInfo;
+	}
 }
 
 void Game::SAMP::exitSAMP()
@@ -136,3 +157,9 @@ bool Game::SAMP::isChatOpen()
 	return pInputInfo->pInputBox->bChatboxOpen != 0;
 }
 
+bool Game::SAMP::isDialogOpen()
+{
+	if (m_pDialog)
+		return m_pDialog->iDialogOpen != 0;
+	return false;
+}

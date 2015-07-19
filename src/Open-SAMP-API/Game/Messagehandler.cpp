@@ -397,6 +397,11 @@ void Game::MessageHandler::IsChatOpen(Utils::Serializer& serializerIn, Utils::Se
 	WRITE((bool)Game::SAMP::isChatOpen());
 }
 
+void Game::MessageHandler::IsDialogOpen(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
+{
+	WRITE(Game::SAMP::isDialogOpen());
+}
+
 void Game::MessageHandler::ReadMemory(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(unsigned int, address);
