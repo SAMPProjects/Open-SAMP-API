@@ -8,104 +8,17 @@ namespace SAMP_API
     {
         public const String PATH = "Open-SAMP-API.dll";
 
-        // Utility functions
+        // Client.hpp
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int Init();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern void SetParam(string _szParamName, string _szParamValue);
 
-        // Overlay functions
+        // GTAFunctions.hpp
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int TextCreate(string font, int fontSize, bool bBold, bool bItalic, int x, int y, uint color, string text, bool bShadow, bool bShow);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int TextDestroy(int id);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int TextSetShadow(int id, bool b);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int TextSetShown(int id, bool b);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int TextSetColor(int id, uint color);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int TextSetPos(int id, int x, int y);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int TextSetString(int id, string str);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int TextUpdate(int id, string font, int fontSize, bool bBold, bool bItalic);
+        public static extern bool IsMenuOpen();
 
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int BoxCreate(int x, int y, int w, int h, uint dwColor, bool bShow);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int BoxDestroy(int id);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int BoxSetShown(int id, bool bShown);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int BoxSetBorder(int id, int height, bool bShown);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int BoxSetBorderColor(int id, uint dwColor);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int BoxSetColor(int id, uint dwColor);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int BoxSetHeight(int id, int height);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int BoxSetPos(int id, int x, int y);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int BoxSetWidth(int id, int width);
-
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int LineCreate(int x1, int y1, int x2, int y2, int width, uint color, bool bShow);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int LineDestroy(int id);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int LineSetShown(int id, bool bShown);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int LineSetColor(int id, uint color);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int LineSetWidth(int id, int width);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int LineSetPos(int id, int x1, int y1, int x2, int y2);
-
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int ImageCreate(string path, int x, int y, int rotation, int align, bool bShow);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int ImageDestroy(int id);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int ImageSetShown(int id, bool bShown);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int ImageSetAlign(int id, int align);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int ImageSetPos(int id, int x, int y);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int ImageSetRotation(int id, int rotation);
-
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int DestroyAllVisual();
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int ShowAllVisual();
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int HideAllVisual();
-
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetFrameRate();
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetScreenSpecs(out int width, out int height);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int SetCalculationRatio(int width, int height);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int SetOverlayPriority(int id, int priority);
-
-        // SAMP functions
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int SendChat(string msg);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int ShowGameText(string msg, int time, int style);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int AddChatMessage(string msg);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetPlayerNameByID(int id, out StringBuilder playerName, int maxLen);
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetPlayerIDByName(string name);
-
-        // Player functions
+        // PlayerFunctions.hpp
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int GetPlayerCPed();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
@@ -135,13 +48,103 @@ namespace SAMP_API
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int IsPlayerInRange3D(float posX, float posY, float posZ, float radius);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetCityName(out string cityName, int max_len);
+        public static extern int GetCityName(out StringBuilder cityName, int max_len);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetZoneName(out string zoneName, int max_len);
+        public static extern int GetZoneName(out StringBuilder zoneName, int max_len);
 
-        // Vehicle functions
+        // RenderFunctions.hpp
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern uint GetVehiclePointer();
+        public static extern int TextCreate(string Font, int FontSize, bool bBold, bool bItalic, int x, int y, int color, string text, bool bShadow, bool bShow);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int TextDestroy(int ID);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int TextSetShadow(int id, bool b);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int TextSetShown(int id, bool b);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int TextSetColor(int id, int color);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int TextSetPos(int id, int x, int y);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int TextSetString(int id, string str);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int TextUpdate(int id, string Font, int FontSize, bool bBold, bool bItalic);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int BoxCreate(int x, int y, int w, int h, int dwColor, bool bShow);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int BoxDestroy(int id);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int BoxSetShown(int id, bool bShown);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int BoxSetBorder(int id, int height, bool bShown);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int BoxSetBorderColor(int id, int dwColor);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int BoxSetColor(int id, int dwColor);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int BoxSetHeight(int id, int height);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int BoxSetPos(int id, int x, int y);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int BoxSetWidth(int id, int width);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int LineCreate(int x1, int y1, int x2, int y2, int width, int color, bool bShow);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int LineDestroy(int id);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int LineSetShown(int id, bool bShown);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int LineSetColor(int id, int color);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int LineSetWidth(int id, int width);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int LineSetPos(int id, int x1, int y1, int x2, int y2);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int ImageCreate(string path, int x, int y, int rotation, int align, bool bShow);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int ImageDestroy(int id);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int ImageSetShown(int id, bool bShown);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int ImageSetAlign(int id, int align);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int ImageSetPos(int id, int x, int y);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int ImageSetRotation(int id, int rotation);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int DestroyAllVisual();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int ShowAllVisual();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int HideAllVisual();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetFrameRate();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetScreenSpecs(out int width, out int height);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int SetCalculationRatio(int width, int height);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int SetOverlayPriority(int id, int priority);
+
+        // SAMPFunctions.hpp
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int SendChat(string msg);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int ShowGameText(string msg, int time, int style);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int AddChatMessage(string msg);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerNameByID(int id, out StringBuilder playername, int max_len);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerIDByName(string name);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int IsChatOpen();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int IsDialogOpen();
+
+        // VehicleFunctions.hpp
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetVehiclePointer();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int GetVehicleSpeed(float factor);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
@@ -150,7 +153,8 @@ namespace SAMP_API
         public static extern int GetVehicleModelId();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int GetVehicleModelName(out StringBuilder name, int len);
-        public static extern int GetVehicleModelNameById(int vehicleId, out StringBuilder name, int len);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetVehicleModelNameById(int vehicleID, out StringBuilder name, int len);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int GetVehicleType();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
@@ -170,7 +174,7 @@ namespace SAMP_API
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int IsVehicleSirenEnabled();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int IsVehicleAlternateSirenEnabled();
+        public static extern int IsVehicleAlternateSireneEnabled();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int IsVehicleEngineEnabled();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
@@ -274,4 +278,3 @@ namespace SAMP_API
         }
     }
 }
-
