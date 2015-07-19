@@ -211,14 +211,14 @@ IsPlayerInRange3D(posX, posY, posZ, radius)
 GetCityName(ByRef cityName, max_len)
 {
 	global GetCityName_func
-    VarSetCapacity(cityName, 32, 0)
+	VarSetCapacity(cityName, 32, 0)
 	return DllCall(GetCityName_func, "StrP", cityName, "Int", max_len)
 }
 
 GetZoneName(ByRef zoneName, max_len)
 {
 	global GetZoneName_func
-    VarSetCapacity(zoneName, 32, 0)
+	VarSetCapacity(zoneName, 32, 0)
 	return DllCall(GetZoneName_func, "StrP", zoneName, "Int", max_len)
 }
 
@@ -459,7 +459,7 @@ AddChatMessage(msg)
 GetPlayerNameByID(id, ByRef playername, max_len)
 {
 	global GetPlayerNameByID_func
-    VarSetCapacity(playername, 32, 0)
+	VarSetCapacity(playername, 32, 0)
 	return DllCall(GetPlayerNameByID_func, "Int", id, "StrP", playername, "Int", max_len)
 }
 
@@ -508,14 +508,14 @@ GetVehicleModelId()
 GetVehicleModelName(ByRef name, len)
 {
 	global GetVehicleModelName_func
-    VarSetCapacity(name, 32, 0)
+	VarSetCapacity(name, 32, 0)
 	return DllCall(GetVehicleModelName_func, "StrP", name, "Int", len)
 }
 
 GetVehicleModelNameById(vehicleID, ByRef name, len)
 {
 	global GetVehicleModelNameById_func
-    VarSetCapacity(name, 32, 0)
+	VarSetCapacity(name, 32, 0)
 	return DllCall(GetVehicleModelNameById_func, "Int", vehicleID, "StrP", name, "Int", len)
 }
 

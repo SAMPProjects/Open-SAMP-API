@@ -131,7 +131,7 @@ RelToAbs(root, dir, s = "\") {
         VarSetCapacity_opt = DllCallArguments = ""
         for argument in function.arguments:
             if argument.isPtr and argument.aType.isArray:
-                VarSetCapacity_opt += "\n    VarSetCapacity({0}, 32, 0)".format(argument.name)
+                VarSetCapacity_opt += "\n\tVarSetCapacity({0}, 32, 0)".format(argument.name)
             dataType = dataTypeMap[argument.aType.typeName]
             if argument.aType.isUnsigned:
                 dataType = "U" + dataType
