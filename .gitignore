@@ -17,6 +17,9 @@ build/
 bld/
 [Oo]bj/
 
+bin/*_d.dll
+bin/*_d.lib
+
 *.exp
 
 # Roslyn cache directories
