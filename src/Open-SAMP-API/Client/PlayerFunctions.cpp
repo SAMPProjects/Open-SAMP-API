@@ -47,6 +47,19 @@ EXPORT int Client::PlayerFunctions::GetPlayerMoney()
 	return (int)money;
 }
 
+EXPORT int Client::PlayerFunctions::GetPlayerSkinID()
+{
+	DWORD pedPtr = 0;
+	if (MemoryFunctions::ReadMemory(0xB6F5F0, 4, &pedPtr) != 4)
+		return -1;
+
+	int skin = 0;
+	if (MemoryFunctions::ReadMemory(pedPtr + 0x22, 2, &skin) != 2)
+		return -1;
+
+	return (int)skin;
+}
+
 EXPORT int Client::PlayerFunctions::IsPlayerInAnyVehicle()
 {
 	return (int)(VehicleFunctions::GetVehiclePointer() != 0);
