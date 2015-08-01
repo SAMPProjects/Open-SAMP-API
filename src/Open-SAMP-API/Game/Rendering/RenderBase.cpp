@@ -22,6 +22,16 @@ int Game::Rendering::RenderBase::priority()
 	return _priority;
 }
 
+void Game::Rendering::RenderBase::setCalculationEnabled(bool enabled)
+{
+	_calculationEnabled = enabled;
+}
+
+bool Game::Rendering::RenderBase::isCalculationEnabled()
+{
+	return _calculationEnabled;
+}
+
 void Game::Rendering::RenderBase::changeResource()
 {
 	_resourceChanged = true;
@@ -29,17 +39,15 @@ void Game::Rendering::RenderBase::changeResource()
 
 int Game::Rendering::RenderBase::calculatedXPos(int x)
 {
-	return (int)(((float)x / (float)xCalculator) * (float)_renderer->screenWidth());
+	return _calculationEnabled ? (int)(((float)x / (float)xCalculator) * (float)_renderer->screenWidth()) : x;
 }
 
 int Game::Rendering::RenderBase::calculatedYPos(int y)
 {
-	return (int)(((float)y / (float)yCalculator) * (float)_renderer->screenHeight());
+	return _calculationEnabled ? (int)(((float)y / (float)yCalculator) * (float)_renderer->screenHeight()) : y;
 }
 
 Game::Rendering::Renderer *Game::Rendering::RenderBase::renderer()
 {
 	return _renderer;
 }
-
-

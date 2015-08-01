@@ -47,5 +47,6 @@ namespace Client
 
 		EXPORT int SetCalculationRatio(int width, int height);
 		EXPORT int SetOverlayPriority(int id, int priority);
+		EXPORT int SetOverlayCalculationEnabled(int id, bool enabled);
 	}
 }

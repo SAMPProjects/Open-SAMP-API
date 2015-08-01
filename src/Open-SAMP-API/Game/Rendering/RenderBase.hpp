@@ -18,6 +18,9 @@ namespace Game
 			void setPriority(int p);
 			int priority();
 
+			void setCalculationEnabled(bool enabled);
+			bool isCalculationEnabled();
+
 		protected:
 			virtual void draw(IDirect3DDevice9 *pDevice) = 0;
 			virtual void reset(IDirect3DDevice9 *pDevice) = 0;
@@ -44,6 +47,7 @@ namespace Game
 			bool _hasToBeInitialised, _isMarkedForDeletion, _resourceChanged, _firstDrawAfterReset;
 
 			int _priority = 0;
+			bool _calculationEnabled = true;
 
 			Renderer *_renderer;
 		};

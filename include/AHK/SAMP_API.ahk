@@ -1,6 +1,6 @@
 #NoEnv 
 
-PATH_SAMP_API := RelToAbs(A_ScriptDir, "..\..\bin\Open-SAMP-API.dll")
+PATH_SAMP_API := PathCombine(A_ScriptDir, "..\..\bin\Open-SAMP-API.dll")
 
 hModule := DllCall("LoadLibrary", Str, PATH_SAMP_API)
 if(hModule == -1 || hModule == 0)
@@ -15,12 +15,14 @@ SetParam_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "SetParam")
 
 ;GTAFunctions.hpp
 IsMenuOpen_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsMenuOpen")
+WorldToScreen_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "WorldToScreen")
 
 ;PlayerFunctions.hpp
 GetPlayerCPed_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerCPed")
 GetPlayerHealth_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerHealth")
 GetPlayerArmor_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerArmor")
 GetPlayerMoney_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerMoney")
+GetPlayerSkinID_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerSkinID")
 IsPlayerInAnyVehicle_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsPlayerInAnyVehicle")
 IsPlayerDriver_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsPlayerDriver")
 IsPlayerPassenger_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsPlayerPassenger")
@@ -71,6 +73,7 @@ GetFrameRate_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetFrame
 GetScreenSpecs_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetScreenSpecs")
 SetCalculationRatio_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "SetCalculationRatio")
 SetOverlayPriority_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "SetOverlayPriority")
+SetOverlayCalculationEnabled_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "SetOverlayCalculationEnabled")
 
 ;SAMPFunctions.hpp
 SendChat_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "SendChat")
@@ -124,6 +127,12 @@ IsMenuOpen()
 	return DllCall(IsMenuOpen_func)
 }
 
+WorldToScreen(x, y, z, ByRef screenX, ByRef screenY)
+{
+	global WorldToScreen_func
+	return DllCall(WorldToScreen_func, "Float", x, "Float", y, "Float", z, "FloatP", screenX, "FloatP", screenY)
+}
+
 GetPlayerCPed()
 {
 	global GetPlayerCPed_func
@@ -146,6 +155,12 @@ GetPlayerMoney()
 {
 	global GetPlayerMoney_func
 	return DllCall(GetPlayerMoney_func)
+}
+
+GetPlayerSkinID()
+{
+	global GetPlayerSkinID_func
+	return DllCall(GetPlayerSkinID_func)
 }
 
 IsPlayerInAnyVehicle()
@@ -438,6 +453,12 @@ SetOverlayPriority(id, priority)
 	return DllCall(SetOverlayPriority_func, "Int", id, "Int", priority)
 }
 
+SetOverlayCalculationEnabled(id, enabled)
+{
+	global SetOverlayCalculationEnabled_func
+	return DllCall(SetOverlayCalculationEnabled_func, "Int", id, "UChar", enabled)
+}
+
 SendChat(msg)
 {
 	global SendChat_func
@@ -622,22 +643,8 @@ IsVehicleBike()
 }
 
 
-RelToAbs(root, dir, s = "") {
-	pr := SubStr(root, 1, len := InStr(root, s, "", InStr(root, s . s) + 2) - 1)
-		, root := SubStr(root, len + 1), sk := 0
-	If InStr(root, s, "", 0) = StrLen(root)
-		StringTrimRight, root, root, 1
-	If InStr(dir, s, "", 0) = StrLen(dir)
-		StringTrimRight, dir, dir, 1
-	Loop, Parse, dir, %s%
-	{
-		If A_LoopField = ..
-			StringLeft, root, root, InStr(root, s, "", 0) - 1
-		Else If A_LoopField =
-			root =
-		Else If A_LoopField != .
-			Continue
-		StringReplace, dir, dir, %A_LoopField%%s%
-	}
-	Return, pr . root . s . dir
+PathCombine(abs, rel) {
+    VarSetCapacity(dest, (A_IsUnicode ? 2 : 1) * 260, 1) ; MAX_PATH
+    DllCall("Shlwapi.dll\PathCombine", "UInt", &dest, "UInt", &abs, "UInt", &rel)
+    Return, dest
 }

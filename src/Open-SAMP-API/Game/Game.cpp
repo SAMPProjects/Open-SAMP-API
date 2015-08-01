@@ -108,6 +108,7 @@ void initGame()
 
 		BIND(SetCalculationRatio);
 		BIND(SetOverlayPriority);
+		BIND(SetOverlayCalculationEnabled);
 
 		BIND(SendChat);
 		BIND(ShowGameText);
@@ -117,6 +118,8 @@ void initGame()
 		BIND(IsDialogOpen);
 
 		BIND(ReadMemory);
+
+		BIND(WorldToScreen);
 
 		new Utils::PipeServer([&](Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 		{

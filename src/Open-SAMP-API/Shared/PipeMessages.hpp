@@ -52,6 +52,7 @@ namespace Shared
 		GetScreenSpecs,
 		SetCalculationRatio,
 		SetOverlayPriority,
+		SetOverlayCalculationEnabled,
 
 		// SAMP functions
 		SendChat,
@@ -62,6 +63,9 @@ namespace Shared
 		IsDialogOpen,
 
 		// Memory functions
-		ReadMemory
+		ReadMemory,
+
+		// Misc GTA functions
+		WorldToScreen
 	};
 }

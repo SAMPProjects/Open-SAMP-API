@@ -510,3 +510,17 @@ EXPORT int Client::RenderFunctions::SetOverlayPriority(int id, int priority)
 
 	return 0;
 }
+
+EXPORT int Client::RenderFunctions::SetOverlayCalculationEnabled(int id, bool enabled)
+{
+	SERVER_CHECK(0)
+
+	Utils::Serializer serializerIn, serializerOut;
+
+	serializerIn << Shared::PipeMessages::SetOverlayCalculationEnabled << id << enabled;
+
+	if (Utils::PipeClient(serializerIn, serializerOut).success())
+		SERIALIZER_RET(int);
+
+	return 0;
+}

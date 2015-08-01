@@ -20,6 +20,7 @@
     <ClCompile Include="Client\VehicleFunctions.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="Game\Game.cpp" />
+    <ClCompile Include="Game\GTA\World.cpp" />
     <ClCompile Include="Game\Messagehandler.cpp" />
     <ClCompile Include="Game\Rendering\Box.cpp" />
     <ClCompile Include="Game\Rendering\D3DFont.cpp" />
@@ -51,6 +52,7 @@
     <ClInclude Include="Client\VehicleFunctions.hpp" />
     <ClInclude Include="dllmain.hpp" />
     <ClInclude Include="Game\Game.hpp" />
+    <ClInclude Include="Game\GTA\World.hpp" />
     <ClInclude Include="Game\Messagehandler.hpp" />
     <ClInclude Include="Game\Rendering\Box.hpp" />
     <ClInclude Include="Game\Rendering\D3DFont.hpp" />

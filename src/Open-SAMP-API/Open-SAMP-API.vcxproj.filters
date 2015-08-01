@@ -83,6 +83,9 @@
     <ClCompile Include="Client\GTAFunctions.cpp">
       <Filter>Client %28Keybinder%29</Filter>
     </ClCompile>
+    <ClCompile Include="Game\GTA\World.cpp">
+      <Filter>Game %28GTA SA%29\GTA</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Messagehandler.hpp">
@@ -233,6 +236,9 @@
     <ClInclude Include="Client\GTAFunctions.hpp">
       <Filter>Client %28Keybinder%29</Filter>
     </ClInclude>
+    <ClInclude Include="Game\GTA\World.hpp">
+      <Filter>Game %28GTA SA%29\GTA</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Client %28Keybinder%29">
@@ -258,6 +264,9 @@
     </Filter>
     <Filter Include="Game %28GTA SA%29\SAMP">
       <UniqueIdentifier>{3d923964-ebb6-4cfd-b73f-fc0bfd26f2fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game %28GTA SA%29\GTA">
+      <UniqueIdentifier>{4ad632c8-c447-4282-8f8b-39d9af614a87}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

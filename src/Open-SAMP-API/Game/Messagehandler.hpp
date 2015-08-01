@@ -50,6 +50,7 @@ namespace Game
 		void SetCalculationRatio(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 
 		void SetOverlayPriority(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void SetOverlayCalculationEnabled(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 
 		void SendChat(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 		void ShowGameText(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
@@ -59,5 +60,7 @@ namespace Game
 		void IsDialogOpen(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 
 		void ReadMemory(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+
+		void WorldToScreen(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 	}
 }

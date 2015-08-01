@@ -17,6 +17,8 @@ namespace SAMP_API
         // GTAFunctions.hpp
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern bool IsMenuOpen();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern bool WorldToScreen(float x, float y, float z, out float screenX, out float screenY);
 
         // PlayerFunctions.hpp
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
@@ -27,6 +29,8 @@ namespace SAMP_API
         public static extern int GetPlayerArmor();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int GetPlayerMoney();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerSkinID();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int IsPlayerInAnyVehicle();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
@@ -125,6 +129,8 @@ namespace SAMP_API
         public static extern int SetCalculationRatio(int width, int height);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int SetOverlayPriority(int id, int priority);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int SetOverlayCalculationEnabled(int id, bool enabled);
 
         // SAMPFunctions.hpp
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]

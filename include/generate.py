@@ -51,7 +51,7 @@ def parseDefinition(expression):
 
 def scan():
     os.chdir("src/Open-SAMP-API/Client")
-    for filename in os.listdir():
+    for filename in os.listdir("."):
         if filename in ["GTAStructs.hpp", "MemoryFunctions.hpp"] or not fnmatch.fnmatch(filename, "*.hpp"):
             continue
         with codecs.open(filename, encoding="utf-8-sig") as file:
@@ -75,7 +75,7 @@ def scan():
 def gen_ahk():
     header = '''#NoEnv 
 
-PATH_SAMP_API := RelToAbs(A_ScriptDir, "..\..\\bin\Open-SAMP-API.dll")
+PATH_SAMP_API := PathCombine(A_ScriptDir, "..\..\\bin\Open-SAMP-API.dll")
 
 hModule := DllCall("LoadLibrary", Str, PATH_SAMP_API)
 if(hModule == -1 || hModule == 0)
@@ -85,24 +85,10 @@ if(hModule == -1 || hModule == 0)
 }
 '''
     footer = '''
-RelToAbs(root, dir, s = "\") {
-	pr := SubStr(root, 1, len := InStr(root, s, "", InStr(root, s . s) + 2) - 1)
-		, root := SubStr(root, len + 1), sk := 0
-	If InStr(root, s, "", 0) = StrLen(root)
-		StringTrimRight, root, root, 1
-	If InStr(dir, s, "", 0) = StrLen(dir)
-		StringTrimRight, dir, dir, 1
-	Loop, Parse, dir, %s%
-	{
-		If A_LoopField = ..
-			StringLeft, root, root, InStr(root, s, "", 0) - 1
-		Else If A_LoopField =
-			root =
-		Else If A_LoopField != .
-			Continue
-		StringReplace, dir, dir, %A_LoopField%%s%
-	}
-	Return, pr . root . s . dir
+PathCombine(abs, rel) {
+    VarSetCapacity(dest, (A_IsUnicode ? 2 : 1) * 260, 1) ; MAX_PATH
+    DllCall("Shlwapi.dll\PathCombine", "UInt", &dest, "UInt", &abs, "UInt", &rel)
+    Return, dest
 }
 '''
     output = header

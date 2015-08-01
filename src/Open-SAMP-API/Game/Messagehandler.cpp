@@ -1,5 +1,6 @@
 #include "Messagehandler.hpp"
 #include "Game.hpp"
+#include "GTA/World.hpp"
 #include "SAMP/SAMP.hpp"
 #include "SAMP/RemotePlayer.hpp"
 #include "Rendering/Text.hpp"
@@ -357,6 +358,16 @@ void Game::MessageHandler::SetOverlayPriority(Utils::Serializer& serializerIn, U
 	})));
 }
 
+void Game::MessageHandler::SetOverlayCalculationEnabled(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
+{
+	READ(int, id);
+	READ(bool, enabled);
+
+	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
+		Rendering::Renderer::sharedRenderer().get(id)->setCalculationEnabled(enabled);
+	})));
+}
+
 void Game::MessageHandler::SendChat(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(std::string, message);
@@ -420,4 +431,18 @@ void Game::MessageHandler::ReadMemory(Utils::Serializer& serializerIn, Utils::Se
 
 	// Delete heap allocated memory!
 	delete[] memory; 
+}
+
+void Game::MessageHandler::WorldToScreen(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
+{
+	READ(float, x);
+	READ(float, y);
+	READ(float, z);
+
+	float screenX = 0, screenY = 0;
+	bool ret = GTA::WorldToScreen(x, y, z, screenX, screenY);
+
+	WRITE(ret);
+	WRITE(screenX);
+	WRITE(screenY);
 }
