@@ -2,7 +2,7 @@
 #include <Shared/PipeMessages.hpp>
 #include <boost/filesystem.hpp>
 
-EXPORT int Client::RenderFunctions::TextCreate(const char *Font, int FontSize, bool bBold, bool bItalic, int x, int y, unsigned int color, const char *text, bool bShadow, bool bShow)
+EXPORT int Client::RenderFunctions::TextCreate(const char *Font, float FontSize, bool bBold, bool bItalic, float x, float y, unsigned int color, const char *text, bool bShadow, bool bShow)
 {
 	SERVER_CHECK(-1)
 
@@ -73,20 +73,6 @@ EXPORT int Client::RenderFunctions::TextSetColor(int id, unsigned int color)
 	return 0;
 }
 
-EXPORT int Client::RenderFunctions::TextSetPos(int id, int x, int y)
-{
-	SERVER_CHECK(0)
-
-	Utils::Serializer serializerIn, serializerOut;
-
-	serializerIn << Shared::PipeMessages::TextSetPos << id << x << y;
-
-	if (Utils::PipeClient(serializerIn, serializerOut).success())
-		SERIALIZER_RET(int);
-
-	return 0;
-}
-
 EXPORT int Client::RenderFunctions::TextSetString(int id, const char *str)
 {
 	SERVER_CHECK(0)
@@ -101,7 +87,7 @@ EXPORT int Client::RenderFunctions::TextSetString(int id, const char *str)
 	return 0;
 }
 
-EXPORT int Client::RenderFunctions::TextUpdate(int id, const char *Font, int FontSize, bool bBold, bool bItalic)
+EXPORT int Client::RenderFunctions::TextUpdate(int id, const char *Font, float FontSize, bool bBold, bool bItalic)
 {
 	SERVER_CHECK(0)
 
@@ -115,7 +101,7 @@ EXPORT int Client::RenderFunctions::TextUpdate(int id, const char *Font, int Fon
 	return 0;
 }
 
-EXPORT int Client::RenderFunctions::BoxCreate(int x, int y, int w, int h, unsigned int dwColor, bool bShow)
+EXPORT int Client::RenderFunctions::BoxCreate(float x, float y, float w, float h, unsigned int dwColor, bool bShow)
 {
 	SERVER_CHECK(-1)
 
@@ -157,7 +143,7 @@ EXPORT int Client::RenderFunctions::BoxSetShown(int id, bool bShown)
 	return 0;
 }
 
-EXPORT int Client::RenderFunctions::BoxSetBorder(int id, int height, bool bShown)
+EXPORT int Client::RenderFunctions::BoxSetBorder(int id, float height, bool bShown)
 {
 	SERVER_CHECK(0)
 
@@ -199,7 +185,7 @@ EXPORT int Client::RenderFunctions::BoxSetColor(int id, unsigned int dwColor)
 	return 0;
 }
 
-EXPORT int Client::RenderFunctions::BoxSetHeight(int id, int height)
+EXPORT int Client::RenderFunctions::BoxSetHeight(int id, float height)
 {
 	SERVER_CHECK(0)
 
@@ -213,21 +199,7 @@ EXPORT int Client::RenderFunctions::BoxSetHeight(int id, int height)
 	return 0;
 }
 
-EXPORT int Client::RenderFunctions::BoxSetPos(int id, int x, int y)
-{
-	SERVER_CHECK(0)
-
-	Utils::Serializer serializerIn, serializerOut;
-
-	serializerIn << Shared::PipeMessages::BoxSetPos << id << x << y;
-
-	if (Utils::PipeClient(serializerIn, serializerOut).success())
-		SERIALIZER_RET(int);
-
-	return 0;
-}
-
-EXPORT int Client::RenderFunctions::BoxSetWidth(int id, int width)
+EXPORT int Client::RenderFunctions::BoxSetWidth(int id, float width)
 {
 	SERVER_CHECK(0)
 
@@ -241,7 +213,7 @@ EXPORT int Client::RenderFunctions::BoxSetWidth(int id, int width)
 	return 0;
 }
 
-EXPORT int Client::RenderFunctions::LineCreate(int x1, int y1, int x2, int y2, int width, unsigned int color, bool bShow)
+EXPORT int Client::RenderFunctions::LineCreate(float x1, float y1, float x2, float y2, float width, unsigned int color, bool bShow)
 {
 	SERVER_CHECK(-1)
 
@@ -297,7 +269,7 @@ EXPORT int Client::RenderFunctions::LineSetColor(int id, unsigned int color)
 	return 0;
 }
 
-EXPORT int Client::RenderFunctions::LineSetWidth(int id, int width)
+EXPORT int Client::RenderFunctions::LineSetWidth(int id, float width)
 {
 	SERVER_CHECK(0)
 
@@ -311,7 +283,7 @@ EXPORT int Client::RenderFunctions::LineSetWidth(int id, int width)
 	return 0;
 }
 
-EXPORT int Client::RenderFunctions::LineSetPos(int id, int x1, int y1, int x2, int y2)
+EXPORT int Client::RenderFunctions::LineSetPos(int id, float x1, float y1, float x2, float y2)
 {
 	SERVER_CHECK(0)
 
@@ -325,7 +297,7 @@ EXPORT int Client::RenderFunctions::LineSetPos(int id, int x1, int y1, int x2, i
 	return 0;
 }
 
-EXPORT int Client::RenderFunctions::ImageCreate(const char *path, int x, int y, int rotation, int align, bool bShow)
+EXPORT int Client::RenderFunctions::ImageCreate(const char *path, float x, float y, float rotation, int align, bool bShow)
 {
 	SERVER_CHECK(-1)
 
@@ -385,21 +357,7 @@ EXPORT int Client::RenderFunctions::ImageSetAlign(int id, int align)
 	return 0;
 }
 
-EXPORT int Client::RenderFunctions::ImageSetPos(int id, int x, int y)
-{
-	SERVER_CHECK(0)
-
-	Utils::Serializer serializerIn, serializerOut;
-
-	serializerIn << Shared::PipeMessages::ImageSetPos << id << x << y;
-
-	if (Utils::PipeClient(serializerIn, serializerOut).success())
-		SERIALIZER_RET(int);
-
-	return 0;
-}
-
-EXPORT int Client::RenderFunctions::ImageSetRotation(int id, int rotation)
+EXPORT int Client::RenderFunctions::ImageSetRotation(int id, float rotation)
 {
 	SERVER_CHECK(0)
 
@@ -486,7 +444,7 @@ EXPORT int Client::RenderFunctions::GetScreenSpecs(int& width, int& height)
 	return 0;
 }
 
-EXPORT int Client::RenderFunctions::SetCalculationRatio(int width, int height)
+EXPORT int Client::RenderFunctions::SetCalculationRatio(float width, float height)
 {
 	SERVER_CHECK(0)
 
@@ -518,6 +476,34 @@ EXPORT int Client::RenderFunctions::SetOverlayCalculationEnabled(int id, bool en
 	Utils::Serializer serializerIn, serializerOut;
 
 	serializerIn << Shared::PipeMessages::SetOverlayCalculationEnabled << id << enabled;
+
+	if (Utils::PipeClient(serializerIn, serializerOut).success())
+		SERIALIZER_RET(int);
+
+	return 0;
+}
+
+EXPORT int Client::RenderFunctions::SetOverlay2DPosition(int id, float x, float y)
+{
+	SERVER_CHECK(0)
+
+	Utils::Serializer serializerIn, serializerOut;
+
+	serializerIn << Shared::PipeMessages::SetOverlay2DPosition << id << x << y;
+
+	if (Utils::PipeClient(serializerIn, serializerOut).success())
+		SERIALIZER_RET(int);
+
+	return 0;
+}
+
+EXPORT int Client::RenderFunctions::SetOverlay3DPosition(int id, float x, float y, float z)
+{
+	SERVER_CHECK(0)
+
+	Utils::Serializer serializerIn, serializerOut;
+
+	serializerIn << Shared::PipeMessages::SetOverlay3DPosition << id << x << y << z;
 
 	if (Utils::PipeClient(serializerIn, serializerOut).success())
 		SERIALIZER_RET(int);

@@ -1,11 +1,10 @@
 #include "Image.hpp"
 #include "dx_utils.hpp"
 
-Game::Rendering::Image::Image(Renderer *renderer, const std::string& file_path, int x, int y, int rotation, int align, bool bShow)
-	: RenderBase(renderer), m_pSprite(NULL), m_pTexture(NULL)
+Game::Rendering::Image::Image(Renderer *renderer, const std::string& file_path, float x, float y, float rotation, int align, bool bShow) : RenderBase(renderer), m_pSprite(NULL), m_pTexture(NULL)
 {
 	setFilePath(file_path);
-	setPos(x, y);
+	setPos2D(x, y);
 	setRotation(rotation);
 	setAlign(align);
 	setShown(bShow);
@@ -16,12 +15,7 @@ void Game::Rendering::Image::setFilePath(const std::string & path)
 	m_filePath = path;
 }
 
-void Game::Rendering::Image::setPos(int x, int y)
-{
-	m_x = x, m_y = y;
-}
-
-void Game::Rendering::Image::setRotation(int rotation)
+void Game::Rendering::Image::setRotation(float rotation)
 {
 	m_rotation = rotation;
 }
@@ -36,10 +30,10 @@ void Game::Rendering::Image::setShown(bool show)
 	m_bShow = show;
 }
 
-bool Game::Rendering::Image::updateImage(const std::string& file_path, int x, int y, int rotation, int align, bool bShow)
+bool Game::Rendering::Image::updateImage(const std::string& file_path, float x, float y, float rotation, int align, bool bShow)
 {
 	setFilePath(file_path);
-	setPos(x, y);
+	setPos2D(x, y);
 	setRotation(rotation);
 	setAlign(align);
 	setShown(bShow);
@@ -54,8 +48,8 @@ void Game::Rendering::Image::draw(IDirect3DDevice9 *pDevice)
 	if(!m_bShow)
 		return;
 
-	int x = calculatedXPos(m_x);
-	int y = calculatedYPos(m_y);
+	float x = 0, y = 0;
+	overlayPosition(x, y);
 
 	if(m_pTexture && m_pSprite)
 		Drawing::DrawSprite(m_pSprite, m_pTexture, x, y, m_rotation, m_align);
@@ -80,7 +74,6 @@ void Game::Rendering::Image::hide()
 {
 	setShown(false);
 }
-
 
 void Game::Rendering::Image::releaseResourcesForDeletion(IDirect3DDevice9 *pDevice)
 {

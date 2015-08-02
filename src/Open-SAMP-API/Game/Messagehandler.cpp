@@ -17,11 +17,11 @@
 void Game::MessageHandler::TextCreate(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(std::string, Font); 
-	READ(int, FontSize); 
+	READ(float, FontSize); 
 	READ(bool, bBold);
 	READ(bool, bItalic);
-	READ(int, x); 
-	READ(int, y);
+	READ(float, x);
+	READ(float, y);
 	READ(unsigned int, color);
 	READ(std::string, string);
 	READ(bool, bShadow);
@@ -66,17 +66,6 @@ void Game::MessageHandler::TextSetColor(Utils::Serializer& serializerIn, Utils::
 	})));
 }
 
-void Game::MessageHandler::TextSetPos(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
-{
-	READ(int, id); 
-	READ(int, x); 
-	READ(int, y);
-
-	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
-		Rendering::Renderer::sharedRenderer().getAs<Rendering::Text>(id)->setPos(x, y);
-	})));
-}
-
 void Game::MessageHandler::TextSetString(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id); 
@@ -91,7 +80,7 @@ void Game::MessageHandler::TextUpdate(Utils::Serializer& serializerIn, Utils::Se
 {
 	READ(int, id); 
 	READ(std::string, Font); 
-	READ(int, FontSize); 
+	READ(float, FontSize); 
 	READ(bool, bBold); 
 	READ(bool, bItalic);
 
@@ -102,10 +91,10 @@ void Game::MessageHandler::TextUpdate(Utils::Serializer& serializerIn, Utils::Se
 
 void Game::MessageHandler::BoxCreate(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
-	READ(int, x); 
-	READ(int, y); 
-	READ(int, w); 
-	READ(int, h); 
+	READ(float, x); 
+	READ(float, y);
+	READ(float, w);
+	READ(float, h);
 	READ(unsigned int, dwColor); 
 	READ(bool, bShow);
 
@@ -131,7 +120,7 @@ void Game::MessageHandler::BoxSetShown(Utils::Serializer& serializerIn, Utils::S
 void Game::MessageHandler::BoxSetBorder(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id); 
-	READ(int, height); 
+	READ(float, height); 
 	READ(bool, bShown);
 
 	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
@@ -163,28 +152,17 @@ void Game::MessageHandler::BoxSetColor(Utils::Serializer& serializerIn, Utils::S
 void Game::MessageHandler::BoxSetHeight(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id); 
-	READ(int, height);
+	READ(float, height);
 
 	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
 		Rendering::Renderer::sharedRenderer().getAs<Rendering::Box>(id)->setBoxHeight(height);
 	})));
 }
 
-void Game::MessageHandler::BoxSetPos(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
-{
-	READ(int, id); 
-	READ(int, x); 
-	READ(int, y);
-
-	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
-		Rendering::Renderer::sharedRenderer().getAs<Rendering::Box>(id)->setPos(x, y);
-	})));
-}
-
 void Game::MessageHandler::BoxSetWidth(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id); 
-	READ(int, width);
+	READ(float, width);
 
 	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
 		Rendering::Renderer::sharedRenderer().getAs<Rendering::Box>(id)->setBoxWidth(width);
@@ -193,11 +171,11 @@ void Game::MessageHandler::BoxSetWidth(Utils::Serializer& serializerIn, Utils::S
 
 void Game::MessageHandler::LineCreate(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
-	READ(int, x1); 
-	READ(int, y1); 
-	READ(int, x2); 
-	READ(int, y2); 
-	READ(int, width); 
+	READ(float, x1);
+	READ(float, y1);
+	READ(float, x2);
+	READ(float, y2);
+	READ(float, width);
 	READ(unsigned int, color);
 	READ(bool, bShow);
 
@@ -233,7 +211,7 @@ void Game::MessageHandler::LineSetColor(Utils::Serializer& serializerIn, Utils::
 void Game::MessageHandler::LineSetWidth(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id); 
-	READ(int, width);
+	READ(float, width);
 
 	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
 		Rendering::Renderer::sharedRenderer().getAs<Rendering::Line>(id)->setWidth(width);
@@ -243,10 +221,10 @@ void Game::MessageHandler::LineSetWidth(Utils::Serializer& serializerIn, Utils::
 void Game::MessageHandler::LineSetPos(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id); 
-	READ(int, x1); 
-	READ(int, y1); 
-	READ(int, x2); 
-	READ(int, y2);
+	READ(float, x1); 
+	READ(float, y1);
+	READ(float, x2);
+	READ(float, y2);
 
 	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
 		Rendering::Renderer::sharedRenderer().getAs<Rendering::Line>(id)->setPos(x1, y1, x2, y2);
@@ -256,9 +234,9 @@ void Game::MessageHandler::LineSetPos(Utils::Serializer& serializerIn, Utils::Se
 void Game::MessageHandler::ImageCreate(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(std::string, path); 
-	READ(int, x); 
-	READ(int, y); 
-	READ(int, rotation); 
+	READ(float, x);
+	READ(float, y);
+	READ(float, rotation);
 	READ(int, align); 
 	READ(bool, show);
 	
@@ -291,21 +269,10 @@ void Game::MessageHandler::ImageSetAlign(Utils::Serializer& serializerIn, Utils:
 	})));
 }
 
-void Game::MessageHandler::ImageSetPos(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
-{
-	READ(int, id); 
-	READ(int, x); 
-	READ(int, y);
-
-	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
-		Rendering::Renderer::sharedRenderer().getAs<Rendering::Image>(id)->setPos(x, y);
-	})));
-}
-
 void Game::MessageHandler::ImageSetRotation(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id); 
-	READ(int, rotation);
+	READ(float, rotation);
 
 	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
 		Rendering::Renderer::sharedRenderer().getAs<Rendering::Image>(id)->setRotation(rotation);
@@ -341,8 +308,8 @@ void Game::MessageHandler::GetScreenSpecs(Utils::Serializer& serializerIn, Utils
 
 void Game::MessageHandler::SetCalculationRatio(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
-	READ(int, width);
-	READ(int, height);
+	READ(float, width);
+	READ(float, height);
 
 	Rendering::RenderBase::xCalculator = width;
 	Rendering::RenderBase::yCalculator = height;
@@ -365,6 +332,29 @@ void Game::MessageHandler::SetOverlayCalculationEnabled(Utils::Serializer& seria
 
 	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
 		Rendering::Renderer::sharedRenderer().get(id)->setCalculationEnabled(enabled);
+	})));
+}
+
+void Game::MessageHandler::SetOverlay2DPosition(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
+{
+	READ(int, id);
+	READ(float, x);
+	READ(float, y);
+
+	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
+		Rendering::Renderer::sharedRenderer().get(id)->setPos2D(x, y);
+	})));
+}
+
+void Game::MessageHandler::SetOverlay3DPosition(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
+{
+	READ(int, id);
+	READ(float, x);
+	READ(float, y);
+	READ(float, z);
+
+	WRITE(int(Utils::SafeBlock::safeExecuteWithValidation([&](){
+		Rendering::Renderer::sharedRenderer().get(id)->setPos3D(x, y, z);
 	})));
 }
 

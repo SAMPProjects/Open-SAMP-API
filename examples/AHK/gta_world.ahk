@@ -17,23 +17,13 @@ ExitApp
 
 ; Timer callback
 Timer:
-if(text_overlay == -1) {
-	text_overlay := TextCreate("Arial", 30, false, false, -1, -1, 0xFFFF0000, "X", true, true)
-	
-	; Every overlay object is rendered for a resolution of 800 x 600
-	; If you want to disable this kind of calculation, you can do this via "SetOverlayCalculationEnabled"
-	; We've to do this here because WorldToScreen returns the physical pixel coordinates on your screen
-	SetOverlayCalculationEnabled(text_overlay, false)
-}
+if(text_overlay == -1)
+	text_overlay := TextCreate("Arial", 30, false, false, 9999, 9999, 0xFFFF0000, "X", true, true)
 
 if(text_overlay == -1)
 	return
 
 ; Draw the overlay at the farm in Redwood
-if(WorldToScreen(0, 0, 0, x, y)) {
-	if(TextSetPos(text_overlay, x, y) == 0) {
-		TextDestroy(text_overlay)
-		text_overlay := -1
-	}
-}
+SetOverlay3DPosition(text_overlay, 0, 0, 0)
+
 return

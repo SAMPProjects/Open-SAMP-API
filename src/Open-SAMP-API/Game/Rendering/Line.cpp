@@ -1,21 +1,20 @@
 #include "Line.hpp"
 
-Game::Rendering::Line::Line(Renderer *renderer, int x1,int y1,int x2,int y2,int width,D3DCOLOR color, bool bShow)
-	: RenderBase(renderer), m_Line(NULL)
+Game::Rendering::Line::Line(Renderer *renderer, float x1,float y1,float x2,float y2,float width,D3DCOLOR color, bool bShow) : RenderBase(renderer), m_Line(NULL)
 {
 	setPos(x1,y1,x2,y2);
 	setWidth(width);
 	setColor(color);
 	setShown(bShow);
+	setPos2D(0.0, 0.0);
 }
 
-void Game::Rendering::Line::setPos(int x1,int y1,int x2,int y2)
+void Game::Rendering::Line::setPos(float x1,float y1,float x2,float y2)
 {
-	m_X1 = x1, m_X2 = x2;
-	m_Y1 = y1, m_Y2 = y2;
+	m_X2 = x2, m_Y2 = y2;
 }
 
-void Game::Rendering::Line::setWidth(int width)
+void Game::Rendering::Line::setWidth(float width)
 {
 	m_Width = width;
 }
@@ -42,12 +41,15 @@ void Game::Rendering::Line::draw(IDirect3DDevice9 *pDevice)
 
 	m_Line->Begin();
 
-	LinePos[0].x = (float)calculatedXPos(m_X1);
-	LinePos[0].y = (float)calculatedYPos(m_Y1);
-	LinePos[1].x = (float)calculatedXPos(m_X2);
-	LinePos[1].y = (float)calculatedYPos(m_Y2);
+	float x = 0, y = 0;
+	overlayPosition(x, y);
 
-	m_Line->Draw(LinePos,2,m_Color);
+	LinePos[0].x = x;
+	LinePos[0].y = y;
+	LinePos[1].x = calculatedXPos(m_X2);
+	LinePos[1].y = calculatedYPos(m_Y2);
+
+	m_Line->Draw(LinePos, 2, m_Color);
 	m_Line->End();	
 }
 

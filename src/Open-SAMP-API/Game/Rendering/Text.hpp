@@ -10,12 +10,11 @@ namespace Game
 		class Text : public RenderBase
 		{
 		public:
-			Text(Renderer *renderer, const std::string& font, int iFontSize, bool Bold, bool Italic, int x, int y, D3DCOLOR color, const std::string& text, bool bShadow, bool bShow);
+			Text(Renderer *renderer, const std::string& font, float iFontSize, bool Bold, bool Italic, float x, float y, D3DCOLOR color, const std::string& text, bool bShadow, bool bShow);
 
-			bool updateText(const std::string& Font, int FontSize, bool Bold, bool Italic);
+			bool updateText(const std::string& Font, float FontSize, bool Bold, bool Italic);
 			void setText(const std::string& str);
 			void setColor(D3DCOLOR color);
-			void setPos(int x, int y);
 			void setShown(bool bShow);
 			void setShadow(bool bShadow);
 
@@ -34,14 +33,14 @@ namespace Game
 
 		private:
 			std::string	m_Text, m_Font;
-			int	m_X, m_Y, m_FontSize;
+			float m_FontSize;
 			D3DCOLOR m_Color;
 			std::shared_ptr<CD3DFont> m_D3DFont;
 			bool m_bShown, m_bShadow, m_bItalic, m_bBold;
 
 			void initFont(IDirect3DDevice9 *pDevice);
 			void resetFont();
-			bool drawText(int x, int y, DWORD dwColor, const std::string& strText, DWORD dwFlags = 0L);
+			bool drawText(float x, float y, DWORD dwColor, const std::string& strText, DWORD dwFlags = 0L);
 		};
 	}
 }

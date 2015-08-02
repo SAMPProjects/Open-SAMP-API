@@ -8,10 +8,10 @@ namespace Game
 		class Line : public RenderBase
 		{
 		public:
-			Line(Renderer *renderer, int x1, int y1, int x2, int y2, int width, D3DCOLOR color, bool bShow);
+			Line(Renderer *renderer, float x1, float y1, float x2, float y2, float width, D3DCOLOR color, bool bShow);
 
-			void setPos(int x1, int y1, int x2, int y2);
-			void setWidth(int width);
+			void setPos(float x1, float y1, float x2, float y2);
+			void setWidth(float width);
 			void setColor(D3DCOLOR color);
 			void setShown(bool show);
 
@@ -29,7 +29,7 @@ namespace Game
 			virtual void firstDrawAfterReset(IDirect3DDevice9 *pDevice) override sealed;
 
 		private:
-			int	m_X1, m_X2, m_Y1, m_Y2, m_Width;
+			float m_X2 = 0.0, m_Y2 = 0.0, m_Width;
 
 			bool m_bShow;
 

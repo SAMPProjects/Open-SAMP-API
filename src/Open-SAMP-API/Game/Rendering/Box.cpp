@@ -1,10 +1,9 @@
 #include "Box.hpp"
 #include "dx_utils.hpp"
 
-Game::Rendering::Box::Box(Renderer *renderer,  int x, int y, int w, int h, D3DCOLOR color, bool show)
-	: RenderBase(renderer), m_bShown(false)
+Game::Rendering::Box::Box(Renderer *renderer, float x, float y, float w, float h, D3DCOLOR color, bool show) : RenderBase(renderer), m_bShown(false)
 {
-	setPos(x, y);
+	setPos2D(x, y);
 	setBoxWidth(w);
 	setBoxHeight(h);
 	setBoxColor(color);
@@ -15,15 +14,9 @@ Game::Rendering::Box::Box(Renderer *renderer,  int x, int y, int w, int h, D3DCO
 	setBorderShown(false);
 }
 
-
-void Game::Rendering::Box::setPos(int x,int y)
-{
-	m_iX = x, m_iY = y;
-}
-
 void Game::Rendering::Box::setBorderColor(D3DCOLOR dwColor)
 {
-	m_dwBorderColor = dwColor;
+	m_borderColor = dwColor;
 }
 
 void Game::Rendering::Box::setBoxColor(D3DCOLOR dwColor)
@@ -31,19 +24,19 @@ void Game::Rendering::Box::setBoxColor(D3DCOLOR dwColor)
 	m_dwBoxColor = dwColor;
 }
 
-void Game::Rendering::Box::setBorderWidth(DWORD dwWidth)
+void Game::Rendering::Box::setBorderWidth(float width)
 {
-	m_dwBorderWidth = dwWidth;
+	m_borderWidth = width;
 }
 
-void Game::Rendering::Box::setBoxWidth(DWORD dwWidth)
+void Game::Rendering::Box::setBoxWidth(float width)
 {
-	m_dwBoxWidth = dwWidth;
+	m_boxWidth = width;
 }
 
-void Game::Rendering::Box::setBoxHeight(DWORD dwHeight)
+void Game::Rendering::Box::setBoxHeight(float height)
 {
-	m_dwBoxHeight = dwHeight;
+	m_boxHeight = height;
 }
 
 void Game::Rendering::Box::setBorderShown(bool b)
@@ -61,15 +54,16 @@ void Game::Rendering::Box::draw(IDirect3DDevice9 *pDevice)
 	if(!m_bShown)
 		return;
 
-	float x = (float)calculatedXPos(m_iX);
-	float y = (float)calculatedYPos(m_iY);
-	float w = (float)calculatedXPos(m_dwBoxWidth);
-	float h = (float)calculatedYPos(m_dwBoxHeight);
+	float x = 0.0, y = 0.0;
+	overlayPosition(x, y);
+
+	float w = calculatedXPos(m_boxWidth);
+	float h = calculatedYPos(m_boxHeight);
 
 	Drawing::DrawBox(x, y, w, h, m_dwBoxColor, pDevice);
 
 	if(m_bBorderShown)
-		Drawing::DrawRectangular(x, y, w, h, (float)m_dwBorderWidth, m_dwBorderColor, pDevice);
+		Drawing::DrawRectangular(x, y, w, h, m_borderWidth, m_borderColor, pDevice);
 }
 
 void Game::Rendering::Box::reset(IDirect3DDevice9 *pDevice)

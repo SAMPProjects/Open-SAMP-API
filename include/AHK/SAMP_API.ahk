@@ -74,6 +74,8 @@ GetScreenSpecs_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetScr
 SetCalculationRatio_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "SetCalculationRatio")
 SetOverlayPriority_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "SetOverlayPriority")
 SetOverlayCalculationEnabled_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "SetOverlayCalculationEnabled")
+SetOverlay2DPosition_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "SetOverlay2DPosition")
+SetOverlay3DPosition_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "SetOverlay3DPosition")
 
 ;SAMPFunctions.hpp
 SendChat_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "SendChat")
@@ -457,6 +459,18 @@ SetOverlayCalculationEnabled(id, enabled)
 {
 	global SetOverlayCalculationEnabled_func
 	return DllCall(SetOverlayCalculationEnabled_func, "Int", id, "UChar", enabled)
+}
+
+SetOverlay2DPosition(id, x, y)
+{
+	global SetOverlay2DPosition_func
+	return DllCall(SetOverlay2DPosition_func, "Int", id, "Int", x, "Int", y)
+}
+
+SetOverlay3DPosition(id, x, y, z)
+{
+	global SetOverlay3DPosition_func
+	return DllCall(SetOverlay3DPosition_func, "Int", id, "Int", x, "Int", y, "Int", z)
 }
 
 SendChat(msg)

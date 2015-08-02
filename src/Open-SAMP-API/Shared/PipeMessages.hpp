@@ -13,7 +13,6 @@ namespace Shared
 		TextSetShadow,
 		TextSetShown,
 		TextSetColor,
-		TextSetPos,
 		TextSetString,
 		TextUpdate,
 
@@ -25,7 +24,6 @@ namespace Shared
 		BoxSetBorderColor,
 		BoxSetColor,
 		BoxSetHeight,
-		BoxSetPos,
 		BoxSetWidth,
 
 		// Line functions
@@ -41,7 +39,6 @@ namespace Shared
 		ImageDestroy,
 		ImageSetShown,
 		ImageSetAlign,
-		ImageSetPos,
 		ImageSetRotation,
 
 		// Misc overlay functions
@@ -53,6 +50,8 @@ namespace Shared
 		SetCalculationRatio,
 		SetOverlayPriority,
 		SetOverlayCalculationEnabled,
+		SetOverlay2DPosition,
+		SetOverlay3DPosition,
 
 		// SAMP functions
 		SendChat,

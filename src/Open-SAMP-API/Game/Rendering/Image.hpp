@@ -10,14 +10,13 @@ namespace Game
 		public:
 			static void DrawSprite(LPD3DXSPRITE SpriteInterface, LPDIRECT3DTEXTURE9 TextureInterface, int PosX, int PosY, int Rotation, int Align);
 
-			Image(Renderer *renderer, const std::string& file_path, int x, int y, int rotation, int align, bool bShow);
+			Image(Renderer *renderer, const std::string& file_path, float x, float y, float rotation, int align, bool bShow);
 
 			void setFilePath(const std::string & path);
-			void setPos(int x, int y);
-			void setRotation(int rotation);
+			void setRotation(float rotation);
 			void setAlign(int align);
 			void setShown(bool show);
-			bool updateImage(const std::string& file_path, int x, int y, int rotation, int align, bool bShow);
+			bool updateImage(const std::string& file_path, float x, float y, float rotation, int align, bool bShow);
 
 		protected:
 			virtual void draw(IDirect3DDevice9 *pDevice) sealed;
@@ -33,10 +32,10 @@ namespace Game
 			virtual void firstDrawAfterReset(IDirect3DDevice9 *pDevice) override sealed;
 
 		private:
-			std::string			m_filePath;
+			std::string m_filePath;
 
-			int	m_x, m_y, m_rotation, m_align;
-
+			float m_rotation;
+			int m_align;
 			bool m_bShow;
 
 			LPDIRECT3DTEXTURE9 m_pTexture;

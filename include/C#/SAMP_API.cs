@@ -131,6 +131,10 @@ namespace SAMP_API
         public static extern int SetOverlayPriority(int id, int priority);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int SetOverlayCalculationEnabled(int id, bool enabled);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int SetOverlay2DPosition(int id, int x, int y);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int SetOverlay3DPosition(int id, int x, int y, int z);
 
         // SAMPFunctions.hpp
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]

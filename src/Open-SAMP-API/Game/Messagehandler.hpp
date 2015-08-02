@@ -12,7 +12,6 @@ namespace Game
 		void TextSetShadow(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 		void TextSetShown(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 		void TextSetColor(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
-		void TextSetPos(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 		void TextSetString(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 		void TextUpdate(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 
@@ -23,7 +22,6 @@ namespace Game
 		void BoxSetBorderColor(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 		void BoxSetColor(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 		void BoxSetHeight(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
-		void BoxSetPos(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 		void BoxSetWidth(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 
 		void LineCreate(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
@@ -37,7 +35,6 @@ namespace Game
 		void ImageDestroy(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 		void ImageSetShown(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 		void ImageSetAlign(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
-		void ImageSetPos(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 		void ImageSetRotation(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 
 		void DestroyAllVisual(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
@@ -51,6 +48,8 @@ namespace Game
 
 		void SetOverlayPriority(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 		void SetOverlayCalculationEnabled(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void SetOverlay2DPosition(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void SetOverlay3DPosition(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 
 		void SendChat(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 		void ShowGameText(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);

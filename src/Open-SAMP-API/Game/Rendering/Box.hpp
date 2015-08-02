@@ -8,14 +8,13 @@ namespace Game
 		class Box : public RenderBase
 		{
 		public:
-			Box(Renderer *renderer, int x, int y, int w, int h, D3DCOLOR color, bool show);
+			Box(Renderer *renderer, float x, float y, float w, float h, D3DCOLOR color, bool show);
 
-			void setPos(int x, int y);
 			void setBorderColor(D3DCOLOR dwColor);
 			void setBoxColor(D3DCOLOR dwColor);
-			void setBorderWidth(DWORD dwWidth);
-			void setBoxWidth(DWORD dwWidth);
-			void setBoxHeight(DWORD dwHeight);
+			void setBorderWidth(float width);
+			void setBoxWidth(float width);
+			void setBoxHeight(float height);
 			void setBorderShown(bool b);
 			void setShown(bool b);
 
@@ -34,9 +33,8 @@ namespace Game
 
 		private:
 			bool m_bShown, m_bBorderShown;
-			D3DCOLOR m_dwBoxColor, m_dwBorderColor;
-			DWORD m_dwBorderWidth, m_dwBoxWidth, m_dwBoxHeight;
-			int	m_iX, m_iY;
+			D3DCOLOR m_dwBoxColor, m_borderColor;
+			float m_borderWidth = 0.0, m_boxWidth = 0.0, m_boxHeight = 0.0;
 		};
 	}
 }

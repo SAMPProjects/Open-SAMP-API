@@ -71,7 +71,6 @@ void initGame()
 		BIND(TextSetShadow);
 		BIND(TextSetShown);
 		BIND(TextSetColor);
-		BIND(TextSetPos);
 		BIND(TextSetString);
 		BIND(TextUpdate);
 
@@ -82,7 +81,6 @@ void initGame()
 		BIND(BoxSetBorderColor);
 		BIND(BoxSetColor);
 		BIND(BoxSetHeight);
-		BIND(BoxSetPos);
 		BIND(BoxSetWidth);
 
 		BIND(LineCreate);
@@ -96,7 +94,6 @@ void initGame()
 		BIND(ImageDestroy);
 		BIND(ImageSetShown);
 		BIND(ImageSetAlign);
-		BIND(ImageSetPos);
 		BIND(ImageSetRotation);
 
 		BIND(DestroyAllVisual);
@@ -109,6 +106,8 @@ void initGame()
 		BIND(SetCalculationRatio);
 		BIND(SetOverlayPriority);
 		BIND(SetOverlayCalculationEnabled);
+		BIND(SetOverlay2DPosition);
+		BIND(SetOverlay3DPosition);
 
 		BIND(SendChat);
 		BIND(ShowGameText);
@@ -125,20 +124,9 @@ void initGame()
 		{
 			SERIALIZATION_READ(serializerIn, Shared::PipeMessages, eMessage);
 
-			try
-			{
-				auto it = PaketHandler.find(eMessage);
-				if (it == PaketHandler.end())
-					return;
-
-				if (!PaketHandler[eMessage])
-					return;
-
-				PaketHandler[eMessage](serializerIn, serializerOut);
-			}
-			catch (...)
-			{
-			}
+			Utils::SafeBlock::safeExecute([&]() {
+				PaketHandler.at(eMessage)(serializerIn, serializerOut);
+			});
 		});
 	}
 

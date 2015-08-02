@@ -53,15 +53,15 @@ void Game::Rendering::Drawing::DrawPrimtive(LPDIRECT3DDEVICE9 pDevice, D3DPRIMIT
 	pDevice->SetFVF(dwOldFVF);
 }
 
-void Game::Rendering::Drawing::DrawSprite(LPD3DXSPRITE SpriteInterface, LPDIRECT3DTEXTURE9 TextureInterface, int PosX, int PosY, int Rotation, int Align)
+void Game::Rendering::Drawing::DrawSprite(LPD3DXSPRITE SpriteInterface, LPDIRECT3DTEXTURE9 TextureInterface, float PosX, float PosY, float Rotation, int Align)
 {
 	if (SpriteInterface == NULL || TextureInterface == NULL)
 		return;
 
 	D3DXVECTOR3 Vec;
 
-	Vec.x = (FLOAT) PosX;
-	Vec.y = (FLOAT) PosY;
+	Vec.x = PosX;
+	Vec.y = PosY;
 	Vec.z = (FLOAT)0.0f;
 
 	D3DXMATRIX mat;
@@ -77,7 +77,7 @@ void Game::Rendering::Drawing::DrawSprite(LPD3DXSPRITE SpriteInterface, LPDIRECT
 		spriteCentre = D3DXVECTOR2(0, 0);
 
 	D3DXVECTOR2 trans = D3DXVECTOR2(0, 0);
-	D3DXMatrixTransformation2D(&mat, NULL, 0.0, &scaling, &spriteCentre, (FLOAT) Rotation, &trans);
+	D3DXMatrixTransformation2D(&mat, NULL, 0.0, &scaling, &spriteCentre, Rotation, &trans);
 
 	SpriteInterface->SetTransform(&mat);
 	SpriteInterface->Begin(D3DXSPRITE_ALPHABLEND);
