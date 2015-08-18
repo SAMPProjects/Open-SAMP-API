@@ -32,6 +32,10 @@ namespace SAMP_API
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int GetPlayerSkinID();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerWeaponID();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerWeaponType();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int IsPlayerInAnyVehicle();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int IsPlayerDriver();

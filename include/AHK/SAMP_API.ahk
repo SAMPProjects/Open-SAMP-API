@@ -23,6 +23,8 @@ GetPlayerHealth_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPl
 GetPlayerArmor_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerArmor")
 GetPlayerMoney_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerMoney")
 GetPlayerSkinID_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerSkinID")
+GetPlayerWeaponID_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponID")
+GetPlayerWeaponType_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponType")
 IsPlayerInAnyVehicle_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsPlayerInAnyVehicle")
 IsPlayerDriver_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsPlayerDriver")
 IsPlayerPassenger_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsPlayerPassenger")
@@ -161,6 +163,18 @@ GetPlayerSkinID()
 {
 	global GetPlayerSkinID_func
 	return DllCall(GetPlayerSkinID_func)
+}
+
+GetPlayerWeaponID()
+{
+	global GetPlayerWeaponID_func
+	return DllCall(GetPlayerWeaponID_func)
+}
+
+GetPlayerWeaponType()
+{
+	global GetPlayerWeaponType_func
+	return DllCall(GetPlayerWeaponType_func)
 }
 
 IsPlayerInAnyVehicle()

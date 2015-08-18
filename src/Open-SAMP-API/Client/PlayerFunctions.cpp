@@ -60,6 +60,36 @@ EXPORT int Client::PlayerFunctions::GetPlayerSkinID()
 	return (int)skin;
 }
 
+EXPORT int Client::PlayerFunctions::GetPlayerWeaponID()
+{
+	DWORD pedPtr = GetPlayerCPed();
+	if (pedPtr == NULL)
+		return -1;
+
+	int weaponType = GetPlayerWeaponType();
+	if (weaponType == -1)
+		return -1;
+
+	int weapon = 0;
+	if (MemoryFunctions::ReadMemory(pedPtr + 0x5A0 + (weaponType * 0x1C), 4, &weapon) != 4)
+		return -1;
+
+	return weapon;
+}
+
+EXPORT int Client::PlayerFunctions::GetPlayerWeaponType()
+{
+	DWORD pedPtr = GetPlayerCPed();
+	if (pedPtr == NULL)
+		return -1;
+
+	int weaponType = 0;
+	if (MemoryFunctions::ReadMemory(pedPtr + 0x718, 1, &weaponType) != 1)
+		return -1;
+
+	return weaponType;
+}
+
 EXPORT int Client::PlayerFunctions::IsPlayerInAnyVehicle()
 {
 	return (int)(VehicleFunctions::GetVehiclePointer() != 0);

@@ -254,9 +254,27 @@ IMPORT int GetPlayerHealth();
 //! Reads the armor of the player.
 //! @return -1 if an error occured, otherwise the armor.
 IMPORT int GetPlayerArmor();
+//! Reads the money of the player.
+//! @return -1 if an error occured, otherwise the money.
+IMPORT int GetPlayerMoney();
+//! Reads the skin ID of the player.
+//! @return -1 if an error occured, otherwise the skin ID.
+IMPORT int GetPlayerSkinID();
+//! Reads the current weapon ID of the player.
+//! @return -1 if an error occured, otherwise the weapon ID.
+IMPORT int GetPlayerWeaponID();
+//! Reads the current weapon type of the player.
+//! @return -1 if an error occured, otherwise the weapon type.
+IMPORT int GetPlayerWeaponType();
 //! Check if the player is in any vehicle.
 //! @return 1 if the player is in any vehicle, 0 if not or an error occured.
 IMPORT int IsPlayerInAnyVehicle();
+//! Check if the player is a driver of an vehicle.
+//! @return 1 if the player is an driver of an vehicle 0 if not or an error occured.
+IMPORT int IsPlayerDriver();
+//! Check if the player is a passenger of an vehicle.
+//! @return 1 if the player is an passenger of an vehicle 0 if not or an error occured.
+IMPORT int IsPlayerPassenger();
 //! Check if the player is in a interior.
 //! @return 1 if the player is in a interior, 0 if not or an error occured.
 IMPORT int IsPlayerInInterior();
@@ -291,6 +309,16 @@ IMPORT int IsPlayerInRange2D(float posX, float posY, float radius);
 //! @param[in] radius The radius of the point.
 //! @return 1 if the player is in the radius, 0 if not.
 IMPORT int IsPlayerInRange3D(float posX, float posY, float posZ, float radius);
+//! Reads the X-axis of the player.
+//! @param[in] cityName Reference to be written.
+//! @param[in] max_len max length of the string
+//! @return 1 if successfull, 0 if not.
+IMPORT int GetCityName(char* &cityName, int max_len);
+//! Reads the current zone name of the player.
+//! @param[in] zoneName Reference to be written.
+//! @param[in] max_len max length of the string
+//! @return 1 if successfull, 0 if not.
+IMPORT int GetZoneName(char* &zoneName, int max_len);
 
 //! Reads the player ID by the player name.
 //! @param[in] id The ID of the player.
