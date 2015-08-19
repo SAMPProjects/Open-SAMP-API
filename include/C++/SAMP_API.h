@@ -266,6 +266,14 @@ IMPORT int GetPlayerWeaponID();
 //! Reads the current weapon type of the player.
 //! @return -1 if an error occured, otherwise the weapon type.
 IMPORT int GetPlayerWeaponType();
+//! Reads the ammo  of the specified weapon type.
+//! @param[in] The weapon type.
+//! @return -1 if an error occured, otherwise the ammo.
+IMPORT int GetPlayerWeaponAmmo(int weaponType);
+//! Reads the ammo in clip of the specified weapon type.
+//! @param[in] The weapon type.
+//! @return -1 if an error occured, otherwise the ammo in clip.
+IMPORT int GetPlayerWeaponAmmoInClip(int weaponType);
 //! Check if the player is in any vehicle.
 //! @return 1 if the player is in any vehicle, 0 if not or an error occured.
 IMPORT int IsPlayerInAnyVehicle();
