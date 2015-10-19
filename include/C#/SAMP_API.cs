@@ -56,9 +56,9 @@ namespace SAMP_API
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int IsPlayerInRange3D(float posX, float posY, float posZ, float radius);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetCityName(ref StringBuilder cityName, int max_len);
+        public static extern int GetCityName(out StringBuilder cityName, int max_len);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetZoneName(ref StringBuilder zoneName, int max_len);
+        public static extern int GetZoneName(out StringBuilder zoneName, int max_len);
 
         // RenderFunctions.hpp
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
@@ -144,7 +144,7 @@ namespace SAMP_API
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int AddChatMessage(string msg);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetPlayerNameByID(int id, ref StringBuilder playername, int max_len);
+        public static extern int GetPlayerNameByID(int id, out StringBuilder playername, int max_len);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int GetPlayerIDByName(string name);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
@@ -162,9 +162,9 @@ namespace SAMP_API
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int GetVehicleModelId();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetVehicleModelName(ref StringBuilder name, int len);
+        public static extern int GetVehicleModelName(out StringBuilder name, int len);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetVehicleModelNameById(int vehicleID, ref StringBuilder name, int len);
+        public static extern int GetVehicleModelNameById(int vehicleID, out StringBuilder name, int len);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int GetVehicleType();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
@@ -262,7 +262,7 @@ namespace SAMP_API
         public static string GetPlayerNameByIDEx(int id)
         {
             StringBuilder builder = new StringBuilder(32);
-            GetPlayerNameByID(id, ref builder, builder.Capacity);
+            GetPlayerNameByID(id, out builder, builder.Capacity);
 
             return builder.ToString();
         }
