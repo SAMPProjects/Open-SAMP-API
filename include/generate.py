@@ -211,7 +211,7 @@ namespace SAMP_API
         public static string GetPlayerNameByIDEx(int id)
         {
             StringBuilder builder = new StringBuilder(32);
-            GetPlayerNameByID(id, out builder, builder.Capacity);
+            GetPlayerNameByID(id, ref builder, builder.Capacity);
 
             return builder.ToString();
         }
@@ -253,7 +253,7 @@ namespace SAMP_API
             if argument.isPtr:
                 curParam = "out "
             if argument.isPtr and argument.aType.typeName == "char":
-                curParam += "StringBuilder "
+                curParam = "ref StringBuilder "
             elif argument.aType.isArray and argument.aType.typeName == "char":
                 curParam += "string "
             else:
