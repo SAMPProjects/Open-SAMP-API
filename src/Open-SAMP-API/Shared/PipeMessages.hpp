@@ -54,6 +54,9 @@ namespace Shared
 		SetOverlayPriority,
 		SetOverlayCalculationEnabled,
 
+		// GTA functions
+		GetGTACommandLine,
+
 		// SAMP functions
 		SendChat,
 		ShowGameText,

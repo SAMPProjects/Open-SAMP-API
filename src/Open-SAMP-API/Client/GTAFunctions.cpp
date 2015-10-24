@@ -2,6 +2,29 @@
 #include "MemoryFunctions.hpp"
 #include <Shared/PipeMessages.hpp>
 
+EXPORT int Client::GTAFunctions::GetGTACommandLine(char* &line, int max_len)
+{
+	SERVER_CHECK(0)
+
+	Utils::Serializer serializerIn, serializerOut;
+
+	serializerIn << Shared::PipeMessages::GetGTACommandLine;
+
+	if (Utils::PipeClient(serializerIn, serializerOut).success())
+	{
+		std::string out;
+		serializerOut >> out;
+
+		if (!out.length())
+			return 0;
+
+		strcpy_s(line, max_len, out.c_str());
+		return 1;
+	}
+
+	return 0;
+}
+
 EXPORT bool Client::GTAFunctions::IsMenuOpen()
 {
 	BYTE bOpen;

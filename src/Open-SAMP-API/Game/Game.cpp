@@ -110,6 +110,8 @@ void initGame()
 		BIND(SetOverlayPriority);
 		BIND(SetOverlayCalculationEnabled);
 
+        BIND(GetGTACommandLine);
+
 		BIND(SendChat);
 		BIND(ShowGameText);
 		BIND(AddChatMessage);
