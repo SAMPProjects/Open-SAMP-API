@@ -368,6 +368,12 @@ void Game::MessageHandler::SetOverlayCalculationEnabled(Utils::Serializer& seria
 	})));
 }
 
+void Game::MessageHandler::GetGTACommandLine(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
+{
+	std::string line = GetCommandLine();
+	WRITE(line);
+}
+
 void Game::MessageHandler::SendChat(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(std::string, message);
