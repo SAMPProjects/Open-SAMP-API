@@ -117,7 +117,13 @@ PathCombine(abs, rel) {
         VarSetCapacity_opt = DllCallArguments = ""
         for argument in function.arguments:
             if argument.isPtr and argument.aType.isArray:
-                VarSetCapacity_opt += "\n\tVarSetCapacity({0}, 32, 0)".format(argument.name)
+                for innerArgument in function.arguments:
+                    if innerArgument.name == "max_len":
+                        maxVarLen = "max_len"
+                if not maxVarLen:
+                    maxVarLen = input("Maximum output length for " + function.name + " (variable name or value): ")
+                    print("You may also add a param named max_len so we can make it work automatically")
+                VarSetCapacity_opt += "\n\tVarSetCapacity({0}, {1}, 0)".format(argument.name, maxVarLen)
             dataType = dataTypeMap[argument.aType.typeName]
             if argument.aType.isUnsigned:
                 dataType = "U" + dataType
@@ -272,7 +278,13 @@ namespace SAMP_API
 
 if os.path.split(os.getcwd())[-1] == "include":
     os.chdir("..")
+print("Parsing C++ header files...", end=" ")
 scan()
+print("Done.")
 os.chdir("../../../include")
+print("Generating AHK include...", end=" ")
 gen_ahk()
+print("Done.")
+print("Generating C# include...", end=" ")
 gen_cs()
+print("Done.")

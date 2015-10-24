@@ -16,6 +16,8 @@ namespace SAMP_API
 
         // GTAFunctions.hpp
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetGTACommandLine(ref StringBuilder line, int max_len);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern bool IsMenuOpen();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern bool WorldToScreen(float x, float y, float z, out float screenX, out float screenY);
@@ -152,6 +154,10 @@ namespace SAMP_API
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int GetPlayerIDByName(string name);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerName(ref StringBuilder playername, int max_len);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerId();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int IsChatOpen();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int IsDialogOpen();
@@ -166,9 +172,9 @@ namespace SAMP_API
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int GetVehicleModelId();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetVehicleModelName(ref StringBuilder name, int len);
+        public static extern int GetVehicleModelName(ref StringBuilder name, int max_len);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetVehicleModelNameById(int vehicleID, ref StringBuilder name, int len);
+        public static extern int GetVehicleModelNameById(int vehicleID, ref StringBuilder name, int max_len);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int GetVehicleType();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
