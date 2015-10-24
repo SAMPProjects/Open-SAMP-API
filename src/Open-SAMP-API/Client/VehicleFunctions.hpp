@@ -10,8 +10,8 @@ namespace Client
 		EXPORT int GetVehicleSpeed(float factor);
 		EXPORT float GetVehicleHealth();
 		EXPORT int GetVehicleModelId();
-		EXPORT int GetVehicleModelName(char* &name, int len);
-		EXPORT int GetVehicleModelNameById(int vehicleID, char* &name, int len);
+		EXPORT int GetVehicleModelName(char* &name, int max_len);
+		EXPORT int GetVehicleModelNameById(int vehicleID, char* &name, int max_len);
 		EXPORT int GetVehicleType();
 		EXPORT int GetVehicleFreeSeats(int &seatFL, int &seatFR, int &seatRL, int &seatRR);
 		EXPORT int GetVehicleFirstColor();
