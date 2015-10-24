@@ -109,6 +109,20 @@ EXPORT int Client::SAMPFunctions::GetPlayerName(char *&playername, int max_len)
 	return token != NULL;
 }
 
+EXPORT int Client::SAMPFunctions::GetPlayerId()
+{
+	char *szName = new char[25];
+	ZeroMemory(szName, 25);
+
+	GetPlayerName(szName, 25);
+
+	int iID = GetPlayerIDByName(szName);
+
+	delete[] szName;
+
+	return iID;
+}
+
 EXPORT int Client::SAMPFunctions::IsChatOpen()
 {
 	SERVER_CHECK(0)
