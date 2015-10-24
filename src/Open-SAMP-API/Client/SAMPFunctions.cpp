@@ -1,4 +1,5 @@
 #include "SAMPFunctions.hpp"
+#include "GTAFunctions.hpp"
 #include <Shared/PipeMessages.hpp>
 #include <boost/algorithm/string.hpp>
 
@@ -80,6 +81,32 @@ EXPORT int Client::SAMPFunctions::GetPlayerIDByName(const char *name)
 	}
 
 	return -1;
+}
+
+EXPORT int Client::SAMPFunctions::GetPlayerName(char *&playername, int max_len)
+{
+	char *szCommandLine = new char[512];
+	ZeroMemory(szCommandLine, 512);
+
+	GTAFunctions::GetGTACommandLine(szCommandLine, 512);
+
+	char *context = NULL;
+	char *token = strtok_s(szCommandLine, " ", &context);
+
+	while (token != NULL) {
+		token = strtok_s(NULL, " ", &context);
+		if (strcmp(token, "-n") == 0)
+			break;
+	}
+
+	if (token != NULL)
+	{
+		token = strtok_s(NULL, " ", &context);
+		strcpy_s(playername, max_len, token);
+	}
+
+	delete[] szCommandLine;
+	return token != NULL;
 }
 
 EXPORT int Client::SAMPFunctions::IsChatOpen()
