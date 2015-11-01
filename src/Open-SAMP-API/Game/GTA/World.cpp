@@ -2,7 +2,7 @@
 #include <Utils/D3DX9/d3dx9.h>
 #include <Game/Rendering/RenderBase.hpp>
 
-void CalcScreenCoors(D3DXVECTOR3 *vecWorld, D3DXVECTOR3 *vecScreen)
+void CalcScreenCoords(D3DXVECTOR3 *vecWorld, D3DXVECTOR3 *vecScreen)
 {
 	D3DXMATRIX m((float *)(0xB6FA2C));
 
@@ -18,7 +18,7 @@ void CalcScreenCoors(D3DXVECTOR3 *vecWorld, D3DXVECTOR3 *vecScreen)
 	vecScreen->y *= (float)(fRecip * (*dwLenY));
 }
 
-void CalcWorldCoors(D3DXVECTOR3 *vecScreen, D3DXVECTOR3 *vecWorld)
+void CalcWorldCoords(D3DXVECTOR3 *vecScreen, D3DXVECTOR3 *vecWorld)
 {
 	D3DXMATRIX m((float *)(0xB6FA2C));
 
@@ -43,7 +43,7 @@ bool Game::GTA::ScreenToWorld(float screenX, float screenY, float &worldX, float
 {
 	D3DXVECTOR3 vecScreen(screenX, screenY, 700.0f), vecWorld;
 
-	CalcWorldCoors(&vecScreen, &vecWorld);
+	CalcWorldCoords(&vecScreen, &vecWorld);
 
 	worldX = vecWorld.x;
 	worldY = vecWorld.y;
@@ -56,7 +56,7 @@ bool Game::GTA::WorldToScreen(float x, float y, float z, float &screenX, float &
 {
 	D3DXVECTOR3 vecScreen, vecWorld(x, y, z);
 
-	CalcScreenCoors(&vecWorld, &vecScreen);
+	CalcScreenCoords(&vecWorld, &vecScreen);
 
 	screenX = vecScreen.x;
 	screenY = vecScreen.y;
