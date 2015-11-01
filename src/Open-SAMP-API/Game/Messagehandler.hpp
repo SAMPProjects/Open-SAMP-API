@@ -63,6 +63,7 @@ namespace Game
 
 		void ReadMemory(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 
+		void ScreenToWorld(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 		void WorldToScreen(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 	}
 }

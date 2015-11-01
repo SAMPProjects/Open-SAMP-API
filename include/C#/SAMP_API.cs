@@ -20,6 +20,8 @@ namespace SAMP_API
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern bool IsMenuOpen();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern bool ScreenToWorld(float x, float y, out float worldX, out float worldY, out float worldZ);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern bool WorldToScreen(float x, float y, float z, out float screenX, out float screenY);
 
         // PlayerFunctions.hpp

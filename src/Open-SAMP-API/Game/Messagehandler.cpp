@@ -439,6 +439,20 @@ void Game::MessageHandler::ReadMemory(Utils::Serializer& serializerIn, Utils::Se
 	delete[] memory; 
 }
 
+void Game::MessageHandler::ScreenToWorld(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
+{
+	READ(float, x);
+	READ(float, y);
+
+	float worldX = 0, worldY = 0, worldZ = 0;
+	bool ret = GTA::ScreenToWorld(x, y, worldX, worldY, worldZ);
+
+	WRITE(ret);
+	WRITE(worldX);
+	WRITE(worldY);
+	WRITE(worldZ);
+}
+
 void Game::MessageHandler::WorldToScreen(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(float, x);

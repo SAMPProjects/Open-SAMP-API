@@ -69,6 +69,7 @@ namespace Shared
 		ReadMemory,
 
 		// Misc GTA functions
+		ScreenToWorld,
 		WorldToScreen
 	};
 }

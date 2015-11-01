@@ -121,6 +121,7 @@ void initGame()
 
 		BIND(ReadMemory);
 
+		BIND(ScreenToWorld);
 		BIND(WorldToScreen);
 
 		new Utils::PipeServer([&](Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)

@@ -32,6 +32,24 @@ EXPORT bool Client::GTAFunctions::IsMenuOpen()
 	return bOpen != 0;
 }
 
+EXPORT bool Client::GTAFunctions::ScreenToWorld(float x, float y, float &worldX, float &worldY, float &worldZ)
+{
+	SERVER_CHECK(0)
+
+	Utils::Serializer serializerIn, serializerOut;
+
+	serializerIn << Shared::PipeMessages::ScreenToWorld << x << y;
+
+	if (Utils::PipeClient(serializerIn, serializerOut).success())
+	{
+		bool bRes = false;
+		serializerOut >> bRes >> worldX >> worldY >> worldZ;
+		return bRes;
+	}
+
+	return 0;
+}
+
 EXPORT bool Client::GTAFunctions::WorldToScreen(float x, float y, float z, float& screenX, float& screenY)
 {
 	SERVER_CHECK(0)

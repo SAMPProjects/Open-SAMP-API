@@ -16,6 +16,7 @@ SetParam_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "SetParam")
 ;GTAFunctions.hpp
 GetGTACommandLine_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetGTACommandLine")
 IsMenuOpen_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsMenuOpen")
+ScreenToWorld_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "ScreenToWorld")
 WorldToScreen_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "WorldToScreen")
 
 ;PlayerFunctions.hpp
@@ -139,6 +140,12 @@ IsMenuOpen()
 {
 	global IsMenuOpen_func
 	return DllCall(IsMenuOpen_func)
+}
+
+ScreenToWorld(x, y, ByRef worldX, ByRef worldY, ByRef worldZ)
+{
+	global ScreenToWorld_func
+	return DllCall(ScreenToWorld_func, "Float", x, "Float", y, "FloatP", worldX, "FloatP", worldY, "FloatP", worldZ)
 }
 
 WorldToScreen(x, y, z, ByRef screenX, ByRef screenY)
