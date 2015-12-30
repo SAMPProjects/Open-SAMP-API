@@ -52,6 +52,8 @@ namespace Game
 		void SetOverlayPriority(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 		void SetOverlayCalculationEnabled(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 
+		void GetGTACommandLine(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+
 		void SendChat(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 		void ShowGameText(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 		void AddChatMessage(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
@@ -61,6 +63,7 @@ namespace Game
 
 		void ReadMemory(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 
+		void ScreenToWorld(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 		void WorldToScreen(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 	}
 }

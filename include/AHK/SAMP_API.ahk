@@ -14,7 +14,9 @@ Init_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "Init")
 SetParam_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "SetParam")
 
 ;GTAFunctions.hpp
+GetGTACommandLine_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetGTACommandLine")
 IsMenuOpen_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsMenuOpen")
+ScreenToWorld_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "ScreenToWorld")
 WorldToScreen_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "WorldToScreen")
 
 ;PlayerFunctions.hpp
@@ -25,6 +27,8 @@ GetPlayerMoney_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPla
 GetPlayerSkinID_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerSkinID")
 GetPlayerWeaponID_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponID")
 GetPlayerWeaponType_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponType")
+GetPlayerWeaponAmmo_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponAmmo")
+GetPlayerWeaponAmmoInClip_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponAmmoInClip")
 IsPlayerInAnyVehicle_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsPlayerInAnyVehicle")
 IsPlayerDriver_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsPlayerDriver")
 IsPlayerPassenger_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsPlayerPassenger")
@@ -83,6 +87,8 @@ ShowGameText_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "ShowGame
 AddChatMessage_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "AddChatMessage")
 GetPlayerNameByID_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerNameByID")
 GetPlayerIDByName_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerIDByName")
+GetPlayerName_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerName")
+GetPlayerId_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerId")
 IsChatOpen_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsChatOpen")
 IsDialogOpen_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsDialogOpen")
 
@@ -123,10 +129,23 @@ SetParam(_szParamName, _szParamValue)
 	return DllCall(SetParam_func, "Str", _szParamName, "Str", _szParamValue)
 }
 
+GetGTACommandLine(ByRef line, max_len)
+{
+	global GetGTACommandLine_func
+	VarSetCapacity(line, max_len, 0)
+	return DllCall(GetGTACommandLine_func, "StrP", line, "Int", max_len)
+}
+
 IsMenuOpen()
 {
 	global IsMenuOpen_func
 	return DllCall(IsMenuOpen_func)
+}
+
+ScreenToWorld(x, y, ByRef worldX, ByRef worldY, ByRef worldZ)
+{
+	global ScreenToWorld_func
+	return DllCall(ScreenToWorld_func, "Float", x, "Float", y, "FloatP", worldX, "FloatP", worldY, "FloatP", worldZ)
 }
 
 WorldToScreen(x, y, z, ByRef screenX, ByRef screenY)
@@ -175,6 +194,18 @@ GetPlayerWeaponType()
 {
 	global GetPlayerWeaponType_func
 	return DllCall(GetPlayerWeaponType_func)
+}
+
+GetPlayerWeaponAmmo(weaponType)
+{
+	global GetPlayerWeaponAmmo_func
+	return DllCall(GetPlayerWeaponAmmo_func, "Int", weaponType)
+}
+
+GetPlayerWeaponAmmoInClip(weaponType)
+{
+	global GetPlayerWeaponAmmoInClip_func
+	return DllCall(GetPlayerWeaponAmmoInClip_func, "Int", weaponType)
 }
 
 IsPlayerInAnyVehicle()
@@ -240,14 +271,14 @@ IsPlayerInRange3D(posX, posY, posZ, radius)
 GetCityName(ByRef cityName, max_len)
 {
 	global GetCityName_func
-	VarSetCapacity(cityName, 32, 0)
+	VarSetCapacity(cityName, max_len, 0)
 	return DllCall(GetCityName_func, "StrP", cityName, "Int", max_len)
 }
 
 GetZoneName(ByRef zoneName, max_len)
 {
 	global GetZoneName_func
-	VarSetCapacity(zoneName, 32, 0)
+	VarSetCapacity(zoneName, max_len, 0)
 	return DllCall(GetZoneName_func, "StrP", zoneName, "Int", max_len)
 }
 
@@ -494,7 +525,7 @@ AddChatMessage(msg)
 GetPlayerNameByID(id, ByRef playername, max_len)
 {
 	global GetPlayerNameByID_func
-	VarSetCapacity(playername, 32, 0)
+	VarSetCapacity(playername, max_len, 0)
 	return DllCall(GetPlayerNameByID_func, "Int", id, "StrP", playername, "Int", max_len)
 }
 
@@ -502,6 +533,19 @@ GetPlayerIDByName(name)
 {
 	global GetPlayerIDByName_func
 	return DllCall(GetPlayerIDByName_func, "Str", name)
+}
+
+GetPlayerName(ByRef playername, max_len)
+{
+	global GetPlayerName_func
+	VarSetCapacity(playername, max_len, 0)
+	return DllCall(GetPlayerName_func, "StrP", playername, "Int", max_len)
+}
+
+GetPlayerId()
+{
+	global GetPlayerId_func
+	return DllCall(GetPlayerId_func)
 }
 
 IsChatOpen()
@@ -540,18 +584,18 @@ GetVehicleModelId()
 	return DllCall(GetVehicleModelId_func)
 }
 
-GetVehicleModelName(ByRef name, len)
+GetVehicleModelName(ByRef name, max_len)
 {
 	global GetVehicleModelName_func
-	VarSetCapacity(name, 32, 0)
-	return DllCall(GetVehicleModelName_func, "StrP", name, "Int", len)
+	VarSetCapacity(name, max_len, 0)
+	return DllCall(GetVehicleModelName_func, "StrP", name, "Int", max_len)
 }
 
-GetVehicleModelNameById(vehicleID, ByRef name, len)
+GetVehicleModelNameById(vehicleID, ByRef name, max_len)
 {
 	global GetVehicleModelNameById_func
-	VarSetCapacity(name, 32, 0)
-	return DllCall(GetVehicleModelNameById_func, "Int", vehicleID, "StrP", name, "Int", len)
+	VarSetCapacity(name, max_len, 0)
+	return DllCall(GetVehicleModelNameById_func, "Int", vehicleID, "StrP", name, "Int", max_len)
 }
 
 GetVehicleType()

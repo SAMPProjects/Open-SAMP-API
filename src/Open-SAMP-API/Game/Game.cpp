@@ -110,6 +110,8 @@ void initGame()
 		BIND(SetOverlayPriority);
 		BIND(SetOverlayCalculationEnabled);
 
+        BIND(GetGTACommandLine);
+
 		BIND(SendChat);
 		BIND(ShowGameText);
 		BIND(AddChatMessage);
@@ -119,6 +121,7 @@ void initGame()
 
 		BIND(ReadMemory);
 
+		BIND(ScreenToWorld);
 		BIND(WorldToScreen);
 
 		new Utils::PipeServer([&](Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)

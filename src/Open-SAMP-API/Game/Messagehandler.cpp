@@ -368,6 +368,12 @@ void Game::MessageHandler::SetOverlayCalculationEnabled(Utils::Serializer& seria
 	})));
 }
 
+void Game::MessageHandler::GetGTACommandLine(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
+{
+	std::string line = GetCommandLine();
+	WRITE(line);
+}
+
 void Game::MessageHandler::SendChat(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(std::string, message);
@@ -431,6 +437,20 @@ void Game::MessageHandler::ReadMemory(Utils::Serializer& serializerIn, Utils::Se
 
 	// Delete heap allocated memory!
 	delete[] memory; 
+}
+
+void Game::MessageHandler::ScreenToWorld(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
+{
+	READ(float, x);
+	READ(float, y);
+
+	float worldX = 0, worldY = 0, worldZ = 0;
+	bool ret = GTA::ScreenToWorld(x, y, worldX, worldY, worldZ);
+
+	WRITE(ret);
+	WRITE(worldX);
+	WRITE(worldY);
+	WRITE(worldZ);
 }
 
 void Game::MessageHandler::WorldToScreen(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)

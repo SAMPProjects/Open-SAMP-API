@@ -90,6 +90,32 @@ EXPORT int Client::PlayerFunctions::GetPlayerWeaponType()
 	return weaponType;
 }
 
+EXPORT int Client::PlayerFunctions::GetPlayerWeaponAmmo(int weaponType)
+{
+	DWORD pedPtr = GetPlayerCPed();
+	if (pedPtr == NULL)
+		return -1;
+
+	int ammo = 0;
+	if (MemoryFunctions::ReadMemory(pedPtr + 0x5A0 + (weaponType * 0x1C) + 0x0C, 4, &ammo) != 4)
+		return -1;
+
+	return ammo;
+}
+
+EXPORT int Client::PlayerFunctions::GetPlayerWeaponAmmoInClip(int weaponType)
+{
+	DWORD pedPtr = GetPlayerCPed();
+	if (pedPtr == NULL)
+		return -1;
+
+	int ammo = 0;
+	if (MemoryFunctions::ReadMemory(pedPtr + 0x5A0 + (weaponType * 0x1C) + 0x08, 4, &ammo) != 4)
+		return -1;
+
+	return ammo;
+}
+
 EXPORT int Client::PlayerFunctions::IsPlayerInAnyVehicle()
 {
 	return (int)(VehicleFunctions::GetVehiclePointer() != 0);

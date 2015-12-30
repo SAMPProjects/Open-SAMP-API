@@ -54,6 +54,9 @@ namespace Shared
 		SetOverlayPriority,
 		SetOverlayCalculationEnabled,
 
+		// GTA functions
+		GetGTACommandLine,
+
 		// SAMP functions
 		SendChat,
 		ShowGameText,
@@ -66,6 +69,7 @@ namespace Shared
 		ReadMemory,
 
 		// Misc GTA functions
+		ScreenToWorld,
 		WorldToScreen
 	};
 }

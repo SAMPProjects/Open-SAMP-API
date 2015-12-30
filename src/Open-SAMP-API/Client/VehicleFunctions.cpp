@@ -56,18 +56,18 @@ EXPORT int Client::VehicleFunctions::GetVehicleModelId()
 	return dwVehicleId;
 }
 
-EXPORT int Client::VehicleFunctions::GetVehicleModelName(char* &name, int len)
+EXPORT int Client::VehicleFunctions::GetVehicleModelName(char* &name, int max_len)
 {
 	if (!PlayerFunctions::IsPlayerInAnyVehicle())
 		return 0;
 
-	strcpy_s(name, len, GTAStructs::vehicles[GetVehicleModelId() - 400].c_str());
+	strcpy_s(name, max_len, GTAStructs::vehicles[GetVehicleModelId() - 400].c_str());
 	return 1;
 }
 
-EXPORT int Client::VehicleFunctions::GetVehicleModelNameById(int vehicleID, char* &name, int len)
+EXPORT int Client::VehicleFunctions::GetVehicleModelNameById(int vehicleID, char* &name, int max_len)
 {
-	strcpy_s(name, len, GTAStructs::vehicles[vehicleID - 400].c_str());
+	strcpy_s(name, max_len, GTAStructs::vehicles[vehicleID - 400].c_str());
 	return 1;
 }
 
