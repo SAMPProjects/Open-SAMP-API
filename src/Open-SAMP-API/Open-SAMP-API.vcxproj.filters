@@ -86,6 +86,9 @@
     <ClCompile Include="Game\GTA\World.cpp">
       <Filter>Game %28GTA SA%29\GTA</Filter>
     </ClCompile>
+    <ClCompile Include="Client\WeaponFunctions.cpp">
+      <Filter>Client %28Keybinder%29</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Messagehandler.hpp">
@@ -238,6 +241,9 @@
     </ClInclude>
     <ClInclude Include="Game\GTA\World.hpp">
       <Filter>Game %28GTA SA%29\GTA</Filter>
+    </ClInclude>
+    <ClInclude Include="Client\WeaponFunctions.hpp">
+      <Filter>Client %28Keybinder%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

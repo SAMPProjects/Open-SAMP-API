@@ -111,6 +111,14 @@ IsVehicleBoat_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsVehic
 IsVehicleTrain_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsVehicleTrain")
 IsVehicleBike_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsVehicleBike")
 
+;WeaponFunctions.hpp
+GetPlayerWeaponSlot_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponSlot")
+GetPlayerWeaponId_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponId")
+GetPlayerWeaponName_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponName")
+GetPlayerWeaponClip_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponClip")
+GetPlayerWeaponTotalClip_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponTotalClip")
+GetPlayerWeaponState_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponState")
+
 Init()
 {
 	global Init_func
@@ -654,6 +662,43 @@ IsVehicleBike()
 {
 	global IsVehicleBike_func
 	return DllCall(IsVehicleBike_func)
+}
+
+GetPlayerWeaponSlot()
+{
+	global GetPlayerWeaponSlot_func
+	return DllCall(GetPlayerWeaponSlot_func)
+}
+
+GetPlayerWeaponId(dwWeapSlot)
+{
+	global GetPlayerWeaponId_func
+	return DllCall(GetPlayerWeaponId_func, "Int", dwWeapSlot)
+}
+
+GetPlayerWeaponName(dwWeapSlot, ByRef _szWeapName, max_len)
+{
+	global GetPlayerWeaponName_func
+	VarSetCapacity(_szWeapName, 32, 0)
+	return DllCall(GetPlayerWeaponName_func, "Int", dwWeapSlot, "StrP", _szWeapName, "Int", max_len)
+}
+
+GetPlayerWeaponClip(dwWeapSlot)
+{
+	global GetPlayerWeaponClip_func
+	return DllCall(GetPlayerWeaponClip_func, "Int", dwWeapSlot)
+}
+
+GetPlayerWeaponTotalClip(dwWeapSlot)
+{
+	global GetPlayerWeaponTotalClip_func
+	return DllCall(GetPlayerWeaponTotalClip_func, "Int", dwWeapSlot)
+}
+
+GetPlayerWeaponState()
+{
+	global GetPlayerWeaponState_func
+	return DllCall(GetPlayerWeaponState_func)
 }
 
 

@@ -200,6 +200,20 @@ namespace SAMP_API
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int IsVehicleBike();
 
+        // WeaponFunctions.hpp
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerWeaponSlot();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerWeaponId(int dwWeapSlot);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerWeaponName(int dwWeapSlot, out StringBuilder _szWeapName, int max_len);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerWeaponClip(int dwWeapSlot);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerWeaponTotalClip(int dwWeapSlot);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerWeaponState();
+
         /// <summary>
         /// Send a message/command to the server
         /// </summary>
