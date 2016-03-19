@@ -27,7 +27,7 @@ struct PedWeaponSlot
 	float unknown;
 	double unknown2;
 };
-
+ 
 std::shared_ptr<PedWeaponSlot> GetPlayerWeaponSlotStruct(int slot)
 {
 	auto pws = std::make_shared<PedWeaponSlot>();
@@ -82,6 +82,20 @@ EXPORT int Client::WeaponFunctions::GetPlayerWeaponSlot()
 		return -1;
 
 	return dwWeaponSlot;
+}
+
+EXPORT int Client::WeaponFunctions::GetPlayerWeaponName(int dwWeapSlot, char* &_szWeapName, int max_len)
+{
+	auto pws = GetPlayerWeaponSlotStruct(dwWeapSlot);
+	if (pws == nullptr)
+		return 0;
+
+	if (pws->type < 0 || pws->type >= ARRAYSIZE(weapNameArray))
+		return 0;
+
+	const char *ptr = weapNameArray[pws->type];
+	strcpy_s(_szWeapName, max_len, ptr);
+	return 1;
 }
 
 EXPORT int Client::WeaponFunctions::GetPlayerWeaponClip(int dwWeapSlot)
