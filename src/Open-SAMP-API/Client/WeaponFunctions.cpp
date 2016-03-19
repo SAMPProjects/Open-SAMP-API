@@ -2,6 +2,7 @@
 #include <Shared/PipeMessages.hpp>
 #include "PlayerFunctions.hpp"
 #include "MemoryFunctions.hpp"
+#include <memory>
 
 const char* weapNameArray[] = { "Faust", "Schlagring", "Golfschläger", "Schlagstock", "Messer", // 0-4
 "Baseballschläger", "Schaufel", "Billard cue", "Katana", "Kettensäge", // 5 - 9
@@ -27,65 +28,97 @@ struct PedWeaponSlot
 	double unknown2;
 };
 
-PedWeaponSlot GetPlayerWeaponSlotStruct(int slot)
+std::shared_ptr<PedWeaponSlot> GetPlayerWeaponSlotStruct(int slot)
 {
-	PedWeaponSlot pws;
-	Client::MemoryFunctions::ReadMemory(Client::PlayerFunctions::GetPlayerCPed() + 0x5A0 + (slot * 0x1C), sizeof(PedWeaponSlot), &pws);
+	auto pws = std::make_shared<PedWeaponSlot>();
+	auto cped = Client::PlayerFunctions::GetPlayerCPed();
+	if (cped == NULL)
+		return nullptr;
+
+	if (Client::MemoryFunctions::ReadMemory(cped + 0x5A0 + (slot * 0x1C), sizeof(PedWeaponSlot), pws.get()) == 0)
+		return nullptr;
 	return pws;
+	
+}
+
+EXPORT int Client::WeaponFunctions::GetPlayerWeaponID()
+{
+	DWORD cped = PlayerFunctions::GetPlayerCPed();
+	if (cped == NULL)
+		return -1;
+
+	int weaponType = GetPlayerWeaponType();
+	if (weaponType == -1)
+		return -1;
+
+	int weapon = 0;
+	if (MemoryFunctions::ReadMemory(cped + 0x5A0 + (weaponType * 0x1C), 4, &weapon) != 4)
+		return -1;
+
+	return weapon;
+}
+
+EXPORT int Client::WeaponFunctions::GetPlayerWeaponType()
+{
+	DWORD cped = PlayerFunctions::GetPlayerCPed();
+	if (cped == NULL)
+		return -1;
+
+	int weaponType = 0;
+	if (MemoryFunctions::ReadMemory(cped + 0x718, 1, &weaponType) != 1)
+		return -1;
+
+	return weaponType;
 }
 
 EXPORT int Client::WeaponFunctions::GetPlayerWeaponSlot()
 {
-	SERVER_CHECK(0)
-
 	int dwWeaponSlot = 0;
 	const int cped = PlayerFunctions::GetPlayerCPed();
 	if (cped == 0)
-		return 0;
+		return -1;
 
-	MemoryFunctions::ReadMemory(cped + 0x718, 1, &dwWeaponSlot);
+	if (MemoryFunctions::ReadMemory(cped + 0x718, 1, &dwWeaponSlot) != 1)
+		return -1;
+
 	return dwWeaponSlot;
-}
-
-EXPORT int Client::WeaponFunctions::GetPlayerWeaponId(int dwWeapSlot)
-{
-	SERVER_CHECK(0)
-	return GetPlayerWeaponSlotStruct(dwWeapSlot).type;
-}
-
-EXPORT int Client::WeaponFunctions::GetPlayerWeaponName(int dwWeapSlot, char* &_szWeapName, int max_len)
-{
-	SERVER_CHECK(0)
-	strcpy_s(_szWeapName, max_len, weapNameArray[GetPlayerWeaponId(dwWeapSlot)]);
-	return 1;
 }
 
 EXPORT int Client::WeaponFunctions::GetPlayerWeaponClip(int dwWeapSlot)
 {
-	SERVER_CHECK(0)
-	PedWeaponSlot pws = GetPlayerWeaponSlotStruct(dwWeapSlot);
+	auto pws = GetPlayerWeaponSlotStruct(dwWeapSlot);
+	if (pws == nullptr)
+		return -1;
 
 	for (int i = 0; i < ARRAYSIZE(weaponIdNoClip); i++)
-		if (weaponIdNoClip[i] == pws.type)
+		if (weaponIdNoClip[i] == pws->type)
 			return 0;
 
-	return pws.ammoInClip;
+	return pws->ammoInClip;
 }
 
 EXPORT int Client::WeaponFunctions::GetPlayerWeaponTotalClip(int dwWeapSlot)
 {
-	SERVER_CHECK(0)
-	PedWeaponSlot pws = GetPlayerWeaponSlotStruct(dwWeapSlot);
+	auto pws = GetPlayerWeaponSlotStruct(dwWeapSlot);
+	if (pws == nullptr)
+		return -1;
 
 	for (int i = 0; i < ARRAYSIZE(weaponIdNoClip); i++)
-		if (weaponIdNoClip[i] == pws.type)
+		if (weaponIdNoClip[i] == pws->type)
 			return 0;
 
-	return pws.ammoRemaining;
+	return pws->ammoRemaining;
 }
 
 EXPORT int Client::WeaponFunctions::GetPlayerWeaponState()
 {
-	SERVER_CHECK(0)
-	return GetPlayerWeaponSlotStruct(GetPlayerWeaponSlot()).state;
+	auto slot = GetPlayerWeaponSlot();
+	if (slot == -1)
+		return -1;
+
+	auto pws = GetPlayerWeaponSlotStruct(slot);
+	if (pws == nullptr)
+		return -1;
+
+	return pws->state;
 }

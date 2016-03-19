@@ -23,8 +23,6 @@ GetPlayerHealth_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPl
 GetPlayerArmor_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerArmor")
 GetPlayerMoney_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerMoney")
 GetPlayerSkinID_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerSkinID")
-GetPlayerWeaponID_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponID")
-GetPlayerWeaponType_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponType")
 IsPlayerInAnyVehicle_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsPlayerInAnyVehicle")
 IsPlayerDriver_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsPlayerDriver")
 IsPlayerPassenger_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsPlayerPassenger")
@@ -112,8 +110,9 @@ IsVehicleTrain_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsVehi
 IsVehicleBike_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsVehicleBike")
 
 ;WeaponFunctions.hpp
+GetPlayerWeaponID_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponID")
+GetPlayerWeaponType_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponType")
 GetPlayerWeaponSlot_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponSlot")
-GetPlayerWeaponId_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponId")
 GetPlayerWeaponName_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponName")
 GetPlayerWeaponClip_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponClip")
 GetPlayerWeaponTotalClip_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponTotalClip")
@@ -171,18 +170,6 @@ GetPlayerSkinID()
 {
 	global GetPlayerSkinID_func
 	return DllCall(GetPlayerSkinID_func)
-}
-
-GetPlayerWeaponID()
-{
-	global GetPlayerWeaponID_func
-	return DllCall(GetPlayerWeaponID_func)
-}
-
-GetPlayerWeaponType()
-{
-	global GetPlayerWeaponType_func
-	return DllCall(GetPlayerWeaponType_func)
 }
 
 IsPlayerInAnyVehicle()
@@ -664,16 +651,22 @@ IsVehicleBike()
 	return DllCall(IsVehicleBike_func)
 }
 
+GetPlayerWeaponID()
+{
+	global GetPlayerWeaponID_func
+	return DllCall(GetPlayerWeaponID_func)
+}
+
+GetPlayerWeaponType()
+{
+	global GetPlayerWeaponType_func
+	return DllCall(GetPlayerWeaponType_func)
+}
+
 GetPlayerWeaponSlot()
 {
 	global GetPlayerWeaponSlot_func
 	return DllCall(GetPlayerWeaponSlot_func)
-}
-
-GetPlayerWeaponId(dwWeapSlot)
-{
-	global GetPlayerWeaponId_func
-	return DllCall(GetPlayerWeaponId_func, "Int", dwWeapSlot)
 }
 
 GetPlayerWeaponName(dwWeapSlot, ByRef _szWeapName, max_len)
