@@ -12,6 +12,7 @@ namespace Client
 		EXPORT int GetPlayerWeaponClip(int dwWeapSlot);
 		EXPORT int GetPlayerWeaponTotalClip(int dwWeapSlot);
 		EXPORT int GetPlayerWeaponState();
-		
+		EXPORT int GetPlayerWeaponAmmo(int weaponType);
+		EXPORT int GetPlayerWeaponAmmoInClip(int weaponType);
 	}
 }

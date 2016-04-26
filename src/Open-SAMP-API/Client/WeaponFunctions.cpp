@@ -136,3 +136,29 @@ EXPORT int Client::WeaponFunctions::GetPlayerWeaponState()
 
 	return pws->state;
 }
+
+EXPORT int Client::WeaponFunctions::GetPlayerWeaponAmmo(int weaponType)
+{
+	DWORD pedPtr = PlayerFunctions::GetPlayerCPed();
+	if (pedPtr == NULL)
+		return -1;
+
+	int ammo = 0;
+	if (MemoryFunctions::ReadMemory(pedPtr + 0x5A0 + (weaponType * 0x1C) + 0x0C, 4, &ammo) != 4)
+		return -1;
+
+	return ammo;
+}
+
+EXPORT int Client::WeaponFunctions::GetPlayerWeaponAmmoInClip(int weaponType)
+{
+	DWORD pedPtr = PlayerFunctions::GetPlayerCPed();
+	if (pedPtr == NULL)
+		return -1;
+
+	int ammo = 0;
+	if (MemoryFunctions::ReadMemory(pedPtr + 0x5A0 + (weaponType * 0x1C) + 0x08, 4, &ammo) != 4)
+		return -1;
+
+	return ammo;
+}

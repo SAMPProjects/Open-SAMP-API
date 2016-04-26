@@ -25,8 +25,6 @@ GetPlayerHealth_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPl
 GetPlayerArmor_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerArmor")
 GetPlayerMoney_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerMoney")
 GetPlayerSkinID_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerSkinID")
-GetPlayerWeaponAmmo_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponAmmo")
-GetPlayerWeaponAmmoInClip_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponAmmoInClip")
 IsPlayerInAnyVehicle_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsPlayerInAnyVehicle")
 IsPlayerDriver_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsPlayerDriver")
 IsPlayerPassenger_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsPlayerPassenger")
@@ -123,6 +121,8 @@ GetPlayerWeaponName_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "G
 GetPlayerWeaponClip_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponClip")
 GetPlayerWeaponTotalClip_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponTotalClip")
 GetPlayerWeaponState_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponState")
+GetPlayerWeaponAmmo_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponAmmo")
+GetPlayerWeaponAmmoInClip_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponAmmoInClip")
 
 Init()
 {
@@ -189,18 +189,6 @@ GetPlayerSkinID()
 {
 	global GetPlayerSkinID_func
 	return DllCall(GetPlayerSkinID_func)
-}
-
-GetPlayerWeaponAmmo(weaponType)
-{
-	global GetPlayerWeaponAmmo_func
-	return DllCall(GetPlayerWeaponAmmo_func, "Int", weaponType)
-}
-
-GetPlayerWeaponAmmoInClip(weaponType)
-{
-	global GetPlayerWeaponAmmoInClip_func
-	return DllCall(GetPlayerWeaponAmmoInClip_func, "Int", weaponType)
 }
 
 IsPlayerInAnyVehicle()
@@ -736,6 +724,18 @@ GetPlayerWeaponState()
 {
 	global GetPlayerWeaponState_func
 	return DllCall(GetPlayerWeaponState_func)
+}
+
+GetPlayerWeaponAmmo(weaponType)
+{
+	global GetPlayerWeaponAmmo_func
+	return DllCall(GetPlayerWeaponAmmo_func, "Int", weaponType)
+}
+
+GetPlayerWeaponAmmoInClip(weaponType)
+{
+	global GetPlayerWeaponAmmoInClip_func
+	return DllCall(GetPlayerWeaponAmmoInClip_func, "Int", weaponType)
 }
 
 
