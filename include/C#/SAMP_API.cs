@@ -36,10 +36,6 @@ namespace SAMP_API
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int GetPlayerSkinID();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetPlayerWeaponID();
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetPlayerWeaponType();
-        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int GetPlayerWeaponAmmo(int weaponType);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int GetPlayerWeaponAmmoInClip(int weaponType);
@@ -211,6 +207,22 @@ namespace SAMP_API
         public static extern int IsVehicleTrain();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int IsVehicleBike();
+
+        // WeaponFunctions.hpp
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerWeaponID();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerWeaponType();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerWeaponSlot();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerWeaponName(int dwWeapSlot, ref StringBuilder _szWeapName, int max_len);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerWeaponClip(int dwWeapSlot);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerWeaponTotalClip(int dwWeapSlot);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerWeaponState();
 
         /// <summary>
         /// Send a message/command to the server

@@ -10,8 +10,6 @@ namespace Client
 		EXPORT int GetPlayerArmor();
 		EXPORT int GetPlayerMoney();
 		EXPORT int GetPlayerSkinID();
-		EXPORT int GetPlayerWeaponID();
-		EXPORT int GetPlayerWeaponType();
 		EXPORT int GetPlayerWeaponAmmo(int weaponType);
 		EXPORT int GetPlayerWeaponAmmoInClip(int weaponType);
 		EXPORT int IsPlayerInAnyVehicle();

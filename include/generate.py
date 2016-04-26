@@ -275,6 +275,47 @@ namespace SAMP_API
     with codecs.open("C#/SAMP_API.cs", encoding="utf-8", mode="w") as file:
         file.write(output)
 
+def gen_cpp():
+    header = '''#pragma once
+#define IMPORT extern "C" __declspec(dllimport)
+'''
+    output = header
+    FunctionTemplate = '''IMPORT {0} {1}({2});
+'''
+    currentOrigin = ""
+    for function in functions:
+        if currentOrigin != function.origin:
+            output += "\n// {0}\n".format(function.origin)
+            currentOrigin = function.origin
+        paramList = []
+        for argument in function.arguments:
+            curParam = ""
+            if argument.aType.isConst:
+                curParam += "const "
+            if argument.aType.isUnsigned:
+                curParam += "unsigned "
+            curParam += argument.aType.typeName
+            if argument.aType.isArray:
+                curParam += "*"
+            curParam += " "
+            if argument.isPtr:
+                curParam += "&"
+            curParam += argument.name
+            paramList.append(curParam)
+        retType = ""
+        if function.retType.isConst:
+            retType += "const "
+        if function.retType.isUnsigned:
+            retType += "unsigned "
+        retType += function.retType.typeName
+        output += FunctionTemplate.format(
+            retType,
+            function.name,
+            ", ".join(paramList)
+        )
+    with codecs.open("C++/SAMP_API.h", encoding="utf-8", mode="w") as file:
+        file.write(output)
+
 
 if os.path.split(os.getcwd())[-1] == "include":
     os.chdir("..")
@@ -287,4 +328,7 @@ gen_ahk()
 print("Done.")
 print("Generating C# include...", end=" ")
 gen_cs()
+print("Done.")
+print("Generating C++ include...", end=" ")
+gen_cpp()
 print("Done.")
