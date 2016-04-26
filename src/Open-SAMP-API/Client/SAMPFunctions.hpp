@@ -10,8 +10,8 @@ namespace Client
 		EXPORT int AddChatMessage(const char *msg);
 		EXPORT int GetPlayerNameByID(int id, char *&playername, int max_len);
 		EXPORT int GetPlayerIDByName(const char *name);
-        EXPORT int GetPlayerName(char *&playername, int max_len);
-        EXPORT int GetPlayerId();
+		EXPORT int GetPlayerName(char *&playername, int max_len);
+		EXPORT int GetPlayerId();
 		EXPORT int IsChatOpen();
 		EXPORT int IsDialogOpen();
 	}
