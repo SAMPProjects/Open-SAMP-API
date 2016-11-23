@@ -52,7 +52,7 @@ EXPORT int Client::VehicleFunctions::GetVehicleModelId()
 		return 0;
 
 	int dwVehicleId = 0;
-	MemoryFunctions::ReadMemory(GetVehiclePointer() + 0x22, 2, (char *)&dwVehicleId);
+	MemoryFunctions::ReadMemory(GetVehiclePointer() + 0x22, 2, &dwVehicleId);
 	return dwVehicleId;
 }
 
@@ -77,7 +77,7 @@ EXPORT int Client::VehicleFunctions::GetVehicleType()
 		return -1;
 
 	int dwVehicleType = 0;
-	MemoryFunctions::ReadMemory(GetVehiclePointer() + 0x590, 1, (char *)&dwVehicleType);
+	MemoryFunctions::ReadMemory(GetVehiclePointer() + 0x590, 1, &dwVehicleType);
 	return dwVehicleType;
 }
 
@@ -99,7 +99,7 @@ EXPORT INT Client::VehicleFunctions::GetVehicleFirstColor()
 		return -1;
 
 	int dwColor = 0;
-	MemoryFunctions::ReadMemory(GetVehiclePointer() + 0x434, 1, (char *)&dwColor);
+	MemoryFunctions::ReadMemory(GetVehiclePointer() + 0x434, 1, &dwColor);
 	return dwColor;
 }
 
@@ -109,7 +109,7 @@ EXPORT INT Client::VehicleFunctions::GetVehicleSecondColor()
 		return -1;
 
 	int dwColor = 0;
-	MemoryFunctions::ReadMemory(GetVehiclePointer() + 0x435, 1, (char *)&dwColor);
+	MemoryFunctions::ReadMemory(GetVehiclePointer() + 0x435, 1, &dwColor);
 	return dwColor;
 }
 
@@ -135,7 +135,7 @@ EXPORT int Client::VehicleFunctions::IsVehicleSeatUsed(int seat)
 	DWORD dwSeatPointer;
 	seat = seat - 1;
 	if (seat >= 0 && seat <= 8)
-		MemoryFunctions::ReadMemory(dwVehiclePtr + 0x460 + seat * 4, 4, (char *)&dwSeatPointer);
+		MemoryFunctions::ReadMemory(dwVehiclePtr + 0x460 + seat * 4, 4, &dwSeatPointer);
 	else
 		return 0;
 
@@ -151,7 +151,7 @@ EXPORT int Client::VehicleFunctions::IsVehicleLocked()
 		return 0;
 
 	int dwDoorLockState = 0;
-	MemoryFunctions::ReadMemory(GetVehiclePointer() + 0x4F8, 4, (char *)&dwDoorLockState);
+	MemoryFunctions::ReadMemory(GetVehiclePointer() + 0x4F8, 4, &dwDoorLockState);
 	
 	return (dwDoorLockState >> 1) & 1;
 }
@@ -162,7 +162,7 @@ EXPORT int Client::VehicleFunctions::IsVehicleHornEnabled()
 		return 0;
 
 	int dwHornState = 0;
-	MemoryFunctions::ReadMemory(GetVehiclePointer() + 0x514, 1, (char *)&dwHornState);
+	MemoryFunctions::ReadMemory(GetVehiclePointer() + 0x514, 1, &dwHornState);
 	return dwHornState;
 }
 
@@ -172,7 +172,7 @@ EXPORT int Client::VehicleFunctions::IsVehicleSirenEnabled()
 		return 0;
 
 	int dwSirenState = 0;
-	MemoryFunctions::ReadMemory(GetVehiclePointer() + 0x42D, 1, (char *)&dwSirenState);
+	MemoryFunctions::ReadMemory(GetVehiclePointer() + 0x42D, 1, &dwSirenState);
 
 	return (dwSirenState >> 7) & 1;
 }
@@ -188,7 +188,7 @@ EXPORT int Client::VehicleFunctions::IsVehicleEngineEnabled()
 		return 0;
 
 	int dwEngineState = 0;
-	MemoryFunctions::ReadMemory(GetVehiclePointer() + 0x428, 1, (char *)&dwEngineState);
+	MemoryFunctions::ReadMemory(GetVehiclePointer() + 0x428, 1, &dwEngineState);
 
 	return (dwEngineState >> 4) & 1;
 }
