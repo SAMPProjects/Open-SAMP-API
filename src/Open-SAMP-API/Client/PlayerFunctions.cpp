@@ -74,7 +74,7 @@ EXPORT int Client::PlayerFunctions::IsPlayerDriver()
 	DWORD dwPlayerPtr = PlayerFunctions::GetPlayerCPed();
 	DWORD dwDriverPtr = 0;
 
-	MemoryFunctions::ReadMemory(dwVehiclePtr + 0x460, 4, (char *)&dwDriverPtr);
+	MemoryFunctions::ReadMemory(dwVehiclePtr + 0x460, 4, &dwDriverPtr);
 	if (dwPlayerPtr == dwDriverPtr)
 		return 1;
 

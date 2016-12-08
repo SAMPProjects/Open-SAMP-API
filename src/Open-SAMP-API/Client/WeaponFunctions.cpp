@@ -75,7 +75,7 @@ EXPORT int Client::WeaponFunctions::GetPlayerWeaponSlot()
 {
 	int dwWeaponSlot = 0;
 	const int cped = PlayerFunctions::GetPlayerCPed();
-	if (cped == 0)
+	if (cped == NULL)
 		return -1;
 
 	if (MemoryFunctions::ReadMemory(cped + 0x718, 1, &dwWeaponSlot) != 1)

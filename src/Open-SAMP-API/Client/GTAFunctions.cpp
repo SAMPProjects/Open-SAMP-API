@@ -28,7 +28,7 @@ EXPORT int Client::GTAFunctions::GetGTACommandLine(char* &line, int max_len)
 EXPORT bool Client::GTAFunctions::IsMenuOpen()
 {
 	BYTE bOpen;
-	MemoryFunctions::ReadMemory(0xB6B964, 1, (char *)&bOpen);
+	MemoryFunctions::ReadMemory(0xB6B964, 1, &bOpen);
 	return bOpen != 0;
 }
 

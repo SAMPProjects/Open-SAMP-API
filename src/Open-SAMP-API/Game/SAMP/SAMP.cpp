@@ -161,5 +161,6 @@ bool Game::SAMP::isDialogOpen()
 {
 	if (m_pDialog)
 		return m_pDialog->iDialogOpen != 0;
+
 	return false;
 }
