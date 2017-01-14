@@ -41,7 +41,7 @@ class CD3DFont
 	DWORD   m_dwTexWidth;                 // Texture dimensions
 	DWORD   m_dwTexHeight;
 	FLOAT   m_fTextScale;
-	FLOAT   m_fTexCoords[128 - 32][4];
+	FLOAT   m_fTexCoords[256 - 32][4];
 	DWORD   m_dwSpacing;                  // Character pixel spacing per side
 
 	// Stateblocks for setting and restoring render states
@@ -50,10 +50,10 @@ class CD3DFont
 
 public:
 	// 2D and 3D text drawing functions
-	HRESULT DrawText(FLOAT x, FLOAT y, DWORD dwColor, const TCHAR* strText, DWORD dwFlags = 0L);
+	HRESULT DrawText(FLOAT x, FLOAT y, DWORD dwColor, const WCHAR* strText, DWORD dwFlags = 0L);
 
 	// Function to get extent of text
-	HRESULT GetTextExtent(const TCHAR* strText, SIZE* pSize);
+	HRESULT GetTextExtent(const WCHAR* strText, SIZE* pSize);
 
 	// Initializing and destroying device-dependent objects
 	HRESULT InitDeviceObjects(LPDIRECT3DDEVICE9 pd3dDevice);

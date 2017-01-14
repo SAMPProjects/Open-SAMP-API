@@ -31,7 +31,19 @@ bool Game::Rendering::Text::updateText(const std::string& Font,int FontSize,bool
 
 void Game::Rendering::Text::setText(const std::string& str)
 {
-	m_Text = str;
+	int length = str.length();
+
+	if (length > 0)
+	{
+		auto nativeWideString = std::unique_ptr<wchar_t>(new wchar_t[length + 1]);
+		nativeWideString.get()[length] = '\0';
+		MultiByteToWideChar(CP_ACP, MB_PRECOMPOSED, str.c_str(), length, nativeWideString.get(), length);
+
+		std::wstring newString = std::wstring(nativeWideString.get());
+		m_Text = newString;
+	}
+	else
+		m_Text = L"";
 }
 
 void Game::Rendering::Text::setColor(D3DCOLOR color)
@@ -125,7 +137,7 @@ void Game::Rendering::Text::resetFont()
 	m_D3DFont.reset();
 }
 
-bool Game::Rendering::Text::drawText(int x, int y, DWORD dwColor, const std::string& strText, DWORD dwFlags /*= 0L*/)
+bool Game::Rendering::Text::drawText(int x, int y, DWORD dwColor, const std::wstring& strText, DWORD dwFlags /*= 0L*/)
 {
 	return Utils::SafeBlock::safeExecuteWithValidation([&](){
 		m_D3DFont->DrawTextA((float)x, (float)y, dwColor, m_Text.c_str(), dwFlags);

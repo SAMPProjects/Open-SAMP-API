@@ -96,14 +96,18 @@ HRESULT CD3DFont::InitDeviceObjects(LPDIRECT3DDEVICE9 pd3dDevice)
 	m_fTextScale = 1.0f; // Draw fonts into texture without scaling
 
 	// Large fonts need larger textures
-	if (m_dwFontHeight > 60)
+	/*if (m_dwFontHeight > 60)
 		m_dwTexWidth = m_dwTexHeight = 2048;
 	else if (m_dwFontHeight > 30)
 		m_dwTexWidth = m_dwTexHeight = 1024;
 	else if (m_dwFontHeight > 15)
 		m_dwTexWidth = m_dwTexHeight = 512;
 	else
-		m_dwTexWidth = m_dwTexHeight = 256;
+		m_dwTexWidth = m_dwTexHeight = 256;*/
+
+	// Dynamic size
+	m_dwTexWidth = m_dwTexHeight = (m_dwFontHeight * 30);
+
 
 	// If requested texture is too big, use a smaller texture and smaller font,
 	// and scale up when rendering.
@@ -165,30 +169,32 @@ HRESULT CD3DFont::InitDeviceObjects(LPDIRECT3DDEVICE9 pd3dDevice)
 	// Meanwhile, keep track of the corresponding tex coords for each character.
 	DWORD x = 0;
 	DWORD y = 0;
-	TCHAR str[2] = _T("x");
+	WCHAR str[2] = { L'x', L'\0' };
 	SIZE size;
 
 	// Calculate the spacing between characters based on line height
 	GetTextExtentPoint32(hDC, TEXT(" "), 1, &size);
 	x = m_dwSpacing = (DWORD) ceil(size.cy * 0.3f);
 
-	for (TCHAR c = 32; c < 127; c++)
+	for (wchar_t c = 32; c < 255; c++)
 	{
 		str[0] = c;
-		GetTextExtentPoint32(hDC, str, 1, &size);
 
-		if ((DWORD) (x + size.cx + m_dwSpacing) > m_dwTexWidth)
+		GetTextExtentPoint32W(hDC, str, 1, &size);
+
+
+		if ((DWORD)(x + size.cx + m_dwSpacing) > m_dwTexWidth)
 		{
 			x = m_dwSpacing;
 			y += size.cy + 1;
 		}
 
-		ExtTextOut(hDC, x + 0, y + 0, ETO_OPAQUE, NULL, str, 1, NULL);
+		ExtTextOutW(hDC, x + 0, y + 0, ETO_OPAQUE, NULL, str, 1, NULL);
 
-		m_fTexCoords[c - 32][0] = ((FLOAT) (x + 0 - m_dwSpacing)) / m_dwTexWidth;
-		m_fTexCoords[c - 32][1] = ((FLOAT) (y + 0 + 0)) / m_dwTexHeight;
-		m_fTexCoords[c - 32][2] = ((FLOAT) (x + size.cx + m_dwSpacing)) / m_dwTexWidth;
-		m_fTexCoords[c - 32][3] = ((FLOAT) (y + size.cy + 0)) / m_dwTexHeight;
+		m_fTexCoords[c - 32][0] = ((FLOAT)(x + 0 - m_dwSpacing)) / m_dwTexWidth;
+		m_fTexCoords[c - 32][1] = ((FLOAT)(y + 0 + 0)) / m_dwTexHeight;
+		m_fTexCoords[c - 32][2] = ((FLOAT)(x + size.cx + m_dwSpacing)) / m_dwTexWidth;
+		m_fTexCoords[c - 32][3] = ((FLOAT)(y + size.cy + 0)) / m_dwTexHeight;
 
 		x += size.cx + (2 * m_dwSpacing);
 	}
@@ -336,55 +342,85 @@ HRESULT CD3DFont::DeleteDeviceObjects()
 // Name: GetTextExtent()
 // Desc: Get the dimensions of a text string
 //-----------------------------------------------------------------------------
-HRESULT CD3DFont::GetTextExtent(const TCHAR* strText, SIZE* pSize)
+HRESULT CD3DFont::GetTextExtent(const WCHAR* strText, SIZE* pSize)
 {
 	if (NULL == strText || NULL == pSize)
 		return E_FAIL;
 
-	FLOAT fRowWidth = 0.0f;
-	FLOAT fRowHeight = (m_fTexCoords[0][3] - m_fTexCoords[0][1])*m_dwTexHeight;
-	FLOAT fWidth = 0.0f;
-	FLOAT fHeight = fRowHeight;
+	float rowWidth = 0.0f;
+	float rowHeight = (m_fTexCoords[0][3] - m_fTexCoords[0][1]) * m_dwTexHeight;
+	float width = 0.0f;
+	float height = rowHeight;
 
-	while (*strText)
+	auto stringLength = lstrlenW(strText);
+
+	for (int i = 0; i < stringLength; i++)
 	{
-		TCHAR c = *strText++;
+		wchar_t c = strText[i];
 
-		if (c == '{'){
-			std::vector<char> _costumColor;
-			while (*strText != '}')
-			{
-				char ch = toupper(*strText);
-				bool numeric = (ch >= '0' && ch <= '9') || (ch >= 'A' && ch <= 'F');
-				if (numeric){
-					_costumColor.push_back(ch);
-				}
-				strText++;
-			}
-			c = *strText++;
-			continue;
-		}
-
-		if (c == _T('\n'))
+		// TODO 
+		if (c == L'{')
 		{
-			fRowWidth = 0.0f;
-			fHeight += fRowHeight;
+			int endIndex = 0;
+			bool valid = true;
+			std::wstring numericString = L"";
+			for (int j = i + 1; j < stringLength; j++)
+			{
+				wchar_t ch = strText[j];
+				ch = towupper(ch);
+
+				if (ch == '}')
+				{
+					endIndex = j;
+					break;
+				}
+
+				bool numeric = (ch >= L'0' && ch <= L'9') || (ch >= L'A' && ch <= L'F');
+				if (!numeric)
+				{
+					valid = false;
+					break;
+				}
+				else
+				{
+					numericString += ch;
+					if (numericString.size() > 8)
+					{
+						valid = false;
+						break;
+					}
+				}
+			}
+
+			if (endIndex > 0 && valid)
+			{
+				i = endIndex;
+				continue;
+			}
 		}
 
-		if ((c - 32) < 0 || (c - 32) >= 128 - 32)
+		if (c == '\n')
+		{
+			rowWidth = 0.0f;
+			height += rowHeight;
+		}
+
+		if ((c - 32) < 0 || (c - 32) >= 256 - 32)
+		{
 			continue;
+		}
 
 		FLOAT tx1 = m_fTexCoords[c - 32][0];
 		FLOAT tx2 = m_fTexCoords[c - 32][2];
 
-		fRowWidth += (tx2 - tx1)*m_dwTexWidth - 2 * m_dwSpacing;
+		rowWidth += (tx2 - tx1) * m_dwTexWidth - 2 * m_dwSpacing;
 
-		if (fRowWidth > fWidth)
-			fWidth = fRowWidth;
+		if (rowWidth > width)
+			width = rowWidth;
 	}
 
-	pSize->cx = (int) fWidth;
-	pSize->cy = (int) fHeight;
+	pSize->cx = (int)width;
+	pSize->cy = (int)height;
 
 	return S_OK;
 }
@@ -397,9 +433,9 @@ HRESULT CD3DFont::GetTextExtent(const TCHAR* strText, SIZE* pSize)
 // Desc: Draws 2D text. Note that sx and sy are in pixels
 //-----------------------------------------------------------------------------
 HRESULT CD3DFont::DrawText(FLOAT sx, FLOAT sy, DWORD dwColor,
-	const TCHAR* strText, DWORD dwFlags)
+	const WCHAR* strText, DWORD dwFlags)
 {
-	if (m_pd3dDevice == NULL)
+	if (m_pd3dDevice == NULL || strText == NULL)
 		return E_FAIL;
 
 	// Setup renderstate
@@ -409,7 +445,6 @@ HRESULT CD3DFont::DrawText(FLOAT sx, FLOAT sy, DWORD dwColor,
 	m_pd3dDevice->SetPixelShader(NULL);
 	m_pd3dDevice->SetStreamSource(0, m_pVB, 0, sizeof(FONT2DVERTEX));
 
-	// Set filter states
 	if (dwFlags & D3DFONT_FILTERED)
 	{
 		m_pd3dDevice->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_LINEAR);
@@ -419,133 +454,159 @@ HRESULT CD3DFont::DrawText(FLOAT sx, FLOAT sy, DWORD dwColor,
 	// Center the text block in the viewport
 	if (dwFlags & D3DFONT_CENTERED_X)
 	{
-		SIZE pSize;
-		GetTextExtent(strText, &pSize);
-		sx -= (FLOAT) pSize.cx / 2.0f;
+		SIZE size;
+		GetTextExtent(strText, &size);
+		sx -= (float)size.cx / 2.0f;
 	}
 	if (dwFlags & D3DFONT_CENTERED_Y)
 	{
-		SIZE sz;
-		GetTextExtent(strText, &sz);
-		sy -= (FLOAT) sz.cy / 2.0f;
+		SIZE size;
+		GetTextExtent(strText, &size);
+		sy -= (float)size.cy / 2.0f;
 	}
 
 	// Adjust for character spacing
 	sx -= m_dwSpacing;
-	FLOAT fStartX = sx;
+	float startX = sx;
 
 	// Fill vertex buffer
-	FONT2DVERTEX* pVertices = NULL;
-	DWORD         dwNumTriangles = 0;
-	m_pVB->Lock(0, 0, (void**) &pVertices, D3DLOCK_DISCARD);
+	FONT2DVERTEX* vertices = NULL;
+	int trianglesCount = 0;
+	m_pVB->Lock(0, 0, (void**)&vertices, D3DLOCK_DISCARD);
 
-	int len = strlen(strText);
-	DWORD strStart = (DWORD) strText;
-	DWORD dwCustomColor = dwColor;
+	auto stringLength = lstrlenW(strText);
+	DWORD customColor = dwColor;
 
-	while (*strText)
+	for (int i = 0; i < stringLength; i++)
 	{
-		TCHAR c = *strText++;
-		DWORD strCur = (DWORD) strText;
+		wchar_t c = strText[i];
 
-		if (c == '{'){
-			std::vector<char> _costumColor;
-			while (*strText != '}')
-			{
-				char ch = toupper(*strText);
-				bool numeric = (ch >= '0' && ch <= '9') || (ch >= 'A' && ch <= 'F');
-				if (numeric){
-					_costumColor.push_back(ch);
-				}
-				strText++;
-			}
-			sscanf_s(_costumColor.data(), "%X", &dwCustomColor);
-			dwCustomColor |= (dwColor >> 24) << 24;
-			c = *strText++;
-			continue;
-		}
-
-		if (c == _T('\n'))
+		if (c == L'{')
 		{
-			sx = fStartX;
-			sy += (m_fTexCoords[0][3] - m_fTexCoords[0][1])*m_dwTexHeight;
+			int endIndex = 0;
+			bool valid = true;
+			std::wstring numericString = L"";
+			for (int j = i + 1; j < stringLength; j++)
+			{
+				wchar_t ch = strText[j];
+				ch = towupper(ch);
+
+				if (ch == '}')
+				{
+					endIndex = j;
+					break;
+				}
+
+				bool numeric = (ch >= L'0' && ch <= L'9') || (ch >= L'A' && ch <= L'F');
+				if (!numeric)
+				{
+					valid = false;
+					break;
+				}
+				else
+				{
+					numericString += ch;
+					if (numericString.size() > 8)
+					{
+						valid = false;
+						break;
+					}
+				}
+			}
+
+			if (endIndex > 0 && valid)
+			{
+				swscanf_s(numericString.data(), L"%X", &customColor);
+				customColor |= (dwColor >> 24) << 24;
+				i = endIndex;
+				continue;
+			}
 		}
 
-		if ((c - 32) < 0 || (c - 32) >= 128 - 32)
+
+		if (c == '\n')
+		{
+			sx = startX;
+			sy += (m_fTexCoords[0][3] - m_fTexCoords[0][1]) * m_dwTexHeight;
+		}
+
+		if ((c - 32) < 0 || (c - 32) >= 256 - 32)
 			continue;
 
-		FLOAT tx1 = m_fTexCoords[c - 32][0];
-		FLOAT ty1 = m_fTexCoords[c - 32][1];
-		FLOAT tx2 = m_fTexCoords[c - 32][2];
-		FLOAT ty2 = m_fTexCoords[c - 32][3];
+		float tx1 = m_fTexCoords[c - 32][0];
+		float ty1 = m_fTexCoords[c - 32][1];
+		float tx2 = m_fTexCoords[c - 32][2];
+		float ty2 = m_fTexCoords[c - 32][3];
 
-		FLOAT w = (tx2 - tx1) *  m_dwTexWidth / m_fTextScale;
-		FLOAT h = (ty2 - ty1) * m_dwTexHeight / m_fTextScale;
+		float w = (tx2 - tx1) * m_dwTexWidth / m_fTextScale;
+		float h = (ty2 - ty1) * m_dwTexHeight / m_fTextScale;
 
-		if (c != _T(' '))
+		if (c != ' ')
 		{
 			if (dwFlags & D3DFONT_COLORTABLE)
-				dwColor = dwCustomColor;
+				dwColor = customColor;
 
-			if (dwFlags & D3DFONT_BORDER){
+			if (dwFlags & D3DFONT_BORDER)
+			{
 				float _x = sx, _y = sy;
-				float addy = 0.5f;
+				float addy = 1.0f;
 				float fHeight = h, fWidth = w;
 
 				DWORD dwShadow = 0xFF000000;
 
 				_x = sx - addy, _y = sy - addy;
-				*pVertices++ = InitFont2DVertex(D3DXVECTOR4(_x, _y + fHeight, 0.0f, 0.0f), dwShadow, tx1, ty2);
-				*pVertices++ = InitFont2DVertex(D3DXVECTOR4(_x, _y, 0.0f, 0.0f), dwShadow, tx1, ty1);
-				*pVertices++ = InitFont2DVertex(D3DXVECTOR4(_x + fWidth, _y + fHeight, 0.0f, 0.0f), dwShadow, tx2, ty2);
-				*pVertices++ = InitFont2DVertex(D3DXVECTOR4(_x + fWidth, _y, 0.0f, 0.0f), dwShadow, tx2, ty1);
-				*pVertices++ = InitFont2DVertex(D3DXVECTOR4(_x + fWidth, _y + fHeight, 0.0f, 0.0f), dwShadow, tx2, ty2);
-				*pVertices++ = InitFont2DVertex(D3DXVECTOR4(_x, _y, 0.0f, 0.0f), dwShadow, tx1, ty1);
+				*vertices++ = InitFont2DVertex(D3DXVECTOR4(_x, _y + fHeight, 0.0f, 0.0f), dwShadow, tx1, ty2);
+				*vertices++ = InitFont2DVertex(D3DXVECTOR4(_x, _y, 0.0f, 0.0f), dwShadow, tx1, ty1);
+				*vertices++ = InitFont2DVertex(D3DXVECTOR4(_x + fWidth, _y + fHeight, 0.0f, 0.0f), dwShadow, tx2, ty2);
+				*vertices++ = InitFont2DVertex(D3DXVECTOR4(_x + fWidth, _y, 0.0f, 0.0f), dwShadow, tx2, ty1);
+				*vertices++ = InitFont2DVertex(D3DXVECTOR4(_x + fWidth, _y + fHeight, 0.0f, 0.0f), dwShadow, tx2, ty2);
+				*vertices++ = InitFont2DVertex(D3DXVECTOR4(_x, _y, 0.0f, 0.0f), dwShadow, tx1, ty1);
 
 
 				_x = sx + addy, _y = sy + addy;
-				*pVertices++ = InitFont2DVertex(D3DXVECTOR4(_x, _y + fHeight, 0.0f, 0.0f), dwShadow, tx1, ty2);
-				*pVertices++ = InitFont2DVertex(D3DXVECTOR4(_x, _y, 0.0f, 0.0f), dwShadow, tx1, ty1);
-				*pVertices++ = InitFont2DVertex(D3DXVECTOR4(_x + fWidth, _y + fHeight, 0.0f, 0.0f), dwShadow, tx2, ty2);
-				*pVertices++ = InitFont2DVertex(D3DXVECTOR4(_x + fWidth, _y, 0.0f, 0.0f), dwShadow, tx2, ty1);
-				*pVertices++ = InitFont2DVertex(D3DXVECTOR4(_x + fWidth, _y + fHeight, 0.0f, 0.0f), dwShadow, tx2, ty2);
-				*pVertices++ = InitFont2DVertex(D3DXVECTOR4(_x, _y, 0.0f, 0.0f), dwShadow, tx1, ty1);
+				*vertices++ = InitFont2DVertex(D3DXVECTOR4(_x, _y + fHeight, 0.0f, 0.0f), dwShadow, tx1, ty2);
+				*vertices++ = InitFont2DVertex(D3DXVECTOR4(_x, _y, 0.0f, 0.0f), dwShadow, tx1, ty1);
+				*vertices++ = InitFont2DVertex(D3DXVECTOR4(_x + fWidth, _y + fHeight, 0.0f, 0.0f), dwShadow, tx2, ty2);
+				*vertices++ = InitFont2DVertex(D3DXVECTOR4(_x + fWidth, _y, 0.0f, 0.0f), dwShadow, tx2, ty1);
+				*vertices++ = InitFont2DVertex(D3DXVECTOR4(_x + fWidth, _y + fHeight, 0.0f, 0.0f), dwShadow, tx2, ty2);
+				*vertices++ = InitFont2DVertex(D3DXVECTOR4(_x, _y, 0.0f, 0.0f), dwShadow, tx1, ty1);
 
 				_x = sx - addy, _y = sy + addy;
-				*pVertices++ = InitFont2DVertex(D3DXVECTOR4(_x, _y + fHeight, 0.0f, 0.0f), dwShadow, tx1, ty2);
-				*pVertices++ = InitFont2DVertex(D3DXVECTOR4(_x, _y, 0.0f, 0.0f), dwShadow, tx1, ty1);
-				*pVertices++ = InitFont2DVertex(D3DXVECTOR4(_x + fWidth, _y + fHeight, 0.0f, 0.0f), dwShadow, tx2, ty2);
-				*pVertices++ = InitFont2DVertex(D3DXVECTOR4(_x + fWidth, _y, 0.0f, 0.0f), dwShadow, tx2, ty1);
-				*pVertices++ = InitFont2DVertex(D3DXVECTOR4(_x + fWidth, _y + fHeight, 0.0f, 0.0f), dwShadow, tx2, ty2);
-				*pVertices++ = InitFont2DVertex(D3DXVECTOR4(_x, _y, 0.0f, 0.0f), dwShadow, tx1, ty1);
+				*vertices++ = InitFont2DVertex(D3DXVECTOR4(_x, _y + fHeight, 0.0f, 0.0f), dwShadow, tx1, ty2);
+				*vertices++ = InitFont2DVertex(D3DXVECTOR4(_x, _y, 0.0f, 0.0f), dwShadow, tx1, ty1);
+				*vertices++ = InitFont2DVertex(D3DXVECTOR4(_x + fWidth, _y + fHeight, 0.0f, 0.0f), dwShadow, tx2, ty2);
+				*vertices++ = InitFont2DVertex(D3DXVECTOR4(_x + fWidth, _y, 0.0f, 0.0f), dwShadow, tx2, ty1);
+				*vertices++ = InitFont2DVertex(D3DXVECTOR4(_x + fWidth, _y + fHeight, 0.0f, 0.0f), dwShadow, tx2, ty2);
+				*vertices++ = InitFont2DVertex(D3DXVECTOR4(_x, _y, 0.0f, 0.0f), dwShadow, tx1, ty1);
 
 				_x = sx + addy, _y = sy - addy;
-				*pVertices++ = InitFont2DVertex(D3DXVECTOR4(_x, _y + fHeight, 0.0f, 0.0f), dwShadow, tx1, ty2);
-				*pVertices++ = InitFont2DVertex(D3DXVECTOR4(_x, _y, 0.0f, 0.0f), dwShadow, tx1, ty1);
-				*pVertices++ = InitFont2DVertex(D3DXVECTOR4(_x + fWidth, _y + fHeight, 0.0f, 0.0f), dwShadow, tx2, ty2);
-				*pVertices++ = InitFont2DVertex(D3DXVECTOR4(_x + fWidth, _y, 0.0f, 0.0f), dwShadow, tx2, ty1);
-				*pVertices++ = InitFont2DVertex(D3DXVECTOR4(_x + fWidth, _y + fHeight, 0.0f, 0.0f), dwShadow, tx2, ty2);
-				*pVertices++ = InitFont2DVertex(D3DXVECTOR4(_x, _y, 0.0f, 0.0f), dwShadow, tx1, ty1);
+				*vertices++ = InitFont2DVertex(D3DXVECTOR4(_x, _y + fHeight, 0.0f, 0.0f), dwShadow, tx1, ty2);
+				*vertices++ = InitFont2DVertex(D3DXVECTOR4(_x, _y, 0.0f, 0.0f), dwShadow, tx1, ty1);
+				*vertices++ = InitFont2DVertex(D3DXVECTOR4(_x + fWidth, _y + fHeight, 0.0f, 0.0f), dwShadow, tx2, ty2);
+				*vertices++ = InitFont2DVertex(D3DXVECTOR4(_x + fWidth, _y, 0.0f, 0.0f), dwShadow, tx2, ty1);
+				*vertices++ = InitFont2DVertex(D3DXVECTOR4(_x + fWidth, _y + fHeight, 0.0f, 0.0f), dwShadow, tx2, ty2);
+				*vertices++ = InitFont2DVertex(D3DXVECTOR4(_x, _y, 0.0f, 0.0f), dwShadow, tx1, ty1);
 
 
-				dwNumTriangles += 8;
+				trianglesCount += 8;
 			}
-			*pVertices++ = InitFont2DVertex(D3DXVECTOR4(sx + 0 - 0.5f, sy + h - 0.5f, 0.9f, 1.0f), dwColor, tx1, ty2);
-			*pVertices++ = InitFont2DVertex(D3DXVECTOR4(sx + 0 - 0.5f, sy + 0 - 0.5f, 0.9f, 1.0f), dwColor, tx1, ty1);
-			*pVertices++ = InitFont2DVertex(D3DXVECTOR4(sx + w - 0.5f, sy + h - 0.5f, 0.9f, 1.0f), dwColor, tx2, ty2);
-			*pVertices++ = InitFont2DVertex(D3DXVECTOR4(sx + w - 0.5f, sy + 0 - 0.5f, 0.9f, 1.0f), dwColor, tx2, ty1);
-			*pVertices++ = InitFont2DVertex(D3DXVECTOR4(sx + w - 0.5f, sy + h - 0.5f, 0.9f, 1.0f), dwColor, tx2, ty2);
-			*pVertices++ = InitFont2DVertex(D3DXVECTOR4(sx + 0 - 0.5f, sy + 0 - 0.5f, 0.9f, 1.0f), dwColor, tx1, ty1);
-			dwNumTriangles += 2;
 
-			if (dwNumTriangles * 3 > (MAX_NUM_VERTICES - 6))
+			*vertices++ = InitFont2DVertex(D3DXVECTOR4(sx + 0 - 0.5f, sy + h - 0.5f, 0.9f, 1.0f), dwColor, tx1, ty2);
+			*vertices++ = InitFont2DVertex(D3DXVECTOR4(sx + 0 - 0.5f, sy + 0 - 0.5f, 0.9f, 1.0f), dwColor, tx1, ty1);
+			*vertices++ = InitFont2DVertex(D3DXVECTOR4(sx + w - 0.5f, sy + h - 0.5f, 0.9f, 1.0f), dwColor, tx2, ty2);
+			*vertices++ = InitFont2DVertex(D3DXVECTOR4(sx + w - 0.5f, sy + 0 - 0.5f, 0.9f, 1.0f), dwColor, tx2, ty1);
+			*vertices++ = InitFont2DVertex(D3DXVECTOR4(sx + w - 0.5f, sy + h - 0.5f, 0.9f, 1.0f), dwColor, tx2, ty2);
+			*vertices++ = InitFont2DVertex(D3DXVECTOR4(sx + 0 - 0.5f, sy + 0 - 0.5f, 0.9f, 1.0f), dwColor, tx1, ty1);
+			trianglesCount += 2;
+
+			if (trianglesCount * 3 > (MAX_NUM_VERTICES - 6))
 			{
 				// Unlock, render, and relock the vertex buffer
 				m_pVB->Unlock();
-				m_pd3dDevice->DrawPrimitive(D3DPT_TRIANGLELIST, 0, dwNumTriangles);
-				pVertices = NULL;
-				m_pVB->Lock(0, 0, (void**) &pVertices, D3DLOCK_DISCARD);
-				dwNumTriangles = 0L;
+				m_pd3dDevice->DrawPrimitive(D3DPT_TRIANGLELIST, 0, trianglesCount);
+				vertices = NULL;
+				m_pVB->Lock(0, 0, (void**)&vertices, D3DLOCK_DISCARD);
+				trianglesCount = 0L;
 			}
 		}
 
@@ -554,8 +615,8 @@ HRESULT CD3DFont::DrawText(FLOAT sx, FLOAT sy, DWORD dwColor,
 
 	// Unlock and render the vertex buffer
 	m_pVB->Unlock();
-	if (dwNumTriangles > 0)
-		m_pd3dDevice->DrawPrimitive(D3DPT_TRIANGLELIST, 0, dwNumTriangles);
+	if (trianglesCount > 0)
+		m_pd3dDevice->DrawPrimitive(D3DPT_TRIANGLELIST, 0, trianglesCount);
 
 	// Restore the modified renderstates
 	m_pStateBlockSaved->Apply();

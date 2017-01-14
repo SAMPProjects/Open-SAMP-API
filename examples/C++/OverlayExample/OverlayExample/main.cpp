@@ -20,7 +20,7 @@ public:
 		if (_id != -1)
 			return false;
 
-		return (_id = TextCreate("Arial", 20, false, false, 200, 200, 0xFFFFFFFF, "Hello world", true, true)) != -1;
+		return (_id = TextCreate("Arial", 20, false, false, 400, 400, 0xFFFFFFFF, "Hello world with {FF333333}umlauts!\n{FF00FF}ÄäÖö{333333}Üü", true, true)) != -1;
 	}
 
 	bool destroy()
@@ -51,7 +51,7 @@ int main()
 	{
 		if (GetAsyncKeyState(VK_NUMPAD1))
 		{
-			SendChat("Hello");
+			SendChat("Hello with umlauts: äöü");
 			SendChat("/Hello");
 		}
 

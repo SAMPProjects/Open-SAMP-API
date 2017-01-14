@@ -33,7 +33,8 @@ namespace Game
 			virtual void firstDrawAfterReset(IDirect3DDevice9 *pDevice) override sealed;
 
 		private:
-			std::string	m_Text, m_Font;
+			std::wstring m_Text;
+			std::string m_Font;
 			int	m_X, m_Y, m_FontSize;
 			D3DCOLOR m_Color;
 			std::shared_ptr<CD3DFont> m_D3DFont;
@@ -41,7 +42,7 @@ namespace Game
 
 			void initFont(IDirect3DDevice9 *pDevice);
 			void resetFont();
-			bool drawText(int x, int y, DWORD dwColor, const std::string& strText, DWORD dwFlags = 0L);
+			bool drawText(int x, int y, DWORD dwColor, const std::wstring& strText, DWORD dwFlags = 0L);
 		};
 	}
 }
