@@ -10,7 +10,11 @@ configuration: Release
 install:
     - set PATH=C:\Program Files (x86)\MSBuild\14.0\Bin;%PATH%
     - nuget restore src\Open-SAMP-API.sln
-    - MSBuild src\Open-SAMP-API.sln /p:Configuration=Release /p:Platform=Win32
 
     
+after_build:
+    - 7z a API.zip bin include test
     
+artifacts:
+    path: API.zip
+    name: API
