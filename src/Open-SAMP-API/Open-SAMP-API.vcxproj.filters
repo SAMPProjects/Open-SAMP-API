@@ -287,5 +287,6 @@
     <None Include="Utils\D3DX9\d3dx9math.inl">
       <Filter>Utils\D3DX9</Filter>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
