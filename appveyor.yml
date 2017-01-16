@@ -7,9 +7,7 @@ clone_folder: c:\projects\open-samp-api
 platform: x86
 configuration: Release
 
-before_build:
-    cmd: cd src
-    cmd: nuget restore Open-SAMP-API.sln
+
     
 build:
     project: src\Open-SAMP-API.sln
