@@ -8,9 +8,8 @@ platform: Win32
 configuration: Release
 
 install:
-    - set PATH=C:\Program Files (x86)\MSBuild\14.0\Bin;%PATH%
     - nuget restore src\Open-SAMP-API.sln
 
 build:
-    project: src\Open-SAMP-API.sln
+    - "C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild" src\Open-SAMP-API.sln /p:Configuration=Release /p:Platform=Win32
     
