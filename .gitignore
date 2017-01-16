@@ -17,8 +17,7 @@ build/
 bld/
 [Oo]bj/
 
-bin/*_d.dll
-bin/*_d.lib
+bin/
 
 *.exp
 
@@ -193,3 +192,5 @@ doc/html
 
 #Allow detours
 !src/Open-SAMP-API/Utils/Detours/detours.pdb
+/src/Open-SAMP-API.VC.VC.opendb
+/src/Open-SAMP-API.VC.db
