@@ -2,15 +2,15 @@ version: 1.0.{build}
 
 image: Visual Studio 2015
 
-clone_folder: c:\projects\myproject
+clone_folder: c:\projects\open-samp-api
 
 platform: x86
 configuration: Release
 
 before_build:
     cmd: cd src
-    cmd: nuget restore c:\projects\myproject\src\Open-SAMP-API.sln
+    cmd: nuget restore Open-SAMP-API.sln
     
 build:
-    project: c:\projects\myproject\src\Open-SAMP-API.sln
+    project: src\Open-SAMP-API.sln
     
