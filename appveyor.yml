@@ -15,7 +15,7 @@ build_script:
     - cmd: MSBuild src\Open-SAMP-API.sln /p:Configuration=Release /p:Platform=Win32
 
 after_build:
-    - 7z a API.zip bin include test
+    - 7z a API.zip bin include test examples
     
 artifacts:
     path: API.zip
