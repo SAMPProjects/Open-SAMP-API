@@ -21,15 +21,4 @@ artifacts:
     path: API.zip
     name: API
 
-deploy:
-- provider: GitHub
-  release: API $(APPVEYOR_REPO_TAG_NAME)
-  auth_token:
-    secure: G3Sfnp3bZeRUQNfYjuJB+8zbF5DXhMfj0wRad5ALRIZiGZodgrpOSj/umuR0zsGt
-  artifact: API.zip
-  draft: false
-  prerelease: false
-  on:
-    branch: master
-    appveyor_repo_tag: true
   
