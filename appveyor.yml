@@ -23,7 +23,7 @@ artifacts:
 
 deploy:
 - provider: GitHub
-  release: API $(appveyor_build_version)
+  release: API $(APPVEYOR_REPO_TAG_NAME)
   auth_token:
     secure: G3Sfnp3bZeRUQNfYjuJB+8zbF5DXhMfj0wRad5ALRIZiGZodgrpOSj/umuR0zsGt
   artifact: API.zip
