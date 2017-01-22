@@ -5,7 +5,7 @@
 1::
 loop, 20
 {
-	res:=GetPlayerNameByID(A_Index, name)
+	res:=GetPlayerNameByID(A_Index, name, 32)
 	id := GetPlayerIDByName(name) ; id MUST BE A_Index
 	
 	AddChatMessage("Name of ID " A_Index "(" id "): " name ", result: " res)

@@ -4,16 +4,16 @@
 #include "MemoryFunctions.hpp"
 #include <memory>
 
-const char* weapNameArray[] = { "Faust", "Schlagring", "Golfschläger", "Schlagstock", "Messer", // 0-4
-"Baseballschläger", "Schaufel", "Billard cue", "Katana", "Kettensäge", // 5 - 9
-"Double Dildo", "Dildo", "Vibrator", "Silberner Vibrator", "Blumen", // 10 - 14
-"Gehstock", "Granate", "Tränengas", "Molotov Cocktail", "", // 15 - 19
-"", "", "9mm", "Schallgedämpfte 9mm", "Desert Eagle", // 20 - 24
-"Schrotflinte", "Abgesägte Schrotflinte", "Gefechtsschrotflinte", "Micro SMG", "MP5", // 25 - 29
+const char* weapNameArray[] = { "Fist", "Brass Knuckles", "Golf Club", "Nitestick", "Knife", // 0-4
+"Baseball Bat", "Shovel", "Pool Cue", "Katana", "Chainsaw", // 5 - 9
+"Double Dildo", "Dildo", "Vibrator", "Silver Vibrator", "Flowers", // 10 - 14
+"Cane", "Grenade", "Tear Gas", "Molotov Cocktail", "", // 15 - 19
+"", "", "9mm", "Silenced 9mm", "Desert Eagle", // 20 - 24
+"Shotgun", "Sawnoff Shotgun", "Combat Shotgun", "Micro SMG", "MP5", // 25 - 29
 "AK-47", "M4", "Tec-9", "Country Rifle", "Sniper Rifle",// 30 - 24
-"Panzerfaust", "Automatische Panzerfaust", "Flammenwerfer", "Minigun", "Rucksackladung",// 35 - 39
-"Sprengzünder", "Sprühdose", "Feuerlöscher", "Kamera", "Nachtsichtgerät",// 40 - 44
-"Wärmebildkamera", "Fallschirm",// 45 - 46
+"RPG", "Heatseeker RPG", "Flamethrowser", "Minigun", "Satchel Charge",// 35 - 39
+"Detonator", "Spraycan", "Fire Extinguisher", "Camera", "Night Vision Googles",// 40 - 44
+"Thermal Googles", "Parachute",// 45 - 46
 };
 
 const int weaponIdNoClip[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 40, 44, 45, 46 };
