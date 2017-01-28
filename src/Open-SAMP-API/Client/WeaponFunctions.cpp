@@ -37,8 +37,18 @@ std::shared_ptr<PedWeaponSlot> GetPlayerWeaponSlotStruct(int slot)
 
 	if (Client::MemoryFunctions::ReadMemory(cped + 0x5A0 + (slot * 0x1C), sizeof(PedWeaponSlot), pws.get()) == 0)
 		return nullptr;
+
 	return pws;
 	
+}
+
+EXPORT int Client::WeaponFunctions::HasWeaponIDClip(int weaponID)
+{
+	for (int i = 0; i < ARRAYSIZE(weaponIdNoClip); i++)
+		if (weaponIdNoClip[i] == weaponID)
+			return 0;
+
+	return 1;
 }
 
 EXPORT int Client::WeaponFunctions::GetPlayerWeaponID()
@@ -104,8 +114,7 @@ EXPORT int Client::WeaponFunctions::GetPlayerWeaponClip(int dwWeapSlot)
 	if (pws == nullptr)
 		return -1;
 
-	for (int i = 0; i < ARRAYSIZE(weaponIdNoClip); i++)
-		if (weaponIdNoClip[i] == pws->type)
+	if(!HasWeaponIDClip(pws->type))
 			return 0;
 
 	return pws->ammoInClip;
@@ -117,9 +126,8 @@ EXPORT int Client::WeaponFunctions::GetPlayerWeaponTotalClip(int dwWeapSlot)
 	if (pws == nullptr)
 		return -1;
 
-	for (int i = 0; i < ARRAYSIZE(weaponIdNoClip); i++)
-		if (weaponIdNoClip[i] == pws->type)
-			return 0;
+	if (!HasWeaponIDClip(pws->type))
+		return 0;
 
 	return pws->ammoRemaining;
 }

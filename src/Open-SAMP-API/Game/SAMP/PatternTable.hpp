@@ -74,6 +74,17 @@ namespace Game
 
 			namespace ShowDialog
 			{
+				// HEX-Code
+				// 8B 0D 00 00 00 00
+				// 8B 41 28
+				// 85 C0
+				// 75 1F
+				// 6A 00
+				// 68 00 00 00 00
+				// 68 00 00 00 00
+				// 68 00 00 00 00
+				// 68 00
+
 				static const BYTE *byteMask = (const BYTE *)"\x8B\x0D\x00\x00\x00\x00\x8B\x41\x28\x85\xC0\x75\x1F\x6A\x00\x68\x00\x00\x00\x00\x68\x00\x00\x00\x00\x68\x00\x00\x00\x00\x68\x00";
 				static const char *useMask = "xx????xxxxxxxxxx????x????x????x?";
 			}

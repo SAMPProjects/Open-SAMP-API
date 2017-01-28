@@ -57,6 +57,7 @@ namespace Game
 		void SendChat(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 		void ShowGameText(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 		void AddChatMessage(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
+		void ShowDialog(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 		void GetPlayerNameByID(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 		void IsChatOpen(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);
 		void IsDialogOpen(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut);

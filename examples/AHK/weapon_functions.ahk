@@ -16,6 +16,7 @@ slot := GetPlayerWeaponSlot()
 AddChatMessage("Slot " slot)
 AddChatMessage("State " GetPlayerWeaponState())
 AddChatMessage("Type " GetPlayerWeaponType())
+AddChatMessage("HasClip " HasWeaponIDClip(GetPlayerWeaponID()))
 
 if(slot != -1) {
 	AddChatMessage("Clip: " GetPlayerWeaponClip(slot))

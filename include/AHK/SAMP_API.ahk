@@ -25,6 +25,7 @@ GetPlayerHealth_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPl
 GetPlayerArmor_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerArmor")
 GetPlayerMoney_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerMoney")
 GetPlayerSkinID_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerSkinID")
+GetPlayerInterior_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerInterior")
 IsPlayerInAnyVehicle_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsPlayerInAnyVehicle")
 IsPlayerDriver_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsPlayerDriver")
 IsPlayerPassenger_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsPlayerPassenger")
@@ -81,6 +82,7 @@ SetOverlayCalculationEnabled_func := DllCall("GetProcAddress", "UInt", hModule, 
 SendChat_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "SendChat")
 ShowGameText_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "ShowGameText")
 AddChatMessage_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "AddChatMessage")
+ShowDialog_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "ShowDialog")
 GetPlayerNameByID_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerNameByID")
 GetPlayerIDByName_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerIDByName")
 GetPlayerName_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerName")
@@ -114,6 +116,7 @@ IsVehicleTrain_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsVehi
 IsVehicleBike_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsVehicleBike")
 
 ;WeaponFunctions.hpp
+HasWeaponIDClip_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "HasWeaponIDClip")
 GetPlayerWeaponID_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponID")
 GetPlayerWeaponType_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponType")
 GetPlayerWeaponSlot_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponSlot")
@@ -189,6 +192,12 @@ GetPlayerSkinID()
 {
 	global GetPlayerSkinID_func
 	return DllCall(GetPlayerSkinID_func)
+}
+
+GetPlayerInterior()
+{
+	global GetPlayerInterior_func
+	return DllCall(GetPlayerInterior_func)
 }
 
 IsPlayerInAnyVehicle()
@@ -505,6 +514,12 @@ AddChatMessage(msg)
 	return DllCall(AddChatMessage_func, "Str", msg)
 }
 
+ShowDialog(id, style, caption, text, button, button2)
+{
+	global ShowDialog_func
+	return DllCall(ShowDialog_func, "Int", id, "Int", style, "Str", caption, "Str", text, "Str", button, "Str", button2)
+}
+
 GetPlayerNameByID(id, ByRef playername, max_len)
 {
 	global GetPlayerNameByID_func
@@ -681,6 +696,12 @@ IsVehicleBike()
 {
 	global IsVehicleBike_func
 	return DllCall(IsVehicleBike_func)
+}
+
+HasWeaponIDClip(weaponID)
+{
+	global HasWeaponIDClip_func
+	return DllCall(HasWeaponIDClip_func, "Int", weaponID)
 }
 
 GetPlayerWeaponID()

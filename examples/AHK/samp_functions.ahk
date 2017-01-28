@@ -27,3 +27,7 @@ return
 SendChat("hello")
 SendChat("/hello")
 return
+
+~4::
+ShowDialog(1200, 0, "Hello world", "How are you?", "Button 1", "")
+return

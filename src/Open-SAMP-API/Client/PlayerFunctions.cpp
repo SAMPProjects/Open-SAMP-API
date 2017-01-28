@@ -60,6 +60,19 @@ EXPORT int Client::PlayerFunctions::GetPlayerSkinID()
 	return (int)skin;
 }
 
+EXPORT int Client::PlayerFunctions::GetPlayerInterior()
+{
+	DWORD pedPtr = 0;
+	if (MemoryFunctions::ReadMemory(0xB6F5F0, 4, &pedPtr) != 4)
+		return 0;
+
+	int interior = 0;
+	if (MemoryFunctions::ReadMemory(pedPtr + 0x2F, 1, &interior) != 1)
+		return 0;
+
+	return interior;
+}
+
 EXPORT int Client::PlayerFunctions::IsPlayerInAnyVehicle()
 {
 	return (int)(VehicleFunctions::GetVehiclePointer() != 0);
@@ -86,19 +99,12 @@ EXPORT int Client::PlayerFunctions::IsPlayerPassenger()
 	if (!IsPlayerInAnyVehicle())
 		return 0;
 
-	return !IsPlayerDriver();
+	return (int)(IsPlayerDriver() == 0);
 }
 
 EXPORT int Client::PlayerFunctions::IsPlayerInInterior()
 {
-	DWORD pedPtr = 0;
-	if (MemoryFunctions::ReadMemory(0xB6F5F0, 4, &pedPtr) != 4)
-		return 0;
-
-	int interior;
-	if (MemoryFunctions::ReadMemory(pedPtr + 0x2F, 1, &interior) != 1)
-		return 0;
-
+	int interior = GetPlayerInterior();
 	return (int)(interior != 0);
 }
 

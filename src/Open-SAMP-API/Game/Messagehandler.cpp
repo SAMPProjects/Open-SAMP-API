@@ -397,6 +397,18 @@ void Game::MessageHandler::AddChatMessage(Utils::Serializer& serializerIn, Utils
 	WRITE(Game::SAMP::addChatMessage((std::string("{ffffff}• ") + message).c_str()));
 }
 
+void Game::MessageHandler::ShowDialog(Utils::Serializer & serializerIn, Utils::Serializer & serializerOut)
+{
+	READ(int, id);
+	READ(int, style);
+	READ(std::string, caption);
+	READ(std::string, text);
+	READ(std::string, button);
+	READ(std::string, button2);
+
+	WRITE(Game::SAMP::showDialog(id, style, caption.c_str(), text.c_str(), button.c_str(), button2.c_str(), 0));
+}
+
 void Game::MessageHandler::GetPlayerNameByID(Utils::Serializer& serializerIn, Utils::Serializer& serializerOut)
 {
 	READ(int, id);

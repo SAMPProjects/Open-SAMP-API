@@ -36,6 +36,8 @@ namespace SAMP_API
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int GetPlayerSkinID();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetPlayerInterior();
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int IsPlayerInAnyVehicle();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int IsPlayerDriver();
@@ -144,6 +146,8 @@ namespace SAMP_API
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int AddChatMessage(string msg);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int ShowDialog(int id, int style, string caption, string text, string button, string button2);
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int GetPlayerNameByID(int id, ref StringBuilder playername, int max_len);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int GetPlayerIDByName(string name);
@@ -205,6 +209,8 @@ namespace SAMP_API
         public static extern int IsVehicleBike();
 
         // WeaponFunctions.hpp
+        [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int HasWeaponIDClip(int weaponID);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int GetPlayerWeaponID();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]

@@ -17,6 +17,7 @@ IMPORT int GetPlayerHealth();
 IMPORT int GetPlayerArmor();
 IMPORT int GetPlayerMoney();
 IMPORT int GetPlayerSkinID();
+IMPORT int GetPlayerInterior();
 IMPORT int IsPlayerInAnyVehicle();
 IMPORT int IsPlayerDriver();
 IMPORT int IsPlayerPassenger();
@@ -73,6 +74,7 @@ IMPORT int SetOverlayCalculationEnabled(int id, bool enabled);
 IMPORT int SendChat(const char* msg);
 IMPORT int ShowGameText(const char* msg, int time, int style);
 IMPORT int AddChatMessage(const char* msg);
+IMPORT int ShowDialog(int id, int style, const char* caption, const char* text, const char* button, const char* button2);
 IMPORT int GetPlayerNameByID(int id, char* &playername, int max_len);
 IMPORT int GetPlayerIDByName(const char* name);
 IMPORT int GetPlayerName(char* &playername, int max_len);
@@ -106,6 +108,7 @@ IMPORT int IsVehicleTrain();
 IMPORT int IsVehicleBike();
 
 // WeaponFunctions.hpp
+IMPORT int HasWeaponIDClip(int weaponID);
 IMPORT int GetPlayerWeaponID();
 IMPORT int GetPlayerWeaponType();
 IMPORT int GetPlayerWeaponSlot();

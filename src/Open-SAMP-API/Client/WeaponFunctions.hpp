@@ -5,6 +5,7 @@ namespace Client
 {
 	namespace WeaponFunctions
 	{
+		EXPORT int HasWeaponIDClip(int weaponID);
 		EXPORT int GetPlayerWeaponID();
 		EXPORT int GetPlayerWeaponType();
 		EXPORT int GetPlayerWeaponSlot();

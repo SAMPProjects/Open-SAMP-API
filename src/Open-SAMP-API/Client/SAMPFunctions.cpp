@@ -45,6 +45,20 @@ EXPORT int Client::SAMPFunctions::AddChatMessage(const char *msg)
 	return 0;
 }
 
+EXPORT int Client::SAMPFunctions::ShowDialog(int id, int style, const char * caption, const char * text, const char * button, const char * button2)
+{
+	SERVER_CHECK(0)
+
+	Utils::Serializer serializerIn, serializerOut;
+
+	serializerIn << Shared::PipeMessages::ShowDialog << id << style << std::string(caption) << std::string(text) << std::string(button) << std::string(button2);
+
+	if (Utils::PipeClient(serializerIn, serializerOut).success())
+		SERIALIZER_RET(int);
+
+	return 0;
+}
+
 EXPORT int Client::SAMPFunctions::GetPlayerNameByID(int id, char *&playername, int max_len)
 {
 	SERVER_CHECK(0)

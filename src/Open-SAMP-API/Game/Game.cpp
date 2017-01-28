@@ -115,6 +115,7 @@ void initGame()
 		BIND(SendChat);
 		BIND(ShowGameText);
 		BIND(AddChatMessage);
+		BIND(ShowDialog);
 		BIND(GetPlayerNameByID);
 		BIND(IsChatOpen);
 		BIND(IsDialogOpen);

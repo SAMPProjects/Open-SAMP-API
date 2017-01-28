@@ -134,6 +134,27 @@ bool Game::SAMP::addChatMessage(const char *text)
 	return true;
 }
 
+bool Game::SAMP::showDialog(int id, int style, const char * caption, const char *text, const char * button, const char * button2, int isServerDialog)
+{
+	if (!m_pDialog || !m_dwShowDialogCall)
+		return false;
+
+	__asm
+	{
+		push isServerDialog
+		push button2
+		push button
+		push text
+		push caption
+		push style
+		push id
+		mov ecx, m_pDialog
+		call m_dwShowDialogCall
+	}
+
+	return true;
+}
+
 
 bool Game::SAMP::isChatOpen()
 {

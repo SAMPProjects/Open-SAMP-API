@@ -32,6 +32,7 @@ namespace Game
 		bool sendChat(const char *msg);
 		bool showGameText(const char *text, int iTime, int iStyle);
 		bool addChatMessage(const char *text);
+		bool showDialog(int id, int style, const char *caption, const char *text, const char *button, const char *button2, int isServerDialog);
 		bool isChatOpen();
 		bool isDialogOpen();
 	}

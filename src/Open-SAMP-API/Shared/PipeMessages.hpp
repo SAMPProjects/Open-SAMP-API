@@ -61,6 +61,7 @@ namespace Shared
 		SendChat,
 		ShowGameText,
 		AddChatMessage,
+		ShowDialog,
 		GetPlayerNameByID,
 		IsChatOpen,
 		IsDialogOpen,
