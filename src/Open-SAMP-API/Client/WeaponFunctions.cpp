@@ -4,14 +4,14 @@
 #include "MemoryFunctions.hpp"
 #include <memory>
 
-const char* weapNameArray[] = { "Fist", "Brass Knuckles", "Golf Club", "Nitestick", "Knife", // 0-4
+const char* weapNameArray[] = { "Fist", "Brass Knuckles", "Golf Club", "Nightstick", "Knife", // 0-4
 "Baseball Bat", "Shovel", "Pool Cue", "Katana", "Chainsaw", // 5 - 9
-"Double Dildo", "Dildo", "Vibrator", "Silver Vibrator", "Flowers", // 10 - 14
+"Purple Dildo", "Dildo", "Vibrator", "Silver Vibrator", "Flowers", // 10 - 14
 "Cane", "Grenade", "Tear Gas", "Molotov Cocktail", "", // 15 - 19
 "", "", "9mm", "Silenced 9mm", "Desert Eagle", // 20 - 24
-"Shotgun", "Sawnoff Shotgun", "Combat Shotgun", "Micro SMG", "MP5", // 25 - 29
+"Shotgun", "Sawnoff Shotgun", "Combat Shotgun", "Micro SMG/Uzi", "MP5", // 25 - 29
 "AK-47", "M4", "Tec-9", "Country Rifle", "Sniper Rifle",// 30 - 24
-"RPG", "Heatseeker RPG", "Flamethrowser", "Minigun", "Satchel Charge",// 35 - 39
+"RPG", "Heatseeker RPG", "Flamethrower", "Minigun", "Satchel Charge",// 35 - 39
 "Detonator", "Spraycan", "Fire Extinguisher", "Camera", "Night Vision Googles",// 40 - 44
 "Thermal Googles", "Parachute",// 45 - 46
 };
