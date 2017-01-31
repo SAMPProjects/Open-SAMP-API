@@ -5,7 +5,7 @@ namespace Client
 {
 	namespace SAMPFunctions
 	{
-		EXPORT int GetServerIp(char *&ip, int max_len);
+		EXPORT int GetServerIP(char *&ip, int max_len);
 		EXPORT int GetServerPort();
 		EXPORT int SendChat(const char *msg);
 		EXPORT int ShowGameText(const char *msg, int time, int style);

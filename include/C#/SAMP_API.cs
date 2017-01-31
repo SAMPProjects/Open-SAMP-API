@@ -140,7 +140,7 @@ namespace SAMP_API
 
         // SAMPFunctions.hpp
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetServerIp(ref StringBuilder ip, int max_len);
+        public static extern int GetServerIP(ref StringBuilder ip, int max_len);
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int GetServerPort();
         [DllImport(PATH, CallingConvention = CallingConvention.Cdecl)]

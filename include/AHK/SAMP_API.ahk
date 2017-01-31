@@ -79,7 +79,7 @@ SetOverlayPriority_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "Se
 SetOverlayCalculationEnabled_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "SetOverlayCalculationEnabled")
 
 ;SAMPFunctions.hpp
-GetServerIp_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetServerIp")
+GetServerIP_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetServerIP")
 GetServerPort_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetServerPort")
 SendChat_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "SendChat")
 ShowGameText_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "ShowGameText")
@@ -498,11 +498,11 @@ SetOverlayCalculationEnabled(id, enabled)
 	return DllCall(SetOverlayCalculationEnabled_func, "Int", id, "UChar", enabled)
 }
 
-GetServerIp(ByRef ip, max_len)
+GetServerIP(ByRef ip, max_len)
 {
-	global GetServerIp_func
+	global GetServerIP_func
 	VarSetCapacity(ip, max_len, 0)
-	return DllCall(GetServerIp_func, "StrP", ip, "Int", max_len)
+	return DllCall(GetServerIP_func, "StrP", ip, "Int", max_len)
 }
 
 GetServerPort()

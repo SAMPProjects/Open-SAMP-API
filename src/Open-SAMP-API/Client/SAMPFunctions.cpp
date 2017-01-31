@@ -3,7 +3,7 @@
 #include <Shared/PipeMessages.hpp>
 #include <boost/algorithm/string.hpp>
 
-EXPORT int Client::SAMPFunctions::GetServerIp(char *&ip, int max_len)
+EXPORT int Client::SAMPFunctions::GetServerIP(char *&ip, int max_len)
 {
 	char *szCommandLine = new char[512];
 	ZeroMemory(szCommandLine, 512);
