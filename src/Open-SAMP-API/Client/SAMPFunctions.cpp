@@ -3,6 +3,59 @@
 #include <Shared/PipeMessages.hpp>
 #include <boost/algorithm/string.hpp>
 
+EXPORT int Client::SAMPFunctions::GetServerIP(char *&ip, int max_len)
+{
+	char *szCommandLine = new char[512];
+	ZeroMemory(szCommandLine, 512);
+
+	GTAFunctions::GetGTACommandLine(szCommandLine, 512);
+
+	char *context = NULL;
+	char *token = strtok_s(szCommandLine, " ", &context);
+
+	while (token != NULL) {
+		token = strtok_s(NULL, " ", &context);
+		if (strcmp(token, "-h") == 0)
+			break;
+	}
+
+	if (token != NULL)
+	{
+		token = strtok_s(NULL, " ", &context);
+		strcpy_s(ip, max_len, token);
+	}
+
+	delete[] szCommandLine;
+	return token != NULL;
+}
+
+EXPORT int Client::SAMPFunctions::GetServerPort()
+{
+	int port = -1;
+	char *szCommandLine = new char[512];
+	ZeroMemory(szCommandLine, 512);
+
+	GTAFunctions::GetGTACommandLine(szCommandLine, 512);
+
+	char *context = NULL;
+	char *token = strtok_s(szCommandLine, " ", &context);
+
+	while (token != NULL) {
+		token = strtok_s(NULL, " ", &context);
+		if (strcmp(token, "-p") == 0)
+			break;
+	}
+
+	if (token != NULL)
+	{
+		token = strtok_s(NULL, " ", &context);
+		port = atoi(token);
+	}
+
+	delete[] szCommandLine;
+	return port;
+}
+
 EXPORT int Client::SAMPFunctions::SendChat(const char *msg)
 {
 	SERVER_CHECK(0)

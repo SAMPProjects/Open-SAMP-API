@@ -71,6 +71,8 @@ IMPORT int SetOverlayPriority(int id, int priority);
 IMPORT int SetOverlayCalculationEnabled(int id, bool enabled);
 
 // SAMPFunctions.hpp
+IMPORT int GetServerIP(char* &ip, int max_len);
+IMPORT int GetServerPort();
 IMPORT int SendChat(const char* msg);
 IMPORT int ShowGameText(const char* msg, int time, int style);
 IMPORT int AddChatMessage(const char* msg);
