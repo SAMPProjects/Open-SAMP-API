@@ -59,6 +59,8 @@ EXPORT int Client::Client::Init()
 		dwPId = Utils::Process::pidByProcessName(szSearchName);
 
 		if (dwPId != 0) {
+			// We want to wait until after SAMP is fully loaded (that is, the window is
+			// no longer named "GTA: San Andreas") so we can actually access all SAMP features
 			DWORD dwPIdStartup = Utils::Process::pidByWindowName("GTA: San Andreas");
 			if (dwPId == dwPIdStartup)
 				return 0;
