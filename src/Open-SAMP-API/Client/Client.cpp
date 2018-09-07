@@ -57,6 +57,12 @@ EXPORT int Client::Client::Init()
 	{
 		std::string szSearchName = GetParam("process");
 		dwPId = Utils::Process::pidByProcessName(szSearchName);
+
+		if (dwPId != 0) {
+			DWORD dwPIdStartup = Utils::Process::pidByWindowName("GTA: San Andreas");
+			if (dwPId == dwPIdStartup)
+				return 0;
+		}
 	}
 	else
 	{
