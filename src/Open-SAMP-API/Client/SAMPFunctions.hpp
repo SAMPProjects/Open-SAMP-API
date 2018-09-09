@@ -5,6 +5,7 @@ namespace Client
 {
 	namespace SAMPFunctions
 	{
+		int ReadGTACmdArgument(char * option, char *& str, int max_len);
 		EXPORT int GetServerIP(char *&ip, int max_len);
 		EXPORT int GetServerPort();
 		EXPORT int SendChat(const char *msg);

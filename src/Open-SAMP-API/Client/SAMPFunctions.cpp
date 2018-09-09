@@ -3,57 +3,53 @@
 #include <Shared/PipeMessages.hpp>
 #include <boost/algorithm/string.hpp>
 
-EXPORT int Client::SAMPFunctions::GetServerIP(char *&ip, int max_len)
-{
+int Client::SAMPFunctions::ReadGTACmdArgument(char *option, char *&str, int max_len) {
 	char *szCommandLine = new char[512];
 	ZeroMemory(szCommandLine, 512);
 
-	GTAFunctions::GetGTACommandLine(szCommandLine, 512);
+	if (GTAFunctions::GetGTACommandLine(szCommandLine, 512) == 0)
+		return 0;
 
+	// The gta_sa.exe process of SAMP looks something like this:
+	// PATH/TO/gta_sa.exe -n NAME -h IP -p PORT
+	// In here, we attempt to read any attributes that were passed in there
 	char *context = NULL;
 	char *token = strtok_s(szCommandLine, " ", &context);
 
 	while (token != NULL) {
 		token = strtok_s(NULL, " ", &context);
-		if (strcmp(token, "-h") == 0)
+		if (strcmp(token, option) == 0)
 			break;
 	}
 
 	if (token != NULL)
 	{
 		token = strtok_s(NULL, " ", &context);
-		strcpy_s(ip, max_len, token);
+		strcpy_s(str, max_len, token);
 	}
 
 	delete[] szCommandLine;
 	return token != NULL;
 }
 
+EXPORT int Client::SAMPFunctions::GetServerIP(char *&ip, int max_len)
+{
+	return ReadGTACmdArgument("-h", ip, max_len);
+}
+
 EXPORT int Client::SAMPFunctions::GetServerPort()
 {
-	int port = -1;
-	char *szCommandLine = new char[512];
-	ZeroMemory(szCommandLine, 512);
-
-	GTAFunctions::GetGTACommandLine(szCommandLine, 512);
-
-	char *context = NULL;
-	char *token = strtok_s(szCommandLine, " ", &context);
-
-	while (token != NULL) {
-		token = strtok_s(NULL, " ", &context);
-		if (strcmp(token, "-p") == 0)
-			break;
+	char *portStr = new char[5];
+	ZeroMemory(portStr, 5);
+	if (ReadGTACmdArgument("-p", portStr, 5)) {
+		errno = 0;
+		int port = strtol(portStr, NULL, 10);
+		if (errno != 0)
+			return -1;
+		return port;
 	}
-
-	if (token != NULL)
-	{
-		token = strtok_s(NULL, " ", &context);
-		port = atoi(token);
-	}
-
-	delete[] szCommandLine;
-	return port;
+	
+	return -1;
 }
 
 EXPORT int Client::SAMPFunctions::SendChat(const char *msg)
@@ -152,28 +148,7 @@ EXPORT int Client::SAMPFunctions::GetPlayerIDByName(const char *name)
 
 EXPORT int Client::SAMPFunctions::GetPlayerName(char *&playername, int max_len)
 {
-	char *szCommandLine = new char[512];
-	ZeroMemory(szCommandLine, 512);
-
-	GTAFunctions::GetGTACommandLine(szCommandLine, 512);
-
-	char *context = NULL;
-	char *token = strtok_s(szCommandLine, " ", &context);
-
-	while (token != NULL) {
-		token = strtok_s(NULL, " ", &context);
-		if (strcmp(token, "-n") == 0)
-			break;
-	}
-
-	if (token != NULL)
-	{
-		token = strtok_s(NULL, " ", &context);
-		strcpy_s(playername, max_len, token);
-	}
-
-	delete[] szCommandLine;
-	return token != NULL;
+	return ReadGTACmdArgument("-n", playername, max_len);
 }
 
 EXPORT int Client::SAMPFunctions::GetPlayerId()
