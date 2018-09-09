@@ -86,13 +86,13 @@ if(hModule == -1 || hModule == 0)
 '''
     footer = '''
 PathCombine(abs, rel) {
-    VarSetCapacity(dest, (A_IsUnicode ? 2 : 1) * 260, 1) ; MAX_PATH
-    DllCall("Shlwapi.dll\PathCombine", "UInt", &dest, "UInt", &abs, "UInt", &rel)
-    Return, dest
+	VarSetCapacity(dest, (A_IsUnicode ? 2 : 1) * 260, 1) ; MAX_PATH
+	DllCall("Shlwapi.dll\PathCombine", "UInt", &dest, "UInt", &abs, "UInt", &rel)
+	Return, dest
 }
 '''
     output = header
-    GetProcAddressTemplate = '{0}_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "{0}")\n'
+    GetProcAddressTemplate = '{0}_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "{0}")\n'
     currentOrigin = ""
     for function in functions:
         if currentOrigin != function.origin:
@@ -102,29 +102,45 @@ PathCombine(abs, rel) {
     output += "\n"
     FunctionTemplate = '''{0}({1})
 {{
-	global {0}_func{2}
-	return DllCall({0}_func{3})
+	global {0}_func
+	return DllCall({0}_func{2})
+}}
+
+'''
+    FunctionTemplatePtr = '''{0}({1})
+{{
+	global {0}_func
+	{3}
+	res := DllCall({0}_func{2})
+	; We need StrGet to convert the API answer (ANSI) to the charset AHK uses (ANSI or Unicode)
+	{4}
+	return res
 }}
 
 '''
     dataTypeMap = {
         "bool": "UChar",
-        "char": "Str",
+        "char": "AStr",
         "float": "Float",
         "int": "Int"
     }
     for function in functions:
-        VarSetCapacity_opt = DllCallArguments = ""
+        hasStrPtr = False
+        VarSetCapacity_opt = StrGet_opt = DllCallArguments = ""
         for argument in function.arguments:
-            if argument.isPtr and argument.aType.isArray:
+            dataType = dataTypeMap[argument.aType.typeName]
+            if argument.isPtr and argument.aType.typeName == "char" and argument.aType.isArray:
+                hasStrPtr = True
+                dataType = "Str" # Don't use AStr so we don't get AStrP later on (the P is added below)
                 for innerArgument in function.arguments:
                     if innerArgument.name == "max_len":
                         maxVarLen = "max_len"
                 if not maxVarLen:
                     maxVarLen = input("Maximum output length for " + function.name + " (variable name or value): ")
                     print("You may also add a param named max_len so we can make it work automatically")
-                VarSetCapacity_opt += "\n\tVarSetCapacity({0}, {1}, 0)".format(argument.name, maxVarLen)
-            dataType = dataTypeMap[argument.aType.typeName]
+                VarSetCapacity_opt += "\n\tVarSetCapacity({0}, {1} * (A_IsUnicode ? 2 : 1), 0)".format(argument.name, maxVarLen)
+                StrGet_opt += "\n\t{0} := StrGet(&{0}, \"cp0\")".format(argument.name)
+            
             if argument.aType.isUnsigned:
                 dataType = "U" + dataType
             if argument.isPtr:
@@ -132,11 +148,13 @@ PathCombine(abs, rel) {
             DllCallArguments += ', "{0}", {1}'.format(dataType, argument.name)
         if function.retType.typeName not in ["void", "bool", "int"]:
             DllCallArguments += ', "Cdecl {0}"'.format(function.retType.typeName)
-        functionBody = FunctionTemplate.format(
+        template = FunctionTemplatePtr if hasStrPtr else FunctionTemplate
+        functionBody = template.format(
             function.name,
             ", ".join(map(lambda argument: ("ByRef " if argument.isPtr else "") + argument.name, function.arguments)),
-            VarSetCapacity_opt,
-            DllCallArguments
+            DllCallArguments,
+            VarSetCapacity_opt.strip(),
+            StrGet_opt.strip()
         )
         output += functionBody
     output += footer

@@ -10,124 +10,124 @@ if(hModule == -1 || hModule == 0)
 }
 
 ;Client.hpp
-Init_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "Init")
-SetParam_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "SetParam")
+Init_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "Init")
+SetParam_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "SetParam")
 
 ;GTAFunctions.hpp
-GetGTACommandLine_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetGTACommandLine")
-IsMenuOpen_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsMenuOpen")
-ScreenToWorld_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "ScreenToWorld")
-WorldToScreen_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "WorldToScreen")
+GetGTACommandLine_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetGTACommandLine")
+IsMenuOpen_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "IsMenuOpen")
+ScreenToWorld_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "ScreenToWorld")
+WorldToScreen_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "WorldToScreen")
 
 ;PlayerFunctions.hpp
-GetPlayerCPed_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerCPed")
-GetPlayerHealth_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerHealth")
-GetPlayerArmor_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerArmor")
-GetPlayerMoney_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerMoney")
-GetPlayerSkinID_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerSkinID")
-GetPlayerInterior_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerInterior")
-IsPlayerInAnyVehicle_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsPlayerInAnyVehicle")
-IsPlayerDriver_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsPlayerDriver")
-IsPlayerPassenger_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsPlayerPassenger")
-IsPlayerInInterior_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsPlayerInInterior")
-GetPlayerX_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerX")
-GetPlayerY_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerY")
-GetPlayerZ_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerZ")
-GetPlayerPosition_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerPosition")
-IsPlayerInRange2D_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsPlayerInRange2D")
-IsPlayerInRange3D_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsPlayerInRange3D")
-GetCityName_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetCityName")
-GetZoneName_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetZoneName")
+GetPlayerCPed_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetPlayerCPed")
+GetPlayerHealth_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetPlayerHealth")
+GetPlayerArmor_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetPlayerArmor")
+GetPlayerMoney_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetPlayerMoney")
+GetPlayerSkinID_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetPlayerSkinID")
+GetPlayerInterior_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetPlayerInterior")
+IsPlayerInAnyVehicle_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "IsPlayerInAnyVehicle")
+IsPlayerDriver_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "IsPlayerDriver")
+IsPlayerPassenger_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "IsPlayerPassenger")
+IsPlayerInInterior_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "IsPlayerInInterior")
+GetPlayerX_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetPlayerX")
+GetPlayerY_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetPlayerY")
+GetPlayerZ_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetPlayerZ")
+GetPlayerPosition_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetPlayerPosition")
+IsPlayerInRange2D_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "IsPlayerInRange2D")
+IsPlayerInRange3D_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "IsPlayerInRange3D")
+GetCityName_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetCityName")
+GetZoneName_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetZoneName")
 
 ;RenderFunctions.hpp
-TextCreate_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "TextCreate")
-TextDestroy_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "TextDestroy")
-TextSetShadow_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "TextSetShadow")
-TextSetShown_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "TextSetShown")
-TextSetColor_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "TextSetColor")
-TextSetPos_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "TextSetPos")
-TextSetString_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "TextSetString")
-TextUpdate_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "TextUpdate")
-BoxCreate_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "BoxCreate")
-BoxDestroy_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "BoxDestroy")
-BoxSetShown_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "BoxSetShown")
-BoxSetBorder_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "BoxSetBorder")
-BoxSetBorderColor_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "BoxSetBorderColor")
-BoxSetColor_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "BoxSetColor")
-BoxSetHeight_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "BoxSetHeight")
-BoxSetPos_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "BoxSetPos")
-BoxSetWidth_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "BoxSetWidth")
-LineCreate_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "LineCreate")
-LineDestroy_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "LineDestroy")
-LineSetShown_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "LineSetShown")
-LineSetColor_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "LineSetColor")
-LineSetWidth_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "LineSetWidth")
-LineSetPos_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "LineSetPos")
-ImageCreate_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "ImageCreate")
-ImageDestroy_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "ImageDestroy")
-ImageSetShown_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "ImageSetShown")
-ImageSetAlign_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "ImageSetAlign")
-ImageSetPos_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "ImageSetPos")
-ImageSetRotation_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "ImageSetRotation")
-DestroyAllVisual_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "DestroyAllVisual")
-ShowAllVisual_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "ShowAllVisual")
-HideAllVisual_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "HideAllVisual")
-GetFrameRate_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetFrameRate")
-GetScreenSpecs_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetScreenSpecs")
-SetCalculationRatio_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "SetCalculationRatio")
-SetOverlayPriority_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "SetOverlayPriority")
-SetOverlayCalculationEnabled_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "SetOverlayCalculationEnabled")
+TextCreate_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "TextCreate")
+TextDestroy_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "TextDestroy")
+TextSetShadow_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "TextSetShadow")
+TextSetShown_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "TextSetShown")
+TextSetColor_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "TextSetColor")
+TextSetPos_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "TextSetPos")
+TextSetString_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "TextSetString")
+TextUpdate_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "TextUpdate")
+BoxCreate_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "BoxCreate")
+BoxDestroy_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "BoxDestroy")
+BoxSetShown_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "BoxSetShown")
+BoxSetBorder_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "BoxSetBorder")
+BoxSetBorderColor_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "BoxSetBorderColor")
+BoxSetColor_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "BoxSetColor")
+BoxSetHeight_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "BoxSetHeight")
+BoxSetPos_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "BoxSetPos")
+BoxSetWidth_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "BoxSetWidth")
+LineCreate_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "LineCreate")
+LineDestroy_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "LineDestroy")
+LineSetShown_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "LineSetShown")
+LineSetColor_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "LineSetColor")
+LineSetWidth_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "LineSetWidth")
+LineSetPos_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "LineSetPos")
+ImageCreate_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "ImageCreate")
+ImageDestroy_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "ImageDestroy")
+ImageSetShown_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "ImageSetShown")
+ImageSetAlign_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "ImageSetAlign")
+ImageSetPos_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "ImageSetPos")
+ImageSetRotation_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "ImageSetRotation")
+DestroyAllVisual_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "DestroyAllVisual")
+ShowAllVisual_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "ShowAllVisual")
+HideAllVisual_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "HideAllVisual")
+GetFrameRate_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetFrameRate")
+GetScreenSpecs_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetScreenSpecs")
+SetCalculationRatio_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "SetCalculationRatio")
+SetOverlayPriority_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "SetOverlayPriority")
+SetOverlayCalculationEnabled_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "SetOverlayCalculationEnabled")
 
 ;SAMPFunctions.hpp
-GetServerIP_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetServerIP")
-GetServerPort_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetServerPort")
-SendChat_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "SendChat")
-ShowGameText_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "ShowGameText")
-AddChatMessage_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "AddChatMessage")
-ShowDialog_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "ShowDialog")
-GetPlayerNameByID_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerNameByID")
-GetPlayerIDByName_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerIDByName")
-GetPlayerName_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerName")
-GetPlayerId_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerId")
-IsChatOpen_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsChatOpen")
-IsDialogOpen_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsDialogOpen")
+GetServerIP_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetServerIP")
+GetServerPort_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetServerPort")
+SendChat_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "SendChat")
+ShowGameText_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "ShowGameText")
+AddChatMessage_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "AddChatMessage")
+ShowDialog_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "ShowDialog")
+GetPlayerNameByID_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetPlayerNameByID")
+GetPlayerIDByName_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetPlayerIDByName")
+GetPlayerName_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetPlayerName")
+GetPlayerId_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetPlayerId")
+IsChatOpen_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "IsChatOpen")
+IsDialogOpen_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "IsDialogOpen")
 
 ;VehicleFunctions.hpp
-GetVehiclePointer_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetVehiclePointer")
-GetVehicleSpeed_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetVehicleSpeed")
-GetVehicleHealth_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetVehicleHealth")
-GetVehicleModelId_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetVehicleModelId")
-GetVehicleModelName_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetVehicleModelName")
-GetVehicleModelNameById_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetVehicleModelNameById")
-GetVehicleType_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetVehicleType")
-GetVehicleFreeSeats_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetVehicleFreeSeats")
-GetVehicleFirstColor_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetVehicleFirstColor")
-GetVehicleSecondColor_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetVehicleSecondColor")
-GetVehicleColor_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetVehicleColor")
-IsVehicleSeatUsed_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsVehicleSeatUsed")
-IsVehicleLocked_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsVehicleLocked")
-IsVehicleHornEnabled_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsVehicleHornEnabled")
-IsVehicleSirenEnabled_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsVehicleSirenEnabled")
-IsVehicleAlternateSirenEnabled_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsVehicleAlternateSirenEnabled")
-IsVehicleEngineEnabled_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsVehicleEngineEnabled")
-IsVehicleLightEnabled_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsVehicleLightEnabled")
-IsVehicleCar_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsVehicleCar")
-IsVehiclePlane_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsVehiclePlane")
-IsVehicleBoat_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsVehicleBoat")
-IsVehicleTrain_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsVehicleTrain")
-IsVehicleBike_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "IsVehicleBike")
+GetVehiclePointer_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetVehiclePointer")
+GetVehicleSpeed_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetVehicleSpeed")
+GetVehicleHealth_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetVehicleHealth")
+GetVehicleModelId_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetVehicleModelId")
+GetVehicleModelName_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetVehicleModelName")
+GetVehicleModelNameById_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetVehicleModelNameById")
+GetVehicleType_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetVehicleType")
+GetVehicleFreeSeats_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetVehicleFreeSeats")
+GetVehicleFirstColor_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetVehicleFirstColor")
+GetVehicleSecondColor_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetVehicleSecondColor")
+GetVehicleColor_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetVehicleColor")
+IsVehicleSeatUsed_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "IsVehicleSeatUsed")
+IsVehicleLocked_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "IsVehicleLocked")
+IsVehicleHornEnabled_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "IsVehicleHornEnabled")
+IsVehicleSirenEnabled_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "IsVehicleSirenEnabled")
+IsVehicleAlternateSirenEnabled_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "IsVehicleAlternateSirenEnabled")
+IsVehicleEngineEnabled_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "IsVehicleEngineEnabled")
+IsVehicleLightEnabled_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "IsVehicleLightEnabled")
+IsVehicleCar_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "IsVehicleCar")
+IsVehiclePlane_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "IsVehiclePlane")
+IsVehicleBoat_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "IsVehicleBoat")
+IsVehicleTrain_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "IsVehicleTrain")
+IsVehicleBike_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "IsVehicleBike")
 
 ;WeaponFunctions.hpp
-HasWeaponIDClip_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "HasWeaponIDClip")
-GetPlayerWeaponID_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponID")
-GetPlayerWeaponType_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponType")
-GetPlayerWeaponSlot_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponSlot")
-GetPlayerWeaponName_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponName")
-GetPlayerWeaponClip_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponClip")
-GetPlayerWeaponTotalClip_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponTotalClip")
-GetPlayerWeaponState_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponState")
-GetPlayerWeaponAmmo_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponAmmo")
-GetPlayerWeaponAmmoInClip_func := DllCall("GetProcAddress", "UInt", hModule, "Str", "GetPlayerWeaponAmmoInClip")
+HasWeaponIDClip_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "HasWeaponIDClip")
+GetPlayerWeaponID_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetPlayerWeaponID")
+GetPlayerWeaponType_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetPlayerWeaponType")
+GetPlayerWeaponSlot_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetPlayerWeaponSlot")
+GetPlayerWeaponName_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetPlayerWeaponName")
+GetPlayerWeaponClip_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetPlayerWeaponClip")
+GetPlayerWeaponTotalClip_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetPlayerWeaponTotalClip")
+GetPlayerWeaponState_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetPlayerWeaponState")
+GetPlayerWeaponAmmo_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetPlayerWeaponAmmo")
+GetPlayerWeaponAmmoInClip_func := DllCall("GetProcAddress", "UInt", hModule, "AStr", "GetPlayerWeaponAmmoInClip")
 
 Init()
 {
@@ -138,14 +138,17 @@ Init()
 SetParam(_szParamName, _szParamValue)
 {
 	global SetParam_func
-	return DllCall(SetParam_func, "Str", _szParamName, "Str", _szParamValue)
+	return DllCall(SetParam_func, "AStr", _szParamName, "AStr", _szParamValue)
 }
 
 GetGTACommandLine(ByRef line, max_len)
 {
 	global GetGTACommandLine_func
-	VarSetCapacity(line, max_len, 0)
-	return DllCall(GetGTACommandLine_func, "StrP", line, "Int", max_len)
+	VarSetCapacity(line, max_len * (A_IsUnicode ? 2 : 1), 0)
+	res := DllCall(GetGTACommandLine_func, "StrP", line, "Int", max_len)
+	; We need StrGet to convert the API answer (ANSI) to the charset AHK uses (ANSI or Unicode)
+	line := StrGet(&line, "cp0")
+	return res
 }
 
 IsMenuOpen()
@@ -265,21 +268,27 @@ IsPlayerInRange3D(posX, posY, posZ, radius)
 GetCityName(ByRef cityName, max_len)
 {
 	global GetCityName_func
-	VarSetCapacity(cityName, max_len, 0)
-	return DllCall(GetCityName_func, "StrP", cityName, "Int", max_len)
+	VarSetCapacity(cityName, max_len * (A_IsUnicode ? 2 : 1), 0)
+	res := DllCall(GetCityName_func, "StrP", cityName, "Int", max_len)
+	; We need StrGet to convert the API answer (ANSI) to the charset AHK uses (ANSI or Unicode)
+	cityName := StrGet(&cityName, "cp0")
+	return res
 }
 
 GetZoneName(ByRef zoneName, max_len)
 {
 	global GetZoneName_func
-	VarSetCapacity(zoneName, max_len, 0)
-	return DllCall(GetZoneName_func, "StrP", zoneName, "Int", max_len)
+	VarSetCapacity(zoneName, max_len * (A_IsUnicode ? 2 : 1), 0)
+	res := DllCall(GetZoneName_func, "StrP", zoneName, "Int", max_len)
+	; We need StrGet to convert the API answer (ANSI) to the charset AHK uses (ANSI or Unicode)
+	zoneName := StrGet(&zoneName, "cp0")
+	return res
 }
 
 TextCreate(Font, FontSize, bBold, bItalic, x, y, color, text, bShadow, bShow)
 {
 	global TextCreate_func
-	return DllCall(TextCreate_func, "Str", Font, "Int", FontSize, "UChar", bBold, "UChar", bItalic, "Int", x, "Int", y, "UInt", color, "Str", text, "UChar", bShadow, "UChar", bShow)
+	return DllCall(TextCreate_func, "AStr", Font, "Int", FontSize, "UChar", bBold, "UChar", bItalic, "Int", x, "Int", y, "UInt", color, "AStr", text, "UChar", bShadow, "UChar", bShow)
 }
 
 TextDestroy(ID)
@@ -315,13 +324,13 @@ TextSetPos(id, x, y)
 TextSetString(id, str)
 {
 	global TextSetString_func
-	return DllCall(TextSetString_func, "Int", id, "Str", str)
+	return DllCall(TextSetString_func, "Int", id, "AStr", str)
 }
 
 TextUpdate(id, Font, FontSize, bBold, bItalic)
 {
 	global TextUpdate_func
-	return DllCall(TextUpdate_func, "Int", id, "Str", Font, "Int", FontSize, "UChar", bBold, "UChar", bItalic)
+	return DllCall(TextUpdate_func, "Int", id, "AStr", Font, "Int", FontSize, "UChar", bBold, "UChar", bItalic)
 }
 
 BoxCreate(x, y, w, h, dwColor, bShow)
@@ -417,7 +426,7 @@ LineSetPos(id, x1, y1, x2, y2)
 ImageCreate(path, x, y, rotation, align, bShow)
 {
 	global ImageCreate_func
-	return DllCall(ImageCreate_func, "Str", path, "Int", x, "Int", y, "Int", rotation, "Int", align, "UChar", bShow)
+	return DllCall(ImageCreate_func, "AStr", path, "Int", x, "Int", y, "Int", rotation, "Int", align, "UChar", bShow)
 }
 
 ImageDestroy(id)
@@ -501,8 +510,11 @@ SetOverlayCalculationEnabled(id, enabled)
 GetServerIP(ByRef ip, max_len)
 {
 	global GetServerIP_func
-	VarSetCapacity(ip, max_len, 0)
-	return DllCall(GetServerIP_func, "StrP", ip, "Int", max_len)
+	VarSetCapacity(ip, max_len * (A_IsUnicode ? 2 : 1), 0)
+	res := DllCall(GetServerIP_func, "StrP", ip, "Int", max_len)
+	; We need StrGet to convert the API answer (ANSI) to the charset AHK uses (ANSI or Unicode)
+	ip := StrGet(&ip, "cp0")
+	return res
 }
 
 GetServerPort()
@@ -514,45 +526,51 @@ GetServerPort()
 SendChat(msg)
 {
 	global SendChat_func
-	return DllCall(SendChat_func, "Str", msg)
+	return DllCall(SendChat_func, "AStr", msg)
 }
 
 ShowGameText(msg, time, style)
 {
 	global ShowGameText_func
-	return DllCall(ShowGameText_func, "Str", msg, "Int", time, "Int", style)
+	return DllCall(ShowGameText_func, "AStr", msg, "Int", time, "Int", style)
 }
 
 AddChatMessage(msg)
 {
 	global AddChatMessage_func
-	return DllCall(AddChatMessage_func, "Str", msg)
+	return DllCall(AddChatMessage_func, "AStr", msg)
 }
 
 ShowDialog(id, style, caption, text, button, button2)
 {
 	global ShowDialog_func
-	return DllCall(ShowDialog_func, "Int", id, "Int", style, "Str", caption, "Str", text, "Str", button, "Str", button2)
+	return DllCall(ShowDialog_func, "Int", id, "Int", style, "AStr", caption, "AStr", text, "AStr", button, "AStr", button2)
 }
 
 GetPlayerNameByID(id, ByRef playername, max_len)
 {
 	global GetPlayerNameByID_func
-	VarSetCapacity(playername, max_len, 0)
-	return DllCall(GetPlayerNameByID_func, "Int", id, "StrP", playername, "Int", max_len)
+	VarSetCapacity(playername, max_len * (A_IsUnicode ? 2 : 1), 0)
+	res := DllCall(GetPlayerNameByID_func, "Int", id, "StrP", playername, "Int", max_len)
+	; We need StrGet to convert the API answer (ANSI) to the charset AHK uses (ANSI or Unicode)
+	playername := StrGet(&playername, "cp0")
+	return res
 }
 
 GetPlayerIDByName(name)
 {
 	global GetPlayerIDByName_func
-	return DllCall(GetPlayerIDByName_func, "Str", name)
+	return DllCall(GetPlayerIDByName_func, "AStr", name)
 }
 
 GetPlayerName(ByRef playername, max_len)
 {
 	global GetPlayerName_func
-	VarSetCapacity(playername, max_len, 0)
-	return DllCall(GetPlayerName_func, "StrP", playername, "Int", max_len)
+	VarSetCapacity(playername, max_len * (A_IsUnicode ? 2 : 1), 0)
+	res := DllCall(GetPlayerName_func, "StrP", playername, "Int", max_len)
+	; We need StrGet to convert the API answer (ANSI) to the charset AHK uses (ANSI or Unicode)
+	playername := StrGet(&playername, "cp0")
+	return res
 }
 
 GetPlayerId()
@@ -600,15 +618,21 @@ GetVehicleModelId()
 GetVehicleModelName(ByRef name, max_len)
 {
 	global GetVehicleModelName_func
-	VarSetCapacity(name, max_len, 0)
-	return DllCall(GetVehicleModelName_func, "StrP", name, "Int", max_len)
+	VarSetCapacity(name, max_len * (A_IsUnicode ? 2 : 1), 0)
+	res := DllCall(GetVehicleModelName_func, "StrP", name, "Int", max_len)
+	; We need StrGet to convert the API answer (ANSI) to the charset AHK uses (ANSI or Unicode)
+	name := StrGet(&name, "cp0")
+	return res
 }
 
 GetVehicleModelNameById(vehicleID, ByRef name, max_len)
 {
 	global GetVehicleModelNameById_func
-	VarSetCapacity(name, max_len, 0)
-	return DllCall(GetVehicleModelNameById_func, "Int", vehicleID, "StrP", name, "Int", max_len)
+	VarSetCapacity(name, max_len * (A_IsUnicode ? 2 : 1), 0)
+	res := DllCall(GetVehicleModelNameById_func, "Int", vehicleID, "StrP", name, "Int", max_len)
+	; We need StrGet to convert the API answer (ANSI) to the charset AHK uses (ANSI or Unicode)
+	name := StrGet(&name, "cp0")
+	return res
 }
 
 GetVehicleType()
@@ -740,8 +764,11 @@ GetPlayerWeaponSlot()
 GetPlayerWeaponName(dwWeapSlot, ByRef _szWeapName, max_len)
 {
 	global GetPlayerWeaponName_func
-	VarSetCapacity(_szWeapName, max_len, 0)
-	return DllCall(GetPlayerWeaponName_func, "Int", dwWeapSlot, "StrP", _szWeapName, "Int", max_len)
+	VarSetCapacity(_szWeapName, max_len * (A_IsUnicode ? 2 : 1), 0)
+	res := DllCall(GetPlayerWeaponName_func, "Int", dwWeapSlot, "StrP", _szWeapName, "Int", max_len)
+	; We need StrGet to convert the API answer (ANSI) to the charset AHK uses (ANSI or Unicode)
+	_szWeapName := StrGet(&_szWeapName, "cp0")
+	return res
 }
 
 GetPlayerWeaponClip(dwWeapSlot)
@@ -776,7 +803,7 @@ GetPlayerWeaponAmmoInClip(weaponType)
 
 
 PathCombine(abs, rel) {
-    VarSetCapacity(dest, (A_IsUnicode ? 2 : 1) * 260, 1) ; MAX_PATH
-    DllCall("Shlwapi.dll\PathCombine", "UInt", &dest, "UInt", &abs, "UInt", &rel)
-    Return, dest
+	VarSetCapacity(dest, (A_IsUnicode ? 2 : 1) * 260, 1) ; MAX_PATH
+	DllCall("Shlwapi.dll\PathCombine", "UInt", &dest, "UInt", &abs, "UInt", &rel)
+	Return, dest
 }
