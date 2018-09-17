@@ -2,13 +2,16 @@
 #include "GTAFunctions.hpp"
 #include <Shared/PipeMessages.hpp>
 #include <boost/algorithm/string.hpp>
+#include <boost/scope_exit.hpp>
 
 int Client::SAMPFunctions::ReadGTACmdArgument(char *option, char *&str, int max_len) {
 	char *szCommandLine = new char[512];
 	ZeroMemory(szCommandLine, 512);
 
-	if (GTAFunctions::GetGTACommandLine(szCommandLine, 512) == 0)
+	if (GTAFunctions::GetGTACommandLine(szCommandLine, 512) == 0) {
+		delete[] szCommandLine;
 		return 0;
+	}
 
 	// The gta_sa.exe process of SAMP looks something like this:
 	// PATH/TO/gta_sa.exe -n NAME -h IP -p PORT
@@ -39,9 +42,14 @@ EXPORT int Client::SAMPFunctions::GetServerIP(char *&ip, int max_len)
 
 EXPORT int Client::SAMPFunctions::GetServerPort()
 {
-	char *portStr = new char[5];
-	ZeroMemory(portStr, 5);
-	if (ReadGTACmdArgument("-p", portStr, 5)) {
+	char *portStr = new char[6];
+	ZeroMemory(portStr, 6);
+
+	BOOST_SCOPE_EXIT_ALL(portStr) {
+		delete[] portStr;
+	};
+
+	if (ReadGTACmdArgument("-p", portStr, 6)) {
 		errno = 0;
 		int port = strtol(portStr, NULL, 10);
 		if (errno != 0)
