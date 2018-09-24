@@ -2,48 +2,56 @@
 #include "GTAFunctions.hpp"
 #include <Shared/PipeMessages.hpp>
 #include <boost/algorithm/string.hpp>
+#include <boost/scope_exit.hpp>
 
-int Client::SAMPFunctions::ReadGTACmdArgument(char *option, char *&str, int max_len) {
-	char *szCommandLine = new char[512];
-	ZeroMemory(szCommandLine, 512);
+int Client::SAMPFunctions::ReadGTACmdArgument(const char *option, char *&str, const int max_len) {
+	auto *szCommandLine = new char[513];
+	ZeroMemory(szCommandLine, 513);
 
-	if (GTAFunctions::GetGTACommandLine(szCommandLine, 512) == 0)
+	if (GTAFunctions::GetGTACommandLine(szCommandLine, 512) == 0) {
+		delete[] szCommandLine;
 		return 0;
+	}
 
 	// The gta_sa.exe process of SAMP looks something like this:
 	// PATH/TO/gta_sa.exe -n NAME -h IP -p PORT
 	// In here, we attempt to read any attributes that were passed in there
-	char *context = NULL;
-	char *token = strtok_s(szCommandLine, " ", &context);
+	char *context = nullptr;
+	auto *token = strtok_s(szCommandLine, " ", &context);
 
-	while (token != NULL) {
-		token = strtok_s(NULL, " ", &context);
+	while (token != nullptr) {
+		token = strtok_s(nullptr, " ", &context);
 		if (strcmp(token, option) == 0)
 			break;
 	}
 
-	if (token != NULL)
+	if (token != nullptr)
 	{
-		token = strtok_s(NULL, " ", &context);
+		token = strtok_s(nullptr, " ", &context);
 		strcpy_s(str, max_len, token);
 	}
 
 	delete[] szCommandLine;
-	return token != NULL;
+	return token != nullptr;
 }
 
-EXPORT int Client::SAMPFunctions::GetServerIP(char *&ip, int max_len)
+EXPORT int Client::SAMPFunctions::GetServerIP(char *&ip, const int max_len)
 {
 	return ReadGTACmdArgument("-h", ip, max_len);
 }
 
 EXPORT int Client::SAMPFunctions::GetServerPort()
 {
-	char *portStr = new char[5];
-	ZeroMemory(portStr, 5);
-	if (ReadGTACmdArgument("-p", portStr, 5)) {
+	auto *portStr = new char[7];
+	ZeroMemory(portStr, 7);
+
+	BOOST_SCOPE_EXIT_ALL(portStr) {
+		delete[] portStr;
+	};
+
+	if (ReadGTACmdArgument("-p", portStr, 6)) {
 		errno = 0;
-		int port = strtol(portStr, NULL, 10);
+		const int port = strtol(portStr, nullptr, 10);
 		if (errno != 0)
 			return -1;
 		return port;
@@ -146,19 +154,19 @@ EXPORT int Client::SAMPFunctions::GetPlayerIDByName(const char *name)
 	return -1;
 }
 
-EXPORT int Client::SAMPFunctions::GetPlayerName(char *&playername, int max_len)
+EXPORT int Client::SAMPFunctions::GetPlayerName(char *&playername, const int max_len)
 {
 	return ReadGTACmdArgument("-n", playername, max_len);
 }
 
 EXPORT int Client::SAMPFunctions::GetPlayerId()
 {
-	char *szName = new char[25];
-	ZeroMemory(szName, 25);
+	auto *szName = new char[26];
+	ZeroMemory(szName, 26);
 
 	GetPlayerName(szName, 25);
 
-	int iID = GetPlayerIDByName(szName);
+	const int iID = GetPlayerIDByName(szName);
 
 	delete[] szName;
 
