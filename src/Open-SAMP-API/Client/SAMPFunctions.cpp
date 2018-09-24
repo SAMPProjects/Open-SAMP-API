@@ -5,8 +5,8 @@
 #include <boost/scope_exit.hpp>
 
 int Client::SAMPFunctions::ReadGTACmdArgument(const char *option, char *&str, const int max_len) {
-	auto *szCommandLine = new char[512];
-	ZeroMemory(szCommandLine, 512);
+	auto *szCommandLine = new char[513];
+	ZeroMemory(szCommandLine, 513);
 
 	if (GTAFunctions::GetGTACommandLine(szCommandLine, 512) == 0) {
 		delete[] szCommandLine;
@@ -42,8 +42,8 @@ EXPORT int Client::SAMPFunctions::GetServerIP(char *&ip, const int max_len)
 
 EXPORT int Client::SAMPFunctions::GetServerPort()
 {
-	auto *portStr = new char[6];
-	ZeroMemory(portStr, 6);
+	auto *portStr = new char[7];
+	ZeroMemory(portStr, 7);
 
 	BOOST_SCOPE_EXIT_ALL(portStr) {
 		delete[] portStr;
@@ -161,8 +161,8 @@ EXPORT int Client::SAMPFunctions::GetPlayerName(char *&playername, const int max
 
 EXPORT int Client::SAMPFunctions::GetPlayerId()
 {
-	auto *szName = new char[25];
-	ZeroMemory(szName, 25);
+	auto *szName = new char[26];
+	ZeroMemory(szName, 26);
 
 	GetPlayerName(szName, 25);
 
